@@ -1,0 +1,147 @@
+{
+  "timestamp": "2025-12-02T00:57:52.847680",
+  "total_entries": 251675,
+  "datasets_ready": 5,
+  "splits": {
+    "connection_designer": {
+      "dataset": "connections",
+      "total_entries": 50000,
+      "train_size": 35000,
+      "val_size": 7500,
+      "test_size": 7500,
+      "features": [
+        "connection_type",
+        "bolt_grade",
+        "bolt_diameter",
+        "bolt_count",
+        "capacity_kips",
+        "slip_critical"
+      ],
+      "target": "connection_type",
+      "classes": 15
+    },
+    "section_optimizer": {
+      "dataset": "sections",
+      "total_entries": 675,
+      "train_size": 472,
+      "val_size": 101,
+      "test_size": 102,
+      "features": [
+        "depth",
+        "width",
+        "area",
+        "weight",
+        "ix",
+        "iy"
+      ],
+      "target": "profile",
+      "regression_targets": [
+        "area",
+        "weight",
+        "ix",
+        "iy"
+      ]
+    },
+    "section_optimizer_decisions": {
+      "dataset": "decisions",
+      "total_entries": 100000,
+      "train_size": 70000,
+      "val_size": 15000,
+      "test_size": 15000,
+      "features": [
+        "member_type",
+        "span_feet",
+        "tributary_load_psf",
+        "project_year",
+        "engineer_experience_years"
+      ],
+      "target": "selected_section",
+      "reasons": [
+        "Minimum height clearance",
+        "Construction sequencing",
+        "Architectural alignment",
+        "Cost optimization",
+        "Economical selection",
+        "Deflection control",
+        "Availability",
+        "Connection simplification",
+        "Fabrication constraint",
+        "Vibration control"
+      ]
+    },
+    "clash_detector": {
+      "dataset": "clashes",
+      "total_entries": 100000,
+      "train_size": 70000,
+      "val_size": 15000,
+      "test_size": 15000,
+      "features": [
+        "member1_type",
+        "member2_type",
+        "minimum_distance_mm",
+        "clash_type",
+        "detected_in_phase"
+      ],
+      "target": "severity",
+      "classes": [
+        "CRITICAL",
+        "HIGH",
+        "LOW",
+        "MEDIUM"
+      ]
+    },
+    "compliance_checker": {
+      "dataset": "compliance",
+      "total_entries": 1000,
+      "train_size": 700,
+      "val_size": 150,
+      "test_size": 150,
+      "features": [
+        "code",
+        "topic",
+        "fy_ksi",
+        "calculated_value",
+        "limit_value",
+        "utilization_ratio"
+      ],
+      "target": "passes",
+      "positive_class_ratio": 0.742
+    }
+  },
+  "training_recommendations": {
+    "connection_designer": {
+      "model_type": "CNN + Multi-head Attention",
+      "batch_size": 32,
+      "epochs": 50,
+      "learning_rate": 0.001,
+      "target_accuracy": 0.98
+    },
+    "section_optimizer": {
+      "model_type": "XGBoost + LightGBM Ensemble",
+      "batch_size": 64,
+      "iterations": 100,
+      "learning_rate": 0.1,
+      "target_accuracy": 0.97
+    },
+    "clash_detector": {
+      "model_type": "3D CNN + LSTM",
+      "batch_size": 16,
+      "epochs": 100,
+      "learning_rate": 0.0005,
+      "target_accuracy": 0.99
+    },
+    "compliance_checker": {
+      "model_type": "BERT + Rule Engine",
+      "batch_size": 32,
+      "epochs": 50,
+      "learning_rate": 5e-05,
+      "target_accuracy": 1.0
+    },
+    "risk_analyzer": {
+      "model_type": "Ensemble (RF + GB + SVM)",
+      "n_estimators": 500,
+      "max_depth": 10,
+      "target_accuracy": 0.95
+    }
+  }
+}

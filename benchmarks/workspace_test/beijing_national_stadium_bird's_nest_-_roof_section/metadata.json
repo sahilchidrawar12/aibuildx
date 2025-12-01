@@ -1,0 +1,17 @@
+{
+  "name": "Beijing National Stadium (Bird's Nest) - Roof Section",
+  "description": "Large stadium roof; complex truss + membrane system; 91,000 capacity",
+  "category": "large-roof",
+  "difficulty": "high",
+  "reference_sources": [
+    "Wei et al. 2008: Structural Design & Analysis of Beijing National Stadium (Struct. Des. Long Span Buildings)",
+    "Wind tunnel pressure data (partial public release)"
+  ],
+  "expected_outputs": [
+    "Natural frequencies (first 3 modes): ~0.7, 0.9, 1.2 Hz (\u00b110%)",
+    "Max deflection under snow/wind: <span/250 (target accuracy \u00b15%)",
+    "Roof membrane tension distribution",
+    "Connection forces in truss joints"
+  ],
+  "notes": "Membrane coupling and large displacements; wind pressure distribution critical"
+}

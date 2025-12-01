@@ -1,0 +1,46 @@
+{
+  "timestamp": "2025-12-02T00:55:53.930264",
+  "datasets": {
+    "connections": {
+      "count": 50000,
+      "types": {
+        "SMAW_weld": 3271,
+        "bolted_extended_end_plate": 3387,
+        "bolted_moment": 3328,
+        "tee_stub": 3379,
+        "FCAW_weld": 3398,
+        "bolted_angle": 3281,
+        "SAW_weld": 3371,
+        "high_strength_bolts": 3386,
+        "bolted_flush_end_plate": 3322,
+        "prying_action": 3452,
+        "welded_moment": 3296,
+        "welded_shear": 3311,
+        "slip_critical": 3282,
+        "GMAW_weld": 3284,
+        "double_angle": 3252
+      },
+      "capacity_range": [
+        100,
+        2000
+      ]
+    },
+    "sections": {
+      "count": 675,
+      "types": {
+        "I-beam": 606,
+        "HSS": 28,
+        "Angle": 24,
+        "Channel": 8,
+        "Universal Beam": 5,
+        "H-beam": 4
+      },
+      "standards": [
+        "BS",
+        "GB",
+        "Eurocode",
+        "AISC"
+      ]
+    }
+  }
+}

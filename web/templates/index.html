@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DWG→Tekla Conversion Pipeline</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏗️ DWG→Tekla Conversion Pipeline</h1>
+            <p>Convert 2D AutoCAD drawings to 3D Tekla Structures models</p>
+        </header>
+
+        <main>
+            <!-- Upload Section -->
+            <section id="uploadSection" class="card">
+                <h2>Step 1: Upload DWG File</h2>
+                <div class="upload-area" id="uploadArea">
+                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <p>Drag & drop your DWG/DXF file here or click to browse</p>
+                    <input type="file" id="fileInput" accept=".dwg,.dxf,.json" hidden>
+                </div>
+                <button class="btn btn-primary" id="uploadBtn" disabled>Upload & Process</button>
+            </section>
+
+            <!-- Progress Section -->
+            <section id="progressSection" class="card" style="display: none;">
+                <h2>Step 2: Processing</h2>
+                <div class="progress">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <p id="progressText">Uploading file...</p>
+            </section>
+
+            <!-- Results Section -->
+            <section id="resultsSection" class="card" style="display: none;">
+                <h2>Step 3: Results</h2>
+                <div class="results-grid">
+                    <div class="result-item">
+                        <h3>✅ Pipeline Status</h3>
+                        <p id="pipelineStatus"></p>
+                    </div>
+                    <div class="result-item">
+                        <h3>📊 Statistics</h3>
+                        <ul id="statistics"></ul>
+                    </div>
+                    <div class="result-item">
+                        <h3>📥 Downloads</h3>
+                        <div id="downloadLinks"></div>
+                    </div>
+                    <div class="result-item">
+                        <h3>🏗️ Tekla Export</h3>
+                        <button class="btn btn-secondary" id="exportTeklaBtn">Prepare Tekla Model</button>
+                        <p id="teklaStatus" style="margin-top: 10px; font-size: 0.9em;"></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Error Section -->
+            <section id="errorSection" class="card error-card" style="display: none;">
+                <h2>⚠️ Error</h2>
+                <p id="errorMessage"></p>
+                <button class="btn btn-secondary" onclick="location.reload()">Try Again</button>
+            </section>
+        </main>
+
+        <footer>
+            <p>Built with the AI Structural Steel Pipeline | December 2025</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

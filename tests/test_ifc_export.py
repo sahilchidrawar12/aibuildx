@@ -19,7 +19,8 @@ def test_ifc_export_writable_and_readable(tmp_path):
     assert os.path.exists(ifc_path), f'IFC file not found at {ifc_path}'
     # try opening with ifcopenshell
     model = ifcopenshell.open(ifc_path)
-    # assert that there is at least one building element proxy or product
+    # assert that there is at least one beam or column or building element proxy
+    beams = model.by_type('IfcBeam')
+    columns = model.by_type('IfcColumn')
     proxies = model.by_type('IfcBuildingElementProxy')
-    elements = model.by_type('IfcProduct')
-    assert (len(proxies) + len(elements)) > 0
+    assert (len(beams) + len(columns) + len(proxies)) > 0

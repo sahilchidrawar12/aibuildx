@@ -1,0 +1,216 @@
+# Benchmark cases for mega-structure validation
+# Each case defines target structure, reference sources, expected metrics, and notes
+
+benchmarks:
+
+  - name: "Burj Khalifa (Dubai) - Simplified Model"
+    description: "World's tallest building (828 m); focus on core shear wall + mega-columns; vertical behavior"
+    category: "super-tall"
+    height_m: 828
+    key_features:
+      - bundled_tube_system
+      - reinforced_concrete_core
+      - steel_mega_columns
+      - outrigger_connections
+    reference_sources:
+      - "Ali & Moon 2007: Tall Building Structural Systems and Aerodynamic Form (JSCEJ)"
+      - "Public architectural drawings and concept documents"
+    expected_outputs:
+      - "First modal frequency: ~0.11 Hz (target ±10%)"
+      - "Max drift under code wind: <H/500 (target accuracy ±5%)"
+      - "Core shear force distribution (compare distribution shape)"
+    notes: "Full FEA model proprietary; use published modal data and code-based wind response as reference"
+    difficulty: "high"
+    estimated_effort_hours: 40
+
+  - name: "Shanghai Tower (China) - Simplified Model"
+    description: "Second tallest (632 m); double-skin facade, mega-columns, tuned mass damper"
+    category: "super-tall"
+    height_m: 632
+    key_features:
+      - outrigger_trusses
+      - steel_frame_core
+      - mega_braced_columns
+      - double_skin_facade
+    reference_sources:
+      - "Guo et al. 2014: Shanghai Tower: Design and Construction of the World's Second Tallest Building (CTBUH)"
+    expected_outputs:
+      - "First 3 modal frequencies: ~0.14, 0.15, 0.20 Hz (±10%)"
+      - "Max story drift under design wind (±5%)"
+      - "Outrigger brace forces (node-to-node comparison)"
+    notes: "Reference data from CTBUH conference publications; wind pressures from aerodynamic testing summary"
+    difficulty: "high"
+    estimated_effort_hours: 40
+
+  - name: "Taipei 101 (Taiwan) - Simplified Model"
+    description: "504 m tall; tuned mass damper (660 tons), 8-section tower, steel moment frame"
+    category: "super-tall"
+    height_m: 504
+    key_features:
+      - eight_segment_tower
+      - steel_moment_frames
+      - tuned_mass_damper
+      - outrigger_connections
+    reference_sources:
+      - "Sinn et al. 2004: Effective Liquid Dampers for Tuned Mass Dampers (JSCEJ)"
+      - "Taipei 101 public technical documentation"
+    expected_outputs:
+      - "Natural frequency with TMD: ~0.08 Hz (±10%)"
+      - "TMD response to wind/seismic excitation (damping ratio validation)"
+      - "Max acceleration at top <0.1g (compare to target spec)"
+    notes: "Focus on TMD integration and damping validation; full model not required"
+    difficulty: "medium-high"
+    estimated_effort_hours: 35
+
+  - name: "One World Trade Center (New York) - Simplified Model"
+    description: "541 m tall; complex geometry (tapered), tuned mass damper, integral spire"
+    category: "super-tall"
+    height_m: 541
+    key_features:
+      - tapered_square_geometry
+      - steel_moment_frame
+      - tuned_mass_damper
+      - spire_appendage
+    reference_sources:
+      - "NIST studies and public documentation from LERA / Silverstein Properties"
+      - "Architectural Record and Engineering News-Record articles"
+    expected_outputs:
+      - "First 2 modes: ~0.15, 0.20 Hz (±10%)"
+      - "Max acceleration at observation deck: <0.5%g (code target)"
+      - "TMD frequency matching and damping"
+    notes: "Tapered geometry validation; focus on nonlinear geometric effects at height"
+    difficulty: "high"
+    estimated_effort_hours: 40
+
+  - name: "Petronas Towers (Kuala Lumpur) - Simplified Model"
+    description: "452 m twin towers with sky bridge; tuned mass damper, rectangular tube columns"
+    category: "super-tall"
+    height_m: 452
+    key_features:
+      - rectangular_tube_columns
+      - steel_frame_core
+      - sky_bridge_coupling
+      - tuned_mass_dampers
+    reference_sources:
+      - "Kar-Wai et al. 1998: Petronas Towers Design (CTBUH)"
+      - "Symonds & Harford 1998: Wind Tunnel Studies"
+    expected_outputs:
+      - "Tower fundamental frequency: ~0.20 Hz (±10%)"
+      - "Sky bridge connector force distribution"
+      - "Wind-induced acceleration limits (<0.25%g)"
+    notes: "Focus on symmetric and coupled tower response; bridge interaction validation"
+    difficulty: "medium"
+    estimated_effort_hours: 30
+
+  - name: "Akashi Kaikyo Bridge (Japan) - Main Span Section"
+    description: "1991 m main span suspension bridge; longest main span worldwide; complex cable & deck system"
+    category: "long-span-bridge"
+    span_m: 1991
+    key_features:
+      - suspension_main_cables
+      - steel_box_deck
+      - cable_stays_tower_legs
+      - aerodynamic_optimization
+    reference_sources:
+      - "Nagarajaiah & Narasimhan 2006: Seismic Response & Aerodynamic Performance (EQ Spec Isol Damp)"
+      - "Wind tunnel studies and published modal data"
+      - "Honshu-Shikoku Bridge Authority (HSBA) technical reports"
+    expected_outputs:
+      - "First symmetric vertical mode: ~0.055 Hz (±5%)"
+      - "First lateral mode: ~0.10 Hz (±5%)"
+      - "Cable tension distribution along deck (compare to measured)"
+      - "Wind-induced flutter derivatives and aeroelastic stability"
+    notes: "Cable stiffness and geometric nonlinearity (sag & tension) critical; wind flutter is key validation"
+    difficulty: "very-high"
+    estimated_effort_hours: 60
+
+  - name: "Beijing National Stadium (Bird's Nest) - Roof Section"
+    description: "Large stadium roof; complex truss + membrane system; 91,000 capacity"
+    category: "large-roof"
+    span_m: 330  # approx main span
+    key_features:
+      - steel_lattice_truss_roof
+      - membrane_cladding
+      - asymmetric_geometry
+      - large_cantilevers
+    reference_sources:
+      - "Wei et al. 2008: Structural Design & Analysis of Beijing National Stadium (Struct. Des. Long Span Buildings)"
+      - "Wind tunnel pressure data (partial public release)"
+    expected_outputs:
+      - "Natural frequencies (first 3 modes): ~0.7, 0.9, 1.2 Hz (±10%)"
+      - "Max deflection under snow/wind: <span/250 (target accuracy ±5%)"
+      - "Roof membrane tension distribution"
+      - "Connection forces in truss joints"
+    notes: "Membrane coupling and large displacements; wind pressure distribution critical"
+    difficulty: "high"
+    estimated_effort_hours: 45
+
+  - name: "Simple 10-Story Office Building (ASCE Benchmark)"
+    description: "Published ASCE 7 example steel MRF; 3D model; gravity + lateral loads"
+    category: "benchmark-reference"
+    height_m: 40
+    key_features:
+      - steel_moment_resisting_frame
+      - regular_grid
+      - published_solution_available
+    reference_sources:
+      - "ASCE 7-10 / 7-22 design examples and commentary"
+      - "NIST / AISC published FEA models and hand-calculation results"
+    expected_outputs:
+      - "Story shears and moments within 5% of published solution"
+      - "Natural frequencies within 3% of published"
+      - "Deflections within 5% of hand-calculation"
+    notes: "Low risk, published reference; use as sanity check and CI baseline"
+    difficulty: "low"
+    estimated_effort_hours: 10
+
+  - name: "Cantilever Beam with Distributed Load (Mechanics Validation)"
+    description: "Classic elasticity problem: cantilever beam, distributed load; analytical solution available"
+    category: "validation-basic"
+    key_features:
+      - cantilever_boundary
+      - linear_elastic_response
+      - analytical_solution
+    reference_sources:
+      - "Timoshenko & Gere: Theory of Elastic Stability (analytical formulas)"
+    expected_outputs:
+      - "Max deflection within 1% of analytical (Wmax = 5qL^4/384EI)"
+      - "Support reaction within 0.1% of analytical (R = qL)"
+      - "Internal moment distribution shape (compare curvature)"
+    notes: "Fundamental validation; if this fails, solver setup is wrong"
+    difficulty: "trivial"
+    estimated_effort_hours: 2
+
+  - name: "Wind Tunnel Pressure Distribution on High-Rise (Simplified Aero Coupling)"
+    description: "Square tower subjected to uniform wind; validate pressure mapping & modal response"
+    category: "wind-aero"
+    height_m: 200
+    key_features:
+      - uniform_square_cross_section
+      - mean_wind_pressures
+      - turbulence_response_spectrum
+    reference_sources:
+      - "ASCE 7 wind pressure coefficients (Cp tables)"
+      - "CIRIA Guide or EN1991-1-4 for wind loading"
+    expected_outputs:
+      - "Base shear vs. expected ASCE 7 formula within 5%"
+      - "Story shears decrease monotonically per code prediction (±3%)"
+      - "Modal response envelope match to spectral input within 10%"
+    notes: "Validates wind load application and dynamic response; no experimental data needed (code-based)"
+    difficulty: "medium"
+    estimated_effort_hours: 15
+
+validation_targets:
+  "geometry_node_error_mm": 5.0  # max acceptable coordinate error in mm
+  "frequency_error_percent": 10.0  # relative error in Hz
+  "displacement_error_percent": 10.0
+  "force_error_percent": 15.0
+  "connection_capacity_error_percent": 25.0  # higher tolerance for local behavior
+  "wind_base_shear_error_percent": 5.0
+
+reporting:
+  - Generate per-benchmark report with pass/fail summary
+  - Tabulate reference vs. computed: frequencies, displacements, forces, connections
+  - Plot mode shapes (if available) with MAC values
+  - Produce composite accuracy score (% of tests passing target thresholds)
+  - Store results in JSON for regression tracking

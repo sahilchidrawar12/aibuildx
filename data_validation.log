@@ -1,0 +1,31 @@
+2025-12-02 00:55:53,116 - INFO - ================================================================================
+2025-12-02 00:55:53,116 - INFO - COMPREHENSIVE DATA VALIDATION SYSTEM
+2025-12-02 00:55:53,116 - INFO - ================================================================================
+2025-12-02 00:55:53,116 - INFO - Validating connection designs...
+2025-12-02 00:55:53,425 - INFO -   ✓ Connections: 50000/50000 valid (100%)
+2025-12-02 00:55:53,433 - INFO - Validating steel sections...
+2025-12-02 00:55:53,435 - INFO -   ✓ Sections: 675/675 valid (100%)
+2025-12-02 00:55:53,435 - INFO - Validating design decisions...
+2025-12-02 00:55:53,622 - INFO -   ✓ Decisions: 100000/100000 valid (100%)
+2025-12-02 00:55:53,632 - INFO - Validating clash scenarios...
+2025-12-02 00:55:53,827 - INFO -   ✓ Clashes: 100000/100000 valid (100%)
+2025-12-02 00:55:53,838 - INFO - Validating compliance cases...
+2025-12-02 00:55:53,839 - INFO -   ✓ Compliance: 1000/1000 valid (100%)
+2025-12-02 00:55:53,840 - INFO - Validating FEA benchmarks...
+2025-12-02 00:55:53,922 - INFO -   ✓ Benchmarks: 50000/50000 valid (100%)
+2025-12-02 00:55:53,927 - INFO - 
+================================================================================
+2025-12-02 00:55:53,927 - INFO - VALIDATION COMPLETE
+2025-12-02 00:55:53,927 - INFO - ================================================================================
+2025-12-02 00:55:53,927 - INFO - 
+Total entries validated: 301,675
+2025-12-02 00:55:53,927 - INFO -   connections     -  50,000 /  50,000 valid (100%)
+2025-12-02 00:55:53,927 - INFO -   sections        -     675 /     675 valid (100%)
+2025-12-02 00:55:53,927 - INFO -   decisions       - 100,000 / 100,000 valid (100%)
+2025-12-02 00:55:53,927 - INFO -   clashes         - 100,000 / 100,000 valid (100%)
+2025-12-02 00:55:53,927 - INFO -   compliance      -   1,000 /   1,000 valid (100%)
+2025-12-02 00:55:53,928 - INFO -   benchmarks      -  50,000 /  50,000 valid (100%)
+2025-12-02 00:55:53,928 - INFO - 
+✓ Validation report saved: data/datasets_100_percent/validation_report.json
+2025-12-02 00:55:53,928 - INFO - Generating statistics...
+2025-12-02 00:55:54,024 - INFO - ✓ Statistics generated

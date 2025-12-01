@@ -1,0 +1,16 @@
+{
+  "name": "Burj Khalifa (Dubai) - Simplified Model",
+  "description": "World's tallest building (828 m); focus on core shear wall + mega-columns; vertical behavior",
+  "category": "super-tall",
+  "difficulty": "high",
+  "reference_sources": [
+    "Ali & Moon 2007: Tall Building Structural Systems and Aerodynamic Form (JSCEJ)",
+    "Public architectural drawings and concept documents"
+  ],
+  "expected_outputs": [
+    "First modal frequency: ~0.11 Hz (target \u00b110%)",
+    "Max drift under code wind: <H/500 (target accuracy \u00b15%)",
+    "Core shear force distribution (compare distribution shape)"
+  ],
+  "notes": "Full FEA model proprietary; use published modal data and code-based wind response as reference"
+}

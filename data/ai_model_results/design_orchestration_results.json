@@ -1,0 +1,352 @@
+{
+  "project_id": "DEMO_2024_001",
+  "timestamp": "2024-01-15T10:00:00",
+  "design_results": {
+    "B1": {
+      "member_type": "floor_beam",
+      "loading": {
+        "tributary_load_psf": 75,
+        "span_feet": 30,
+        "moment_kip_in": 101.25
+      },
+      "optimized_section": {
+        "profile": "W28x110",
+        "sx_provided": 2.2275,
+        "utilization_ratio": 0.85,
+        "deflection_ratio": 1.5,
+        "estimated_cost_per_lb": 1.25
+      },
+      "alternatives": [
+        {
+          "profile": "W24x50",
+          "sx": 2.1374999999999997
+        },
+        {
+          "profile": "W26x80",
+          "sx": 2.1825
+        },
+        {
+          "profile": "W28x110",
+          "sx": 2.2275
+        },
+        {
+          "profile": "W30x140",
+          "sx": 2.2725
+        },
+        {
+          "profile": "W32x170",
+          "sx": 2.3175
+        }
+      ],
+      "compliance": {
+        "moment": "PASS",
+        "shear": "PASS",
+        "deflection": "PASS",
+        "lateral_buckling": "PASS"
+      }
+    },
+    "B2": {
+      "member_type": "roof_beam",
+      "loading": {
+        "tributary_load_psf": 45,
+        "span_feet": 40,
+        "moment_kip_in": 108.0
+      },
+      "optimized_section": {
+        "profile": "W28x110",
+        "sx_provided": 2.376,
+        "utilization_ratio": 0.85,
+        "deflection_ratio": 2.0,
+        "estimated_cost_per_lb": 1.25
+      },
+      "alternatives": [
+        {
+          "profile": "W24x50",
+          "sx": 2.28
+        },
+        {
+          "profile": "W26x80",
+          "sx": 2.328
+        },
+        {
+          "profile": "W28x110",
+          "sx": 2.376
+        },
+        {
+          "profile": "W30x140",
+          "sx": 2.424
+        },
+        {
+          "profile": "W32x170",
+          "sx": 2.472
+        }
+      ],
+      "compliance": {
+        "moment": "PASS",
+        "shear": "PASS",
+        "deflection": "PASS",
+        "lateral_buckling": "PASS"
+      }
+    },
+    "C1": {
+      "member_type": "column",
+      "loading": {
+        "tributary_load_psf": 500,
+        "span_feet": 30,
+        "moment_kip_in": 675.0
+      },
+      "optimized_section": {
+        "profile": "W28x110",
+        "sx_provided": 14.85,
+        "utilization_ratio": 0.85,
+        "deflection_ratio": 1.5,
+        "estimated_cost_per_lb": 1.25
+      },
+      "alternatives": [
+        {
+          "profile": "W24x50",
+          "sx": 14.25
+        },
+        {
+          "profile": "W26x80",
+          "sx": 14.549999999999999
+        },
+        {
+          "profile": "W28x110",
+          "sx": 14.85
+        },
+        {
+          "profile": "W30x140",
+          "sx": 15.15
+        },
+        {
+          "profile": "W32x170",
+          "sx": 15.450000000000001
+        }
+      ],
+      "compliance": {
+        "moment": "PASS",
+        "shear": "PASS",
+        "deflection": "PASS",
+        "lateral_buckling": "PASS"
+      }
+    }
+  },
+  "connections": [
+    {
+      "connection_type": "welded_moment",
+      "confidence": 0.85,
+      "bolt_configuration": {
+        "grade": "A325",
+        "diameter": 0.875,
+        "count": 8,
+        "spacing": 3.0
+      },
+      "capacity_kips": 120.0,
+      "slip_critical": true,
+      "compliance_checks": {
+        "bolt_shear": "PASS",
+        "bolt_bearing": "PASS",
+        "block_shear": "PASS",
+        "prying_action": "NONE"
+      }
+    }
+  ],
+  "clash_analysis": [
+    {
+      "clash_id": "CLASH_001",
+      "member1": "Beam B1",
+      "member2": "Column C1",
+      "minimum_distance_mm": 12,
+      "severity": "MEDIUM",
+      "location": [
+        100,
+        200,
+        300
+      ],
+      "detection_confidence": 0.99,
+      "resolution_options": [
+        {
+          "method": "offset_beam",
+          "cost": 500
+        },
+        {
+          "method": "offset_column",
+          "cost": 1500
+        },
+        {
+          "method": "redesign",
+          "cost": 3000
+        }
+      ]
+    },
+    {
+      "clash_id": "CLASH_002",
+      "member1": "Beam B2",
+      "member2": "Duct D1",
+      "minimum_distance_mm": 0,
+      "severity": "CRITICAL",
+      "location": [
+        150,
+        250,
+        350
+      ],
+      "detection_confidence": 0.995,
+      "resolution_options": [
+        {
+          "method": "relocate_duct",
+          "cost": 2000
+        },
+        {
+          "method": "offset_beam",
+          "cost": 800
+        }
+      ]
+    }
+  ],
+  "compliance_checks": [
+    {
+      "member": "W24x62",
+      "code": "AISC 360-22",
+      "overall_result": "COMPLIANT",
+      "compliance_checks": [
+        {
+          "check": "Column Compression (AISC H1)",
+          "formula": "Phi_c * Fcr * Ag",
+          "result": "PASS",
+          "calculated": 45.2,
+          "limit": 50.0,
+          "utilization": 0.904,
+          "margin": 4.8
+        },
+        {
+          "check": "Beam Bending (AISC F2)",
+          "formula": "Phi_b * Mn >= Mu",
+          "result": "PASS",
+          "calculated": 850.0,
+          "demand": 720.0,
+          "utilization": 0.847,
+          "margin": 130.0
+        },
+        {
+          "check": "Lateral-Torsional Buckling (AISC F2.2)",
+          "formula": "Phi_b * Fcr * Sx >= Mu",
+          "result": "PASS",
+          "utilization": 0.725,
+          "margin": 275.0
+        }
+      ],
+      "governing_check": "Column Compression (0.904)",
+      "citations": [
+        "AISC 360-22, Chapter H",
+        "AISC 360-22, Chapter F"
+      ],
+      "compliance_score": 0.96
+    },
+    {
+      "member": "W27x84",
+      "code": "AISC 360-22",
+      "overall_result": "COMPLIANT",
+      "compliance_checks": [
+        {
+          "check": "Column Compression (AISC H1)",
+          "formula": "Phi_c * Fcr * Ag",
+          "result": "PASS",
+          "calculated": 45.2,
+          "limit": 50.0,
+          "utilization": 0.904,
+          "margin": 4.8
+        },
+        {
+          "check": "Beam Bending (AISC F2)",
+          "formula": "Phi_b * Mn >= Mu",
+          "result": "PASS",
+          "calculated": 850.0,
+          "demand": 720.0,
+          "utilization": 0.847,
+          "margin": 130.0
+        },
+        {
+          "check": "Lateral-Torsional Buckling (AISC F2.2)",
+          "formula": "Phi_b * Fcr * Sx >= Mu",
+          "result": "PASS",
+          "utilization": 0.725,
+          "margin": 275.0
+        }
+      ],
+      "governing_check": "Column Compression (0.904)",
+      "citations": [
+        "AISC 360-22, Chapter H",
+        "AISC 360-22, Chapter F"
+      ],
+      "compliance_score": 0.96
+    },
+    {
+      "member": "W14x90",
+      "code": "AISC 360-22",
+      "overall_result": "COMPLIANT",
+      "compliance_checks": [
+        {
+          "check": "Column Compression (AISC H1)",
+          "formula": "Phi_c * Fcr * Ag",
+          "result": "PASS",
+          "calculated": 45.2,
+          "limit": 50.0,
+          "utilization": 0.904,
+          "margin": 4.8
+        },
+        {
+          "check": "Beam Bending (AISC F2)",
+          "formula": "Phi_b * Mn >= Mu",
+          "result": "PASS",
+          "calculated": 850.0,
+          "demand": 720.0,
+          "utilization": 0.847,
+          "margin": 130.0
+        },
+        {
+          "check": "Lateral-Torsional Buckling (AISC F2.2)",
+          "formula": "Phi_b * Fcr * Sx >= Mu",
+          "result": "PASS",
+          "utilization": 0.725,
+          "margin": 275.0
+        }
+      ],
+      "governing_check": "Column Compression (0.904)",
+      "citations": [
+        "AISC 360-22, Chapter H",
+        "AISC 360-22, Chapter F"
+      ],
+      "compliance_score": 0.96
+    }
+  ],
+  "risk_analysis": {
+    "design_id": "DEMO_2024_001",
+    "overall_risk_score": 0.15,
+    "risk_level": "LOW",
+    "failure_modes": [
+      {
+        "mode": "Lateral-torsional buckling",
+        "probability": 0.02,
+        "consequence": "MEDIUM",
+        "mitigation": "Reduce unbraced length via lateral bracing"
+      },
+      {
+        "mode": "Connection failure",
+        "probability": 0.01,
+        "consequence": "HIGH",
+        "mitigation": "Use higher-grade bolts, increase count"
+      }
+    ],
+    "safety_factors": {
+      "strength": 1.67,
+      "serviceability": 1.45,
+      "stability": 1.78
+    },
+    "recommendations": [
+      "Add lateral bracing at mid-span",
+      "Increase bolt grade to A490",
+      "Inspect connections quarterly"
+    ]
+  }
+}

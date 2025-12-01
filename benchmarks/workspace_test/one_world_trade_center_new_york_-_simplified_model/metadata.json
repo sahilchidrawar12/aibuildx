@@ -1,0 +1,16 @@
+{
+  "name": "One World Trade Center (New York) - Simplified Model",
+  "description": "541 m tall; complex geometry (tapered), tuned mass damper, integral spire",
+  "category": "super-tall",
+  "difficulty": "high",
+  "reference_sources": [
+    "NIST studies and public documentation from LERA / Silverstein Properties",
+    "Architectural Record and Engineering News-Record articles"
+  ],
+  "expected_outputs": [
+    "First 2 modes: ~0.15, 0.20 Hz (\u00b110%)",
+    "Max acceleration at observation deck: <0.5%g (code target)",
+    "TMD frequency matching and damping"
+  ],
+  "notes": "Tapered geometry validation; focus on nonlinear geometric effects at height"
+}

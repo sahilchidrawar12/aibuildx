@@ -1,0 +1,16 @@
+{
+  "name": "Simple 10-Story Office Building (ASCE Benchmark)",
+  "description": "Published ASCE 7 example steel MRF; 3D model; gravity + lateral loads",
+  "category": "benchmark-reference",
+  "difficulty": "low",
+  "reference_sources": [
+    "ASCE 7-10 / 7-22 design examples and commentary",
+    "NIST / AISC published FEA models and hand-calculation results"
+  ],
+  "expected_outputs": [
+    "Story shears and moments within 5% of published solution",
+    "Natural frequencies within 3% of published",
+    "Deflections within 5% of hand-calculation"
+  ],
+  "notes": "Low risk, published reference; use as sanity check and CI baseline"
+}

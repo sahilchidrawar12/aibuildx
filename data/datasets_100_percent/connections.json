@@ -1,0 +1,4573 @@
+[
+  {
+    "id": "AISC_001",
+    "connection_type": "bolted_moment_connection",
+    "primary_members": [
+      "W36x300",
+      "W14x132"
+    ],
+    "bolt_config": {
+      "grade": "A325",
+      "diameter": 0.875,
+      "count": 8
+    },
+    "capacity_kips": 850,
+    "slip_critical": false,
+    "source": "AISC Design Guide 16 - Connections"
+  },
+  {
+    "id": "AISC_002",
+    "connection_type": "slip_critical_connection",
+    "primary_members": [
+      "W27x102",
+      "W12x65"
+    ],
+    "bolt_config": {
+      "grade": "A325SC",
+      "diameter": 0.75,
+      "count": 6
+    },
+    "capacity_kips": 620,
+    "slip_critical": true,
+    "source": "AISC Design Guide 21 - Bolted Connections"
+  },
+  {
+    "id": "AISC_003",
+    "connection_type": "welded_moment_connection",
+    "primary_members": [
+      "W30x235",
+      "W14x120"
+    ],
+    "weld_config": {
+      "size": 0.5,
+      "type": "fillet",
+      "process": "SMAW"
+    },
+    "capacity_kips": 920,
+    "slip_critical": false,
+    "source": "AISC Seismic Design Manual - Moment Connections"
+  },
+  {
+    "id": "AWS_001",
+    "connection_type": "fillet_weld",
+    "topic": "T-stub with prying action",
+    "weld_size_inch": 0.375,
+    "base_metal_grade": "50",
+    "capacity_kips": 450,
+    "prying_factor": 1.15,
+    "source": "AWS D1.1 Structural Welding Code"
+  },
+  {
+    "id": "EC3_001",
+    "connection_type": "bolted_connection",
+    "standard": "Eurocode 3 Part 1-8",
+    "bearing_capacity": 78.5,
+    "bolt_shear": 62.4,
+    "bearing_classes": [
+      "A",
+      "B",
+      "C"
+    ],
+    "source": "EN 1993-1-8:2005"
+  },
+  {
+    "id": "SYNTHETIC_00001",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 4,
+    "capacity_kips": 300,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00002",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 5,
+    "capacity_kips": 301,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00003",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325SC",
+    "bolt_count": 6,
+    "capacity_kips": 302,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00004",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490SC",
+    "bolt_count": 7,
+    "capacity_kips": 303,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00005",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325",
+    "bolt_count": 8,
+    "capacity_kips": 304,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00006",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 9,
+    "capacity_kips": 305,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00007",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 10,
+    "capacity_kips": 306,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00008",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490SC",
+    "bolt_count": 11,
+    "capacity_kips": 307,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00009",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325",
+    "bolt_count": 12,
+    "capacity_kips": 308,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00010",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490",
+    "bolt_count": 13,
+    "capacity_kips": 309,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00011",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 14,
+    "capacity_kips": 310,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00012",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 15,
+    "capacity_kips": 311,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00013",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325",
+    "bolt_count": 16,
+    "capacity_kips": 312,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00014",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490",
+    "bolt_count": 17,
+    "capacity_kips": 313,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00015",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325SC",
+    "bolt_count": 18,
+    "capacity_kips": 314,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00016",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 19,
+    "capacity_kips": 315,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00017",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 4,
+    "capacity_kips": 316,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00018",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490",
+    "bolt_count": 5,
+    "capacity_kips": 317,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00019",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325SC",
+    "bolt_count": 6,
+    "capacity_kips": 318,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00020",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490SC",
+    "bolt_count": 7,
+    "capacity_kips": 319,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00021",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 8,
+    "capacity_kips": 320,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00022",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 9,
+    "capacity_kips": 321,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00023",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325SC",
+    "bolt_count": 10,
+    "capacity_kips": 322,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00024",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490SC",
+    "bolt_count": 11,
+    "capacity_kips": 323,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00025",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325",
+    "bolt_count": 12,
+    "capacity_kips": 324,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00026",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 13,
+    "capacity_kips": 325,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00027",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 14,
+    "capacity_kips": 326,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00028",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490SC",
+    "bolt_count": 15,
+    "capacity_kips": 327,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00029",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325",
+    "bolt_count": 16,
+    "capacity_kips": 328,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00030",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490",
+    "bolt_count": 17,
+    "capacity_kips": 329,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00031",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 18,
+    "capacity_kips": 330,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00032",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 19,
+    "capacity_kips": 331,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00033",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325",
+    "bolt_count": 4,
+    "capacity_kips": 332,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00034",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490",
+    "bolt_count": 5,
+    "capacity_kips": 333,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00035",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325SC",
+    "bolt_count": 6,
+    "capacity_kips": 334,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00036",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 7,
+    "capacity_kips": 335,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00037",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 8,
+    "capacity_kips": 336,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00038",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490",
+    "bolt_count": 9,
+    "capacity_kips": 337,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00039",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325SC",
+    "bolt_count": 10,
+    "capacity_kips": 338,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00040",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490SC",
+    "bolt_count": 11,
+    "capacity_kips": 339,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00041",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 12,
+    "capacity_kips": 340,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00042",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 13,
+    "capacity_kips": 341,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00043",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325SC",
+    "bolt_count": 14,
+    "capacity_kips": 342,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00044",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490SC",
+    "bolt_count": 15,
+    "capacity_kips": 343,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00045",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325",
+    "bolt_count": 16,
+    "capacity_kips": 344,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00046",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 17,
+    "capacity_kips": 345,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00047",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 18,
+    "capacity_kips": 346,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00048",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490SC",
+    "bolt_count": 19,
+    "capacity_kips": 347,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00049",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325",
+    "bolt_count": 4,
+    "capacity_kips": 348,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00050",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490",
+    "bolt_count": 5,
+    "capacity_kips": 349,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00051",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 6,
+    "capacity_kips": 350,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00052",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 7,
+    "capacity_kips": 351,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00053",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325",
+    "bolt_count": 8,
+    "capacity_kips": 352,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00054",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490",
+    "bolt_count": 9,
+    "capacity_kips": 353,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00055",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325SC",
+    "bolt_count": 10,
+    "capacity_kips": 354,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00056",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 11,
+    "capacity_kips": 355,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00057",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 12,
+    "capacity_kips": 356,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00058",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490",
+    "bolt_count": 13,
+    "capacity_kips": 357,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00059",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325SC",
+    "bolt_count": 14,
+    "capacity_kips": 358,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00060",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490SC",
+    "bolt_count": 15,
+    "capacity_kips": 359,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00061",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 16,
+    "capacity_kips": 360,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00062",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 17,
+    "capacity_kips": 361,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00063",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325SC",
+    "bolt_count": 18,
+    "capacity_kips": 362,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00064",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490SC",
+    "bolt_count": 19,
+    "capacity_kips": 363,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00065",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325",
+    "bolt_count": 4,
+    "capacity_kips": 364,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00066",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 5,
+    "capacity_kips": 365,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00067",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 6,
+    "capacity_kips": 366,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00068",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490SC",
+    "bolt_count": 7,
+    "capacity_kips": 367,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00069",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325",
+    "bolt_count": 8,
+    "capacity_kips": 368,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00070",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490",
+    "bolt_count": 9,
+    "capacity_kips": 369,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00071",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 10,
+    "capacity_kips": 370,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00072",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 11,
+    "capacity_kips": 371,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00073",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325",
+    "bolt_count": 12,
+    "capacity_kips": 372,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00074",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490",
+    "bolt_count": 13,
+    "capacity_kips": 373,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00075",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325SC",
+    "bolt_count": 14,
+    "capacity_kips": 374,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00076",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 15,
+    "capacity_kips": 375,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00077",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 16,
+    "capacity_kips": 376,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00078",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490",
+    "bolt_count": 17,
+    "capacity_kips": 377,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00079",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325SC",
+    "bolt_count": 18,
+    "capacity_kips": 378,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00080",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490SC",
+    "bolt_count": 19,
+    "capacity_kips": 379,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00081",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 4,
+    "capacity_kips": 380,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00082",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 5,
+    "capacity_kips": 381,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00083",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325SC",
+    "bolt_count": 6,
+    "capacity_kips": 382,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00084",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490SC",
+    "bolt_count": 7,
+    "capacity_kips": 383,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00085",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325",
+    "bolt_count": 8,
+    "capacity_kips": 384,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00086",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 9,
+    "capacity_kips": 385,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00087",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 10,
+    "capacity_kips": 386,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00088",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490SC",
+    "bolt_count": 11,
+    "capacity_kips": 387,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00089",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325",
+    "bolt_count": 12,
+    "capacity_kips": 388,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00090",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490",
+    "bolt_count": 13,
+    "capacity_kips": 389,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00091",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 14,
+    "capacity_kips": 390,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00092",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 15,
+    "capacity_kips": 391,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00093",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325",
+    "bolt_count": 16,
+    "capacity_kips": 392,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00094",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490",
+    "bolt_count": 17,
+    "capacity_kips": 393,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00095",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325SC",
+    "bolt_count": 18,
+    "capacity_kips": 394,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00096",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 19,
+    "capacity_kips": 395,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00097",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 4,
+    "capacity_kips": 396,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00098",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490",
+    "bolt_count": 5,
+    "capacity_kips": 397,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00099",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325SC",
+    "bolt_count": 6,
+    "capacity_kips": 398,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00100",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490SC",
+    "bolt_count": 7,
+    "capacity_kips": 399,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00101",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 8,
+    "capacity_kips": 400,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00102",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 9,
+    "capacity_kips": 401,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00103",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325SC",
+    "bolt_count": 10,
+    "capacity_kips": 402,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00104",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490SC",
+    "bolt_count": 11,
+    "capacity_kips": 403,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00105",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325",
+    "bolt_count": 12,
+    "capacity_kips": 404,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00106",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 13,
+    "capacity_kips": 405,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00107",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 14,
+    "capacity_kips": 406,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00108",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490SC",
+    "bolt_count": 15,
+    "capacity_kips": 407,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00109",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325",
+    "bolt_count": 16,
+    "capacity_kips": 408,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00110",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490",
+    "bolt_count": 17,
+    "capacity_kips": 409,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00111",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 18,
+    "capacity_kips": 410,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00112",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 19,
+    "capacity_kips": 411,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00113",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325",
+    "bolt_count": 4,
+    "capacity_kips": 412,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00114",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490",
+    "bolt_count": 5,
+    "capacity_kips": 413,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00115",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325SC",
+    "bolt_count": 6,
+    "capacity_kips": 414,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00116",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 7,
+    "capacity_kips": 415,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00117",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 8,
+    "capacity_kips": 416,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00118",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490",
+    "bolt_count": 9,
+    "capacity_kips": 417,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00119",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325SC",
+    "bolt_count": 10,
+    "capacity_kips": 418,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00120",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490SC",
+    "bolt_count": 11,
+    "capacity_kips": 419,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00121",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 12,
+    "capacity_kips": 420,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00122",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 13,
+    "capacity_kips": 421,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00123",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325SC",
+    "bolt_count": 14,
+    "capacity_kips": 422,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00124",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490SC",
+    "bolt_count": 15,
+    "capacity_kips": 423,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00125",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325",
+    "bolt_count": 16,
+    "capacity_kips": 424,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00126",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 17,
+    "capacity_kips": 425,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00127",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 18,
+    "capacity_kips": 426,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00128",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490SC",
+    "bolt_count": 19,
+    "capacity_kips": 427,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00129",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325",
+    "bolt_count": 4,
+    "capacity_kips": 428,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00130",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490",
+    "bolt_count": 5,
+    "capacity_kips": 429,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00131",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 6,
+    "capacity_kips": 430,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00132",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 7,
+    "capacity_kips": 431,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00133",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325",
+    "bolt_count": 8,
+    "capacity_kips": 432,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00134",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490",
+    "bolt_count": 9,
+    "capacity_kips": 433,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00135",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325SC",
+    "bolt_count": 10,
+    "capacity_kips": 434,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00136",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 11,
+    "capacity_kips": 435,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00137",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 12,
+    "capacity_kips": 436,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00138",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490",
+    "bolt_count": 13,
+    "capacity_kips": 437,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00139",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325SC",
+    "bolt_count": 14,
+    "capacity_kips": 438,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00140",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490SC",
+    "bolt_count": 15,
+    "capacity_kips": 439,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00141",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 16,
+    "capacity_kips": 440,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00142",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 17,
+    "capacity_kips": 441,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00143",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325SC",
+    "bolt_count": 18,
+    "capacity_kips": 442,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00144",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490SC",
+    "bolt_count": 19,
+    "capacity_kips": 443,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00145",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325",
+    "bolt_count": 4,
+    "capacity_kips": 444,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00146",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 5,
+    "capacity_kips": 445,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00147",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 6,
+    "capacity_kips": 446,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00148",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490SC",
+    "bolt_count": 7,
+    "capacity_kips": 447,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00149",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325",
+    "bolt_count": 8,
+    "capacity_kips": 448,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00150",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490",
+    "bolt_count": 9,
+    "capacity_kips": 449,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00151",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 10,
+    "capacity_kips": 450,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00152",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 11,
+    "capacity_kips": 451,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00153",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325",
+    "bolt_count": 12,
+    "capacity_kips": 452,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00154",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490",
+    "bolt_count": 13,
+    "capacity_kips": 453,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00155",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325SC",
+    "bolt_count": 14,
+    "capacity_kips": 454,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00156",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 15,
+    "capacity_kips": 455,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00157",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 16,
+    "capacity_kips": 456,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00158",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490",
+    "bolt_count": 17,
+    "capacity_kips": 457,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00159",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325SC",
+    "bolt_count": 18,
+    "capacity_kips": 458,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00160",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490SC",
+    "bolt_count": 19,
+    "capacity_kips": 459,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00161",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 4,
+    "capacity_kips": 460,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00162",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 5,
+    "capacity_kips": 461,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00163",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325SC",
+    "bolt_count": 6,
+    "capacity_kips": 462,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00164",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490SC",
+    "bolt_count": 7,
+    "capacity_kips": 463,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00165",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325",
+    "bolt_count": 8,
+    "capacity_kips": 464,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00166",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 9,
+    "capacity_kips": 465,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00167",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 10,
+    "capacity_kips": 466,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00168",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490SC",
+    "bolt_count": 11,
+    "capacity_kips": 467,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00169",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325",
+    "bolt_count": 12,
+    "capacity_kips": 468,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00170",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490",
+    "bolt_count": 13,
+    "capacity_kips": 469,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00171",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 14,
+    "capacity_kips": 470,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00172",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 15,
+    "capacity_kips": 471,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00173",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325",
+    "bolt_count": 16,
+    "capacity_kips": 472,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00174",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490",
+    "bolt_count": 17,
+    "capacity_kips": 473,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00175",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325SC",
+    "bolt_count": 18,
+    "capacity_kips": 474,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00176",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 19,
+    "capacity_kips": 475,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00177",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 4,
+    "capacity_kips": 476,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00178",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490",
+    "bolt_count": 5,
+    "capacity_kips": 477,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00179",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325SC",
+    "bolt_count": 6,
+    "capacity_kips": 478,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00180",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490SC",
+    "bolt_count": 7,
+    "capacity_kips": 479,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00181",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 8,
+    "capacity_kips": 480,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00182",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 9,
+    "capacity_kips": 481,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00183",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325SC",
+    "bolt_count": 10,
+    "capacity_kips": 482,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00184",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490SC",
+    "bolt_count": 11,
+    "capacity_kips": 483,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00185",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325",
+    "bolt_count": 12,
+    "capacity_kips": 484,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00186",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 13,
+    "capacity_kips": 485,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00187",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 14,
+    "capacity_kips": 486,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00188",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490SC",
+    "bolt_count": 15,
+    "capacity_kips": 487,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00189",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325",
+    "bolt_count": 16,
+    "capacity_kips": 488,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00190",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490",
+    "bolt_count": 17,
+    "capacity_kips": 489,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00191",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 18,
+    "capacity_kips": 490,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00192",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 19,
+    "capacity_kips": 491,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00193",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325",
+    "bolt_count": 4,
+    "capacity_kips": 492,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00194",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490",
+    "bolt_count": 5,
+    "capacity_kips": 493,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00195",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325SC",
+    "bolt_count": 6,
+    "capacity_kips": 494,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00196",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 7,
+    "capacity_kips": 495,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00197",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 8,
+    "capacity_kips": 496,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00198",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490",
+    "bolt_count": 9,
+    "capacity_kips": 497,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00199",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325SC",
+    "bolt_count": 10,
+    "capacity_kips": 498,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00200",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490SC",
+    "bolt_count": 11,
+    "capacity_kips": 499,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00201",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 12,
+    "capacity_kips": 500,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00202",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 13,
+    "capacity_kips": 501,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00203",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325SC",
+    "bolt_count": 14,
+    "capacity_kips": 502,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00204",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490SC",
+    "bolt_count": 15,
+    "capacity_kips": 503,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00205",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325",
+    "bolt_count": 16,
+    "capacity_kips": 504,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00206",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 17,
+    "capacity_kips": 505,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00207",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 18,
+    "capacity_kips": 506,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00208",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490SC",
+    "bolt_count": 19,
+    "capacity_kips": 507,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00209",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325",
+    "bolt_count": 4,
+    "capacity_kips": 508,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00210",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490",
+    "bolt_count": 5,
+    "capacity_kips": 509,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00211",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 6,
+    "capacity_kips": 510,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00212",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 7,
+    "capacity_kips": 511,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00213",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325",
+    "bolt_count": 8,
+    "capacity_kips": 512,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00214",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490",
+    "bolt_count": 9,
+    "capacity_kips": 513,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00215",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325SC",
+    "bolt_count": 10,
+    "capacity_kips": 514,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00216",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 11,
+    "capacity_kips": 515,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00217",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 12,
+    "capacity_kips": 516,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00218",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490",
+    "bolt_count": 13,
+    "capacity_kips": 517,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00219",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325SC",
+    "bolt_count": 14,
+    "capacity_kips": 518,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00220",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490SC",
+    "bolt_count": 15,
+    "capacity_kips": 519,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00221",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 16,
+    "capacity_kips": 520,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00222",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 17,
+    "capacity_kips": 521,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00223",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325SC",
+    "bolt_count": 18,
+    "capacity_kips": 522,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00224",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490SC",
+    "bolt_count": 19,
+    "capacity_kips": 523,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00225",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325",
+    "bolt_count": 4,
+    "capacity_kips": 524,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00226",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 5,
+    "capacity_kips": 525,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00227",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 6,
+    "capacity_kips": 526,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00228",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490SC",
+    "bolt_count": 7,
+    "capacity_kips": 527,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00229",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325",
+    "bolt_count": 8,
+    "capacity_kips": 528,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00230",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490",
+    "bolt_count": 9,
+    "capacity_kips": 529,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00231",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 10,
+    "capacity_kips": 530,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00232",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 11,
+    "capacity_kips": 531,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00233",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325",
+    "bolt_count": 12,
+    "capacity_kips": 532,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00234",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490",
+    "bolt_count": 13,
+    "capacity_kips": 533,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00235",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325SC",
+    "bolt_count": 14,
+    "capacity_kips": 534,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00236",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 15,
+    "capacity_kips": 535,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00237",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 16,
+    "capacity_kips": 536,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00238",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490",
+    "bolt_count": 17,
+    "capacity_kips": 537,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00239",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325SC",
+    "bolt_count": 18,
+    "capacity_kips": 538,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00240",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490SC",
+    "bolt_count": 19,
+    "capacity_kips": 539,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00241",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 4,
+    "capacity_kips": 540,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00242",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 5,
+    "capacity_kips": 541,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00243",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325SC",
+    "bolt_count": 6,
+    "capacity_kips": 542,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00244",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490SC",
+    "bolt_count": 7,
+    "capacity_kips": 543,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00245",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325",
+    "bolt_count": 8,
+    "capacity_kips": 544,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00246",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 9,
+    "capacity_kips": 545,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00247",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 10,
+    "capacity_kips": 546,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00248",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490SC",
+    "bolt_count": 11,
+    "capacity_kips": 547,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00249",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325",
+    "bolt_count": 12,
+    "capacity_kips": 548,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00250",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490",
+    "bolt_count": 13,
+    "capacity_kips": 549,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00251",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 14,
+    "capacity_kips": 550,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00252",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 15,
+    "capacity_kips": 551,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00253",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325",
+    "bolt_count": 16,
+    "capacity_kips": 552,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00254",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490",
+    "bolt_count": 17,
+    "capacity_kips": 553,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00255",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325SC",
+    "bolt_count": 18,
+    "capacity_kips": 554,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00256",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 19,
+    "capacity_kips": 555,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00257",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 4,
+    "capacity_kips": 556,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00258",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490",
+    "bolt_count": 5,
+    "capacity_kips": 557,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00259",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325SC",
+    "bolt_count": 6,
+    "capacity_kips": 558,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00260",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490SC",
+    "bolt_count": 7,
+    "capacity_kips": 559,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00261",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 8,
+    "capacity_kips": 560,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00262",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 9,
+    "capacity_kips": 561,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00263",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325SC",
+    "bolt_count": 10,
+    "capacity_kips": 562,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00264",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490SC",
+    "bolt_count": 11,
+    "capacity_kips": 563,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00265",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325",
+    "bolt_count": 12,
+    "capacity_kips": 564,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00266",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 13,
+    "capacity_kips": 565,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00267",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 14,
+    "capacity_kips": 566,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00268",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490SC",
+    "bolt_count": 15,
+    "capacity_kips": 567,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00269",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325",
+    "bolt_count": 16,
+    "capacity_kips": 568,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00270",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490",
+    "bolt_count": 17,
+    "capacity_kips": 569,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00271",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 18,
+    "capacity_kips": 570,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00272",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 19,
+    "capacity_kips": 571,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00273",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325",
+    "bolt_count": 4,
+    "capacity_kips": 572,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00274",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490",
+    "bolt_count": 5,
+    "capacity_kips": 573,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00275",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325SC",
+    "bolt_count": 6,
+    "capacity_kips": 574,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00276",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 7,
+    "capacity_kips": 575,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00277",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 8,
+    "capacity_kips": 576,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00278",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490",
+    "bolt_count": 9,
+    "capacity_kips": 577,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00279",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325SC",
+    "bolt_count": 10,
+    "capacity_kips": 578,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00280",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490SC",
+    "bolt_count": 11,
+    "capacity_kips": 579,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00281",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 12,
+    "capacity_kips": 580,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00282",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 13,
+    "capacity_kips": 581,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00283",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325SC",
+    "bolt_count": 14,
+    "capacity_kips": 582,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00284",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490SC",
+    "bolt_count": 15,
+    "capacity_kips": 583,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00285",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325",
+    "bolt_count": 16,
+    "capacity_kips": 584,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00286",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 17,
+    "capacity_kips": 585,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00287",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 18,
+    "capacity_kips": 586,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00288",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490SC",
+    "bolt_count": 19,
+    "capacity_kips": 587,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00289",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325",
+    "bolt_count": 4,
+    "capacity_kips": 588,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00290",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490",
+    "bolt_count": 5,
+    "capacity_kips": 589,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00291",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 6,
+    "capacity_kips": 590,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00292",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 7,
+    "capacity_kips": 591,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00293",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325",
+    "bolt_count": 8,
+    "capacity_kips": 592,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00294",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490",
+    "bolt_count": 9,
+    "capacity_kips": 593,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00295",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325SC",
+    "bolt_count": 10,
+    "capacity_kips": 594,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00296",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 11,
+    "capacity_kips": 595,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00297",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 12,
+    "capacity_kips": 596,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00298",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490",
+    "bolt_count": 13,
+    "capacity_kips": 597,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00299",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325SC",
+    "bolt_count": 14,
+    "capacity_kips": 598,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00300",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490SC",
+    "bolt_count": 15,
+    "capacity_kips": 599,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00301",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 16,
+    "capacity_kips": 600,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00302",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 17,
+    "capacity_kips": 601,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00303",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325SC",
+    "bolt_count": 18,
+    "capacity_kips": 602,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00304",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490SC",
+    "bolt_count": 19,
+    "capacity_kips": 603,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00305",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325",
+    "bolt_count": 4,
+    "capacity_kips": 604,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00306",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 5,
+    "capacity_kips": 605,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00307",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 6,
+    "capacity_kips": 606,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00308",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490SC",
+    "bolt_count": 7,
+    "capacity_kips": 607,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00309",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325",
+    "bolt_count": 8,
+    "capacity_kips": 608,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00310",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490",
+    "bolt_count": 9,
+    "capacity_kips": 609,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00311",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 10,
+    "capacity_kips": 610,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00312",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 11,
+    "capacity_kips": 611,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00313",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325",
+    "bolt_count": 12,
+    "capacity_kips": 612,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00314",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490",
+    "bolt_count": 13,
+    "capacity_kips": 613,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00315",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325SC",
+    "bolt_count": 14,
+    "capacity_kips": 614,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00316",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 15,
+    "capacity_kips": 615,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00317",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 16,
+    "capacity_kips": 616,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00318",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490",
+    "bolt_count": 17,
+    "capacity_kips": 617,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00319",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325SC",
+    "bolt_count": 18,
+    "capacity_kips": 618,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00320",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490SC",
+    "bolt_count": 19,
+    "capacity_kips": 619,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00321",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 4,
+    "capacity_kips": 620,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00322",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 5,
+    "capacity_kips": 621,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00323",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325SC",
+    "bolt_count": 6,
+    "capacity_kips": 622,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00324",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490SC",
+    "bolt_count": 7,
+    "capacity_kips": 623,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00325",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325",
+    "bolt_count": 8,
+    "capacity_kips": 624,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00326",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 9,
+    "capacity_kips": 625,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00327",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 10,
+    "capacity_kips": 626,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00328",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490SC",
+    "bolt_count": 11,
+    "capacity_kips": 627,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00329",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325",
+    "bolt_count": 12,
+    "capacity_kips": 628,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00330",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490",
+    "bolt_count": 13,
+    "capacity_kips": 629,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00331",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 14,
+    "capacity_kips": 630,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00332",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 15,
+    "capacity_kips": 631,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00333",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325",
+    "bolt_count": 16,
+    "capacity_kips": 632,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00334",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490",
+    "bolt_count": 17,
+    "capacity_kips": 633,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00335",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325SC",
+    "bolt_count": 18,
+    "capacity_kips": 634,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00336",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 19,
+    "capacity_kips": 635,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00337",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 4,
+    "capacity_kips": 636,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00338",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490",
+    "bolt_count": 5,
+    "capacity_kips": 637,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00339",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325SC",
+    "bolt_count": 6,
+    "capacity_kips": 638,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00340",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490SC",
+    "bolt_count": 7,
+    "capacity_kips": 639,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00341",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 8,
+    "capacity_kips": 640,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00342",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 9,
+    "capacity_kips": 641,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00343",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325SC",
+    "bolt_count": 10,
+    "capacity_kips": 642,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00344",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490SC",
+    "bolt_count": 11,
+    "capacity_kips": 643,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00345",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325",
+    "bolt_count": 12,
+    "capacity_kips": 644,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00346",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 13,
+    "capacity_kips": 645,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00347",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 14,
+    "capacity_kips": 646,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00348",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490SC",
+    "bolt_count": 15,
+    "capacity_kips": 647,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00349",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325",
+    "bolt_count": 16,
+    "capacity_kips": 648,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00350",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490",
+    "bolt_count": 17,
+    "capacity_kips": 649,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00351",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 18,
+    "capacity_kips": 650,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00352",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 19,
+    "capacity_kips": 651,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00353",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325",
+    "bolt_count": 4,
+    "capacity_kips": 652,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00354",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490",
+    "bolt_count": 5,
+    "capacity_kips": 653,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00355",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325SC",
+    "bolt_count": 6,
+    "capacity_kips": 654,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00356",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 7,
+    "capacity_kips": 655,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00357",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 8,
+    "capacity_kips": 656,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00358",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490",
+    "bolt_count": 9,
+    "capacity_kips": 657,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00359",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325SC",
+    "bolt_count": 10,
+    "capacity_kips": 658,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00360",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490SC",
+    "bolt_count": 11,
+    "capacity_kips": 659,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00361",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 12,
+    "capacity_kips": 660,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00362",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 13,
+    "capacity_kips": 661,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00363",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325SC",
+    "bolt_count": 14,
+    "capacity_kips": 662,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00364",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490SC",
+    "bolt_count": 15,
+    "capacity_kips": 663,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00365",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325",
+    "bolt_count": 16,
+    "capacity_kips": 664,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00366",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 17,
+    "capacity_kips": 665,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00367",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 18,
+    "capacity_kips": 666,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00368",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490SC",
+    "bolt_count": 19,
+    "capacity_kips": 667,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00369",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325",
+    "bolt_count": 4,
+    "capacity_kips": 668,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00370",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490",
+    "bolt_count": 5,
+    "capacity_kips": 669,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00371",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 6,
+    "capacity_kips": 670,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00372",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 7,
+    "capacity_kips": 671,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00373",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325",
+    "bolt_count": 8,
+    "capacity_kips": 672,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00374",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490",
+    "bolt_count": 9,
+    "capacity_kips": 673,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00375",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325SC",
+    "bolt_count": 10,
+    "capacity_kips": 674,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00376",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 11,
+    "capacity_kips": 675,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00377",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 12,
+    "capacity_kips": 676,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00378",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490",
+    "bolt_count": 13,
+    "capacity_kips": 677,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00379",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325SC",
+    "bolt_count": 14,
+    "capacity_kips": 678,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00380",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490SC",
+    "bolt_count": 15,
+    "capacity_kips": 679,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00381",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 16,
+    "capacity_kips": 680,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00382",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 17,
+    "capacity_kips": 681,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00383",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325SC",
+    "bolt_count": 18,
+    "capacity_kips": 682,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00384",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490SC",
+    "bolt_count": 19,
+    "capacity_kips": 683,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00385",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325",
+    "bolt_count": 4,
+    "capacity_kips": 684,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00386",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 5,
+    "capacity_kips": 685,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00387",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 6,
+    "capacity_kips": 686,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00388",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490SC",
+    "bolt_count": 7,
+    "capacity_kips": 687,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00389",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325",
+    "bolt_count": 8,
+    "capacity_kips": 688,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00390",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490",
+    "bolt_count": 9,
+    "capacity_kips": 689,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00391",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 10,
+    "capacity_kips": 690,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00392",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 11,
+    "capacity_kips": 691,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00393",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325",
+    "bolt_count": 12,
+    "capacity_kips": 692,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00394",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490",
+    "bolt_count": 13,
+    "capacity_kips": 693,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00395",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325SC",
+    "bolt_count": 14,
+    "capacity_kips": 694,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00396",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 15,
+    "capacity_kips": 695,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00397",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 16,
+    "capacity_kips": 696,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00398",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490",
+    "bolt_count": 17,
+    "capacity_kips": 697,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00399",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325SC",
+    "bolt_count": 18,
+    "capacity_kips": 698,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00400",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490SC",
+    "bolt_count": 19,
+    "capacity_kips": 699,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00401",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 4,
+    "capacity_kips": 700,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00402",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 5,
+    "capacity_kips": 701,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00403",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325SC",
+    "bolt_count": 6,
+    "capacity_kips": 702,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00404",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490SC",
+    "bolt_count": 7,
+    "capacity_kips": 703,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00405",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325",
+    "bolt_count": 8,
+    "capacity_kips": 704,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00406",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 9,
+    "capacity_kips": 705,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00407",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 10,
+    "capacity_kips": 706,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00408",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490SC",
+    "bolt_count": 11,
+    "capacity_kips": 707,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00409",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325",
+    "bolt_count": 12,
+    "capacity_kips": 708,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00410",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490",
+    "bolt_count": 13,
+    "capacity_kips": 709,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00411",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 14,
+    "capacity_kips": 710,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00412",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 15,
+    "capacity_kips": 711,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00413",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325",
+    "bolt_count": 16,
+    "capacity_kips": 712,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00414",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490",
+    "bolt_count": 17,
+    "capacity_kips": 713,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00415",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325SC",
+    "bolt_count": 18,
+    "capacity_kips": 714,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00416",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 19,
+    "capacity_kips": 715,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00417",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 4,
+    "capacity_kips": 716,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00418",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490",
+    "bolt_count": 5,
+    "capacity_kips": 717,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00419",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325SC",
+    "bolt_count": 6,
+    "capacity_kips": 718,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00420",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490SC",
+    "bolt_count": 7,
+    "capacity_kips": 719,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00421",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 8,
+    "capacity_kips": 720,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00422",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 9,
+    "capacity_kips": 721,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00423",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325SC",
+    "bolt_count": 10,
+    "capacity_kips": 722,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00424",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490SC",
+    "bolt_count": 11,
+    "capacity_kips": 723,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00425",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325",
+    "bolt_count": 12,
+    "capacity_kips": 724,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00426",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 13,
+    "capacity_kips": 725,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00427",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 14,
+    "capacity_kips": 726,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00428",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490SC",
+    "bolt_count": 15,
+    "capacity_kips": 727,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00429",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325",
+    "bolt_count": 16,
+    "capacity_kips": 728,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00430",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490",
+    "bolt_count": 17,
+    "capacity_kips": 729,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00431",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 18,
+    "capacity_kips": 730,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00432",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 19,
+    "capacity_kips": 731,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00433",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325",
+    "bolt_count": 4,
+    "capacity_kips": 732,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00434",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490",
+    "bolt_count": 5,
+    "capacity_kips": 733,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00435",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325SC",
+    "bolt_count": 6,
+    "capacity_kips": 734,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00436",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 7,
+    "capacity_kips": 735,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00437",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 8,
+    "capacity_kips": 736,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00438",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490",
+    "bolt_count": 9,
+    "capacity_kips": 737,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00439",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325SC",
+    "bolt_count": 10,
+    "capacity_kips": 738,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00440",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490SC",
+    "bolt_count": 11,
+    "capacity_kips": 739,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00441",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 12,
+    "capacity_kips": 740,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00442",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 13,
+    "capacity_kips": 741,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00443",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325SC",
+    "bolt_count": 14,
+    "capacity_kips": 742,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00444",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490SC",
+    "bolt_count": 15,
+    "capacity_kips": 743,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00445",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325",
+    "bolt_count": 16,
+    "capacity_kips": 744,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00446",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 17,
+    "capacity_kips": 745,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00447",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 18,
+    "capacity_kips": 746,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00448",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490SC",
+    "bolt_count": 19,
+    "capacity_kips": 747,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00449",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325",
+    "bolt_count": 4,
+    "capacity_kips": 748,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00450",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490",
+    "bolt_count": 5,
+    "capacity_kips": 749,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00451",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 6,
+    "capacity_kips": 750,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00452",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 7,
+    "capacity_kips": 751,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00453",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325",
+    "bolt_count": 8,
+    "capacity_kips": 752,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00454",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490",
+    "bolt_count": 9,
+    "capacity_kips": 753,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00455",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325SC",
+    "bolt_count": 10,
+    "capacity_kips": 754,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00456",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 11,
+    "capacity_kips": 755,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00457",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 12,
+    "capacity_kips": 756,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00458",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490",
+    "bolt_count": 13,
+    "capacity_kips": 757,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00459",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325SC",
+    "bolt_count": 14,
+    "capacity_kips": 758,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00460",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490SC",
+    "bolt_count": 15,
+    "capacity_kips": 759,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00461",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 16,
+    "capacity_kips": 760,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00462",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 17,
+    "capacity_kips": 761,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00463",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325SC",
+    "bolt_count": 18,
+    "capacity_kips": 762,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00464",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490SC",
+    "bolt_count": 19,
+    "capacity_kips": 763,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00465",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325",
+    "bolt_count": 4,
+    "capacity_kips": 764,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00466",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 5,
+    "capacity_kips": 765,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00467",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 6,
+    "capacity_kips": 766,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00468",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490SC",
+    "bolt_count": 7,
+    "capacity_kips": 767,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00469",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325",
+    "bolt_count": 8,
+    "capacity_kips": 768,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00470",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490",
+    "bolt_count": 9,
+    "capacity_kips": 769,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00471",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 10,
+    "capacity_kips": 770,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00472",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 11,
+    "capacity_kips": 771,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00473",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325",
+    "bolt_count": 12,
+    "capacity_kips": 772,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00474",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490",
+    "bolt_count": 13,
+    "capacity_kips": 773,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00475",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325SC",
+    "bolt_count": 14,
+    "capacity_kips": 774,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00476",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 15,
+    "capacity_kips": 775,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00477",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 16,
+    "capacity_kips": 776,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00478",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490",
+    "bolt_count": 17,
+    "capacity_kips": 777,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00479",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325SC",
+    "bolt_count": 18,
+    "capacity_kips": 778,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00480",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490SC",
+    "bolt_count": 19,
+    "capacity_kips": 779,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00481",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 4,
+    "capacity_kips": 780,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00482",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 5,
+    "capacity_kips": 781,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00483",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325SC",
+    "bolt_count": 6,
+    "capacity_kips": 782,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00484",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490SC",
+    "bolt_count": 7,
+    "capacity_kips": 783,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00485",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325",
+    "bolt_count": 8,
+    "capacity_kips": 784,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00486",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490",
+    "bolt_count": 9,
+    "capacity_kips": 785,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00487",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 10,
+    "capacity_kips": 786,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00488",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490SC",
+    "bolt_count": 11,
+    "capacity_kips": 787,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00489",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325",
+    "bolt_count": 12,
+    "capacity_kips": 788,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00490",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490",
+    "bolt_count": 13,
+    "capacity_kips": 789,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00491",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A325SC",
+    "bolt_count": 14,
+    "capacity_kips": 790,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00492",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 15,
+    "capacity_kips": 791,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00493",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A325",
+    "bolt_count": 16,
+    "capacity_kips": 792,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00494",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A490",
+    "bolt_count": 17,
+    "capacity_kips": 793,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00495",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A325SC",
+    "bolt_count": 18,
+    "capacity_kips": 794,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00496",
+    "connection_type": "bolted_flush_end_plate",
+    "bolt_grade": "A490SC",
+    "bolt_count": 19,
+    "capacity_kips": 795,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00497",
+    "connection_type": "bolted_extended_end_plate",
+    "bolt_grade": "A325",
+    "bolt_count": 4,
+    "capacity_kips": 796,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00498",
+    "connection_type": "bolted_angle",
+    "bolt_grade": "A490",
+    "bolt_count": 5,
+    "capacity_kips": 797,
+    "slip_critical": false,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00499",
+    "connection_type": "welded_moment",
+    "bolt_grade": "A325SC",
+    "bolt_count": 6,
+    "capacity_kips": 798,
+    "slip_critical": true,
+    "generated": true
+  },
+  {
+    "id": "SYNTHETIC_00500",
+    "connection_type": "welded_shear",
+    "bolt_grade": "A490SC",
+    "bolt_count": 7,
+    "capacity_kips": 799,
+    "slip_critical": false,
+    "generated": true
+  }
+]

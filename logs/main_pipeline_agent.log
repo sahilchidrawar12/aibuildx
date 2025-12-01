@@ -1,0 +1,37 @@
+2025-12-01 23:09:42,294 [ERROR] aibuildx.main_pipeline_agent: Pipeline agent processing failed
+Traceback (most recent call last):
+  File "/Users/sahil/Documents/aibuildx/src/pipeline/agents/main_pipeline_agent.py", line 49, in process
+    repaired = repair_pipeline({'members': payload_entities.get('members', payload_entities if isinstance(payload_entities, list) else [])})
+                                           ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'get'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sahil/Documents/aibuildx/src/pipeline/agents/main_pipeline_agent.py", line 52, in process
+    members = payload_entities.get('members', payload_entities if isinstance(payload_entities, list) else [])
+              ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'get'
+2025-12-01 23:10:02,877 [ERROR] aibuildx.main_pipeline_agent: Pipeline agent processing failed
+Traceback (most recent call last):
+  File "/Users/sahil/Documents/aibuildx/src/pipeline/agents/main_pipeline_agent.py", line 82, in process
+    prof = classify_section(m)
+  File "/Users/sahil/Documents/aibuildx/src/pipeline/section_classifier.py", line 15, in classify_section
+    prof = profile_mapper(name, layer=layer, annotations=ann)
+  File "/Users/sahil/Documents/aibuildx/src/pipeline/profile_db.py", line 68, in profile_mapper
+    qnorm = normalize_name(query or "")
+  File "/Users/sahil/Documents/aibuildx/src/pipeline/profile_db.py", line 55, in normalize_name
+    return re.sub(r"[^A-Za-z0-9]+", "", name).upper()
+           ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/re/__init__.py", line 208, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected string or bytes-like object, got 'dict'
+2025-12-01 23:10:22,247 [ERROR] aibuildx.main_pipeline_agent: Pipeline agent processing failed
+Traceback (most recent call last):
+  File "/Users/sahil/Documents/aibuildx/src/pipeline/agents/main_pipeline_agent.py", line 88, in process
+    mat = classify_material(m)
+  File "/Users/sahil/Documents/aibuildx/src/pipeline/material_classifier.py", line 11, in classify_material
+    mat_norm = mat.strip()
+               ^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'strip'

@@ -1,0 +1,59 @@
+# Cost Database for Structural Steel Sections
+# Prices are per kg in USD; adjust as needed for your region/supplier
+
+sections:
+  W8x10:
+    price_per_kg: 1.20
+    availability: "common"
+    lead_time_days: 7
+  W10x12:
+    price_per_kg: 1.15
+    availability: "common"
+    lead_time_days: 7
+  W12x14:
+    price_per_kg: 1.10
+    availability: "common"
+    lead_time_days: 7
+  HSS100x100x6:
+    price_per_kg: 1.25
+    availability: "common"
+    lead_time_days: 10
+  HSS150x150x8:
+    price_per_kg: 1.20
+    availability: "common"
+    lead_time_days: 10
+  REC200x50:
+    price_per_kg: 1.30
+    availability: "specialty"
+    lead_time_days: 14
+
+# Connection component costs
+bolts:
+  M20_Grade8.8:
+    price_per_piece: 2.50
+    availability: "common"
+  M24_Grade10.9:
+    price_per_piece: 4.00
+    availability: "common"
+
+welds:
+  fillet_per_meter:
+    price_per_meter: 15.00
+    material_cost_per_meter: 5.00
+  butt_per_meter:
+    price_per_meter: 25.00
+    material_cost_per_meter: 8.00
+
+plates:
+  steel_plate_per_kg: 1.05
+  stiffener_per_kg: 1.05
+  gusset_per_kg: 1.05
+
+# Fabrication costs
+fabrication:
+  cutting_per_hour: 50.00
+  drilling_per_hole: 10.00
+  bolting_per_connection: 30.00
+  welding_per_hour: 75.00
+  assembly_per_hour: 60.00
+  painting_per_kg: 0.15

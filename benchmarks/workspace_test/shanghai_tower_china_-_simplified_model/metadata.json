@@ -1,0 +1,15 @@
+{
+  "name": "Shanghai Tower (China) - Simplified Model",
+  "description": "Second tallest (632 m); double-skin facade, mega-columns, tuned mass damper",
+  "category": "super-tall",
+  "difficulty": "high",
+  "reference_sources": [
+    "Guo et al. 2014: Shanghai Tower: Design and Construction of the World's Second Tallest Building (CTBUH)"
+  ],
+  "expected_outputs": [
+    "First 3 modal frequencies: ~0.14, 0.15, 0.20 Hz (\u00b110%)",
+    "Max story drift under design wind (\u00b15%)",
+    "Outrigger brace forces (node-to-node comparison)"
+  ],
+  "notes": "Reference data from CTBUH conference publications; wind pressures from aerodynamic testing summary"
+}

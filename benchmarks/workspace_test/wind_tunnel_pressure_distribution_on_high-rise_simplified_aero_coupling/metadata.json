@@ -1,0 +1,16 @@
+{
+  "name": "Wind Tunnel Pressure Distribution on High-Rise (Simplified Aero Coupling)",
+  "description": "Square tower subjected to uniform wind; validate pressure mapping & modal response",
+  "category": "wind-aero",
+  "difficulty": "medium",
+  "reference_sources": [
+    "ASCE 7 wind pressure coefficients (Cp tables)",
+    "CIRIA Guide or EN1991-1-4 for wind loading"
+  ],
+  "expected_outputs": [
+    "Base shear vs. expected ASCE 7 formula within 5%",
+    "Story shears decrease monotonically per code prediction (\u00b13%)",
+    "Modal response envelope match to spectral input within 10%"
+  ],
+  "notes": "Validates wind load application and dynamic response; no experimental data needed (code-based)"
+}

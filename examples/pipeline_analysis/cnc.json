@@ -1,0 +1,5 @@
+{
+  "cnc_csv": "outputs/cnc.csv",
+  "rows": [],
+  "parts_dir": "outputs/cnc_parts"
+}

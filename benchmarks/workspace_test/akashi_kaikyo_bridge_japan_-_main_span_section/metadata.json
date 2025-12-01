@@ -1,0 +1,18 @@
+{
+  "name": "Akashi Kaikyo Bridge (Japan) - Main Span Section",
+  "description": "1991 m main span suspension bridge; longest main span worldwide; complex cable & deck system",
+  "category": "long-span-bridge",
+  "difficulty": "very-high",
+  "reference_sources": [
+    "Nagarajaiah & Narasimhan 2006: Seismic Response & Aerodynamic Performance (EQ Spec Isol Damp)",
+    "Wind tunnel studies and published modal data",
+    "Honshu-Shikoku Bridge Authority (HSBA) technical reports"
+  ],
+  "expected_outputs": [
+    "First symmetric vertical mode: ~0.055 Hz (\u00b15%)",
+    "First lateral mode: ~0.10 Hz (\u00b15%)",
+    "Cable tension distribution along deck (compare to measured)",
+    "Wind-induced flutter derivatives and aeroelastic stability"
+  ],
+  "notes": "Cable stiffness and geometric nonlinearity (sag & tension) critical; wind flutter is key validation"
+}

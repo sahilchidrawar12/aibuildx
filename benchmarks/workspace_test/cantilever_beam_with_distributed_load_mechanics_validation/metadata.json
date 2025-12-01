@@ -1,0 +1,15 @@
+{
+  "name": "Cantilever Beam with Distributed Load (Mechanics Validation)",
+  "description": "Classic elasticity problem: cantilever beam, distributed load; analytical solution available",
+  "category": "validation-basic",
+  "difficulty": "trivial",
+  "reference_sources": [
+    "Timoshenko & Gere: Theory of Elastic Stability (analytical formulas)"
+  ],
+  "expected_outputs": [
+    "Max deflection within 1% of analytical (Wmax = 5qL^4/384EI)",
+    "Support reaction within 0.1% of analytical (R = qL)",
+    "Internal moment distribution shape (compare curvature)"
+  ],
+  "notes": "Fundamental validation; if this fails, solver setup is wrong"
+}

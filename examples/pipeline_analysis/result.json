@@ -1,0 +1,87 @@
+{
+  "miner": {
+    "members": []
+  },
+  "engineer": {
+    "members": []
+  },
+  "loads": {
+    "members": []
+  },
+  "stability": {
+    "members": []
+  },
+  "optimizer": {
+    "members": [],
+    "totals": {
+      "weight_kg": 0.0,
+      "cost_currency": 0.0
+    }
+  },
+  "connections": {
+    "members": []
+  },
+  "fabrication": {
+    "members": []
+  },
+  "standards": {
+    "members": [],
+    "correction_iters": 0,
+    "corrections": []
+  },
+  "erection": {
+    "members": []
+  },
+  "safety": {
+    "members": []
+  },
+  "analysis": {
+    "nodes": [],
+    "elements": []
+  },
+  "ifc": {
+    "ifc": "outputs/model.ifc",
+    "note": "IFC written with basic swept solids and PSETs."
+  },
+  "validator": {
+    "errors": [],
+    "warnings": []
+  },
+  "clashes": {
+    "clashes": []
+  },
+  "mesh_clashes": {
+    "clashes": []
+  },
+  "soft_clashes": {
+    "soft_clashes": []
+  },
+  "functional_clashes": {
+    "functional_clashes": []
+  },
+  "mep_clashes": {
+    "mep_clashes": []
+  },
+  "risk": {
+    "members": []
+  },
+  "reporter": {
+    "bom": [],
+    "members": []
+  },
+  "final": {
+    "members": [],
+    "correction_iters": 0,
+    "corrections": []
+  },
+  "cnc": {
+    "cnc_csv": "outputs/cnc.csv",
+    "rows": [],
+    "parts_dir": "outputs/cnc_parts"
+  },
+  "dstv": {
+    "index": "outputs/dstv_parts/dstv_index.csv",
+    "parts_dir": "outputs/dstv_parts",
+    "rows": []
+  }
+}

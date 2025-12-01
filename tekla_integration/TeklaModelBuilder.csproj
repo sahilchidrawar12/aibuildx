@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net48</TargetFramework>
+    <AssemblyName>TeklaModelBuilder</AssemblyName>
+    <RootNamespace>TeklaStructures.AIBuildX</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Reference Tekla assemblies. Update HintPath to Tekla installation on your machine -->
+    <Reference Include="Tekla.Structures.Model">
+      <HintPath>$(TeklaPath)\bin\Tekla.Structures.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="Tekla.Structures.Geometry3d">
+      <HintPath>$(TeklaPath)\bin\Tekla.Structures.Geometry3d.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

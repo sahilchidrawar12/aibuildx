@@ -1,0 +1,40 @@
+{
+  "jobs": [
+    {
+      "name": "Ground Floor Structural Frame",
+      "input": "examples/drawings/ground_floor.dwg",
+      "output": "models/ground_floor",
+      "options": {
+        "profile_standard": "AISC",
+        "safety_factor": 1.5,
+        "weld_process": "GMAW"
+      }
+    },
+    {
+      "name": "Typical Floor",
+      "input": "examples/drawings/typical_floor.dwg",
+      "output": "models/typical_floor",
+      "options": {
+        "profile_standard": "AISC",
+        "safety_factor": 1.5,
+        "weld_process": "GMAW"
+      }
+    },
+    {
+      "name": "Roof Structure",
+      "input": "examples/drawings/roof.dwg",
+      "output": "models/roof",
+      "options": {
+        "profile_standard": "AISC",
+        "safety_factor": 1.2,
+        "weld_process": "GMAW"
+      }
+    }
+  ],
+  "output_settings": {
+    "format": "ifc",
+    "include_bom": true,
+    "include_clash_report": true,
+    "include_tekla_export": true
+  }
+}

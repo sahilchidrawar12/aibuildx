@@ -1,0 +1,41 @@
+{
+  "building_info": {
+    "name": "Complex Multi-Story Steel Frame",
+    "description": "3-story office building with 4x4 column grid",
+    "width": 20.0,
+    "length": 20.0,
+    "height": 12.0,
+    "stories": 3,
+    "bay_size": 5.0,
+    "floor_height": 4.0,
+    "occupancy": "Office",
+    "location": "Chicago, IL",
+    "code": "IBC 2021",
+    "design_standard": "AISC 360-16"
+  },
+  "enhancements_summary": {
+    "enriched_members": 243,
+    "enriched_connections": 80,
+    "standardized_plates": 128,
+    "profile_mapping": {
+      "I_BEAM": 195,
+      "TUBE": 48
+    },
+    "connection_standardization": {
+      "MOMENT_RESISTING": 80
+    }
+  },
+  "readiness_scores": {
+    "3D Coordinates": 100.0,
+    "Member Properties": 100.0,
+    "Member Orientations": 100.0,
+    "Tekla Profile Mapping": 100.0,
+    "Connection Definitions": 100.0,
+    "Connection 3D Geometry": 100.0,
+    "Weld Specifications": 100.0,
+    "Bolt Configurations": 100.0,
+    "Plate Geometry": 100.0,
+    "Material Specifications": 100.0
+  },
+  "overall_score": 100.0
+}

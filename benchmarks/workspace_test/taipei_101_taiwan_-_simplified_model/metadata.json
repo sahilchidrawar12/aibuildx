@@ -1,0 +1,16 @@
+{
+  "name": "Taipei 101 (Taiwan) - Simplified Model",
+  "description": "504 m tall; tuned mass damper (660 tons), 8-section tower, steel moment frame",
+  "category": "super-tall",
+  "difficulty": "medium-high",
+  "reference_sources": [
+    "Sinn et al. 2004: Effective Liquid Dampers for Tuned Mass Dampers (JSCEJ)",
+    "Taipei 101 public technical documentation"
+  ],
+  "expected_outputs": [
+    "Natural frequency with TMD: ~0.08 Hz (\u00b110%)",
+    "TMD response to wind/seismic excitation (damping ratio validation)",
+    "Max acceleration at top <0.1g (compare to target spec)"
+  ],
+  "notes": "Focus on TMD integration and damping validation; full model not required"
+}

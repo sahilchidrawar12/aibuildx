@@ -1,0 +1,20 @@
+{
+  "timestamp": "2025-12-02T00:55:11.769825",
+  "expansion_summary": {
+    "connections": 50000,
+    "steel_sections": 1800,
+    "design_decisions": 100000,
+    "clash_scenarios": 100000,
+    "compliance_cases": 1000,
+    "fea_benchmarks": 50000,
+    "total_entries": 302800
+  },
+  "files_generated": [
+    "connections_50k.json",
+    "steel_sections_1800.json",
+    "design_decisions_100k.json",
+    "clashes_100k.json",
+    "compliance_cases_1000.json",
+    "fea_benchmarks_50k.json"
+  ]
+}

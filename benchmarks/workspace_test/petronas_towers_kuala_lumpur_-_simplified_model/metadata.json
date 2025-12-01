@@ -1,0 +1,16 @@
+{
+  "name": "Petronas Towers (Kuala Lumpur) - Simplified Model",
+  "description": "452 m twin towers with sky bridge; tuned mass damper, rectangular tube columns",
+  "category": "super-tall",
+  "difficulty": "medium",
+  "reference_sources": [
+    "Kar-Wai et al. 1998: Petronas Towers Design (CTBUH)",
+    "Symonds & Harford 1998: Wind Tunnel Studies"
+  ],
+  "expected_outputs": [
+    "Tower fundamental frequency: ~0.20 Hz (\u00b110%)",
+    "Sky bridge connector force distribution",
+    "Wind-induced acceleration limits (<0.25%g)"
+  ],
+  "notes": "Focus on symmetric and coupled tower response; bridge interaction validation"
+}

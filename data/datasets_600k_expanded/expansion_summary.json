@@ -1,0 +1,13 @@
+{
+  "timestamp": "{\n  \"timestamp\": \"2025-12-02T00:49:41.888513\",\n  \"total_connections\": 505,\n  \"total_sections\": 208,\n  \"total_decisions\": 1000,\n  \"total_clashes\": 1000,\n  \"total_compliance_cases\": 500,\n  \"grand_total_entries\": 3213,\n  \"files_created\": [\n    \"connections.json\",\n    \"steel_sections.csv\",\n    \"design_decisions.json\",\n    \"clashes.json\",\n    \"compliance_cases.json\"\n  ]\n}",
+  "expanded_summary": {
+    "timestamp": "/Users/sahil/Documents/aibuildx",
+    "connections": 50500,
+    "sections": 2080,
+    "design_decisions": 100000,
+    "clashes": 100000,
+    "compliance": 25000,
+    "total_entries": 277580,
+    "output_directory": "data/datasets_600k_expanded"
+  }
+}

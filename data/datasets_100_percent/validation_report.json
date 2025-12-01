@@ -1,0 +1,63 @@
+{
+  "timestamp": "2025-12-02T00:55:53.116668",
+  "files_validated": [],
+  "total_entries": 301675,
+  "issues_found": 0,
+  "duplicates_removed": 0,
+  "entries_fixed": 0,
+  "validation_results": {
+    "connections": {
+      "file": "data/datasets_100_percent/connections_50k.json",
+      "total_entries": 50000,
+      "valid_entries": 50000,
+      "issues": 0,
+      "pass_rate": "100%"
+    },
+    "sections": {
+      "file": "data/datasets_100_percent/steel_sections_1800.json",
+      "total_entries": 675,
+      "valid_entries": 675,
+      "issues": 0,
+      "pass_rate": "100%"
+    },
+    "decisions": {
+      "file": "data/datasets_100_percent/design_decisions_100k.json",
+      "total_entries": 100000,
+      "valid_entries": 100000,
+      "issues": 0,
+      "pass_rate": "100%"
+    },
+    "clashes": {
+      "file": "data/datasets_100_percent/clashes_100k.json",
+      "total_entries": 100000,
+      "valid_entries": 100000,
+      "issues": 0,
+      "pass_rate": "100%",
+      "severity_distribution": {
+        "LOW": 25033,
+        "MEDIUM": 24874,
+        "HIGH": 25225,
+        "CRITICAL": 24868
+      }
+    },
+    "compliance": {
+      "file": "data/datasets_100_percent/compliance_cases_1000.json",
+      "total_entries": 1000,
+      "valid_entries": 1000,
+      "issues": 0,
+      "pass_rate": "100%",
+      "pass_fail_distribution": {
+        "PASS": 742,
+        "FAIL": 258
+      }
+    },
+    "benchmarks": {
+      "file": "data/datasets_100_percent/fea_benchmarks_50k.json",
+      "total_entries": 50000,
+      "valid_entries": 50000,
+      "issues": 0,
+      "pass_rate": "100%",
+      "average_analysis_time_sec": 1810.54
+    }
+  }
+}
