@@ -1,0 +1,6 @@
+[
+  {"start": [0,0,0], "end": [6,0,0], "layer": "BEAMS"},
+  {"start": [6,0,0], "end": [6,0,4], "layer": "COLUMNS"},
+  {"start": [0,0,0], "end": [0,6,0], "layer": "BEAMS"},
+  {"start": [0,0,0], "end": [6,6,0], "layer": "BRACES"}
+]
