@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TeklaModelBuilder")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+152bf371ab3c28e821d9ab9a88e0c695c2f31c3d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+43a256f2f12e84b26e517e7c80e6d991596de09e")]
 [assembly: System.Reflection.AssemblyProductAttribute("TeklaModelBuilder")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TeklaModelBuilder")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
