@@ -20,14 +20,17 @@ def _new_guid():
 def _to_metres(val: float) -> Optional[float]:
     """Convert a numeric length from mm to metres consistently.
     
-    Assumes input is in mm if >= 100. Otherwise treats as already converted.
-    This ensures 3000 mm → 3.0 m, 6000 mm → 6.0 m.
+    FIXED: No longer uses unreliable heuristics. Assumes all numeric inputs are in mm.
+    Single-pass conversion: 3000 mm → 3.0 m, 6000 mm → 6.0 m, 50 mm → 0.05 m.
+    
+    This prevents double-conversion errors on already-converted values.
     """
     try:
         if val is None:
             return None
-        # Heuristic: model inputs are in mm; values like 3000, 6000 should become 3.0, 6.0 m
-        return (val / 1000.0) if abs(val) >= 100 else float(val)
+        # Single-pass: convert mm → m by dividing by 1000
+        # ALL numeric inputs are assumed to be in mm (from DXF/model)
+        return val / 1000.0
     except Exception:
         return val
 
@@ -148,22 +151,36 @@ def generate_profile_def(profile: Dict[str, Any], member_id: str) -> Dict[str, A
         # Default: treat as I-shape
         return generate_i_shape_profile(profile, member_id)
 
-def create_extruded_area_solid(profile_def: Dict[str, Any], length_m: float, member_id: str) -> Dict[str, Any]:
+def create_extruded_area_solid(profile_def: Dict[str, Any], length_m: float, member_id: str, 
+                               extrusion_direction: List[float] = None) -> Dict[str, Any]:
     """Create IfcExtrudedAreaSolid geometry for a member.
+    
+    FIXED: Extrusion direction is now MEMBER-ALIGNED, not hardcoded [1,0,0].
+    For diagonal member with direction [0.707, 0.707, 0], extrusion uses that direction.
     
     Args:
         profile_def: Profile definition dict
         length_m: Extrusion length in metres
         member_id: Member ID for naming
+        extrusion_direction: Normalized member direction vector [x, y, z]
         
     Returns:
         Extruded area solid representation dict
     """
+    # FIXED: Use passed extrusion direction (member-aligned) instead of hardcoded [1,0,0]
+    if extrusion_direction is None:
+        extrusion_direction = [1.0, 0.0, 0.0]
+    
+    # Ensure normalization
+    mag = math.sqrt(sum(d**2 for d in extrusion_direction))
+    if mag > 1e-10:
+        extrusion_direction = [d / mag for d in extrusion_direction]
+    
     return {
         "type": "IfcExtrudedAreaSolid",
         "profile_type": profile_def.get('type'),
         "profile_name": profile_def.get('profile_name'),
-        "extrusion_direction": [1.0, 0.0, 0.0],  # Along member X-axis
+        "extrusion_direction": extrusion_direction,  # FIXED: Member-aligned, not [1,0,0]
         "extrusion_length": length_m,
         "area": profile_def.get('area'),
         "volume": profile_def.get('area') * length_m if profile_def.get('area') else None,
