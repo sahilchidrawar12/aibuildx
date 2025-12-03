@@ -88,13 +88,17 @@ uploadBtn.addEventListener('click', async () => {
         
         const stepInterval = setInterval(() => {
             if (currentStep > 0) {
-                const prevStep = document.getElementById(`step-${steps[currentStep - 1]}`);
-                prevStep.classList.remove('active');
-                prevStep.classList.add('completed');
+                const prevStep = document.querySelector(`[data-step="${steps[currentStep - 1]}"]`);
+                if (prevStep) {
+                    prevStep.classList.remove('active');
+                    prevStep.classList.add('completed');
+                }
             }
             if (currentStep < steps.length) {
-                const currStep = document.getElementById(`step-${steps[currentStep]}`);
-                currStep.classList.add('active');
+                const currStep = document.querySelector(`[data-step="${steps[currentStep]}"]`);
+                if (currStep) {
+                    currStep.classList.add('active');
+                }
                 currentStep++;
             }
         }, 1000);
@@ -118,14 +122,19 @@ uploadBtn.addEventListener('click', async () => {
         
         const data = await response.json();
         
+        console.log('Response received:', response.ok, data);
+        
         if (response.ok && data.status === 'ok') {
+            console.log('Processing success response...');
             currentJobId = data.job_id;
             
             // Complete all steps
             steps.forEach(step => {
-                const stepEl = document.getElementById(`step-${step}`);
-                stepEl.classList.remove('active');
-                stepEl.classList.add('completed');
+                const stepEl = document.querySelector(`[data-step="${step}"]`);
+                if (stepEl) {
+                    stepEl.classList.remove('active');
+                    stepEl.classList.add('completed');
+                }
             });
             
             // Complete progress bar
@@ -144,6 +153,7 @@ uploadBtn.addEventListener('click', async () => {
             
             // Show results after animation
             setTimeout(() => {
+                console.log('About to call showResults with:', data);
                 showResults(data);
             }, 800);
         } else {
@@ -155,8 +165,16 @@ uploadBtn.addEventListener('click', async () => {
 });
 
 function showResults(data) {
+    console.log('=== showResults() called ===');
+    console.log('Full response data:', JSON.stringify(data, null, 2));
+    
     const outputs = data.outputs || {};
     const summary = outputs.summary || {};
+    
+    // Debug: Log the data to console
+    console.log('Results data:', data);
+    console.log('Output path:', data.output_path);
+    console.log('outputs.file_details:', outputs.file_details);
     
     // Update statistics
     const statsHtml = `
@@ -167,11 +185,65 @@ function showResults(data) {
     `;
     document.getElementById('statistics').innerHTML = statsHtml;
     
-    // Update download links
-    const downloadList = document.getElementById('downloadList');
+    // Update download links with output path header
+    const downloadList = document.getElementById('downloadLinks');
+    console.log('downloadLinks element found:', downloadList);
+    
+    if (!downloadList) {
+        console.error('ERROR: downloadLinks element not found in DOM!');
+        return;
+    }
+    
     downloadList.innerHTML = '';
     
-    if (outputs.files && outputs.files.length > 0) {
+    // Add output path display
+    if (data.output_path) {
+        const pathDisplay = document.createElement('div');
+        pathDisplay.style.cssText = `
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        `;
+        pathDisplay.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>
+                </svg>
+                <strong style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.5px;">Output Location</strong>
+            </div>
+            <div style="background: rgba(255, 255, 255, 0.15); padding: 12px; border-radius: 8px; font-family: 'Monaco', 'Courier New', monospace; font-size: 0.875rem; word-break: break-all; backdrop-filter: blur(10px);">
+                ${data.output_path}
+            </div>
+            <div style="margin-top: 8px; font-size: 0.75rem; opacity: 0.9;">
+                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display: inline; vertical-align: middle; margin-right: 4px;">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                All generated files are saved in this directory
+            </div>
+        `;
+        downloadList.appendChild(pathDisplay);
+    }
+    
+    if (outputs.file_details && outputs.file_details.length > 0) {
+        outputs.file_details.forEach(file => {
+            const link = document.createElement('a');
+            link.href = `/api/download/${currentJobId}/${file.name}`;
+            link.className = 'download-link';
+            const fileSizeFormatted = formatFileSize(file.size);
+            link.innerHTML = `
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"></path>
+                </svg>
+                <span style="flex: 1;">${file.name}</span>
+                <span style="font-size: 0.75rem; color: var(--gray-500); background: var(--gray-100); padding: 2px 8px; border-radius: 4px;">${file.type}</span>
+                <span style="font-size: 0.75rem; color: var(--gray-500); margin-left: 8px;">${fileSizeFormatted}</span>
+            `;
+            downloadList.appendChild(link);
+        });
+    } else if (outputs.files && outputs.files.length > 0) {
         outputs.files.forEach(file => {
             const link = document.createElement('a');
             link.href = `/api/download/${currentJobId}/${file}`;
@@ -185,7 +257,7 @@ function showResults(data) {
             downloadList.appendChild(link);
         });
     } else {
-        downloadList.innerHTML = '<p style="color: var(--gray-600); font-size: 0.875rem;">No output files available</p>';
+        downloadList.innerHTML += '<p style="color: var(--gray-600); font-size: 0.875rem;">No output files available</p>';
     }
     
     // Update quality metrics with animations
@@ -207,11 +279,18 @@ function showResults(data) {
         </div>
     `).join('');
     
-    document.getElementById('qualityMetrics').innerHTML = metricsHtml;
+    const qualityMetricsEl = document.getElementById('qualityMetrics');
+    if (qualityMetricsEl) {
+        qualityMetricsEl.innerHTML = metricsHtml;
+    } else {
+        console.warn('qualityMetrics element not found, skipping metrics display');
+    }
     
     // Show results section
+    console.log('Showing results section...');
     document.getElementById('progressSection').style.display = 'none';
     document.getElementById('resultsSection').style.display = 'block';
+    console.log('Results section displayed!');
 }
 
 // Export to Tekla
@@ -311,8 +390,10 @@ function showError(message) {
     // Reset processing steps
     const steps = ['upload', 'convert', 'analyze', 'export'];
     steps.forEach(step => {
-        const stepEl = document.getElementById(`step-${step}`);
-        stepEl.classList.remove('active', 'completed');
+        const stepEl = document.querySelector(`[data-step="${step}"]`);
+        if (stepEl) {
+            stepEl.classList.remove('active', 'completed');
+        }
     });
     
     // Show error section
