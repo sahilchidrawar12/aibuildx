@@ -42,8 +42,9 @@ def parse_dxf_file(file_path: str) -> Dict[str, Any]:
     modelspace = doc.modelspace()
     
     entities = []
+    circles = []
     
-    # Extract LINE entities
+    # Extract LINE entities and CIRCLE entities
     for entity in modelspace:
         if entity.dxftype() == 'LINE':
             start = entity.dxf.start
@@ -112,6 +113,20 @@ def parse_dxf_file(file_path: str) -> Dict[str, Any]:
                     })
             except Exception:
                 pass
+        
+        # Extract CIRCLE entities (connection points)
+        elif entity.dxftype() == 'CIRCLE':
+            try:
+                center = entity.dxf.center
+                radius = entity.dxf.radius
+                circles.append({
+                    'type': 'CIRCLE',
+                    'center': [center.x, center.y, center.z if hasattr(center, 'z') else 0.0],
+                    'radius': radius,
+                    'layer': entity.dxf.layer if hasattr(entity.dxf, 'layer') else 'default'
+                })
+            except Exception:
+                pass
     
     # Convert entities to members format
     members = []
@@ -124,7 +139,7 @@ def parse_dxf_file(file_path: str) -> Dict[str, Any]:
             'layer': ent.get('layer', 'default')
         })
     
-    return {'members': members}
+    return {'members': members, 'circles': circles}
 
 
 def _calculate_length(p0: List[float], p1: List[float]) -> float:

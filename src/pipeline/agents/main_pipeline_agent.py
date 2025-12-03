@@ -74,6 +74,20 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
         out['nodes'] = nodes
         out['joints'] = joints
 
+        # 3.5) Connection parser: convert circles to joints with member links
+        try:
+            from src.pipeline.agents.connection_parser_agent import parse_connections
+            circles = payload_entities.get('circles', [])
+            if circles:
+                parsed_joints = parse_connections(circles, members, search_radius_mm=150.0)
+                # Merge with auto-generated joints
+                joints.extend(parsed_joints)
+                out['joints'] = joints
+                out['circles_parsed'] = len(circles)
+        except Exception as e:
+            logger.warning(f"Connection parsing failed: {e}")
+            out['circles_parsed'] = 0
+
         # 4) Section and material classification
         from src.pipeline.section_classifier import classify_section
         from src.pipeline.material_classifier import classify_material
@@ -173,7 +187,8 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
         ifc_model = export_ifc_model(
             members,
             out.get('plates') or data.get('plates', []),
-            out.get('bolts') or data.get('bolts', [])
+            out.get('bolts') or data.get('bolts', []),
+            out.get('joints', [])
         )
         out['ifc'] = ifc_model
 

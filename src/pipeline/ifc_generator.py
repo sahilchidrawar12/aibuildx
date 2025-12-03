@@ -73,8 +73,14 @@ def generate_i_shape_profile(profile: Dict[str, Any], member_id: str) -> Dict[st
     flange_thick_m = _to_metres(profile.get('flange_thickness') or 12.0)
     fillet_radius_m = _to_metres(profile.get('fillet_radius') or 10.0)
     
-    area_m2 = _to_metres(_to_metres(profile.get('area'))) if profile.get('area') else None
-    ix_m4 = _to_metres(_to_metres(_to_metres(profile.get('Ix')))) if profile.get('Ix') else None
+    # FIX: Area is already in mm² in the profile dict, convert to m² correctly (divide by 1e6, not apply _to_metres)
+    area_mm2 = profile.get('area') or 0.0
+    area_m2 = (area_mm2 / 1e6) if area_mm2 >= 100 else area_mm2  # mm² → m²
+    
+    # FIX: Ix/Iy/Zx/Zy are already in correct units in profile dict, don't double-convert
+    ix_m4 = profile.get('Ix')
+    if ix_m4 and abs(ix_m4) >= 1e6:  # If looks like mm⁴, convert to m⁴
+        ix_m4 = ix_m4 / 1e12
     
     return {
         "type": "IfcIShapeProfileDef",
@@ -85,11 +91,11 @@ def generate_i_shape_profile(profile: Dict[str, Any], member_id: str) -> Dict[st
         "web_thickness": web_thick_m,
         "flange_thickness": flange_thick_m,
         "fillet_radius": fillet_radius_m,
-        "area": area_m2,
-        "Ix": ix_m4,  # Second moment about strong axis
-        "Iy": _to_metres(_to_metres(_to_metres(profile.get('Iy')))) if profile.get('Iy') else None,
-        "Zx": _to_metres(_to_metres(profile.get('Zx'))) if profile.get('Zx') else None,
-        "Zy": _to_metres(_to_metres(profile.get('Zy'))) if profile.get('Zy') else None,
+        "area": area_m2,  # Corrected to m²
+        "Ix": ix_m4,  # Second moment about strong axis (m⁴)
+        "Iy": profile.get('Iy') / 1e12 if profile.get('Iy') and abs(profile.get('Iy')) >= 1e6 else profile.get('Iy'),  # Corrected
+        "Zx": profile.get('Zx') / 1e9 if profile.get('Zx') and abs(profile.get('Zx')) >= 1e6 else profile.get('Zx'),  # mm³ → m³
+        "Zy": profile.get('Zy') / 1e9 if profile.get('Zy') and abs(profile.get('Zy')) >= 1e6 else profile.get('Zy'),  # mm³ → m³
     }
 
 def generate_rectangular_profile(profile: Dict[str, Any], member_id: str) -> Dict[str, Any]:
@@ -467,7 +473,68 @@ def generate_ifc_fastener(bolt: Dict[str,Any]) -> Dict[str,Any]:
         }
     }
 
-def export_ifc_model(members: List[Dict[str,Any]], plates: List[Dict[str,Any]], bolts: List[Dict[str,Any]]) -> Dict[str,Any]:
+def generate_ifc_joint(joint: Dict[str,Any], member_map: Dict[str,str]) -> Optional[Dict[str,Any]]:
+    """Generate IFC joint (IfcWeld or IfcRigidConnection) from joint dict.
+    
+    Args:
+        joint: Joint dict with members, location, type, etc.
+        member_map: Map of member IDs to IFC element IDs
+        
+    Returns:
+        IFC joint entity dict or None if joint can't be converted
+    """
+    try:
+        joint_id = joint.get('id') or _new_guid()
+        member_ids = joint.get('members') or []
+        
+        # If no explicit members, find members meeting at this joint location
+        location = [joint.get('x', 0.0), joint.get('y', 0.0), joint.get('z', 0.0)]
+        location_m = _vec_to_metres(location)
+        
+        # Extract IFC member IDs from member_map
+        ifc_member_ids = []
+        if member_ids:
+            ifc_member_ids = [member_map.get(mid) for mid in member_ids if mid in member_map]
+        
+        # If we couldn't find members from explicit list, we can still create the joint at location
+        # with a generic reference
+        if not ifc_member_ids:
+            # For now, we need at least location data to create meaningful joint
+            # If no members, we can skip or create a generic joint
+            if not member_ids:
+                return None  # Can't create joint without member references
+        
+        # Get joint type/method
+        joint_type = joint.get('type') or 'IfcWeld'
+        joint_method = joint.get('method') or 'Welded'
+        
+        # Get material of joint
+        joint_material = joint.get('material') or {}
+        
+        return {
+            "type": joint_type,
+            "id": str(joint_id),
+            "name": f"{joint_type}-{str(joint_id)[:8]}",
+            "members": ifc_member_ids if ifc_member_ids else [],
+            "location": location_m,
+            "method": joint_method,
+            "placement": create_local_placement(location_m, [0,0,1], [1,0,0]),
+            "material": joint_material,
+            "property_sets": {
+                "Pset_WeldingConnection": {
+                    "WeldType": joint.get('weld_type', 'Fillet'),
+                    "WeldSize": _to_metres(joint.get('weld_size', 0.0)),
+                    "WeldMethod": joint_method
+                } if joint_type == "IfcWeld" else {}
+            }
+        }
+    except Exception as e:
+        # Log error and skip this joint
+        import sys
+        print(f"Error generating IFC joint {joint.get('id')}: {e}", file=sys.stderr)
+        return None
+
+def export_ifc_model(members: List[Dict[str,Any]], plates: List[Dict[str,Any]], bolts: List[Dict[str,Any]], joints: List[Dict[str,Any]] = None) -> Dict[str,Any]:
     """
     Export complete IFC model with spatial hierarchy, relationships, and all structural connections.
     
@@ -479,7 +546,10 @@ def export_ifc_model(members: List[Dict[str,Any]], plates: List[Dict[str,Any]], 
     - Proper IfcLocalPlacement and IfcAxis2Placement3D for all elements
     - Spatial containment: project → site → building → storey → elements
     - Structural connections: IfcRelConnectsElements linking members, plates, bolts
+    - Joints (welds and rigid connections) linking multiple members
     """
+    if joints is None:
+        joints = []
     # Initialize model with complete spatial structure
     project_id = _new_guid()
     site_id = _new_guid()
@@ -525,6 +595,7 @@ def export_ifc_model(members: List[Dict[str,Any]], plates: List[Dict[str,Any]], 
         "columns": [],
         "plates": [],
         "fasteners": [],
+        "joints": [],
         "relationships": {
             "spatial_containment": [],
             "structural_connections": []
@@ -593,54 +664,109 @@ def export_ifc_model(members: List[Dict[str,Any]], plates: List[Dict[str,Any]], 
     # Process plates and create connections
     plate_map = {}
     for p in plates:
-        ifc_plate = generate_ifc_plate(p)
-        model['plates'].append(ifc_plate)
-        plate_map[p.get('id')] = ifc_plate['id']
-        
-        # Add plate to spatial containment
-        model['relationships']['spatial_containment'].append({
-            "type": "IfcRelContainedInSpatialStructure",
-            "relationship_id": _new_guid(),
-            "element_id": ifc_plate['id'],
-            "element_type": "IfcPlate",
-            "contained_in": storey_id,
-            "container_type": "IfcBuildingStorey"
-        })
-        
-        # Create connections between plate and connected members
-        # Extract member references from plate (if available)
-        members_on_plate = p.get('members') or []
-        for member_id in members_on_plate:
-            if member_id in member_map:
-                member_info = member_map[member_id]
-                # Add structural connection relationship
-                model['relationships']['structural_connections'].append({
-                    "type": "IfcRelConnectsElements",
-                    "connection_id": _new_guid(),
-                    "relating_element": member_info['element_id'],
-                    "related_element": ifc_plate['id'],
-                    "connection_type": "PlateConnection",
-                    "element_types": [member_info['type'], "IfcPlate"]
-                })
+        try:
+            ifc_plate = generate_ifc_plate(p)
+            if ifc_plate is None:
+                import sys
+                print(f"Warning: Failed to generate IFC plate {p.get('id')}", file=sys.stderr)
+                continue
+            model['plates'].append(ifc_plate)
+            plate_map[p.get('id')] = ifc_plate['id']
+            
+            # Add plate to spatial containment
+            model['relationships']['spatial_containment'].append({
+                "type": "IfcRelContainedInSpatialStructure",
+                "relationship_id": _new_guid(),
+                "element_id": ifc_plate['id'],
+                "element_type": "IfcPlate",
+                "contained_in": storey_id,
+                "container_type": "IfcBuildingStorey"
+            })
+            
+            # Create connections between plate and connected members
+            # Extract member references from plate (if available)
+            members_on_plate = p.get('members') or []
+            for member_id in members_on_plate:
+                if member_id in member_map:
+                    member_info = member_map[member_id]
+                    # Add structural connection relationship
+                    model['relationships']['structural_connections'].append({
+                        "type": "IfcRelConnectsElements",
+                        "connection_id": _new_guid(),
+                        "relating_element": member_info['element_id'],
+                        "related_element": ifc_plate['id'],
+                        "connection_type": "PlateConnection",
+                        "element_types": [member_info['type'], "IfcPlate"]
+                    })
+        except Exception as e:
+            import sys
+            print(f"Error processing plate {p.get('id')}: {e}", file=sys.stderr)
+            continue
     
     # Process fasteners and create connections
     for b in bolts:
-        ifc_fastener = generate_ifc_fastener(b)
-        model['fasteners'].append(ifc_fastener)
-        
-        # Create connections between fastener and plate/members
-        # Fasteners connect plates to members
-        plate_id = b.get('plate_id')
-        if plate_id and plate_id in plate_map:
-            model['relationships']['structural_connections'].append({
-                "type": "IfcRelConnectsWithRealizingElements",
-                "connection_id": _new_guid(),
-                "relating_element": plate_id,
-                "related_element": plate_map.get(plate_id),
-                "realizing_element": ifc_fastener['id'],
-                "connection_type": "BoltConnection",
-                "element_types": ["IfcPlate", "IfcFastener"]
+        try:
+            ifc_fastener = generate_ifc_fastener(b)
+            if ifc_fastener is None:
+                import sys
+                print(f"Warning: Failed to generate IFC fastener {b.get('id')}", file=sys.stderr)
+                continue
+            model['fasteners'].append(ifc_fastener)
+            
+            # Create connections between fastener and plate/members
+            # Fasteners connect plates to members
+            plate_id = b.get('plate_id')
+            if plate_id and plate_id in plate_map:
+                model['relationships']['structural_connections'].append({
+                    "type": "IfcRelConnectsWithRealizingElements",
+                    "connection_id": _new_guid(),
+                    "relating_element": plate_id,
+                    "related_element": plate_map.get(plate_id),
+                    "realizing_element": ifc_fastener['id'],
+                    "connection_type": "BoltConnection",
+                    "element_types": ["IfcPlate", "IfcFastener"]
+                })
+        except Exception as e:
+            import sys
+            print(f"Error processing fastener {b.get('id')}: {e}", file=sys.stderr)
+            continue
+    
+    # Process joints and create multi-member connections
+    for j in joints:
+        try:
+            ifc_joint = generate_ifc_joint(j, {mid: member_map[mid]['element_id'] for mid in member_map})
+            if ifc_joint is None:
+                import sys
+                print(f"Warning: Failed to generate IFC joint {j.get('id')}", file=sys.stderr)
+                continue
+            model['joints'].append(ifc_joint)
+            
+            # Add joint to spatial containment
+            model['relationships']['spatial_containment'].append({
+                "type": "IfcRelContainedInSpatialStructure",
+                "relationship_id": _new_guid(),
+                "element_id": ifc_joint['id'],
+                "element_type": ifc_joint['type'],
+                "contained_in": storey_id,
+                "container_type": "IfcBuildingStorey"
             })
+            
+            # Create multi-member connection relationships
+            members_in_joint = ifc_joint.get('members', [])
+            if len(members_in_joint) >= 2:
+                model['relationships']['structural_connections'].append({
+                    "type": "IfcRelConnectsElements",
+                    "connection_id": _new_guid(),
+                    "relating_element": members_in_joint[0],
+                    "related_element": members_in_joint[1],
+                    "realizing_element": ifc_joint['id'],
+                    "connection_type": ifc_joint.get('method', 'Welded'),
+                    "element_types": ["IfcMember", "IfcMember", ifc_joint['type']]
+                })
+        except Exception as e:
+            import sys
+            print(f"Error processing joint {j.get('id')}: {e}", file=sys.stderr)
+            continue
     
     # Add project-level spatial hierarchy relationships
     # project → site → building → storey
@@ -674,7 +800,8 @@ def export_ifc_model(members: List[Dict[str,Any]], plates: List[Dict[str,Any]], 
         "total_beams": len(model['beams']),
         "total_plates": len(model['plates']),
         "total_fasteners": len(model['fasteners']),
-        "total_elements": len(model['columns']) + len(model['beams']) + len(model['plates']) + len(model['fasteners']),
+        "total_joints": len(model['joints']),
+        "total_elements": len(model['columns']) + len(model['beams']) + len(model['plates']) + len(model['fasteners']) + len(model['joints']),
         "total_relationships": len(model['relationships']['spatial_containment']) + len(model['relationships']['structural_connections'])
     }
     
