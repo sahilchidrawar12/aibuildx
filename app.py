@@ -66,22 +66,56 @@ def upload_file():
         
         # Collect output files
         output_files = []
+        file_details = []
         if os.path.exists(job_output_dir):
             for fname in os.listdir(job_output_dir):
-                if fname.endswith('.json') or fname.endswith('.csv'):
+                if fname.endswith('.json') or fname.endswith('.csv') or fname.endswith('.ifc'):
                     output_files.append(fname)
+                    file_path = os.path.join(job_output_dir, fname)
+                    file_size = os.path.getsize(file_path)
+                    file_details.append({
+                        'name': fname,
+                        'size': file_size,
+                        'type': fname.split('.')[-1].upper()
+                    })
         
+        # Get absolute output path
+        output_path = os.path.abspath(job_output_dir)
+        
+        # Debug log
+        print(f"DEBUG: Returning output_path: {output_path}")
+        print(f"DEBUG: File details: {file_details}")
+        
+        # Optionally read IFC summary counts if available
+        ifc_summary = {}
+        if os.path.exists(os.path.join(job_output_dir, 'ifc.json')):
+            try:
+                with open(os.path.join(job_output_dir, 'ifc.json'), 'r') as fh:
+                    ifc_data = json.load(fh)
+                    ifc_summary = ifc_data.get('summary', {})
+            except Exception:
+                ifc_summary = {}
+
         return jsonify({
             'status': 'ok',
             'job_id': job_id,
             'message': f'Pipeline completed successfully. {len(result.keys())} outputs generated.',
+            'output_path': output_path,
             'outputs': {
                 'keys': list(result.keys()) if isinstance(result, dict) else [],
                 'files': output_files,
+                'file_details': file_details,
                 'summary': {
                     'members': len(result.get('miner', {}).get('members', [])) if isinstance(result, dict) else 0,
                     'errors': len(result.get('validator', {}).get('errors', [])) if isinstance(result, dict) else 0,
                     'clashes': len(result.get('clashes', {}).get('clashes', [])) if isinstance(result, dict) else 0,
+                    'entities': len(result.get('entities', [])) if isinstance(result, dict) else 0,
+                    'format': filename.split('.')[-1].upper(),
+                    'time': 'N/A',
+                    'columns': ifc_summary.get('total_columns'),
+                    'beams': ifc_summary.get('total_beams'),
+                    'plates': ifc_summary.get('total_plates'),
+                    'fasteners': ifc_summary.get('total_fasteners')
                 }
             }
         }), 200

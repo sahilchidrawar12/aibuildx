@@ -105,6 +105,50 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
             deflection_reports.append({'id': m.get('id'), 'deflection': dr})
         out['deflection'] = deflection_reports
 
+        # 7) Connection synthesis (plates + bolts) from joints
+        # Derive minimal connections without changing datasets: create shear plates with bolt groups
+        plates_synth = []
+        bolts_synth = []
+        try:
+            from src.pipeline.fabrication_tolerances import check_bolt_spacing
+            default_bolt_dia_mm = 20.0
+            default_bolt_spacing_mm = 80.0
+            default_plate_thk_mm = 10.0
+            if check_bolt_spacing(default_bolt_dia_mm, default_bolt_spacing_mm):
+                for j in joints:
+                    j_pos = j.get('position') or j.get('node') or [0.0, 0.0, 0.0]
+                    plates_synth.append({
+                        'id': f"plate_{j.get('id','')}",
+                        'position': j_pos,
+                        'outline': {
+                            'width_mm': 160.0,
+                            'height_mm': 160.0
+                        },
+                        'thickness': default_plate_thk_mm,
+                        'material': {'name': 'S235'}
+                    })
+                    grid_offsets = [
+                        (-default_bolt_spacing_mm/2, -default_bolt_spacing_mm/2, 0.0),
+                        ( default_bolt_spacing_mm/2, -default_bolt_spacing_mm/2, 0.0),
+                        (-default_bolt_spacing_mm/2,  default_bolt_spacing_mm/2, 0.0),
+                        ( default_bolt_spacing_mm/2,  default_bolt_spacing_mm/2, 0.0),
+                    ]
+                    for ox, oy, oz in grid_offsets:
+                        bolts_synth.append({
+                            'id': f"bolt_{j.get('id','')}_{ox}_{oy}",
+                            'diameter': default_bolt_dia_mm,
+                            'pos': [
+                                (j_pos[0] or 0.0) + ox,
+                                (j_pos[1] or 0.0) + oy,
+                                (j_pos[2] or 0.0) + oz
+                            ],
+                            'grade': 'A325'
+                        })
+        except Exception:
+            pass
+        out['plates'] = plates_synth
+        out['bolts'] = bolts_synth
+
         # 7) Code compliance checks
         from src.pipeline.code_compliance import check_member_basic
         compliance_reports = []
@@ -161,7 +205,11 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
 
         # 13) IFC export
         from src.pipeline.ifc_generator import export_ifc_model
-        ifc_model = export_ifc_model(members, data.get('plates', []), data.get('bolts', []))
+        ifc_model = export_ifc_model(
+            members,
+            out.get('plates') or data.get('plates', []),
+            out.get('bolts') or data.get('bolts', [])
+        )
         out['ifc'] = ifc_model
 
         # 14) Report aggregation
