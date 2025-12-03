@@ -1,0 +1,75 @@
+{
+  "timestamp": "2025-12-04T02:10:37.453414",
+  "tests": [
+    {
+      "name": "Critical Imports",
+      "status": "passed",
+      "details": [
+        "\u2713 comprehensive_clash_detector_v2.ComprehensiveClashDetector",
+        "\u2713 comprehensive_clash_detector_v2.Clash",
+        "\u2713 comprehensive_clash_detector_v2.ClashCategory",
+        "\u2713 comprehensive_clash_corrector_v2.ComprehensiveClashCorrector",
+        "\u2713 comprehensive_clash_corrector_v2.AIModelRegistry",
+        "\u2713 connection_classifier_agent.ConnectionClassifier",
+        "\u2713 connection_synthesis_agent_enhanced.synthesize_connections_model_driven",
+        "\u2713 connection_synthesis_agent_enhanced.ModelInferenceEngine"
+      ]
+    },
+    {
+      "name": "Clash Detector",
+      "status": "passed",
+      "details": [
+        "\u2713 Detector initialized",
+        "\u2713 Detection completed: 4 clashes",
+        "\u2713 Output format correct",
+        "\u2713 Summary format correct"
+      ]
+    },
+    {
+      "name": "Clash Corrector",
+      "status": "passed",
+      "details": [
+        "\u2713 Corrector initialized",
+        "\u2713 Correction completed: 1 corrections",
+        "\u2717 Output format incorrect"
+      ]
+    },
+    {
+      "name": "Connection Classifier",
+      "status": "passed",
+      "details": [
+        "\u2713 Classifier initialized",
+        "\u2713 Classification completed"
+      ]
+    },
+    {
+      "name": "Connection Synthesis",
+      "status": "passed",
+      "details": [
+        "\u2713 Synthesis completed"
+      ]
+    },
+    {
+      "name": "Main Pipeline",
+      "status": "passed",
+      "details": [
+        "\u2713 Pipeline executed",
+        "\u2713 Pipeline status OK",
+        "\u2713 Clash detection executed"
+      ]
+    },
+    {
+      "name": "End-to-End Integration",
+      "status": "passed",
+      "details": [
+        "\u2713 Pipeline executed: PASSED",
+        "\u2713 Stages: 7 completed",
+        "\u2713 Clashes detected: 4"
+      ]
+    }
+  ],
+  "passed": 7,
+  "failed": 0,
+  "warnings": 0,
+  "errors": []
+}

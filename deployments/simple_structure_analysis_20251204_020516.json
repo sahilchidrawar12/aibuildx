@@ -1,0 +1,19 @@
+{
+  "clashes": [
+    "Clash(clash_id='CLASH_000001', category=<ClashCategory.MEMBER_HUGE_SPAN: 'member_huge_span'>, severity=<ClashSeverity.MODERATE: 3>, element_type='member', element_id='B1', description='Member B1 spans 5000.0m (excessive?)', current_value=np.float64(5000.0), expected_value='<50m', corrective_action='', confidence_score=0.9, location_3d=None, corrected=False, correction_details={}, timestamp='2025-12-04T02:05:16.625763')",
+    "Clash(clash_id='CLASH_000002', category=<ClashCategory.MEMBER_LATERAL_BRACING: 'member_lateral_bracing'>, severity=<ClashSeverity.MAJOR: 2>, element_type='member', element_id='B1', description='Long member B1 (5000.0m) lacks lateral bracing', current_value=1, expected_value='\u22652', corrective_action='', confidence_score=0.9, location_3d=None, corrected=False, correction_details={}, timestamp='2025-12-04T02:05:16.625783')",
+    "Clash(clash_id='CLASH_000003', category=<ClashCategory.MEMBER_HUGE_SPAN: 'member_huge_span'>, severity=<ClashSeverity.MODERATE: 3>, element_type='member', element_id='C1', description='Member C1 spans 3000.0m (excessive?)', current_value=np.float64(3000.0), expected_value='<50m', corrective_action='', confidence_score=0.9, location_3d=None, corrected=False, correction_details={}, timestamp='2025-12-04T02:05:16.625793')",
+    "Clash(clash_id='CLASH_000004', category=<ClashCategory.MEMBER_LATERAL_BRACING: 'member_lateral_bracing'>, severity=<ClashSeverity.MAJOR: 2>, element_type='member', element_id='C1', description='Long member C1 (3000.0m) lacks lateral bracing', current_value=1, expected_value='\u22652', corrective_action='', confidence_score=0.9, location_3d=None, corrected=False, correction_details={}, timestamp='2025-12-04T02:05:16.625797')"
+  ],
+  "summary": {
+    "total": 4,
+    "critical": 0,
+    "major": 2,
+    "moderate": 2,
+    "by_category": {
+      "member_huge_span": 2,
+      "member_lateral_bracing": 2
+    }
+  },
+  "timestamp": "2025-12-04T02:05:16.625832"
+}

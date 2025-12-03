@@ -392,12 +392,30 @@ def generate_ifc_plate(plate: Dict[str,Any]) -> Dict[str,Any]:
     
     Plates have outline dimensions and thickness. Position is global coordinates.
     Orientation includes Axis2Placement3D for proper spatial reference.
+    
+    CRITICAL FIX: Properly handles plate position from multiple possible keys:
+    - 'position': Primary (from connection synthesis)
+    - 'location': Secondary (alternate from synthesis)
+    - 'pos': Tertiary (backward compatibility)
+    - Default: [0,0,0] ONLY if truly not provided (rare case)
     """
     # Convert plate dimensions from mm to metres if needed
     plate_id = plate.get('id') or _new_guid()
     
+    # CRITICAL FIX: Try all possible position keys in order
+    position = plate.get('position')
+    if position is None:
+        position = plate.get('location')
+    if position is None:
+        position = plate.get('pos')
+    if position is None:
+        position = plate.get('placement', {}).get('location')
+    if position is None:
+        # Only use [0,0,0] as absolute last resort
+        position = [0, 0, 0]
+    
     # Position: convert from mm to m if it looks like mm
-    position_m = _vec_to_metres(plate.get('position') or plate.get('pos') or [0, 0, 0])
+    position_m = _vec_to_metres(position)
     
     # Outline dimensions: convert from mm to m
     outline = plate.get('outline') or {}
@@ -455,11 +473,24 @@ def generate_ifc_fastener(bolt: Dict[str,Any]) -> Dict[str,Any]:
     
     Fasteners have global position (in metres) and diameter (in mm → m).
     Orientation is vertical by default.
+    
+    CRITICAL FIX: Properly handles bolt position from multiple possible keys:
+    - 'position': Primary (from connection synthesis)
+    - 'pos': Secondary (backward compatibility)
+    - Default: [0,0,0] ONLY if truly not provided (rare case)
     """
     bolt_id = bolt.get('id') or _new_guid()
     
+    # CRITICAL FIX: Try all possible position keys in order
+    position = bolt.get('position')
+    if position is None:
+        position = bolt.get('pos')
+    if position is None:
+        # Only use [0,0,0] as absolute last resort
+        position = [0, 0, 0]
+    
     # Convert position from mm to m
-    position_m = _vec_to_metres(bolt.get('position') or bolt.get('pos') or [0, 0, 0])
+    position_m = _vec_to_metres(position)
     
     # Bolt diameter: convert from mm to m
     diameter_mm = bolt.get('diameter') or 20.0
@@ -504,8 +535,16 @@ def generate_ifc_joint(joint: Dict[str,Any], member_map: Dict[str,str]) -> Optio
         joint_id = joint.get('id') or _new_guid()
         member_ids = joint.get('members') or []
         
-        # If no explicit members, find members meeting at this joint location
-        location = [joint.get('x', 0.0), joint.get('y', 0.0), joint.get('z', 0.0)]
+        # CRITICAL FIX: Try all possible location keys in order
+        location = joint.get('position')
+        if location is None:
+            location = joint.get('location')
+        if location is None:
+            # Fallback: construct from x, y, z fields
+            location = [joint.get('x', 0.0), joint.get('y', 0.0), joint.get('z', 0.0)]
+        if location is None:
+            location = [0.0, 0.0, 0.0]
+        
         location_m = _vec_to_metres(location)
         
         # Extract IFC member IDs from member_map

@@ -1,0 +1,406 @@
+{
+  "timestamp": "2025-12-04T02:08:19.231076",
+  "total_agents": 40,
+  "properly_imported": 2,
+  "missing_imports": 3,
+  "critical_issues": [],
+  "warnings": [
+    "Missing import: connection_classifier_agent",
+    "Missing import: comprehensive_clash_detector_v2",
+    "Missing import: comprehensive_clash_corrector_v2"
+  ],
+  "info": [],
+  "agent_details": {
+    "analysis_agent.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/analysis_agent.py",
+      "size": 744,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "unchecked"
+    },
+    "assembly_agent.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/assembly_agent.py",
+      "size": 636,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "unchecked"
+    },
+    "clash_detection_agent.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/clash_detection_agent.py",
+      "size": 1054,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "unchecked"
+    },
+    "clash_detection_correction_agent.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/clash_detection_correction_agent.py",
+      "size": 41646,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "unchecked"
+    },
+    "cnc_exporter_agent.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/cnc_exporter_agent.py",
+      "size": 1486,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "unchecked"
+    },
+    "comprehensive_clash_corrector_v2.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/comprehensive_clash_corrector_v2.py",
+      "size": 37897,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "verified"
+    },
+    "comprehensive_clash_detector_v2.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/comprehensive_clash_detector_v2.py",
+      "size": 38939,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "verified"
+    },
+    "connection_classifier_agent.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/connection_classifier_agent.py",
+      "size": 19674,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "verified"
+    },
+    "connection_designer.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/connection_designer.py",
+      "size": 725,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "unchecked"
+    },
+    "connection_parser_agent.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/connection_parser_agent.py",
+      "size": 6975,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "unchecked"
+    },
+    "connection_synthesis_agent.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/connection_synthesis_agent.py",
+      "size": 16534,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "unchecked"
+    },
+    "connection_synthesis_agent_enhanced.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/connection_synthesis_agent_enhanced.py",
+      "size": 21313,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "unchecked"
+    },
+    "connection_synthesis_agent_fixed.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/connection_synthesis_agent_fixed.py",
+      "size": 18487,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "unchecked"
+    },
+    "correction_loop_agent.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/correction_loop_agent.py",
+      "size": 677,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "unchecked"
+    },
+    "cost_agent.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/cost_agent.py",
+      "size": 532,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "unchecked"
+    },
+    "design_review_agent.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/design_review_agent.py",
+      "size": 794,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "unchecked"
+    },
+    "dstv_exporter_agent.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/dstv_exporter_agent.py",
+      "size": 1187,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "unchecked"
+    },
+    "engineer_agent.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/engineer_agent.py",
+      "size": 1410,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "unchecked"
+    },
+    "erection_agent.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/erection_agent.py",
+      "size": 693,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "unchecked"
+    },
+    "export_packager_agent.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/export_packager_agent.py",
+      "size": 880,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "unchecked"
+    },
+    "fabrication_agent.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/fabrication_agent.py",
+      "size": 1497,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "unchecked"
+    },
+    "healthcheck_agent.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/healthcheck_agent.py",
+      "size": 463,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "unchecked"
+    },
+    "ifc_builder_agent.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/ifc_builder_agent.py",
+      "size": 630,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "unchecked"
+    },
+    "main_pipeline_agent.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/main_pipeline_agent.py",
+      "size": 13060,
+      "imports": [
+        "typing",
+        "json",
+        "src.pipeline.logging_setup",
+        "src.pipeline.geometry_agent",
+        "src.pipeline.node_resolution",
+        "src.pipeline.section_classifier",
+        "src.pipeline.material_classifier",
+        "src.pipeline.load_combination",
+        "src.pipeline.deflection_agent",
+        "src.pipeline.code_compliance",
+        "src.pipeline.connection_capacity",
+        "src.pipeline.fabrication_tolerances",
+        "src.pipeline.erection_sequencing",
+        "src.pipeline.clash_avoidance",
+        "src.pipeline.stability_engine",
+        "src.pipeline.ifc_generator",
+        "src.pipeline.report_aggregator",
+        "src.pipeline.auto_repair_engine",
+        "src.pipeline.agents.connection_parser_agent",
+        "src.pipeline.universal_geometry_engine",
+        "src.pipeline.agents.connection_synthesis_agent_enhanced",
+        "src.pipeline.universal_geometry_engine",
+        "src.pipeline.dxf_parser",
+        "src.pipeline.agents.connection_synthesis_agent",
+        "src.pipeline.agents.connection_synthesis_agent",
+        "src.pipeline"
+      ],
+      "functions": [
+        "process",
+        "run"
+      ],
+      "classes": [
+        "MainPipelineAgent"
+      ],
+      "status": "analyzed"
+    },
+    "main_pipeline_agent_enhanced.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/main_pipeline_agent_enhanced.py",
+      "size": 20364,
+      "imports": [
+        "json",
+        "logging",
+        "typing",
+        "datetime",
+        "math",
+        "comprehensive_clash_detector_v2",
+        "comprehensive_clash_corrector_v2",
+        "connection_classifier_agent",
+        "src.pipeline.agents.comprehensive_clash_detector_v2",
+        "src.pipeline.agents.comprehensive_clash_corrector_v2",
+        "src.pipeline.agents.connection_classifier_agent"
+      ],
+      "functions": [
+        "run_enhanced_pipeline",
+        "export_validation_report",
+        "__init__",
+        "run_complete_pipeline",
+        "_stage_7_1_connection_classification",
+        "_stage_7_2_connection_synthesis",
+        "_stage_7_3_comprehensive_clash_detection",
+        "_stage_7_4_clash_correction",
+        "_apply_corrections_to_ifc",
+        "_stage_7_5_geometry_validation",
+        "_stage_7_6_weld_fastener_verification",
+        "_stage_7_7_anchorage_foundation_validation",
+        "_stage_7_8_revalidation",
+        "_generate_validation_report",
+        "_generate_recommendation",
+        "_count_by_type",
+        "_is_valid_3d_point"
+      ],
+      "classes": [
+        "EnhancedMainPipelineAgent"
+      ],
+      "status": "analyzed"
+    },
+    "miner_agent.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/miner_agent.py",
+      "size": 757,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "unchecked"
+    },
+    "optimizer_agent.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/optimizer_agent.py",
+      "size": 1576,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "unchecked"
+    },
+    "procurement_agent.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/procurement_agent.py",
+      "size": 759,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "unchecked"
+    },
+    "quality_agent.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/quality_agent.py",
+      "size": 681,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "unchecked"
+    },
+    "report_exporter_agent.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/report_exporter_agent.py",
+      "size": 882,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "unchecked"
+    },
+    "reporter_agent.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/reporter_agent.py",
+      "size": 1105,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "unchecked"
+    },
+    "risk_agent.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/risk_agent.py",
+      "size": 1390,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "unchecked"
+    },
+    "risk_mitigation_agent.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/risk_mitigation_agent.py",
+      "size": 859,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "unchecked"
+    },
+    "safety_agent.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/safety_agent.py",
+      "size": 631,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "unchecked"
+    },
+    "safety_report_agent.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/safety_report_agent.py",
+      "size": 547,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "unchecked"
+    },
+    "schedule_monitor_agent.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/schedule_monitor_agent.py",
+      "size": 804,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "unchecked"
+    },
+    "scheduler_agent.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/scheduler_agent.py",
+      "size": 916,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "unchecked"
+    },
+    "scheduler_refinement_agent.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/scheduler_refinement_agent.py",
+      "size": 1129,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "unchecked"
+    },
+    "stability_agent.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/stability_agent.py",
+      "size": 1064,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "unchecked"
+    },
+    "validator_agent.py": {
+      "path": "/Users/sahil/Documents/aibuildx/src/pipeline/agents/validator_agent.py",
+      "size": 1974,
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "status": "unchecked"
+    }
+  },
+  "status": "PASSED",
+  "summary": {
+    "critical_issues": 0,
+    "warnings": 3,
+    "total_agents": 40,
+    "properly_imported": 2
+  }
+}

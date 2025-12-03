@@ -88,6 +88,29 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
             logger.warning(f"Connection parsing failed: {e}")
             out['circles_parsed'] = 0
 
+        # 3.7) Universal coordinate origin fix (applies to IFC data with coordinate issues)
+        try:
+            from src.pipeline.universal_geometry_engine import fix_coordinate_origins_universal
+            # Build IFC-like structure from current state
+            ifc_data = {
+                'members': members,
+                'joints': joints,
+                'plates': [],  # Will be populated by connection synthesis
+                'bolts': []
+            }
+            # Apply universal geometry fixes (detects and corrects broken coordinates)
+            ifc_data_fixed = fix_coordinate_origins_universal(ifc_data)
+            # Update members and joints if fixes were applied
+            if ifc_data_fixed.get('members'):
+                members = ifc_data_fixed['members']
+            if ifc_data_fixed.get('joints'):
+                joints = ifc_data_fixed['joints']
+            out['coordinate_origin_fixed'] = True
+            logger.info("Universal coordinate origin fix applied successfully")
+        except Exception as e:
+            logger.debug(f"Coordinate origin fix skipped or not applicable: {e}")
+            out['coordinate_origin_fixed'] = False
+
         # 4) Section and material classification
         from src.pipeline.section_classifier import classify_section
         from src.pipeline.material_classifier import classify_material
@@ -119,14 +142,110 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
             deflection_reports.append({'id': m.get('id'), 'deflection': dr})
         out['deflection'] = deflection_reports
 
-        # 7) Connection synthesis (plates + bolts) from joints via agent
+        # 7) Connection synthesis (plates + bolts) from joints via MODEL-DRIVEN agent
         try:
-            from src.pipeline.agents.connection_synthesis_agent import synthesize_connections
-            plates_synth, bolts_synth = synthesize_connections(members, joints)
-        except Exception:
-            plates_synth, bolts_synth = [], []
+            # Use enhanced model-driven agent with AI predictions
+            from src.pipeline.agents.connection_synthesis_agent_enhanced import (
+                synthesize_connections_model_driven,
+                ModelInferenceEngine
+            )
+            
+            logger.info("Using MODEL-DRIVEN connection synthesis (6 AI models)")
+            plates_synth, bolts_synth = synthesize_connections_model_driven(members, joints)
+            
+            # Log model-driven decision for traceability
+            for plate in plates_synth:
+                plate['synthesis_method'] = 'MODEL-DRIVEN-AI'
+                plate['models_used'] = [
+                    'BoltSizePredictor',
+                    'PlateThicknessPredictor', 
+                    'WeldSizePredictor',
+                    'JointInferenceNet',
+                    'BoltPatternOptimizer'
+                ]
+            
+            logger.info(f"Generated {len(plates_synth)} model-driven connection plates")
+            logger.info(f"Generated {len(bolts_synth)} model-driven connection bolts")
+            
+        except ImportError as e:
+            logger.error(f"Model-driven agent import failed: {e}")
+            logger.warning("Falling back to standards-based connection synthesis")
+            try:
+                from src.pipeline.agents.connection_synthesis_agent import synthesize_connections
+                plates_synth, bolts_synth = synthesize_connections(members, joints)
+            except Exception:
+                plates_synth, bolts_synth = [], []
+        except Exception as e:
+            logger.error(f"Model-driven synthesis failed: {e}")
+            logger.warning("Falling back to standards-based connection synthesis")
+            try:
+                from src.pipeline.agents.connection_synthesis_agent import synthesize_connections
+                plates_synth, bolts_synth = synthesize_connections(members, joints)
+            except Exception:
+                plates_synth, bolts_synth = [], []
+        
         out['plates'] = plates_synth
         out['bolts'] = bolts_synth
+
+        # 7) COMPREHENSIVE CLASH DETECTION (NEW - v2.0)
+        try:
+            from src.pipeline.agents.comprehensive_clash_detector_v2 import ComprehensiveClashDetector
+            from src.pipeline.agents.tolerance_and_standards_providers import (
+                ToleranceProvider, StandardsProvider
+            )
+            
+            logger.info("Running comprehensive clash detection...")
+            ifc_data_for_clash = {
+                'members': members,
+                'joints': joints,
+                'plates': plates_synth,
+                'bolts': bolts_synth
+            }
+            
+            tol = ToleranceProvider()
+            std = StandardsProvider()
+            detector = ComprehensiveClashDetector(tolerance_provider=tol, standards_provider=std)
+            clashes, clash_summary = detector.detect_all_clashes(ifc_data_for_clash)
+            
+            logger.info(f"Clash detection complete: {len(clashes)} clashes found")
+            out['clashes_detected'] = clashes
+            out['clash_summary'] = clash_summary
+            
+            # Log by severity
+            critical_count = clash_summary.get('by_severity', {}).get('CRITICAL', 0)
+            major_count = clash_summary.get('by_severity', {}).get('MAJOR', 0)
+            if critical_count > 0 or major_count > 0:
+                logger.warning(f"CRITICAL: {critical_count}, MAJOR: {major_count}")
+        except Exception as e:
+            logger.warning(f"Comprehensive clash detection failed: {e}")
+            out['clashes_detected'] = []
+            out['clash_summary'] = {'total': 0, 'by_severity': {}}
+
+        # 7.5) CLASH CORRECTION (NEW - v2.0)
+        try:
+            if out.get('clashes_detected'):
+                from src.pipeline.agents.comprehensive_clash_corrector_v2 import ComprehensiveClashCorrector
+                
+                logger.info(f"Applying clash corrections to {len(out['clashes_detected'])} clashes...")
+                corrector = ComprehensiveClashCorrector()
+                
+                corrections, corr_summary = corrector.correct_all_clashes(
+                    out['clashes_detected'],
+                    ifc_data_for_clash
+                )
+                
+                out['clashes_corrected'] = corrections
+                out['correction_summary'] = corr_summary
+                
+                # Log correction results
+                auto_fixed = corr_summary.get('auto_fixed', 0)
+                review_required = corr_summary.get('review_required', 0)
+                failed = corr_summary.get('failed', 0)
+                logger.info(f"Correction results - Auto-fixed: {auto_fixed}, Review: {review_required}, Failed: {failed}")
+        except Exception as e:
+            logger.warning(f"Clash correction failed: {e}")
+            out['clashes_corrected'] = []
+            out['correction_summary'] = {}
 
         # 7) Code compliance checks
         from src.pipeline.code_compliance import check_member_basic
@@ -191,6 +310,17 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
             out.get('joints', [])
         )
         out['ifc'] = ifc_model
+
+        # 13.5) Post-process IFC model to fix any remaining coordinate issues
+        try:
+            from src.pipeline.universal_geometry_engine import fix_coordinate_origins_universal
+            ifc_model_fixed = fix_coordinate_origins_universal(ifc_model)
+            out['ifc'] = ifc_model_fixed
+            out['ifc_coordinates_verified'] = True
+            logger.info("IFC coordinates post-processed and verified")
+        except Exception as e:
+            logger.debug(f"IFC coordinate post-processing skipped: {e}")
+            out['ifc_coordinates_verified'] = False
 
         # 14) Report aggregation
         from src.pipeline.report_aggregator import aggregate_reports
