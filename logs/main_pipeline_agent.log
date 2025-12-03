@@ -214,3 +214,147 @@ Traceback (most recent call last):
     )
 RuntimeError: Invalid DXF file format. The file appears to be corrupted or contains non-DXF content. Please ensure the file is a valid DXF file exported from CAD software. Error: Invalid group code "(approx. modelling time: 2-4 hours)
 " at line 471.
+2025-12-03 18:49:25,078 [ERROR] aibuildx.main_pipeline_agent: Pipeline agent processing failed
+Traceback (most recent call last):
+  File "/Users/sahil/Documents/aibuildx/path/to/venv/lib/python3.14/site-packages/ezdxf/lldxf/tagger.py", line 116, in ascii_tags_loader
+    group_code = int(code)
+ValueError: invalid literal for int() with base 10: '(approx. modelling time: 2-4 hours)\n'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sahil/Documents/aibuildx/src/pipeline/dxf_parser.py", line 31, in parse_dxf_file
+    doc = ezdxf.readfile(file_path)
+  File "/Users/sahil/Documents/aibuildx/path/to/venv/lib/python3.14/site-packages/ezdxf/filemanagement.py", line 154, in readfile
+    doc = read(fp)
+  File "/Users/sahil/Documents/aibuildx/path/to/venv/lib/python3.14/site-packages/ezdxf/filemanagement.py", line 95, in read
+    return Drawing.read(stream)
+           ~~~~~~~~~~~~^^^^^^^^
+  File "/Users/sahil/Documents/aibuildx/path/to/venv/lib/python3.14/site-packages/ezdxf/document.py", line 350, in read
+    return cls.load(tag_loader)
+           ~~~~~~~~^^^^^^^^^^^^
+  File "/Users/sahil/Documents/aibuildx/path/to/venv/lib/python3.14/site-packages/ezdxf/document.py", line 365, in load
+    doc._load(tag_loader)
+    ~~~~~~~~~^^^^^^^^^^^^
+  File "/Users/sahil/Documents/aibuildx/path/to/venv/lib/python3.14/site-packages/ezdxf/document.py", line 378, in _load
+    sections = loader.load_dxf_structure(tagger)
+  File "/Users/sahil/Documents/aibuildx/path/to/venv/lib/python3.14/site-packages/ezdxf/lldxf/loader.py", line 91, in load_dxf_structure
+    for entity in group_tags(tagger):
+                  ~~~~~~~~~~^^^^^^^^
+  File "/Users/sahil/Documents/aibuildx/path/to/venv/lib/python3.14/site-packages/ezdxf/lldxf/tags.py", line 321, in group_tags
+    for tag in tags:
+               ^^^^
+  File "/Users/sahil/Documents/aibuildx/path/to/venv/lib/python3.14/site-packages/ezdxf/lldxf/tagger.py", line 290, in tag_compiler
+    x = next(tags)
+  File "/Users/sahil/Documents/aibuildx/path/to/venv/lib/python3.14/site-packages/ezdxf/lldxf/tagger.py", line 118, in ascii_tags_loader
+    raise DXFStructureError(f'Invalid group code "{code}" at line {line}.')
+ezdxf.lldxf.const.DXFStructureError: Invalid group code "(approx. modelling time: 2-4 hours)
+" at line 471.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sahil/Documents/aibuildx/src/pipeline/agents/main_pipeline_agent.py", line 29, in process
+    payload_entities = parse_dxf_file(dxf_entities)
+  File "/Users/sahil/Documents/aibuildx/src/pipeline/dxf_parser.py", line 35, in parse_dxf_file
+    raise RuntimeError(
+    ...<2 lines>...
+    )
+RuntimeError: Invalid DXF file format. The file appears to be corrupted or contains non-DXF content. Please ensure the file is a valid DXF file exported from CAD software. Error: Invalid group code "(approx. modelling time: 2-4 hours)
+" at line 471.
+2025-12-03 18:49:44,361 [ERROR] aibuildx.main_pipeline_agent: Pipeline agent processing failed
+Traceback (most recent call last):
+  File "/Users/sahil/Documents/aibuildx/path/to/venv/lib/python3.14/site-packages/ezdxf/lldxf/tagger.py", line 116, in ascii_tags_loader
+    group_code = int(code)
+ValueError: invalid literal for int() with base 10: '(approx. modelling time: 2-4 hours)\n'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sahil/Documents/aibuildx/src/pipeline/dxf_parser.py", line 31, in parse_dxf_file
+    doc = ezdxf.readfile(file_path)
+  File "/Users/sahil/Documents/aibuildx/path/to/venv/lib/python3.14/site-packages/ezdxf/filemanagement.py", line 154, in readfile
+    doc = read(fp)
+  File "/Users/sahil/Documents/aibuildx/path/to/venv/lib/python3.14/site-packages/ezdxf/filemanagement.py", line 95, in read
+    return Drawing.read(stream)
+           ~~~~~~~~~~~~^^^^^^^^
+  File "/Users/sahil/Documents/aibuildx/path/to/venv/lib/python3.14/site-packages/ezdxf/document.py", line 350, in read
+    return cls.load(tag_loader)
+           ~~~~~~~~^^^^^^^^^^^^
+  File "/Users/sahil/Documents/aibuildx/path/to/venv/lib/python3.14/site-packages/ezdxf/document.py", line 365, in load
+    doc._load(tag_loader)
+    ~~~~~~~~~^^^^^^^^^^^^
+  File "/Users/sahil/Documents/aibuildx/path/to/venv/lib/python3.14/site-packages/ezdxf/document.py", line 378, in _load
+    sections = loader.load_dxf_structure(tagger)
+  File "/Users/sahil/Documents/aibuildx/path/to/venv/lib/python3.14/site-packages/ezdxf/lldxf/loader.py", line 91, in load_dxf_structure
+    for entity in group_tags(tagger):
+                  ~~~~~~~~~~^^^^^^^^
+  File "/Users/sahil/Documents/aibuildx/path/to/venv/lib/python3.14/site-packages/ezdxf/lldxf/tags.py", line 321, in group_tags
+    for tag in tags:
+               ^^^^
+  File "/Users/sahil/Documents/aibuildx/path/to/venv/lib/python3.14/site-packages/ezdxf/lldxf/tagger.py", line 290, in tag_compiler
+    x = next(tags)
+  File "/Users/sahil/Documents/aibuildx/path/to/venv/lib/python3.14/site-packages/ezdxf/lldxf/tagger.py", line 118, in ascii_tags_loader
+    raise DXFStructureError(f'Invalid group code "{code}" at line {line}.')
+ezdxf.lldxf.const.DXFStructureError: Invalid group code "(approx. modelling time: 2-4 hours)
+" at line 471.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sahil/Documents/aibuildx/src/pipeline/agents/main_pipeline_agent.py", line 29, in process
+    payload_entities = parse_dxf_file(dxf_entities)
+  File "/Users/sahil/Documents/aibuildx/src/pipeline/dxf_parser.py", line 35, in parse_dxf_file
+    raise RuntimeError(
+    ...<2 lines>...
+    )
+RuntimeError: Invalid DXF file format. The file appears to be corrupted or contains non-DXF content. Please ensure the file is a valid DXF file exported from CAD software. Error: Invalid group code "(approx. modelling time: 2-4 hours)
+" at line 471.
+2025-12-03 18:49:59,265 [ERROR] aibuildx.main_pipeline_agent: Pipeline agent processing failed
+Traceback (most recent call last):
+  File "/Users/sahil/Documents/aibuildx/path/to/venv/lib/python3.14/site-packages/ezdxf/lldxf/tagger.py", line 116, in ascii_tags_loader
+    group_code = int(code)
+ValueError: invalid literal for int() with base 10: '(approx. modelling time: 2-4 hours)\n'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sahil/Documents/aibuildx/src/pipeline/dxf_parser.py", line 31, in parse_dxf_file
+    doc = ezdxf.readfile(file_path)
+  File "/Users/sahil/Documents/aibuildx/path/to/venv/lib/python3.14/site-packages/ezdxf/filemanagement.py", line 154, in readfile
+    doc = read(fp)
+  File "/Users/sahil/Documents/aibuildx/path/to/venv/lib/python3.14/site-packages/ezdxf/filemanagement.py", line 95, in read
+    return Drawing.read(stream)
+           ~~~~~~~~~~~~^^^^^^^^
+  File "/Users/sahil/Documents/aibuildx/path/to/venv/lib/python3.14/site-packages/ezdxf/document.py", line 350, in read
+    return cls.load(tag_loader)
+           ~~~~~~~~^^^^^^^^^^^^
+  File "/Users/sahil/Documents/aibuildx/path/to/venv/lib/python3.14/site-packages/ezdxf/document.py", line 365, in load
+    doc._load(tag_loader)
+    ~~~~~~~~~^^^^^^^^^^^^
+  File "/Users/sahil/Documents/aibuildx/path/to/venv/lib/python3.14/site-packages/ezdxf/document.py", line 378, in _load
+    sections = loader.load_dxf_structure(tagger)
+  File "/Users/sahil/Documents/aibuildx/path/to/venv/lib/python3.14/site-packages/ezdxf/lldxf/loader.py", line 91, in load_dxf_structure
+    for entity in group_tags(tagger):
+                  ~~~~~~~~~~^^^^^^^^
+  File "/Users/sahil/Documents/aibuildx/path/to/venv/lib/python3.14/site-packages/ezdxf/lldxf/tags.py", line 321, in group_tags
+    for tag in tags:
+               ^^^^
+  File "/Users/sahil/Documents/aibuildx/path/to/venv/lib/python3.14/site-packages/ezdxf/lldxf/tagger.py", line 290, in tag_compiler
+    x = next(tags)
+  File "/Users/sahil/Documents/aibuildx/path/to/venv/lib/python3.14/site-packages/ezdxf/lldxf/tagger.py", line 118, in ascii_tags_loader
+    raise DXFStructureError(f'Invalid group code "{code}" at line {line}.')
+ezdxf.lldxf.const.DXFStructureError: Invalid group code "(approx. modelling time: 2-4 hours)
+" at line 471.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sahil/Documents/aibuildx/src/pipeline/agents/main_pipeline_agent.py", line 29, in process
+    payload_entities = parse_dxf_file(dxf_entities)
+  File "/Users/sahil/Documents/aibuildx/src/pipeline/dxf_parser.py", line 35, in parse_dxf_file
+    raise RuntimeError(
+    ...<2 lines>...
+    )
+RuntimeError: Invalid DXF file format. The file appears to be corrupted or contains non-DXF content. Please ensure the file is a valid DXF file exported from CAD software. Error: Invalid group code "(approx. modelling time: 2-4 hours)
+" at line 471.
