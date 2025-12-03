@@ -13,11 +13,6 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
     data = payload.get('data', {}) or {}
     dxf_entities = data.get('dxf_entities') or data.get('items') or data.get('members') or []
     out = {}
-    try:
-        # attempt to use modular agents
-        from src.pipeline import pipeline_v2 as legacy
-    except Exception:
-        legacy = None
 
     try:
         # 1) Miner: accept path or pre-extracted entities
@@ -28,14 +23,18 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
                         payload_entities = json.load(fh)
                 except Exception:
                     payload_entities = dxf_entities
-            elif dxf_entities.lower().endswith('.ifc') or dxf_entities.lower().endswith('.dxf'):
-                if legacy is not None:
-                    if dxf_entities.lower().endswith('.ifc'):
-                        payload_entities = legacy.extract_from_ifc(dxf_entities)
-                    else:
-                        payload_entities = legacy.extract_from_dxf(dxf_entities)
-                else:
-                    payload_entities = dxf_entities
+            elif dxf_entities.lower().endswith('.dxf'):
+                # Use new modular DXF parser
+                from src.pipeline.dxf_parser import parse_dxf_file
+                payload_entities = parse_dxf_file(dxf_entities)
+            elif dxf_entities.lower().endswith('.ifc'):
+                # Use legacy IFC parser (can be modernized later)
+                try:
+                    from src.pipeline import pipeline_v2 as legacy
+                    payload_entities = legacy.extract_from_ifc(dxf_entities)
+                except Exception as e:
+                    logger.error(f"IFC extraction failed: {e}")
+                    payload_entities = {'members': []}
             else:
                 payload_entities = dxf_entities
         else:

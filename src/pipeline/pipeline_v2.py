@@ -1033,11 +1033,58 @@ except Exception:
     def load_member_type_classifier():
         return None
     def extract_from_dxf(path_or_entities):
-        # fallback: if given a list of simple entities, use the internal miner_from_dxf
-        try:
-            return miner_from_dxf(path_or_entities)
-        except Exception:
-            raise RuntimeError('miner.extract_from_dxf not available and fallback failed')
+        # Handle both file paths and pre-extracted entities
+        import os
+        if isinstance(path_or_entities, str) and os.path.exists(path_or_entities):
+            # It's a file path - parse the DXF file
+            try:
+                import ezdxf
+                doc = ezdxf.readfile(path_or_entities)
+                modelspace = doc.modelspace()
+                
+                entities = []
+                for entity in modelspace:
+                    if entity.dxftype() == 'LINE':
+                        start = entity.dxf.start
+                        end = entity.dxf.end
+                        entities.append({
+                            'type': 'LINE',
+                            'start': [start.x, start.y, start.z],
+                            'end': [end.x, end.y, end.z],
+                            'layer': entity.dxf.layer if hasattr(entity.dxf, 'layer') else 'default'
+                        })
+                    elif entity.dxftype() == 'POLYLINE':
+                        points = list(entity.points())
+                        if len(points) >= 2:
+                            for i in range(len(points) - 1):
+                                p1, p2 = points[i], points[i+1]
+                                entities.append({
+                                    'type': 'LINE',
+                                    'start': [p1[0], p1[1], p1[2] if len(p1) > 2 else 0.0],
+                                    'end': [p2[0], p2[1], p2[2] if len(p2) > 2 else 0.0],
+                                    'layer': entity.dxf.layer if hasattr(entity.dxf, 'layer') else 'default'
+                                })
+                    elif entity.dxftype() == 'LWPOLYLINE':
+                        points = list(entity.get_points('xy'))
+                        if len(points) >= 2:
+                            for i in range(len(points) - 1):
+                                p1, p2 = points[i], points[i+1]
+                                entities.append({
+                                    'type': 'LINE',
+                                    'start': [p1[0], p1[1], 0.0],
+                                    'end': [p2[0], p2[1], 0.0],
+                                    'layer': entity.dxf.layer if hasattr(entity.dxf, 'layer') else 'default'
+                                })
+                
+                return miner_from_dxf(entities)
+            except Exception as e:
+                raise RuntimeError(f'Failed to parse DXF file: {str(e)}')
+        else:
+            # It's a list of entities
+            try:
+                return miner_from_dxf(path_or_entities)
+            except Exception:
+                raise RuntimeError('miner.extract_from_dxf not available and fallback failed')
     def extract_from_ifc(path_or_model):
         raise RuntimeError('miner.extract_from_ifc not available in this environment')
 try:
