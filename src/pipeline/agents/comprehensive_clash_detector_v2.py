@@ -19,6 +19,7 @@ from enum import Enum
 import math
 import numpy as np
 import json
+import logging
 from datetime import datetime
 
 # ============================================================================
@@ -277,6 +278,20 @@ class ComprehensiveClashDetector:
             xs = range(int(math.floor(mn[0] / cell)), int(math.floor(mx[0] / cell)) + 1)
             ys = range(int(math.floor(mn[1] / cell)), int(math.floor(mx[1] / cell)) + 1)
             zs = range(int(math.floor(mn[2] / cell)), int(math.floor(mx[2] / cell)) + 1)
+            
+            # Safety cap: prevent massive voxel generation from large coordinates
+            MAX_VOXELS_PER_AXIS = 1000
+            if len(xs) > MAX_VOXELS_PER_AXIS or len(ys) > MAX_VOXELS_PER_AXIS or len(zs) > MAX_VOXELS_PER_AXIS:
+                logging.getLogger("aibuildx.clash_detector").warning(
+                    f"Voxel grid too large ({len(xs)}×{len(ys)}×{len(zs)}), using single voxel for this member"
+                )
+                # Use only the centroid voxel
+                cx = int(math.floor((mn[0] + mx[0]) / 2 / cell))
+                cy = int(math.floor((mn[1] + mx[1]) / 2 / cell))
+                cz = int(math.floor((mn[2] + mx[2]) / 2 / cell))
+                yield (cx, cy, cz)
+                return
+            
             for ix in xs:
                 for iy in ys:
                     for iz in zs:
@@ -298,15 +313,93 @@ class ComprehensiveClashDetector:
 
     def _check_3d_geometry_clashes(self, members, joints, plates, bolts):
         """Check 3D geometric intersections and overlaps."""
-        # Check member-to-member 3D intersection
+        # Build joint lookup index for O(1) access
+        joint_pairs = set()
+        for j in joints:
+            member_ids = tuple(sorted(j.get('members', [])))
+            if len(member_ids) >= 2:
+                for i in range(len(member_ids)):
+                    for k in range(i+1, len(member_ids)):
+                        joint_pairs.add(frozenset([member_ids[i], member_ids[k]]))
+        
+        # Check member-to-member 3D intersection with spatial pruning and iteration cap
+        pairs_checked = 0
+        MAX_PAIRS = 10000  # Safety cap to prevent infinite loops
+        MAX_VOXELS_PER_AXIS = 1000  # Safety cap for voxel generation
         for i, m1 in enumerate(members):
+            # Spatial pruning: get voxels for m1
+            m1_start = self.normalize_position(m1.get('start', [0,0,0]))
+            m1_end = self.normalize_position(m1.get('end', [0,0,0]))
+            m1_voxels = set()
+            try:
+                mn = np.minimum(m1_start, m1_end)
+                mx = np.maximum(m1_start, m1_end)
+                cell = 1.0
+                xs = range(int(math.floor(mn[0]/cell)), int(math.floor(mx[0]/cell))+1)
+                ys = range(int(math.floor(mn[1]/cell)), int(math.floor(mx[1]/cell))+1)
+                zs = range(int(math.floor(mn[2]/cell)), int(math.floor(mx[2]/cell))+1)
+                # Safety cap to prevent massive voxel generation
+                if len(xs) > MAX_VOXELS_PER_AXIS or len(ys) > MAX_VOXELS_PER_AXIS or len(zs) > MAX_VOXELS_PER_AXIS:
+                    # Use only centroid voxel
+                    cx = int(math.floor((mn[0] + mx[0]) / 2 / cell))
+                    cy = int(math.floor((mn[1] + mx[1]) / 2 / cell))
+                    cz = int(math.floor((mn[2] + mx[2]) / 2 / cell))
+                    m1_voxels.add((cx, cy, cz))
+                else:
+                    for ix in xs:
+                        for iy in ys:
+                            for iz in zs:
+                                m1_voxels.add((ix, iy, iz))
+            except Exception:
+                pass
+            
             for m2 in members[i+1:]:
+                pairs_checked += 1
+                if pairs_checked > MAX_PAIRS:
+                    # Cap reached; log and skip remaining
+                    import logging
+                    logging.getLogger("aibuildx.clash_detector").warning(f"Clash detection capped at {MAX_PAIRS} member pairs")
+                    break
+                
+                # Spatial pruning: check if m2 overlaps any m1 voxel
+                if m1_voxels:
+                    m2_start = self.normalize_position(m2.get('start', [0,0,0]))
+                    m2_end = self.normalize_position(m2.get('end', [0,0,0]))
+                    try:
+                        mn2 = np.minimum(m2_start, m2_end)
+                        mx2 = np.maximum(m2_start, m2_end)
+                        cell = 1.0
+                        xs2 = range(int(math.floor(mn2[0]/cell)), int(math.floor(mx2[0]/cell))+1)
+                        ys2 = range(int(math.floor(mn2[1]/cell)), int(math.floor(mx2[1]/cell))+1)
+                        zs2 = range(int(math.floor(mn2[2]/cell)), int(math.floor(mx2[2]/cell))+1)
+                        overlaps = False
+                        # Safety cap to prevent massive voxel iteration
+                        if len(xs2) > MAX_VOXELS_PER_AXIS or len(ys2) > MAX_VOXELS_PER_AXIS or len(zs2) > MAX_VOXELS_PER_AXIS:
+                            # Check only centroid voxel overlap
+                            cx2 = int(math.floor((mn2[0] + mx2[0]) / 2 / cell))
+                            cy2 = int(math.floor((mn2[1] + mx2[1]) / 2 / cell))
+                            cz2 = int(math.floor((mn2[2] + mx2[2]) / 2 / cell))
+                            overlaps = (cx2, cy2, cz2) in m1_voxels
+                        else:
+                            for ix in xs2:
+                                for iy in ys2:
+                                    for iz in zs2:
+                                        if (ix, iy, iz) in m1_voxels:
+                                            overlaps = True
+                                            break
+                                    if overlaps:
+                                        break
+                                if overlaps:
+                                    break
+                        if not overlaps:
+                            continue  # Skip distant pairs
+                    except Exception:
+                        pass
+                
                 if self._members_3d_intersect(m1, m2):
-                    # Check if there's a joint
-                    has_joint = any(
-                        set([m1.get('id'), m2.get('id')]).issubset(set(j.get('members', [])))
-                        for j in joints
-                    )
+                    # Check if there's a joint using fast index
+                    pair_key = frozenset([m1.get('id'), m2.get('id')])
+                    has_joint = pair_key in joint_pairs
                     if not has_joint:
                         self._add_clash(
                             category=ClashCategory.GEOMETRIC_3D_INTERSECTION,
@@ -317,10 +410,19 @@ class ComprehensiveClashDetector:
                             current_value=self._calculate_intersection_point(m1, m2),
                             expected_value="No intersection or explicit joint connection"
                         )
+            if pairs_checked > MAX_PAIRS:
+                break
 
-        # Check member-to-plate penetration
+        # Check member-to-plate penetration (with iteration cap)
+        penetration_checks = 0
+        MAX_PENETRATION_CHECKS = 5000
         for member in members:
             for plate in plates:
+                penetration_checks += 1
+                if penetration_checks > MAX_PENETRATION_CHECKS:
+                    import logging
+                    logging.getLogger("aibuildx.clash_detector").warning(f"Member-plate penetration checks capped at {MAX_PENETRATION_CHECKS}")
+                    break
                 if self._member_penetrates_plate(member, plate):
                     self._add_clash(
                         category=ClashCategory.GEOMETRIC_PENETRATION,
@@ -427,11 +529,18 @@ class ComprehensiveClashDetector:
 
     def _check_plate_member_alignment(self, plates, members, joints):
         """Check plate-to-member alignment in 3D."""
+        alignment_checks = 0
+        MAX_ALIGNMENT_CHECKS = 2000
         for plate in plates:
             plate_id = plate.get('id')
             plate_members = plate.get('members', [])
 
             for member_id in plate_members:
+                alignment_checks += 1
+                if alignment_checks > MAX_ALIGNMENT_CHECKS:
+                    import logging
+                    logging.getLogger("aibuildx.clash_detector").warning(f"Plate-member alignment checks capped at {MAX_ALIGNMENT_CHECKS}")
+                    return
                 member = next((m for m in members if m.get('id') == member_id), None)
                 if not member:
                     continue

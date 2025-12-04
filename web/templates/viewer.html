@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IFC Viewer</title>
+  <link rel="stylesheet" href="/static/viewer.css" />
+  <!-- Three.js and IFC.js via CDN -->
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+  <script src="https://unpkg.com/three@0.160.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://unpkg.com/web-ifc@0.0.46/web-ifc-api.js"></script>
+  <script src="https://unpkg.com/web-ifc-three@0.0.126/IFCLoader.js"></script>
+</head>
+<body>
+  <div id="toolbar">
+    <span>IFC Viewer</span>
+    <button id="btnFit">Fit</button>
+    <button id="btnExplode">Explode</button>
+    <button id="btnResetExplode">Reset Explode</button>
+    <button id="btnClip">Toggle Clipping</button>
+    <button id="btnMeasure">Measure</button>
+    <button id="btnProps">Properties</button>
+    {% if has_ifc %}
+    <span id="status">Model loaded for job {{ job_id }}</span>
+    {% else %}
+    <span id="status">No IFC found for job {{ job_id }}</span>
+    {% endif %}
+  </div>
+  <div id="container"></div>
+  <div id="sidebar">
+    <h3>Selection</h3>
+    <pre id="selection"></pre>
+    <h3>Properties</h3>
+    <pre id="properties"></pre>
+  </div>
+
+  <script>
+    const JOB_ID = "{{ job_id }}";
+    const HAS_IFC = {{ 'true' if has_ifc else 'false' }};
+    const IFC_URL = `/api/download/${JOB_ID}/model.ifc`;
+  </script>
+  <script src="/static/viewer.js"></script>
+</body>
+</html>

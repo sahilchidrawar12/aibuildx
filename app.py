@@ -96,6 +96,11 @@ def upload_file():
             except Exception:
                 ifc_summary = {}
 
+        # Build viewer URL if IFC exists
+        viewer_url = None
+        if os.path.exists(os.path.join(job_output_dir, 'model.ifc')):
+            viewer_url = f"/viewer/{job_id}"
+
         return jsonify({
             'status': 'ok',
             'job_id': job_id,
@@ -117,7 +122,8 @@ def upload_file():
                     'plates': ifc_summary.get('total_plates'),
                     'fasteners': ifc_summary.get('total_fasteners')
                 }
-            }
+            },
+            'viewer_url': viewer_url
         }), 200
     
     except Exception as e:
@@ -168,16 +174,29 @@ def export_to_tekla(job_id):
         ifc_path = os.path.join(OUTPUT_FOLDER, job_id, 'model.ifc')
         ifc_exists = os.path.exists(ifc_path)
         
+        viewer_url = f"/viewer/{job_id}" if ifc_exists else None
+
         return jsonify({
             'status': 'ok',
             'job_id': job_id,
             'ifc_available': ifc_exists,
             'ifc_path': f'/api/download/{job_id}/model.ifc' if ifc_exists else None,
             'members_count': len(result.get('miner', {}).get('members', [])) if isinstance(result, dict) else 0,
-            'message': 'Ready for Tekla import'
+            'message': 'Ready for Tekla import',
+            'viewer_url': viewer_url
         }), 200
     except Exception as e:
         return jsonify({'status': 'error', 'message': str(e)}), 500
+
+@app.route('/viewer/<job_id>')
+def viewer(job_id):
+    """Render a 3D web viewer for the IFC model of a job."""
+    # Check IFC availability
+    job_output_dir = os.path.join(OUTPUT_FOLDER, job_id)
+    ifc_path = os.path.join(job_output_dir, 'model.ifc')
+    has_ifc = os.path.exists(ifc_path)
+
+    return render_template('viewer.html', job_id=job_id, has_ifc=has_ifc)
 
 @app.route('/health')
 def health():

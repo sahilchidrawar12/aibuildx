@@ -399,8 +399,14 @@ def generate_ifc_plate(plate: Dict[str,Any]) -> Dict[str,Any]:
     - 'pos': Tertiary (backward compatibility)
     - Default: [0,0,0] ONLY if truly not provided (rare case)
     """
+    import logging
+    logger = logging.getLogger(__name__)
+    
     # Convert plate dimensions from mm to metres if needed
     plate_id = plate.get('id') or _new_guid()
+    
+    # DEBUG: Log all position sources
+    logger.debug(f"[GENERATE_IFC_PLATE] {plate_id}: position={plate.get('position')}, location={plate.get('location')}, pos={plate.get('pos')}")
     
     # CRITICAL FIX: Try all possible position keys in order
     position = plate.get('position')
@@ -413,6 +419,8 @@ def generate_ifc_plate(plate: Dict[str,Any]) -> Dict[str,Any]:
     if position is None:
         # Only use [0,0,0] as absolute last resort
         position = [0, 0, 0]
+    
+    logger.debug(f"  -> Final position resolved: {position}")
     
     # Position: convert from mm to m if it looks like mm
     position_m = _vec_to_metres(position)
@@ -604,6 +612,12 @@ def export_ifc_model(members: List[Dict[str,Any]], plates: List[Dict[str,Any]], 
     - Structural connections: IfcRelConnectsElements linking members, plates, bolts
     - Joints (welds and rigid connections) linking multiple members
     """
+    import logging
+    logger = logging.getLogger(__name__)
+    logger.debug(f"[EXPORT_IFC] Starting IFC export with {len(members)} members, {len(plates)} plates, {len(bolts)} bolts")
+    for plate_idx, p in enumerate(plates):
+        logger.debug(f"  Plate {plate_idx}: id={p.get('id')}, position={p.get('position')}")
+    
     if joints is None:
         joints = []
     # Initialize model with complete spatial structure

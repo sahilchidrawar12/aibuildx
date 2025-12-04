@@ -4,6 +4,8 @@ interface while allowing gradual migration from the monolith.
 """
 from typing import Dict, Any
 import json
+import os
+import time
 from src.pipeline.logging_setup import get_logger
 
 logger = get_logger("main_pipeline_agent")
@@ -13,9 +15,19 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
     data = payload.get('data', {}) or {}
     dxf_entities = data.get('dxf_entities') or data.get('items') or data.get('members') or []
     out = {}
+    job_id = data.get('job_id') or data.get('out_dir')
+
+    def stage(name):
+        logger.info(f"[Stage:start] {name} job={job_id}")
+        return time.perf_counter(), name
+
+    def end(start_ts, name):
+        dur = time.perf_counter() - start_ts
+        logger.info(f"[Stage:end] {name} job={job_id} duration={dur:.3f}s")
 
     try:
         # 1) Miner: accept path or pre-extracted entities
+        ts, nm = stage("miner")
         if isinstance(dxf_entities, str):
             if dxf_entities.lower().endswith('.json'):
                 try:
@@ -41,8 +53,10 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
             payload_entities = dxf_entities
 
         out['miner'] = payload_entities
+        end(ts, nm)
 
         # 1.5) Auto-repair missing fields
+        ts, nm = stage("auto_repair")
         try:
             from src.pipeline.auto_repair_engine import repair_pipeline
             if isinstance(payload_entities, dict):
@@ -59,22 +73,28 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
                 members = payload_entities
             else:
                 members = []
+        end(ts, nm)
 
         # 2) Geometry agent: set CS, merge nodes, resolve orientation
+        ts, nm = stage("geometry")
         from src.pipeline.geometry_agent import set_global_coordinate_system, merge_nodes, resolve_member_orientation
         set_global_coordinate_system({}, origin=(0,0,0))
         nodes, mapping = merge_nodes(members, tolerance=10.0)
         for m in members:
             resolve_member_orientation(m)
+        end(ts, nm)
 
         # 3) Node resolution and joints
+        ts, nm = stage("nodes_and_joints")
         from src.pipeline.node_resolution import snap_nodes, auto_generate_joints
         nodes, members = snap_nodes(members, tolerance=10.0)
         joints = auto_generate_joints(members, tolerance=10.0)
         out['nodes'] = nodes
         out['joints'] = joints
+        end(ts, nm)
 
         # 3.5) Connection parser: convert circles to joints with member links
+        ts, nm = stage("connection_parser")
         try:
             from src.pipeline.agents.connection_parser_agent import parse_connections
             circles = payload_entities.get('circles', [])
@@ -87,8 +107,10 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
         except Exception as e:
             logger.warning(f"Connection parsing failed: {e}")
             out['circles_parsed'] = 0
+        end(ts, nm)
 
         # 3.7) Universal coordinate origin fix (applies to IFC data with coordinate issues)
+        ts, nm = stage("coordinate_origin_fix")
         try:
             from src.pipeline.universal_geometry_engine import fix_coordinate_origins_universal
             # Build IFC-like structure from current state
@@ -110,8 +132,10 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
         except Exception as e:
             logger.debug(f"Coordinate origin fix skipped or not applicable: {e}")
             out['coordinate_origin_fixed'] = False
+        end(ts, nm)
 
         # 4) Section and material classification
+        ts, nm = stage("classification")
         from src.pipeline.section_classifier import classify_section
         from src.pipeline.material_classifier import classify_material
         for m in members:
@@ -125,13 +149,17 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
             m.setdefault('material', mat)
 
         out['members_classified'] = members
+        end(ts, nm)
 
         # 5) Loads & combinations
+        ts, nm = stage("loads")
         from src.pipeline.load_combination import generate_lrfd, generate_asd
         loads = data.get('loads', {'dead':0.0,'live':0.0,'wind':0.0,'seismic':0.0})
         out['load_combinations'] = generate_lrfd(loads)
+        end(ts, nm)
 
         # 6) Deflection checks
+        ts, nm = stage("deflection")
         from src.pipeline.deflection_agent import check_deflection
         E_default = 210000.0  # MPa
         deflection_reports = []
@@ -141,8 +169,10 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
             dr = check_deflection(m, span=abs(L), E=E_default, I=I, loads_w=0.0)
             deflection_reports.append({'id': m.get('id'), 'deflection': dr})
         out['deflection'] = deflection_reports
+        end(ts, nm)
 
         # 7) Connection synthesis (plates + bolts) from joints via MODEL-DRIVEN agent
+        ts, nm = stage("connection_synthesis")
         try:
             # Use enhanced model-driven agent with AI predictions
             from src.pipeline.agents.connection_synthesis_agent_enhanced import (
@@ -186,68 +216,76 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
         
         out['plates'] = plates_synth
         out['bolts'] = bolts_synth
+        end(ts, nm)
 
         # 7) COMPREHENSIVE CLASH DETECTION (NEW - v2.0)
-        try:
-            from src.pipeline.agents.comprehensive_clash_detector_v2 import ComprehensiveClashDetector
-            from src.pipeline.agents.tolerance_and_standards_providers import (
-                ToleranceProvider, StandardsProvider
-            )
-            
-            logger.info("Running comprehensive clash detection...")
-            ifc_data_for_clash = {
-                'members': members,
-                'joints': joints,
-                'plates': plates_synth,
-                'bolts': bolts_synth
-            }
-            
-            tol = ToleranceProvider()
-            std = StandardsProvider()
-            detector = ComprehensiveClashDetector(tolerance_provider=tol, standards_provider=std)
-            clashes, clash_summary = detector.detect_all_clashes(ifc_data_for_clash)
-            
-            logger.info(f"Clash detection complete: {len(clashes)} clashes found")
-            out['clashes_detected'] = clashes
-            out['clash_summary'] = clash_summary
-            
-            # Log by severity
-            critical_count = clash_summary.get('by_severity', {}).get('CRITICAL', 0)
-            major_count = clash_summary.get('by_severity', {}).get('MAJOR', 0)
-            if critical_count > 0 or major_count > 0:
-                logger.warning(f"CRITICAL: {critical_count}, MAJOR: {major_count}")
-        except Exception as e:
-            logger.warning(f"Comprehensive clash detection failed: {e}")
+        if os.getenv('AIBUILDX_DISABLE_DETECTION'):
+            logger.warning("Clash detection disabled via AIBUILDX_DISABLE_DETECTION")
             out['clashes_detected'] = []
             out['clash_summary'] = {'total': 0, 'by_severity': {}}
+        else:
+            ts, nm = stage("clash_detection")
+            try:
+                from src.pipeline.agents.comprehensive_clash_detector_v2 import ComprehensiveClashDetector
+                from src.pipeline.agents.tolerance_and_standards_providers import (
+                    ToleranceProvider, StandardsProvider
+                )
+                logger.info("Running comprehensive clash detection...")
+                ifc_data_for_clash = {
+                    'members': members,
+                    'joints': joints,
+                    'plates': plates_synth,
+                    'bolts': bolts_synth
+                }
+                tol = ToleranceProvider()
+                std = StandardsProvider()
+                detector = ComprehensiveClashDetector(tolerance_provider=tol, standards_provider=std)
+                clashes, clash_summary = detector.detect_all_clashes(ifc_data_for_clash)
+                logger.info(f"Clash detection complete: {len(clashes)} clashes found")
+                out['clashes_detected'] = clashes
+                out['clash_summary'] = clash_summary
+                # Log by severity
+                critical_count = clash_summary.get('by_severity', {}).get('CRITICAL', 0)
+                major_count = clash_summary.get('by_severity', {}).get('MAJOR', 0)
+                if critical_count > 0 or major_count > 0:
+                    logger.warning(f"CRITICAL: {critical_count}, MAJOR: {major_count}")
+            except Exception as e:
+                logger.warning(f"Comprehensive clash detection failed: {e}")
+                out['clashes_detected'] = []
+                out['clash_summary'] = {'total': 0, 'by_severity': {}}
+            end(ts, nm)
 
         # 7.5) CLASH CORRECTION (NEW - v2.0)
-        try:
-            if out.get('clashes_detected'):
-                from src.pipeline.agents.comprehensive_clash_corrector_v2 import ComprehensiveClashCorrector
-                
-                logger.info(f"Applying clash corrections to {len(out['clashes_detected'])} clashes...")
-                corrector = ComprehensiveClashCorrector()
-                
-                corrections, corr_summary = corrector.correct_all_clashes(
-                    out['clashes_detected'],
-                    ifc_data_for_clash
-                )
-                
-                out['clashes_corrected'] = corrections
-                out['correction_summary'] = corr_summary
-                
-                # Log correction results
-                auto_fixed = corr_summary.get('auto_fixed', 0)
-                review_required = corr_summary.get('review_required', 0)
-                failed = corr_summary.get('failed', 0)
-                logger.info(f"Correction results - Auto-fixed: {auto_fixed}, Review: {review_required}, Failed: {failed}")
-        except Exception as e:
-            logger.warning(f"Clash correction failed: {e}")
+        if os.getenv('AIBUILDX_DISABLE_CORRECTION'):
+            logger.warning("Clash correction disabled via AIBUILDX_DISABLE_CORRECTION")
             out['clashes_corrected'] = []
             out['correction_summary'] = {}
+        else:
+            ts, nm = stage("clash_correction")
+            try:
+                if out.get('clashes_detected'):
+                    from src.pipeline.agents.comprehensive_clash_corrector_v2 import ComprehensiveClashCorrector
+                    logger.info(f"Applying clash corrections to {len(out['clashes_detected'])} clashes...")
+                    corrector = ComprehensiveClashCorrector()
+                    corrections, corr_summary = corrector.correct_all_clashes(
+                        out['clashes_detected'],
+                        ifc_data_for_clash
+                    )
+                    out['clashes_corrected'] = corrections
+                    out['correction_summary'] = corr_summary
+                    # Log correction results
+                    auto_fixed = corr_summary.get('auto_fixed', 0)
+                    review_required = corr_summary.get('review_required', 0)
+                    failed = corr_summary.get('failed', 0)
+                    logger.info(f"Correction results - Auto-fixed: {auto_fixed}, Review: {review_required}, Failed: {failed}")
+            except Exception as e:
+                logger.warning(f"Clash correction failed: {e}")
+                out['clashes_corrected'] = []
+                out['correction_summary'] = {}
+            end(ts, nm)
 
         # 7) Code compliance checks
+        ts, nm = stage("compliance")
         from src.pipeline.code_compliance import check_member_basic
         compliance_reports = []
         for m in members:
@@ -255,8 +293,10 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
             cr = check_member_basic(m, mat)
             compliance_reports.append({'id': m.get('id'), 'compliance': cr})
         out['compliance'] = compliance_reports
+        end(ts, nm)
 
         # 8) Connection capacity and design
+        ts, nm = stage("connection_capacity")
         from src.pipeline.connection_capacity import check_bolt_group
         conn_reports = []
         connections = data.get('connections') or []
@@ -267,8 +307,10 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
             br = check_bolt_group(c.get('bolts', {'count':1,'diameter_mm':20}), demand_shear, demand_tension, mat_fu)
             conn_reports.append({'id': c.get('id'), 'report': br})
         out['connections'] = conn_reports
+        end(ts, nm)
 
         # 9) Fabrication tolerances checks
+        ts, nm = stage("fabrication_tolerances")
         from src.pipeline.fabrication_tolerances import check_edge_distance, check_bolt_spacing
         fab_reports = []
         for p in data.get('plates', []):
@@ -276,19 +318,25 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
             ok_spacing = check_bolt_spacing(p.get('bolt_diameter',20.0), p.get('bolt_spacing',70.0))
             fab_reports.append({'id': p.get('id'), 'edge_ok': ok_edge, 'spacing_ok': ok_spacing})
         out['fabrication'] = fab_reports
+        end(ts, nm)
 
         # 10) Erection sequencing
+        ts, nm = stage("erection_sequence")
         from src.pipeline.erection_sequencing import sequence_erection
         out['erection_sequence'] = sequence_erection(members)
+        end(ts, nm)
 
         # 11) Clash avoidance adjustments
+        ts, nm = stage("clash_avoidance")
         from src.pipeline.clash_avoidance import avoid_clashes
         plates = data.get('plates', [])
         bolts = data.get('bolts', [])
         clash_adj = avoid_clashes(plates, bolts)
         out['clash_adjustments'] = clash_adj
+        end(ts, nm)
 
         # 12) Stability checks
+        ts, nm = stage("stability")
         from src.pipeline.stability_engine import euler_buckling_capacity, klr, p_delta_amplification
         stability_reports = []
         for m in members:
@@ -300,33 +348,44 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
             Pcr = euler_buckling_capacity(E, I, k, L)
             stability_reports.append({'id': m.get('id'), 'Pcr': Pcr, 'klr': klr(r,L)})
         out['stability'] = stability_reports
+        end(ts, nm)
 
         # 13) IFC export
-        from src.pipeline.ifc_generator import export_ifc_model
-        ifc_model = export_ifc_model(
-            members,
-            out.get('plates') or data.get('plates', []),
-            out.get('bolts') or data.get('bolts', []),
-            out.get('joints', [])
-        )
-        out['ifc'] = ifc_model
+        if os.getenv('AIBUILDX_DISABLE_IFC'):
+            logger.warning("IFC export disabled via AIBUILDX_DISABLE_IFC")
+            out['ifc'] = {'disabled': True}
+            out['ifc_coordinates_verified'] = False
+        else:
+            ts, nm = stage("ifc_export")
+            from src.pipeline.ifc_generator import export_ifc_model
+            ifc_model = export_ifc_model(
+                members,
+                out.get('plates') or data.get('plates', []),
+                out.get('bolts') or data.get('bolts', []),
+                out.get('joints', [])
+            )
+            out['ifc'] = ifc_model
 
         # 13.5) Post-process IFC model to fix any remaining coordinate issues
-        try:
-            from src.pipeline.universal_geometry_engine import fix_coordinate_origins_universal
-            ifc_model_fixed = fix_coordinate_origins_universal(ifc_model)
-            out['ifc'] = ifc_model_fixed
-            out['ifc_coordinates_verified'] = True
-            logger.info("IFC coordinates post-processed and verified")
-        except Exception as e:
-            logger.debug(f"IFC coordinate post-processing skipped: {e}")
-            out['ifc_coordinates_verified'] = False
+        if not os.getenv('AIBUILDX_DISABLE_IFC'):
+            try:
+                from src.pipeline.universal_geometry_engine import fix_coordinate_origins_universal
+                ifc_model_fixed = fix_coordinate_origins_universal(out['ifc'])
+                out['ifc'] = ifc_model_fixed
+                out['ifc_coordinates_verified'] = True
+                logger.info("IFC coordinates post-processed and verified")
+            except Exception as e:
+                logger.debug(f"IFC coordinate post-processing skipped: {e}")
+                out['ifc_coordinates_verified'] = False
+            end(ts, nm)
 
         # 14) Report aggregation
+        ts, nm = stage("report_aggregation")
         from src.pipeline.report_aggregator import aggregate_reports
         agent_reports = [{'agent':'geometry','ok':True}, {'agent':'sections','ok':True}, {'agent':'material','ok':True}, {'agent':'loads','ok':True}, {'agent':'deflection','ok':True}, {'agent':'compliance','ok': all(c.get('compliance',{}).get('moment_ok',True) for c in compliance_reports)}]
         final_report = aggregate_reports(agent_reports)
         out['final'] = final_report
+        end(ts, nm)
 
         status = 'ok'
     except Exception as e:

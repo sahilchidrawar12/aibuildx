@@ -74,6 +74,12 @@ class ConversionCLI:
                 for f in files:
                     size = os.path.getsize(os.path.join(output_dir, f)) / 1024
                     print(f"   - {f} ({size:.1f} KB)")
+
+            # If IFC exists, print viewer URL hint
+            if os.path.exists(os.path.join(output_dir, 'model.ifc')):
+                job_id_from_dir = os.path.basename(output_dir)
+                viewer_url = f"/viewer/{job_id_from_dir}"
+                print(f"\n👁  3D Viewer: Open http://localhost:5001{viewer_url}")
             
             if verbose:
                 print(f"\n📊 Full result keys: {list(result.keys())}")

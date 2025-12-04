@@ -306,6 +306,14 @@ def synthesize_connections(members: List[Dict[str, Any]], joints: List[Dict[str,
     if not joints:
         joints = _infer_joints_from_geometry(members)
     
+    # DEBUG: Log joints created
+    import logging
+    logger = logging.getLogger(__name__)
+    logger.debug(f"[CONNECTION_SYNTHESIS] Generated {len(joints)} joints from {len(members)} members")
+    for jdx, j in enumerate(joints):
+        j_pos_log = j.get('position') or j.get('location')
+        logger.debug(f"  Joint {jdx}: id={j.get('id')}, pos={j_pos_log}, members={j.get('members')}")
+    
     plates: List[Dict[str, Any]] = []
     bolts: List[Dict[str, Any]] = []
 
@@ -317,6 +325,7 @@ def synthesize_connections(members: List[Dict[str, Any]], joints: List[Dict[str,
         
         # ✅ FIXED: Use calculated position (now real 3D intersection point)
         j_pos = j.get('position') or j.get('location') or j.get('node') or [0.0, 0.0, 0.0]
+        logger.debug(f"[PLATE_{j_id}] Creating plate at position: {j_pos}")
         
         m_ids = j.get('members') or []
         base_prof = prof_by_id.get(m_ids[0]) if m_ids else {}
@@ -374,6 +383,7 @@ def synthesize_connections(members: List[Dict[str, Any]], joints: List[Dict[str,
             }
         }
         plates.append(plate)
+        logger.debug(f"  -> Plate {plate['id']} created at {plate.get('position')}")
 
         # ✅ FIXED: Bolt group positioned relative to ACTUAL joint location
         bolt_pattern = _bolt_layout_mm(bolt_spacing_mm)
@@ -395,4 +405,5 @@ def synthesize_connections(members: List[Dict[str, Any]], joints: List[Dict[str,
                 'hole_diameter_mm': bolt_dia_mm + 1.0  # Standard clearance
             })
 
+    logger.info(f"[CONNECTION_SYNTHESIS] Final output: {len(plates)} plates, {len(bolts)} bolts")
     return plates, bolts

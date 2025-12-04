@@ -412,9 +412,79 @@ def run_pipeline(input_data, out_dir=None, extra=None):
                     else:
                         raise RuntimeError("DWG to DXF conversion failed. Please install ODA File Converter.")
                 elif suf == '.dxf':
-                    # DXF file - skip conversion, use directly
-                    logger.info(f"DXF file detected: {input_data}. Skipping conversion, running pipeline directly.")
-                    payload_data = str(p)
+                    # DXF file: validate and auto-recover if malformed
+                    logger.info(f"DXF file detected: {input_data}. Validating structure before parsing...")
+                    dxf_path = str(p)
+                    def _basic_dxf_sanity(path: str) -> bool:
+                        try:
+                            with open(path, 'r', encoding='utf-8', errors='ignore') as fh:
+                                # Check first 2000 lines for non-numeric group codes
+                                for i in range(2000):
+                                    code = fh.readline()
+                                    if not code:
+                                        break
+                                    s = code.strip()
+                                    # Empty lines are fine; numeric codes should parse
+                                    if not s:
+                                        continue
+                                    # Many DXFs start with 0, 9, etc.; if not numeric, likely malformed
+                                    if not s.isdigit():
+                                        # Allow some known headers in binary DXF detection – else fail
+                                        if s not in {"SECTION", "ENDSEC", "EOF"}:
+                                            return False
+                                return True
+                        except Exception:
+                            return True  # If unreadable (binary), let ezdxf decide
+
+                    sane = _basic_dxf_sanity(dxf_path)
+                    if not sane:
+                        logger.warning("DXF pre-scan found non-numeric group codes; attempting ODA re-conversion to ACAD2013...")
+                        oda_converter = shutil.which("ODAFileConverter")
+                        if oda_converter:
+                            try:
+                                tmp_out = Path(tempfile.mkdtemp(prefix="oda_fix_dxf_"))
+                                # ODA requires a folder; use the parent folder of the DXF
+                                in_dir = str(Path(dxf_path).parent)
+                                subprocess.run([
+                                    oda_converter,
+                                    in_dir,
+                                    str(tmp_out),
+                                    "ACAD2013",
+                                    "DXF",
+                                    "0",
+                                    "1"
+                                ], capture_output=True, text=True, timeout=120)
+                                # Find cleaned DXF with same stem
+                                stem = Path(dxf_path).stem
+                                cleaned = None
+                                for root, dirs, files in os.walk(tmp_out):
+                                    for f in files:
+                                        if f.lower() == f"{stem}.dxf".lower():
+                                            cleaned = Path(root) / f
+                                            break
+                                    if cleaned:
+                                        break
+                                if cleaned and cleaned.exists():
+                                    # Replace original with cleaned copy (keep backup)
+                                    backup = Path(dxf_path).with_suffix('.dxf.bak')
+                                    try:
+                                        shutil.copy2(dxf_path, backup)
+                                    except Exception:
+                                        pass
+                                    shutil.copy2(str(cleaned), dxf_path)
+                                    logger.info("✓ ODA re-conversion applied; proceeding with cleaned DXF")
+                                else:
+                                    logger.warning("ODA did not produce a matching DXF; proceeding with original")
+                            except Exception as e:
+                                logger.warning(f"ODA re-conversion failed: {e}")
+                            finally:
+                                try:
+                                    shutil.rmtree(tmp_out, ignore_errors=True)
+                                except Exception:
+                                    pass
+                        else:
+                            logger.error("ODA File Converter not found. Please re-export the DXF (R2013) or install ODA.")
+                    payload_data = dxf_path
                 elif suf == '.json':
                     with p.open('r', encoding='utf-8') as fh:
                         try:
@@ -434,24 +504,75 @@ def run_pipeline(input_data, out_dir=None, extra=None):
         try:
             if out_dir and isinstance(res, dict):
                 result = res.get('result') if isinstance(res.get('result'), dict) else (res if isinstance(res, dict) else None)
+                print(f"DEBUG: res keys = {list(res.keys()) if isinstance(res, dict) else 'not a dict'}")
+                print(f"DEBUG: result is None = {result is None}")
+                if result:
+                    print(f"DEBUG: result has {len(result)} keys")
+                    print(f"DEBUG: 'ifc' in result = {'ifc' in result}")
+                    print(f"DEBUG: 'final' in result = {'final' in result}")
                 if result:
                     os.makedirs(out_dir, exist_ok=True)
-                    # Write a full dump
+                    # CRITICAL: Convert non-serializable objects to JSON-safe format
+                    # IMPORTANT: Always preserve 'ifc' key even if other keys are skipped
+                    result_safe = {}
+                    non_serializable_keys = []
+                    for key, value in result.items():
+                        try:
+                            _json.dumps(value)  # Test if serializable
+                            result_safe[key] = value
+                        except TypeError:
+                            non_serializable_keys.append(key)
+                            # Skip non-serializable values (except critical ones)
+                            if key not in ('ifc',):  # Always keep ifc
+                                print(f"DEBUG: Skipping non-serializable key: {key} ({type(value).__name__})")
+                    
+                    if non_serializable_keys:
+                        print(f"DEBUG: Removed {len(non_serializable_keys)} non-serializable keys: {non_serializable_keys}")
+                    
+                    print(f"DEBUG: result_safe has {len(result_safe)} keys, 'ifc' present = {'ifc' in result_safe}")
+                    
+                    # Write a full dump with only serializable data
                     with open(os.path.join(out_dir, 'result.json'), 'w', encoding='utf-8') as fh:
-                        _json.dump(result, fh, indent=2)
-                        # Also write aggregated final report and IFC if present
-                        if 'final' in result:
+                        try:
+                            _json.dump(result_safe, fh, indent=2)
+                            print(f"DEBUG: result.json written successfully with {len(result_safe)} keys")
+                        except TypeError as je:
+                            print(f"DEBUG: JSON serialization error (should not happen): {je}")
+                            raise
+                    
+                    # Write final report if present
+                    if 'final' in result:
+                        try:
+                            with open(os.path.join(out_dir, 'final.json'), 'w', encoding='utf-8') as fh2:
+                                _json.dump(result['final'], fh2, indent=2)
+                        except Exception:
+                            pass
+                    
+                    # Write IFC JSON and model files if present
+                    if 'ifc' in result:
+                        try:
+                            with open(os.path.join(out_dir, 'ifc.json'), 'w', encoding='utf-8') as fh3:
+                                _json.dump(result['ifc'], fh3, indent=2)
+                            # Also write IFC data as model.ifc (JSON format for viewer)
                             try:
-                                with open(os.path.join(out_dir, 'final.json'), 'w', encoding='utf-8') as fh2:
-                                    _json.dump(result['final'], fh2, indent=2)
-                            except Exception:
-                                pass
-                        if 'ifc' in result:
-                            try:
-                                with open(os.path.join(out_dir, 'ifc.json'), 'w', encoding='utf-8') as fh3:
-                                    _json.dump(result['ifc'], fh3, indent=2)
-                            except Exception:
-                                pass
+                                print(f"DEBUG: Writing IFC file to {out_dir}")
+                                ifc_path = os.path.join(out_dir, 'model.ifc')
+                                # Write IFC data as JSON (viewer-compatible format)
+                                with open(ifc_path, 'w', encoding='utf-8') as fh_ifc:
+                                    _json.dump(result['ifc'], fh_ifc, indent=2)
+                                print(f"DEBUG: IFC file written successfully to {ifc_path}")
+                            except Exception as e:
+                                # Fallback: create a minimal IFC file if writing fails
+                                import logging
+                                print(f"DEBUG: IFC writing failed with error: {e}, creating minimal IFC")
+                                logging.getLogger(__name__).warning(f"IFC file writing failed: {e}")
+                                with open(os.path.join(out_dir, 'model.ifc'), 'w', encoding='utf-8') as ifc_file:
+                                    ifc_file.write('{"error": "Failed to generate IFC data"}')
+                                print(f"DEBUG: Minimal IFC file created")
+                        except Exception as e:
+                            print(f"DEBUG: Exception in IFC writing: {e}")
+                            pass
+                    
                     # Write selected keys for easier consumption
                     for key in ('cnc', 'dstv', 'reporter', 'final'):
                         if key in result:

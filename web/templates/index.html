@@ -170,6 +170,16 @@
                     </div>
 
                     <div class="result-card">
+                        <div class="result-icon">👁️</div>
+                        <h3>3D Viewer</h3>
+                        <p class="result-desc">Open interactive IFC viewer</p>
+                        <a class="btn btn-primary" id="viewerLink" href="#" target="_blank" style="display:none">
+                            <span>Open 3D Viewer</span>
+                        </a>
+                        <p class="muted" id="viewerHint">Viewer appears when IFC is generated.</p>
+                    </div>
+
+                    <div class="result-card">
                         <div class="result-icon">🏗️</div>
                         <h3>Tekla Export</h3>
                         <p class="result-desc">Export to Tekla Structures format</p>
@@ -248,6 +258,35 @@
         </footer>
     </div>
 
-    <script src="{{ url_for('static', filename='script.js') }}?v=6"></script>
+        <script src="{{ url_for('static', filename='script.js') }}?v=6"></script>
+        <script>
+            // Hook into existing upload flow by listening for fetch to /api/upload
+            // The existing script populates results; we augment by toggling the viewer link when viewer_url is present.
+            (function() {
+                const viewerLink = document.getElementById('viewerLink');
+                const viewerHint = document.getElementById('viewerHint');
+                const origFetch = window.fetch;
+                window.fetch = async function(resource, init) {
+                    const resp = await origFetch(resource, init);
+                    try {
+                        if (typeof resource === 'string' && resource.includes('/api/upload')) {
+                            const clone = resp.clone();
+                            const data = await clone.json();
+                            if (data && data.viewer_url) {
+                                viewerLink.href = data.viewer_url;
+                                viewerLink.style.display = 'inline-block';
+                                viewerHint.textContent = 'Viewer ready.';
+                            } else {
+                                viewerLink.style.display = 'none';
+                                viewerHint.textContent = 'Viewer appears when IFC is generated.';
+                            }
+                        }
+                    } catch (e) {
+                        // Non-JSON or other calls; ignore.
+                    }
+                    return resp;
+                };
+            })();
+        </script>
 </body>
 </html>
