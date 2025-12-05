@@ -1,0 +1,147 @@
+{
+  "project_id": "COMPLEX_003_OFFSHORE",
+  "project_name": "Offshore Platform",
+  "complexity": "most_complex",
+  "status": "PASS",
+  "total_execution_time_ms": 0.09894371032714844,
+  "total_members": 36,
+  "total_joints": 70,
+  "total_plates": 50,
+  "detailing_output": {
+    "copes": 226,
+    "stiffeners": 158,
+    "welds": 177,
+    "grids": 5,
+    "levels": 4
+  },
+  "detailing_metrics": {
+    "cope_accuracy": 0.8636363636363636,
+    "cope_mae": 6,
+    "stiffener_accuracy": 0.95,
+    "stiffener_mae": 2,
+    "weld_accuracy": 0.8888888888888888,
+    "weld_mae": 3,
+    "extension_accuracy": 1.0,
+    "extension_mae": 0,
+    "compliance_percentage": 0.8115319865319864,
+    "overall_accuracy": 0.8124494949494949
+  },
+  "stages": [
+    {
+      "name": "Miner",
+      "status": "SUCCESS",
+      "execution_time_ms": 0.00095367431640625,
+      "output_summary": {
+        "members_extracted": 36,
+        "joints_extracted": 70,
+        "plates_extracted": 50
+      },
+      "error_message": null
+    },
+    {
+      "name": "Geometry",
+      "status": "SUCCESS",
+      "execution_time_ms": 0.0030994415283203125,
+      "output_summary": {
+        "members_analyzed": 36,
+        "valid_geometries": 36,
+        "invalid_geometries": 0
+      },
+      "error_message": null
+    },
+    {
+      "name": "Nodes&Joints",
+      "status": "SUCCESS",
+      "execution_time_ms": 0.0059604644775390625,
+      "output_summary": {
+        "joints_detected": 70,
+        "bolted_joints": 0,
+        "welded_joints": 70
+      },
+      "error_message": null
+    },
+    {
+      "name": "Classification",
+      "status": "SUCCESS",
+      "execution_time_ms": 0.0,
+      "output_summary": {
+        "joints_classified": 70,
+        "moment_connections": 23,
+        "shear_connections": 23,
+        "other_connections": 24
+      },
+      "error_message": null
+    },
+    {
+      "name": "Loads",
+      "status": "SUCCESS",
+      "execution_time_ms": 0.0,
+      "output_summary": {
+        "members_with_inferred_loads": 36,
+        "average_load_kN": 500.0,
+        "max_load_kN": 1500.0
+      },
+      "error_message": null
+    },
+    {
+      "name": "Synthesis",
+      "status": "SUCCESS",
+      "execution_time_ms": 0.0,
+      "output_summary": {
+        "connections_synthesized": 70,
+        "connection_plates": 50,
+        "average_plate_thickness_mm": 15.875
+      },
+      "error_message": null
+    },
+    {
+      "name": "Repair&Validation",
+      "status": "SUCCESS",
+      "execution_time_ms": 0.0,
+      "output_summary": {
+        "members_validated": 36,
+        "joints_validated": 70,
+        "errors_found": 0,
+        "errors_repaired": 0
+      },
+      "error_message": null
+    },
+    {
+      "name": "DetailingAI",
+      "status": "SUCCESS",
+      "execution_time_ms": 0.08296966552734375,
+      "output_summary": {
+        "copes_predicted": 226,
+        "stiffeners_predicted": 158,
+        "welds_predicted": 177,
+        "extensions_predicted": 75,
+        "grids_predicted": 5,
+        "levels_predicted": 4
+      },
+      "error_message": null
+    },
+    {
+      "name": "ClashDetection",
+      "status": "SUCCESS",
+      "execution_time_ms": 0.0,
+      "output_summary": {
+        "clashes_detected": 0,
+        "clashes_resolved": 0,
+        "unresolved_clashes": 0
+      },
+      "error_message": null
+    },
+    {
+      "name": "IFCExport",
+      "status": "SUCCESS",
+      "execution_time_ms": 0.0,
+      "output_summary": {
+        "ifc_elements_exported": 106,
+        "file_size_kb": 500,
+        "export_format": "IFC4 JSON"
+      },
+      "error_message": null
+    }
+  ],
+  "notes": "Completed in 0.1ms with 10/10 stages successful"
+}

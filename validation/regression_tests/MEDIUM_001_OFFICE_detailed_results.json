@@ -1,0 +1,147 @@
+{
+  "project_id": "MEDIUM_001_OFFICE",
+  "project_name": "6-Story Office Building",
+  "complexity": "medium",
+  "status": "PASS",
+  "total_execution_time_ms": 0.051975250244140625,
+  "total_members": 72,
+  "total_joints": 50,
+  "total_plates": 24,
+  "detailing_output": {
+    "copes": 60,
+    "stiffeners": 41,
+    "welds": 52,
+    "grids": 4,
+    "levels": 6
+  },
+  "detailing_metrics": {
+    "cope_accuracy": 1.0,
+    "cope_mae": 0,
+    "stiffener_accuracy": 0.9,
+    "stiffener_mae": 1,
+    "weld_accuracy": 0.7333333333333334,
+    "weld_mae": 2,
+    "extension_accuracy": 1.0,
+    "extension_mae": 0,
+    "compliance_percentage": 0.9388888888888888,
+    "overall_accuracy": 0.9183333333333333
+  },
+  "stages": [
+    {
+      "name": "Miner",
+      "status": "SUCCESS",
+      "execution_time_ms": 0.0011920928955078125,
+      "output_summary": {
+        "members_extracted": 72,
+        "joints_extracted": 50,
+        "plates_extracted": 24
+      },
+      "error_message": null
+    },
+    {
+      "name": "Geometry",
+      "status": "SUCCESS",
+      "execution_time_ms": 0.0040531158447265625,
+      "output_summary": {
+        "members_analyzed": 72,
+        "valid_geometries": 72,
+        "invalid_geometries": 0
+      },
+      "error_message": null
+    },
+    {
+      "name": "Nodes&Joints",
+      "status": "SUCCESS",
+      "execution_time_ms": 0.003814697265625,
+      "output_summary": {
+        "joints_detected": 50,
+        "bolted_joints": 30,
+        "welded_joints": 20
+      },
+      "error_message": null
+    },
+    {
+      "name": "Classification",
+      "status": "SUCCESS",
+      "execution_time_ms": 0.0,
+      "output_summary": {
+        "joints_classified": 50,
+        "moment_connections": 16,
+        "shear_connections": 16,
+        "other_connections": 18
+      },
+      "error_message": null
+    },
+    {
+      "name": "Loads",
+      "status": "SUCCESS",
+      "execution_time_ms": 0.00095367431640625,
+      "output_summary": {
+        "members_with_inferred_loads": 72,
+        "average_load_kN": 500.0,
+        "max_load_kN": 1500.0
+      },
+      "error_message": null
+    },
+    {
+      "name": "Synthesis",
+      "status": "SUCCESS",
+      "execution_time_ms": 0.0,
+      "output_summary": {
+        "connections_synthesized": 50,
+        "connection_plates": 24,
+        "average_plate_thickness_mm": 15.875
+      },
+      "error_message": null
+    },
+    {
+      "name": "Repair&Validation",
+      "status": "SUCCESS",
+      "execution_time_ms": 0.00095367431640625,
+      "output_summary": {
+        "members_validated": 72,
+        "joints_validated": 50,
+        "errors_found": 0,
+        "errors_repaired": 0
+      },
+      "error_message": null
+    },
+    {
+      "name": "DetailingAI",
+      "status": "SUCCESS",
+      "execution_time_ms": 0.03314018249511719,
+      "output_summary": {
+        "copes_predicted": 60,
+        "stiffeners_predicted": 41,
+        "welds_predicted": 52,
+        "extensions_predicted": 20,
+        "grids_predicted": 4,
+        "levels_predicted": 6
+      },
+      "error_message": null
+    },
+    {
+      "name": "ClashDetection",
+      "status": "SUCCESS",
+      "execution_time_ms": 0.0,
+      "output_summary": {
+        "clashes_detected": 0,
+        "clashes_resolved": 0,
+        "unresolved_clashes": 0
+      },
+      "error_message": null
+    },
+    {
+      "name": "IFCExport",
+      "status": "SUCCESS",
+      "execution_time_ms": 0.00095367431640625,
+      "output_summary": {
+        "ifc_elements_exported": 122,
+        "file_size_kb": 500,
+        "export_format": "IFC4 JSON"
+      },
+      "error_message": null
+    }
+  ],
+  "notes": "Completed in 0.1ms with 10/10 stages successful"
+}

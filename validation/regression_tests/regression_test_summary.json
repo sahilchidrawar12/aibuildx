@@ -1,0 +1,117 @@
+{
+  "summary": {
+    "total_projects": 10,
+    "passed": 6,
+    "failed": 4,
+    "success_rate": 0.6,
+    "total_execution_time_seconds": 0.002093076705932617
+  },
+  "by_complexity": {
+    "simple": {
+      "count": 2,
+      "avg_accuracy": 0.5875,
+      "avg_compliance": 0.5868055555555555,
+      "passed": 1
+    },
+    "medium": {
+      "count": 2,
+      "avg_accuracy": 0.9028888888888889,
+      "avg_compliance": 0.9227314814814813,
+      "passed": 2
+    },
+    "hard": {
+      "count": 2,
+      "avg_accuracy": 0.7338888888888888,
+      "avg_compliance": 0.7467592592592593,
+      "passed": 1
+    },
+    "most_complex": {
+      "count": 4,
+      "avg_accuracy": 0.7899199134199134,
+      "avg_compliance": 0.781705747955748,
+      "passed": 2
+    }
+  },
+  "per_project_accuracy": [
+    {
+      "project_id": "SIMPLE_001_WAREHOUSE",
+      "project_name": "Single-Story Warehouse",
+      "status": "PASS",
+      "overall_accuracy": 0.8,
+      "compliance_percentage": 0.7777777777777777,
+      "execution_time_ms": 1.3370513916015625
+    },
+    {
+      "project_id": "SIMPLE_002_PORTAL",
+      "project_name": "2-Story Portal Frame",
+      "status": "FAIL",
+      "overall_accuracy": 0.375,
+      "compliance_percentage": 0.3958333333333333,
+      "execution_time_ms": 0.028133392333984375
+    },
+    {
+      "project_id": "MEDIUM_001_OFFICE",
+      "project_name": "6-Story Office Building",
+      "status": "PASS",
+      "overall_accuracy": 0.9183333333333333,
+      "compliance_percentage": 0.9388888888888888,
+      "execution_time_ms": 0.051975250244140625
+    },
+    {
+      "project_id": "MEDIUM_002_RESIDENTIAL",
+      "project_name": "12-Story Residential Tower",
+      "status": "PASS",
+      "overall_accuracy": 0.8874444444444445,
+      "compliance_percentage": 0.906574074074074,
+      "execution_time_ms": 0.04982948303222656
+    },
+    {
+      "project_id": "HARD_001_HIGHRISE",
+      "project_name": "20-Story High-Rise",
+      "status": "FAIL",
+      "overall_accuracy": 0.7172222222222222,
+      "compliance_percentage": 0.7314814814814815,
+      "execution_time_ms": 0.0820159912109375
+    },
+    {
+      "project_id": "HARD_002_STADIUM",
+      "project_name": "Stadium Roof Structure",
+      "status": "PASS",
+      "overall_accuracy": 0.7505555555555555,
+      "compliance_percentage": 0.7620370370370372,
+      "execution_time_ms": 0.09012222290039062
+    },
+    {
+      "project_id": "COMPLEX_001_BRIDGE",
+      "project_name": "Suspension Bridge Tower",
+      "status": "FAIL",
+      "overall_accuracy": 0.67175,
+      "compliance_percentage": 0.6237962962962963,
+      "execution_time_ms": 0.11205673217773438
+    },
+    {
+      "project_id": "COMPLEX_002_DOME",
+      "project_name": "Space Frame Dome",
+      "status": "PASS",
+      "overall_accuracy": 0.9297063492063492,
+      "compliance_percentage": 0.9383201058201059,
+      "execution_time_ms": 0.14710426330566406
+    },
+    {
+      "project_id": "COMPLEX_003_OFFSHORE",
+      "project_name": "Offshore Platform",
+      "status": "PASS",
+      "overall_accuracy": 0.8124494949494949,
+      "compliance_percentage": 0.8115319865319864,
+      "execution_time_ms": 0.09894371032714844
+    },
+    {
+      "project_id": "COMPLEX_004_SEISMIC",
+      "project_name": "Seismic Moment-Resisting Frame",
+      "status": "FAIL",
+      "overall_accuracy": 0.7457738095238095,
+      "compliance_percentage": 0.7531746031746032,
+      "execution_time_ms": 0.09584426879882812
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "project_id": "COMPLEX_001_BRIDGE",
+  "project_name": "Suspension Bridge Tower",
+  "complexity": "most_complex",
+  "status": "FAIL",
+  "total_execution_time_ms": 0.11205673217773438,
+  "total_members": 33,
+  "total_joints": 60,
+  "total_plates": 40,
+  "detailing_output": {
+    "copes": 237,
+    "stiffeners": 179,
+    "welds": 208,
+    "grids": 7,
+    "levels": 4
+  },
+  "detailing_metrics": {
+    "cope_accuracy": 0.74,
+    "cope_mae": 13,
+    "stiffener_accuracy": 0.9777777777777777,
+    "stiffener_mae": 1,
+    "weld_accuracy": 0.7333333333333334,
+    "weld_mae": 8,
+    "extension_accuracy": 0.9166666666666666,
+    "extension_mae": 2,
+    "compliance_percentage": 0.6237962962962963,
+    "overall_accuracy": 0.67175
+  },
+  "stages": [
+    {
+      "name": "Miner",
+      "status": "SUCCESS",
+      "execution_time_ms": 0.0,
+      "output_summary": {
+        "members_extracted": 33,
+        "joints_extracted": 60,
+        "plates_extracted": 40
+      },
+      "error_message": null
+    },
+    {
+      "name": "Geometry",
+      "status": "SUCCESS",
+      "execution_time_ms": 0.0021457672119140625,
+      "output_summary": {
+        "members_analyzed": 33,
+        "valid_geometries": 33,
+        "invalid_geometries": 0
+      },
+      "error_message": null
+    },
+    {
+      "name": "Nodes&Joints",
+      "status": "SUCCESS",
+      "execution_time_ms": 0.003814697265625,
+      "output_summary": {
+        "joints_detected": 60,
+        "bolted_joints": 0,
+        "welded_joints": 60
+      },
+      "error_message": null
+    },
+    {
+      "name": "Classification",
+      "status": "SUCCESS",
+      "execution_time_ms": 0.0,
+      "output_summary": {
+        "joints_classified": 60,
+        "moment_connections": 20,
+        "shear_connections": 20,
+        "other_connections": 20
+      },
+      "error_message": null
+    },
+    {
+      "name": "Loads",
+      "status": "SUCCESS",
+      "execution_time_ms": 0.0,
+      "output_summary": {
+        "members_with_inferred_loads": 33,
+        "average_load_kN": 500.0,
+        "max_load_kN": 1500.0
+      },
+      "error_message": null
+    },
+    {
+      "name": "Synthesis",
+      "status": "SUCCESS",
+      "execution_time_ms": 0.0,
+      "output_summary": {
+        "connections_synthesized": 60,
+        "connection_plates": 40,
+        "average_plate_thickness_mm": 15.875
+      },
+      "error_message": null
+    },
+    {
+      "name": "Repair&Validation",
+      "status": "SUCCESS",
+      "execution_time_ms": 0.0,
+      "output_summary": {
+        "members_validated": 33,
+        "joints_validated": 60,
+        "errors_found": 0,
+        "errors_repaired": 0
+      },
+      "error_message": null
+    },
+    {
+      "name": "DetailingAI",
+      "status": "SUCCESS",
+      "execution_time_ms": 0.09608268737792969,
+      "output_summary": {
+        "copes_predicted": 237,
+        "stiffeners_predicted": 179,
+        "welds_predicted": 208,
+        "extensions_predicted": 82,
+        "grids_predicted": 7,
+        "levels_predicted": 4
+      },
+      "error_message": null
+    },
+    {
+      "name": "ClashDetection",
+      "status": "SUCCESS",
+      "execution_time_ms": 0.0,
+      "output_summary": {
+        "clashes_detected": 0,
+        "clashes_resolved": 0,
+        "unresolved_clashes": 0
+      },
+      "error_message": null
+    },
+    {
+      "name": "IFCExport",
+      "status": "SUCCESS",
+      "execution_time_ms": 0.0,
+      "output_summary": {
+        "ifc_elements_exported": 93,
+        "file_size_kb": 500,
+        "export_format": "IFC4 JSON"
+      },
+      "error_message": null
+    }
+  ],
+  "notes": "Completed in 0.1ms with 10/10 stages successful"
+}
