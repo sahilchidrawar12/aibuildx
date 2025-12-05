@@ -598,7 +598,13 @@ def generate_ifc_joint(joint: Dict[str,Any], member_map: Dict[str,str]) -> Optio
         print(f"Error generating IFC joint {joint.get('id')}: {e}", file=sys.stderr)
         return None
 
-def export_ifc_model(members: List[Dict[str,Any]], plates: List[Dict[str,Any]], bolts: List[Dict[str,Any]], joints: List[Dict[str,Any]] = None) -> Dict[str,Any]:
+def export_ifc_model(
+    members: List[Dict[str,Any]],
+    plates: List[Dict[str,Any]],
+    bolts: List[Dict[str,Any]],
+    joints: List[Dict[str,Any]] = None,
+    detailing: Dict[str, Any] = None,
+) -> Dict[str,Any]:
     """
     Export complete IFC model with spatial hierarchy, relationships, and all structural connections.
     
@@ -611,6 +617,7 @@ def export_ifc_model(members: List[Dict[str,Any]], plates: List[Dict[str,Any]], 
     - Spatial containment: project → site → building → storey → elements
     - Structural connections: IfcRelConnectsElements linking members, plates, bolts
     - Joints (welds and rigid connections) linking multiple members
+    - Detailing metadata: copes/cutbacks, stiffeners/doublers, welds, grids/levels, assemblies
     """
     import logging
     logger = logging.getLogger(__name__)
@@ -620,6 +627,8 @@ def export_ifc_model(members: List[Dict[str,Any]], plates: List[Dict[str,Any]], 
     
     if joints is None:
         joints = []
+    if detailing is None:
+        detailing = {}
     # Initialize model with complete spatial structure
     project_id = _new_guid()
     site_id = _new_guid()
@@ -666,6 +675,14 @@ def export_ifc_model(members: List[Dict[str,Any]], plates: List[Dict[str,Any]], 
         "plates": [],
         "fasteners": [],
         "joints": [],
+        "stiffeners": [],
+        "welds": [],
+        "secondary_parts": [],
+        "assemblies": [],
+        "grids": [],
+        "levels": [],
+        "copes": [],
+        "component_map": {},
         "relationships": {
             "spatial_containment": [],
             "structural_connections": []
@@ -863,6 +880,18 @@ def export_ifc_model(members: List[Dict[str,Any]], plates: List[Dict[str,Any]], 
             "relation": "Building contains Storey"
         }
     ])
+    
+    # Attach detailing metadata (non-destructive; downstream may consume for fabrication exports)
+    if detailing:
+        model['copes'] = detailing.get('copes', [])
+        model['stiffeners'] = detailing.get('stiffeners', [])
+        model['welds'] = detailing.get('welds', [])
+        model['secondary_parts'] = detailing.get('secondary_parts', [])
+        model['assemblies'] = detailing.get('assemblies', [])
+        model['grids'] = detailing.get('grids', [])
+        model['levels'] = detailing.get('levels', [])
+        model['component_map'] = detailing.get('component_map', {})
+        model.setdefault('metadata', {})['member_adjustments'] = detailing.get('member_adjustments', [])
     
     # Add summary statistics
     model['summary'] = {

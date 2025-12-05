@@ -218,6 +218,35 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
         out['bolts'] = bolts_synth
         end(ts, nm)
 
+        # 7.2) Detailing AI (Tekla-like) – model-driven with standards fallback
+        ts, nm = stage("detailing_ai")
+        try:
+            from src.pipeline.agents.detailing_ai_agent import generate_detailing
+            detailing = generate_detailing(members, joints, plates_synth)
+            out['detailing'] = detailing
+            copes_ct = len(detailing.get('copes', []))
+            stiff_ct = len(detailing.get('stiffeners', []))
+            weld_ct = len(detailing.get('welds', []))
+            asm_ct = len(detailing.get('assemblies', []))
+            logger.info(
+                "Detailing AI generated: %s copes, %s stiffeners, %s welds, %s assemblies",
+                copes_ct, stiff_ct, weld_ct, asm_ct
+            )
+        except Exception as e:
+            logger.warning(f"Detailing AI stage failed: {e}")
+            out['detailing'] = {
+                'copes': [],
+                'stiffeners': [],
+                'welds': [],
+                'member_adjustments': [],
+                'secondary_parts': [],
+                'grids': [],
+                'levels': [],
+                'assemblies': [],
+                'component_map': {},
+            }
+        end(ts, nm)
+
         # 7) COMPREHENSIVE CLASH DETECTION (NEW - v2.0)
         if os.getenv('AIBUILDX_DISABLE_DETECTION'):
             logger.warning("Clash detection disabled via AIBUILDX_DISABLE_DETECTION")
@@ -362,7 +391,8 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
                 members,
                 out.get('plates') or data.get('plates', []),
                 out.get('bolts') or data.get('bolts', []),
-                out.get('joints', [])
+                out.get('joints', []),
+                detailing=out.get('detailing', {})
             )
             out['ifc'] = ifc_model
 
