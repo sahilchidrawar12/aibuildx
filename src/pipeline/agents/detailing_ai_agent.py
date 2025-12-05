@@ -245,7 +245,7 @@ def generate_detailing(members: List[Dict[str, Any]], joints: List[Dict[str, Any
     grids, levels = _infer_grids_levels(members)
     assemblies = [
         {
-            "id": f"asm_{idx}",
+            "id": "asm_0",
             "members": [m.get("id") for m in members if m.get("id")],
             "plates": [p.get("id") for p in plates if p.get("id")],
             "bolts": [],
