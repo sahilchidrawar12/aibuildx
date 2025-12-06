@@ -111,11 +111,12 @@ class ClashCategory(Enum):
     BOLT_SHEAR_CAPACITY = "BOLT_SHEAR_CAPACITY"
     BOLT_COMBINED_STRESS = "BOLT_COMBINED_STRESS"
     
-    # Structural Logic (4)
+    # Structural Logic (5)
     FLOATING_PLATE = "FLOATING_PLATE"
     ORPHAN_BOLT = "ORPHAN_BOLT"
     ORPHAN_WELD = "ORPHAN_WELD"
     DISCONNECTED_MEMBER = "DISCONNECTED_MEMBER"
+    GROUND_LEVEL_BEAM = "GROUND_LEVEL_BEAM"
 
 class ClashSeverity(Enum):
     """Severity levels."""
@@ -180,7 +181,8 @@ class ComprehensiveClashDetector:
             'PLATE_XY_ALIGN_TOL_M': 0.05,
             'ECCENTRICITY_TOL_M': 0.05,
             'FOUNDATION_GAP_MAX_M': 0.01,
-            'SPACING_MIN_EPS_M': 0.001
+            'SPACING_MIN_EPS_M': 0.001,
+            'GROUND_LEVEL_TOL_M': 0.05
         }
 
     def _tol(self, name: str) -> float:
@@ -246,6 +248,7 @@ class ComprehensiveClashDetector:
         self._check_3d_geometry_clashes(members, joints, plates, bolts)
         self._check_plate_member_alignment(plates, members, joints)
         self._check_base_plate_integrity(plates, members, foundation)
+        self._check_z_level_rules(members)
         self._check_weld_geometry_and_properties(welds, plates, members)
         self._check_bolt_edge_distance_and_spacing(bolts, plates)
         self._check_member_geometry_and_span(members, joints)
@@ -673,6 +676,30 @@ class ComprehensiveClashDetector:
                     description=f"Base plate asymmetric: {width}×{height}mm",
                     current_value=(width, height),
                     expected_value="Balanced dimensions"
+                )
+
+    def _check_z_level_rules(self, members):
+        """Enforce Z-level zoning: no beams sitting at ground (Z≈0)."""
+        ground_tol = self._tol('GROUND_LEVEL_TOL_M')
+
+        for member in members:
+            mtype = (member.get('member_type') or member.get('type') or '').lower()
+            if mtype != 'beam':
+                continue
+
+            start = self.normalize_position(member.get('start', [0, 0, 0]))
+            end = self.normalize_position(member.get('end', [0, 0, 0]))
+            min_z = min(start[2], end[2])
+
+            if min_z <= ground_tol:
+                self._add_clash(
+                    category=ClashCategory.GROUND_LEVEL_BEAM,
+                    severity=ClashSeverity.CRITICAL,
+                    element_type='member',
+                    element_id=member.get('id'),
+                    description=f"Beam {member.get('id')} at Z={min_z:.3f}m violates ground clearance (no beams at Z=0)",
+                    current_value=min_z,
+                    expected_value=f"> {ground_tol:.3f}m"
                 )
 
     def _check_weld_geometry_and_properties(self, welds, plates, members):

@@ -62,6 +62,7 @@ class ComplexStructureGenerator:
 
         # Create 5-story structure
         story_height = 3.5  # 3.5m per floor
+        ground_clearance = 0.4  # Lift first framing level off ground
         
         # COLUMNS (vertically spanning 5 stories)
         columns = [
@@ -79,7 +80,7 @@ class ComplexStructureGenerator:
 
         # BEAMS (spanning between columns, at each floor)
         for floor in range(0, 5):
-            floor_z = floor * story_height
+            floor_z = ground_clearance + floor * story_height
             
             # Main beams (span X direction)
             ifc_data['members'].extend([
@@ -301,6 +302,15 @@ class ComplexStructureGenerator:
             'member_type': 'beam'
         })
 
+        # 16. BEAM AT GROUND LEVEL (violates Z-level rule)
+        ifc['members'].append({
+            'id': 'GROUND-BEAM',
+            'start': [1.0, 1.0, 0.0],
+            'end': [4.0, 1.0, 0.0],
+            'member_type': 'beam',
+            'section': 'W12x26'
+        })
+
         return ifc
 
 # ============================================================================
@@ -334,6 +344,14 @@ class TestComprehensiveClashDetection(unittest.TestCase):
         
         base_plate_clashes = [c for c in clashes if 'BASE_PLATE_WRONG_ELEVATION' in c.category.value]
         self.assertGreater(len(base_plate_clashes), 0, "Should detect base plate at wrong elevation")
+
+    def test_detect_ground_level_beam(self):
+        """Beams at Z=0 should be flagged by zoning rule."""
+        ifc = self.generator.create_structure_with_intentional_clashes()
+        clashes, _ = self.detector.detect_all_clashes(ifc)
+
+        ground_beams = [c for c in clashes if c.category == ClashCategory.GROUND_LEVEL_BEAM]
+        self.assertGreater(len(ground_beams), 0, "Should detect beam placed at ground level")
 
     def test_detect_negative_bolt_coordinates(self):
         """Test detection of negative bolt coordinates."""
