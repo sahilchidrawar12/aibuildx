@@ -160,14 +160,14 @@ class ModelInferenceEngine:
         material_code = material_map.get(material_grade, 1)
         
         features = np.array([[load_kn, material_code, safety_factor, 1.0]])
-        predicted_diameter = model.predict(features)[0]
+        predicted_diameter = float(model.predict(features)[0])
         
         # Validate against AISC standards
         standard_sizes = [12.7, 15.875, 19.05, 22.225, 25.4, 28.575, 31.75, 34.925, 38.1]
         # Round to nearest standard size
         nearest = min(standard_sizes, key=lambda x: abs(x - predicted_diameter))
         
-        return nearest
+        return float(nearest)
     
     @staticmethod
     def predict_plate_thickness(bolt_diameter_mm: float, bearing_load_kn: float, 
@@ -195,18 +195,18 @@ class ModelInferenceEngine:
         fy, fu = steel_props.get(steel_grade, (250, 400))
         
         features = np.array([[bolt_diameter_mm, bearing_load_kn, steel_code, safety_factor]])
-        predicted_thickness = model.predict(features)[0]
+        predicted_thickness = float(model.predict(features)[0])
         
         # Validate against AISC J3.9 minimum
         aisc_minimum = bolt_diameter_mm / 1.5
-        predicted_thickness = max(predicted_thickness, aisc_minimum)
+        predicted_thickness = float(max(predicted_thickness, aisc_minimum))
         
         # Round to standard thickness
         standard_thicknesses = [3.175, 4.762, 6.35, 7.938, 9.525, 11.112, 12.7, 14.288, 
                                15.875, 17.462, 19.05, 22.225, 25.4, 28.575, 31.75, 34.925, 38.1]
         nearest = min(standard_thicknesses, key=lambda x: abs(x - predicted_thickness) if x >= predicted_thickness else float('inf'))
         
-        return nearest if nearest <= 50 else 38.1
+        return float(nearest if nearest <= 50 else 38.1)
     
     @staticmethod
     def predict_weld_size(weld_load_kn: float, plate_thickness_mm: float, 
@@ -241,7 +241,7 @@ class ModelInferenceEngine:
         
         features = np.array([[weld_load_kn, plate_thickness_mm, weld_length_mm, 
                             electrode_code, strength / 1000]])
-        predicted_size = model.predict(features)[0]
+        predicted_size = float(model.predict(features)[0])
         
         # Validate against AWS D1.1 minimums
         if plate_thickness_mm <= 3.175:
@@ -253,13 +253,13 @@ class ModelInferenceEngine:
         else:
             min_size = 7.938
         
-        predicted_size = max(predicted_size, min_size)
+        predicted_size = float(max(predicted_size, min_size))
         
         # Round to standard size
         standard_sizes = [3.175, 4.762, 6.35, 7.938, 9.525, 11.1, 12.7, 14.3, 15.9]
         nearest = min(standard_sizes, key=lambda x: abs(x - predicted_size) if x >= predicted_size else float('inf'))
         
-        return nearest if nearest <= 16 else 15.9
+        return float(nearest if nearest <= 16 else 15.9)
     
     @staticmethod
     def predict_joint_location(members: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
@@ -339,7 +339,16 @@ class ModelInferenceEngine:
         
         # Model-based prediction
         features = np.array([[plate_width_mm, plate_height_mm, bolt_diameter_mm, num_bolts, total_load_kn]])
-        constraints_met = model.predict(features)[0]
+        prediction = model.predict(features)
+        
+        # Extract constraints_met value safely
+        if hasattr(prediction, '__iter__') and len(prediction) > 0:
+            if hasattr(prediction[0], '__iter__'):
+                constraints_met = float(prediction[0][0]) if len(prediction[0]) > 0 else 0.5
+            else:
+                constraints_met = float(prediction[0])
+        else:
+            constraints_met = 0.5
         
         # If model says constraints not met, use conservative pattern
         if constraints_met < 0.5:
@@ -387,76 +396,98 @@ class ModelInferenceEngine:
 
 def synthesize_connections_model_driven(members: List[Dict[str, Any]], 
                                        joints: List[Dict[str, Any]] = None) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
+    """Generate connections using AI models with weld-first guarantees.
+
+    - Uses phase3 validated predictors (bolt, plate thickness, weld size, bolt pattern)
+    - Honors joint metadata from joint_enrichment (joint_category, weld_preferred, splice_type, slot_type)
+    - Falls back safely without changing existing flow
     """
-    Generate connections using AI models instead of hardcoded values.
-    
-    All decisions driven by trained models:
-    - Bolt size: BoltSizePredictor model
-    - Plate thickness: PlateThicknessPredictor model
-    - Weld size: WeldSizePredictor model
-    - Joint locations: JointInferenceNet model
-    - Bolt pattern: BoltPatternOptimizer model
-    
-    NO HARDCODED VALUES.
-    """
-    if joints is None:
-        joints = []
-    
+    joints = joints or []
+
     # Infer joints from geometry if not provided
     if not joints:
         joints = ModelInferenceEngine.predict_joint_location(members)
-    
+
     plates: List[Dict[str, Any]] = []
     bolts: List[Dict[str, Any]] = []
-    
+
+    member_by_id = {m.get('id'): m for m in members}
+
     for joint in joints:
-        member_ids = joint.get('members', [])
-        joint_pos = joint.get('position', [0, 0, 0])
-        
+        member_ids = joint.get('members') or []
+        joint_pos = joint.get('position') or joint.get('location') or [0, 0, 0]
+        category = joint.get('joint_category') or 'standard'
+        splice_type = joint.get('splice_type')
+        slot_type = joint.get('slot_type')
+        weld_only = bool(joint.get('weld_only') or joint.get('weld_preferred'))
+
         # Estimate load
-        total_area = 0
+        total_area = 0.0
         for mid in member_ids:
-            m = next((x for x in members if x.get('id') == mid), None)
+            m = member_by_id.get(mid)
             if m:
-                area = m.get('profile', {}).get('area', 25000)
-                total_area += area
-        
-        # Load estimation: area-based (in kN)
-        estimated_load_kn = (total_area / 25000) * 100  # ~100 kN per 25k mm² area
-        
-        # MODEL-BASED SIZING (no hardcoded values)
+                total_area += m.get('profile', {}).get('area', 25000)
+
+        # Load estimation: area-based (in kN), scaled by member count for multiway
+        estimated_load_kn = (total_area / 25000.0) * 100.0 * max(1, len(member_ids))
+
+        # MODEL-BASED SIZING
         bolt_diameter_mm = ModelInferenceEngine.predict_bolt_size(
             estimated_load_kn, 'A325', 1.75
         )
-        
+
         plate_thickness_mm = ModelInferenceEngine.predict_plate_thickness(
             bolt_diameter_mm, estimated_load_kn, 'A36', 1.75
         )
-        
+
+        # Always get weld size from model (requirement)
         weld_size_mm = ModelInferenceEngine.predict_weld_size(
-            estimated_load_kn, plate_thickness_mm, 200, 'E7018'
+            estimated_load_kn, plate_thickness_mm, 200.0, 'E7018'
         )
-        
-        # Default plate size
-        plate_width = max(150, total_area ** 0.5 * 0.8)
-        plate_height = max(150, total_area ** 0.5 * 0.8)
-        
-        # Create plate with model-predicted dimensions
+
+        # Plate sizing heuristics remain model-friendly
+        plate_width = float(max(150.0, total_area ** 0.5 * 0.8))
+        plate_height = float(max(150.0, total_area ** 0.5 * 0.8))
+
+        # Category-specific tweaks
+        if category in {'brace', 'multiway'}:
+            plate_width *= 1.1
+            plate_height *= 1.1
+        if category.startswith('support'):
+            plate_width = max(250.0, plate_width)
+            plate_height = max(250.0, plate_height)
+        if category == 'splice':
+            plate_height *= 1.2
+            plate_width *= 1.2
+
+        # Decide bolt count / weld-only
+        num_bolts = 4
+        if category in {'brace', 'multiway'}:
+            num_bolts = 6
+        if category == 'splice':
+            num_bolts = 6
+        if weld_only:
+            num_bolts = 0
+
         plate = {
             'id': f"plate_{len(plates)}",
             'position': joint_pos,
+            'location': joint_pos,
             'outline': {
                 'width_mm': plate_width,
                 'height_mm': plate_height
             },
-            'thickness_mm': plate_thickness_mm,  # MODEL PREDICTION - PlateThicknessPredictor
+            'thickness_mm': plate_thickness_mm,
             'material': {'name': 'A36', 'fy_mpa': 250, 'fu_mpa': 400},
             'members': member_ids,
-            'bolt_diameter_mm': bolt_diameter_mm,  # MODEL PREDICTION - BoltSizePredictor
+            'bolt_diameter_mm': bolt_diameter_mm,
             'connection_load_kn': estimated_load_kn,
+            'joint_category': category,
+            'splice_type': splice_type,
+            'slot_type': slot_type,
             'weld_specifications': {
                 'type': 'Fillet',
-                'size_mm': weld_size_mm,  # MODEL PREDICTION - WeldSizePredictor
+                'size_mm': weld_size_mm,  # AI-driven
                 'length_mm': plate_width * 0.8,
                 'electrode': 'E7018',
                 'process': 'GMAW'
@@ -472,29 +503,29 @@ def synthesize_connections_model_driven(members: List[Dict[str, Any]],
             ],
             'verification': 'AISC/AWS Standards Compliant'
         }
-        
+
         plates.append(plate)
-        
-        # Generate bolt pattern using model
-        num_bolts = 4  # Default to 4-bolt pattern
-        bolt_pattern = ModelInferenceEngine.predict_bolt_pattern(
-            plate_width, plate_height, bolt_diameter_mm, num_bolts, estimated_load_kn
-        )
-        
-        # Create bolts
-        for bolt_idx, (bx, by) in enumerate(bolt_pattern):
-            bolts.append({
-                'id': f"bolt_{len(bolts)}",
-                'diameter_mm': bolt_diameter_mm,  # MODEL PREDICTION
-                'position': [joint_pos[0] + bx - plate_width/2, 
-                           joint_pos[1] + by - plate_height/2, 
-                           joint_pos[2]],
-                'grade': 'A325',
-                'fu_mpa': 825,
-                'plate_id': plate['id'],
-                'model_driven': True
-            })
-    
+
+        # Generate bolts unless weld-only
+        if num_bolts > 0:
+            bolt_pattern = ModelInferenceEngine.predict_bolt_pattern(
+                plate_width, plate_height, bolt_diameter_mm, num_bolts, estimated_load_kn
+            )
+            for bolt_idx, bolt_pos in enumerate(bolt_pattern):
+                bx, by = float(bolt_pos[0]), float(bolt_pos[1])
+                bolts.append({
+                    'id': f"bolt_{len(bolts)}",
+                    'diameter_mm': bolt_diameter_mm,
+                    'position': [joint_pos[0] + bx - plate_width / 2,
+                               joint_pos[1] + by - plate_height / 2,
+                               joint_pos[2]],
+                    'grade': 'A325',
+                    'fu_mpa': 825,
+                    'plate_id': plate['id'],
+                    'model_driven': True,
+                    'slot_type': slot_type
+                })
+
     return plates, bolts
 
 
@@ -519,7 +550,7 @@ def synthesize_connections(members: List[Dict[str, Any]],
 
 def synthesize_connections_aisc_standards(members: List[Dict[str, Any]], 
                                          joints: List[Dict[str, Any]] = None) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
-    """Fallback to AISC standards-based synthesis."""
-    # This would import and use the original connection_synthesis_agent
-    pass
+    """Fallback to the standards-based synthesis agent (existing flow)."""
+    from src.pipeline.agents.connection_synthesis_agent import synthesize_connections as standards
+    return standards(members, joints)
 

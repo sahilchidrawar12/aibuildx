@@ -134,6 +134,18 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
             out['coordinate_origin_fixed'] = False
         end(ts, nm)
 
+        # 3.8) Joint enrichment (hidden/brace/splice/support/slot)
+        ts, nm = stage("joint_enrichment")
+        try:
+            from src.pipeline import joint_enrichment
+            joints = joint_enrichment.enrich_joints(members, joints)
+            out['joints'] = joints
+            out['joint_enrichment'] = True
+        except Exception as e:
+            logger.warning(f"Joint enrichment skipped: {e}")
+            out['joint_enrichment'] = False
+        end(ts, nm)
+
         # 4) Section and material classification
         ts, nm = stage("classification")
         from src.pipeline.section_classifier import classify_section
