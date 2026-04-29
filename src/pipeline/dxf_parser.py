@@ -5,8 +5,72 @@ Extracts geometric entities from DXF files and converts them to the pipeline for
 import os
 import uuid
 import math
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 from math import cos, sin, pi
+
+
+def _to_xyz(point: Any) -> List[float]:
+    if point is None:
+        return [0.0, 0.0, 0.0]
+    if hasattr(point, 'x') and hasattr(point, 'y'):
+        z = getattr(point, 'z', 0.0)
+        return [float(point.x), float(point.y), float(z)]
+    if isinstance(point, (list, tuple)) and len(point) >= 2:
+        z = float(point[2]) if len(point) > 2 else 0.0
+        return [float(point[0]), float(point[1]), z]
+    return [0.0, 0.0, 0.0]
+
+
+def _transform_point(point: List[float], insert: List[float], rotation: float, scale: List[float]) -> List[float]:
+    x = point[0] * scale[0]
+    y = point[1] * scale[1]
+    z = point[2] * scale[2]
+    theta = math.radians(rotation or 0.0)
+    x_rot = x * cos(theta) - y * sin(theta)
+    y_rot = x * sin(theta) + y * cos(theta)
+    return [x_rot + insert[0], y_rot + insert[1], z + insert[2]]
+
+
+def _line_distance(point: List[float], p0: List[float], p1: List[float]) -> float:
+    vx = [p1[i] - p0[i] for i in range(3)]
+    wx = [point[i] - p0[i] for i in range(3)]
+    lensq = sum(v * v for v in vx)
+    if lensq == 0:
+        return math.dist(point, p0)
+    t = max(0.0, min(1.0, sum(wx[i] * vx[i] for i in range(3)) / lensq))
+    closest = [p0[i] + t * vx[i] for i in range(3)]
+    return math.dist(point, closest)
+
+
+def _explode_block_reference(entity: Any, doc: Any, transform: Optional[Dict[str, Any]] = None, depth: int = 0) -> List[Any]:
+    if depth >= 4 or transform is None:
+        return []
+    try:
+        block_name = entity.dxf.name
+        block = doc.blocks.get(block_name)
+    except Exception:
+        return []
+    if block is None:
+        return []
+
+    insert = _to_xyz(entity.dxf.insert)
+    rotation = float(getattr(entity.dxf, 'rotation', 0.0) or 0.0)
+    scale = [
+        float(getattr(entity.dxf, 'xscale', 1.0) or 1.0),
+        float(getattr(entity.dxf, 'yscale', 1.0) or 1.0),
+        float(getattr(entity.dxf, 'zscale', 1.0) or 1.0)
+    ]
+
+    exploded = []
+    for sub in block:
+        try:
+            if sub.dxftype() == 'INSERT':
+                exploded.extend(_explode_block_reference(sub, doc, transform, depth + 1))
+                continue
+        except Exception:
+            pass
+        exploded.append((sub, insert, rotation, scale))
+    return exploded
 
 
 def parse_dxf_file(file_path: str) -> Dict[str, Any]:
@@ -44,225 +108,245 @@ def parse_dxf_file(file_path: str) -> Dict[str, Any]:
     
     entities = []
     circles = []
-    
-    # Extract LINE entities and CIRCLE entities
-    for entity in modelspace:
-        if entity.dxftype() == 'LINE':
-            start = entity.dxf.start
-            end = entity.dxf.end
-            entities.append({
-                'type': 'LINE',
-                'start': [start.x, start.y, start.z],
-                'end': [end.x, end.y, end.z],
-                'layer': entity.dxf.layer if hasattr(entity.dxf, 'layer') else 'default'
-            })
-        
-        # Extract POLYLINE entities
-        elif entity.dxftype() == 'POLYLINE':
+    annotations = []
+
+    def emit_line_segment(p1: List[float], p2: List[float], layer: str) -> None:
+        entities.append({
+            'type': 'LINE',
+            'start': _to_xyz(p1),
+            'end': _to_xyz(p2),
+            'layer': layer
+        })
+
+    def extract_points(entity: Any, mode: str = 'xyz') -> List[List[float]]:
+        pts = []
+        try:
+            pts = [list(_to_xyz(p)) for p in entity.get_points(mode)]
+        except Exception:
             try:
-                # Handle classic POLYLINE with vertices iterator
+                pts = [list(_to_xyz(v.dxf.location if hasattr(v, 'dxf') else v)) for v in entity.vertices()]
+            except Exception:
                 pts = []
+        return pts
+
+    for entity in modelspace:
+        entity_type = entity.dxftype()
+        layer = entity.dxf.layer if hasattr(entity.dxf, 'layer') else 'default'
+
+        if entity_type == 'LINE':
+            emit_line_segment(entity.dxf.start, entity.dxf.end, layer)
+
+        elif entity_type == 'POLYLINE':
+            pts = extract_points(entity, 'xyz')
+            if len(pts) >= 2:
+                for i in range(len(pts) - 1):
+                    emit_line_segment(pts[i], pts[i+1], layer)
+                is_closed = False
                 try:
-                    # ezdxf < 1.0 may expose .points(); prefer vertices for robustness
-                    pts = list(entity.points())
+                    is_closed = bool(entity.closed)
                 except Exception:
                     try:
-                        pts = [[v.dxf.location.x, v.dxf.location.y, getattr(v.dxf.location, 'z', 0.0)] for v in entity.vertices()]
-                    except Exception:
-                        pts = []
-
-                if len(pts) >= 2:
-                    for i in range(len(pts) - 1):
-                        p1, p2 = pts[i], pts[i+1]
-                        entities.append({
-                            'type': 'LINE',
-                            'start': [p1[0], p1[1], p1[2] if len(p1) > 2 else 0.0],
-                            'end': [p2[0], p2[1], p2[2] if len(p2) > 2 else 0.0],
-                            'layer': entity.dxf.layer if hasattr(entity.dxf, 'layer') else 'default'
-                        })
-                    # If closed polyline, connect last to first
-                    try:
-                        is_closed = bool(entity.dxf.flags & 1) if hasattr(entity.dxf, 'flags') else False
+                        is_closed = bool(entity.dxf.flags & 1)
                     except Exception:
                         is_closed = False
-                    if is_closed:
-                        p1, p2 = pts[-1], pts[0]
-                        entities.append({
-                            'type': 'LINE',
-                            'start': [p1[0], p1[1], p1[2] if len(p1) > 2 else 0.0],
-                            'end': [p2[0], p2[1], p2[2] if len(p2) > 2 else 0.0],
-                            'layer': entity.dxf.layer if hasattr(entity.dxf, 'layer') else 'default'
-                        })
-            except Exception:
-                pass
-        
-        # Extract LWPOLYLINE entities
-        elif entity.dxftype() == 'LWPOLYLINE':
-            try:
-                # Support both xy and xyz retrieval; default z=0
+                if is_closed:
+                    emit_line_segment(pts[-1], pts[0], layer)
+
+        elif entity_type == 'LWPOLYLINE':
+            pts = extract_points(entity, 'xyz')
+            if len(pts) >= 2:
+                for i in range(len(pts) - 1):
+                    emit_line_segment(pts[i], pts[i+1], layer)
+                is_closed = False
                 try:
-                    points = list(entity.get_points('xy'))
+                    is_closed = bool(entity.closed)
                 except Exception:
-                    points = [(p[0], p[1]) for p in getattr(entity, 'points', [])]
-
-                if len(points) >= 2:
-                    for i in range(len(points) - 1):
-                        p1, p2 = points[i], points[i+1]
-                        entities.append({
-                            'type': 'LINE',
-                            'start': [p1[0], p1[1], 0.0],
-                            'end': [p2[0], p2[1], 0.0],
-                            'layer': entity.dxf.layer if hasattr(entity.dxf, 'layer') else 'default'
-                        })
-                    # If closed, connect last to first
                     try:
-                        is_closed = bool(entity.dxf.flags & 1) if hasattr(entity.dxf, 'flags') else False
+                        is_closed = bool(entity.dxf.flags & 1)
                     except Exception:
                         is_closed = False
-                    if is_closed:
-                        p1, p2 = points[-1], points[0]
-                        entities.append({
-                            'type': 'LINE',
-                            'start': [p1[0], p1[1], 0.0],
-                            'end': [p2[0], p2[1], 0.0],
-                            'layer': entity.dxf.layer if hasattr(entity.dxf, 'layer') else 'default'
-                        })
+                if is_closed:
+                    emit_line_segment(pts[-1], pts[0], layer)
+
+        elif entity_type == 'POINT':
+            try:
+                center = _to_xyz(entity.dxf.location)
+                circles.append({'type': 'CIRCLE', 'center': center, 'radius': 0.0, 'layer': layer})
             except Exception:
                 pass
-        
-        # Extract 3DFACE entities (common in structural models)
-        elif entity.dxftype() == '3DFACE':
+
+        elif entity_type == '3DFACE':
             try:
-                # Extract edges of the 3D face as lines
                 vtx = entity.dxf
-                points = [
-                    [vtx.vtx0.x, vtx.vtx0.y, vtx.vtx0.z],
-                    [vtx.vtx1.x, vtx.vtx1.y, vtx.vtx1.z],
-                    [vtx.vtx2.x, vtx.vtx2.y, vtx.vtx2.z]
-                ]
+                pts = [_to_xyz(vtx.vtx0), _to_xyz(vtx.vtx1), _to_xyz(vtx.vtx2)]
                 if hasattr(vtx, 'vtx3'):
-                    points.append([vtx.vtx3.x, vtx.vtx3.y, vtx.vtx3.z])
-                
-                # Create lines from face edges
-                for i in range(len(points)):
-                    p1 = points[i]
-                    p2 = points[(i + 1) % len(points)]
-                    entities.append({
-                        'type': 'LINE',
-                        'start': p1,
-                        'end': p2,
-                        'layer': entity.dxf.layer if hasattr(entity.dxf, 'layer') else 'default'
-                    })
+                    pts.append(_to_xyz(vtx.vtx3))
+                for i in range(len(pts)):
+                    emit_line_segment(pts[i], pts[(i + 1) % len(pts)], layer)
             except Exception:
                 pass
-        
-        # Extract CIRCLE entities (connection points)
-        elif entity.dxftype() == 'CIRCLE':
+
+        elif entity_type == 'CIRCLE':
             try:
-                center = entity.dxf.center
-                radius = entity.dxf.radius
+                center = _to_xyz(entity.dxf.center)
                 circles.append({
                     'type': 'CIRCLE',
-                    'center': [center.x, center.y, center.z if hasattr(center, 'z') else 0.0],
-                    'radius': radius,
-                    'layer': entity.dxf.layer if hasattr(entity.dxf, 'layer') else 'default'
+                    'center': center,
+                    'radius': float(entity.dxf.radius),
+                    'layer': layer
                 })
             except Exception:
                 pass
 
-        # Extract ARC entities (approximate with segments)
-        elif entity.dxftype() == 'ARC':
+        elif entity_type == 'ARC':
             try:
-                center = entity.dxf.center
+                center = _to_xyz(entity.dxf.center)
                 radius = float(entity.dxf.radius)
                 start_angle = float(entity.dxf.start_angle) * pi / 180.0
                 end_angle = float(entity.dxf.end_angle) * pi / 180.0
-                z = center.z if hasattr(center, 'z') else 0.0
-                layer = entity.dxf.layer if hasattr(entity.dxf, 'layer') else 'default'
-                # Choose segments based on sweep
-                sweep = abs(end_angle - start_angle)
-                segments = max(8, int(sweep / (pi / 12)))  # ~15° per segment
+                if end_angle <= start_angle:
+                    end_angle += 2 * pi
+                sweep = end_angle - start_angle
+                segments = max(8, int(abs(sweep) / (pi / 12)))
                 pts = []
                 for i in range(segments + 1):
-                    t = start_angle + (sweep * i / segments) * (1 if end_angle >= start_angle else -1)
-                    x = center.x + radius * cos(t)
-                    y = center.y + radius * sin(t)
-                    pts.append([x, y, z])
+                    t = start_angle + sweep * i / segments
+                    pts.append([
+                        center[0] + radius * cos(t),
+                        center[1] + radius * sin(t),
+                        center[2]
+                    ])
                 for i in range(len(pts) - 1):
-                    entities.append({'type': 'LINE', 'start': pts[i], 'end': pts[i+1], 'layer': layer})
+                    emit_line_segment(pts[i], pts[i+1], layer)
             except Exception:
                 pass
 
-        # Extract ELLIPSE entities (approximate with segments)
-        elif entity.dxftype() == 'ELLIPSE':
+        elif entity_type == 'ELLIPSE':
             try:
-                center = entity.dxf.center
+                center = _to_xyz(entity.dxf.center)
+                major = _to_xyz(entity.dxf.major_axis)
                 ratio = float(entity.dxf.ratio)
-                major = entity.dxf.major_axis
-                layer = entity.dxf.layer if hasattr(entity.dxf, 'layer') else 'default'
-                z = center.z if hasattr(center, 'z') else 0.0
-                # Build orthonormal basis
-                ux, uy = major.x, major.y
-                # Normalize major axis
-                norm = (ux**2 + uy**2) ** 0.5 or 1.0
+                ux, uy = major[0], major[1]
+                norm = math.hypot(ux, uy) or 1.0
                 ux, uy = ux / norm, uy / norm
                 vx, vy = -uy, ux
                 segments = 64
                 pts = []
                 for i in range(segments + 1):
                     t = 2 * pi * i / segments
-                    x = center.x + norm * (ux * cos(t) + vx * ratio * sin(t))
-                    y = center.y + norm * (uy * cos(t) + vy * ratio * sin(t))
-                    pts.append([x, y, z])
+                    pts.append([
+                        center[0] + norm * (ux * cos(t) + vx * ratio * sin(t)),
+                        center[1] + norm * (uy * cos(t) + vy * ratio * sin(t)),
+                        center[2]
+                    ])
                 for i in range(len(pts) - 1):
-                    entities.append({'type': 'LINE', 'start': pts[i], 'end': pts[i+1], 'layer': layer})
+                    emit_line_segment(pts[i], pts[i+1], layer)
             except Exception:
                 pass
 
-        # Extract SPLINE entities (approximate by sampling)
-        elif entity.dxftype() == 'SPLINE':
+        elif entity_type == 'SPLINE':
             try:
-                layer = entity.dxf.layer if hasattr(entity.dxf, 'layer') else 'default'
-                # Use ezdxf adaptive sampling if available
                 pts = []
                 try:
-                    # fit points usually exist
-                    pts = [[p.x, p.y, getattr(p, 'z', 0.0)] for p in entity.fit_points]
+                    pts = [list(_to_xyz(p)) for p in entity.fit_points]
                 except Exception:
                     pass
                 if not pts:
                     try:
-                        # control points fall back
-                        pts = [[p.x, p.y, getattr(p, 'z', 0.0)] for p in entity.control_points]
+                        pts = [list(_to_xyz(p)) for p in entity.control_points]
                     except Exception:
                         pts = []
-                # If still empty, try to flatten to polyline using virtual entities
                 if not pts:
                     try:
                         for v in entity.virtual_entities():
                             if v.dxftype() == 'LINE':
-                                s, e = v.dxf.start, v.dxf.end
-                                entities.append({'type': 'LINE', 'start': [s.x, s.y, getattr(s, 'z', 0.0)], 'end': [e.x, e.y, getattr(e, 'z', 0.0)], 'layer': layer})
+                                emit_line_segment(v.dxf.start, v.dxf.end, layer)
                     except Exception:
                         pass
                 else:
                     for i in range(len(pts) - 1):
-                        entities.append({'type': 'LINE', 'start': pts[i], 'end': pts[i+1], 'layer': layer})
+                        emit_line_segment(pts[i], pts[i+1], layer)
             except Exception:
                 pass
-    
-    # Convert entities to members format
+
+        elif entity_type in ('TEXT', 'MTEXT'):
+            try:
+                text_value = entity.dxf.text if entity_type == 'TEXT' else entity.text
+                insert = _to_xyz(entity.dxf.insert if hasattr(entity.dxf, 'insert') else entity.insert)
+                annotations.append({'text': str(text_value), 'position': insert, 'layer': layer})
+            except Exception:
+                pass
+
+        elif entity_type == 'INSERT':
+            try:
+                for sub, insert, rotation, scale in _explode_block_reference(entity, doc, transform={'active': True}):
+                    sub_layer = sub.dxf.layer if hasattr(sub.dxf, 'layer') else layer
+                    sub_type = sub.dxftype()
+                    if sub_type == 'LINE':
+                        start = _transform_point(_to_xyz(sub.dxf.start), insert, rotation, scale)
+                        end = _transform_point(_to_xyz(sub.dxf.end), insert, rotation, scale)
+                        emit_line_segment(start, end, sub_layer)
+                    elif sub_type in ('POLYLINE', 'LWPOLYLINE'):
+                        try:
+                            pts = [
+                                _transform_point(_to_xyz(p), insert, rotation, scale)
+                                for p in sub.get_points('xyz')
+                            ]
+                        except Exception:
+                            pts = []
+                        for i in range(len(pts) - 1):
+                            emit_line_segment(pts[i], pts[i+1], sub_layer)
+                        is_closed = False
+                        try:
+                            is_closed = bool(sub.closed)
+                        except Exception:
+                            try:
+                                is_closed = bool(sub.dxf.flags & 1)
+                            except Exception:
+                                is_closed = False
+                        if is_closed and len(pts) >= 2:
+                            emit_line_segment(pts[-1], pts[0], sub_layer)
+                    elif sub_type == 'CIRCLE':
+                        center = _transform_point(_to_xyz(sub.dxf.center), insert, rotation, scale)
+                        circles.append({'type': 'CIRCLE', 'center': center, 'radius': float(sub.dxf.radius), 'layer': sub_layer})
+            except Exception:
+                pass
+
+    # Assign annotations to nearest members if text is close enough
+    if annotations and entities:
+        for ann in annotations:
+            best_member = None
+            best_distance = float('inf')
+            for ent in entities:
+                dist = _line_distance(ann['position'], ent['start'], ent['end'])
+                if dist < best_distance:
+                    best_distance = dist
+                    best_member = ent
+            if best_member is not None and best_distance <= 100.0:
+                existing = best_member.get('annotation', '')
+                annex = ann['text'].strip()
+                if existing:
+                    best_member['annotation'] = f"{existing}; {annex}"
+                else:
+                    best_member['annotation'] = annex
+
     members = []
     for ent in entities:
-        members.append({
+        member = {
             'id': str(uuid.uuid4()),
             'start': ent['start'],
             'end': ent['end'],
             'length': _calculate_length(ent['start'], ent['end']),
             'layer': ent.get('layer', 'default')
-        })
+        }
+        if 'annotation' in ent:
+            member['annotation'] = ent['annotation']
+        members.append(member)
     
-    return {'members': members, 'circles': circles}
+    result = {'members': members, 'circles': circles}
+    if annotations:
+        result['annotations'] = annotations
+    return result
 
 
 def _calculate_length(p0: List[float], p1: List[float]) -> float:

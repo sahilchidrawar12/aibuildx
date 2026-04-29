@@ -11,3 +11,17 @@ def test_snap_nodes_and_joints():
     joints = auto_generate_joints(members, tolerance=5.0)
     # node at (1000,0,0) should be a joint
     assert any(j['x']==1000 for j in joints)
+
+
+def test_auto_generate_joints_creates_angle_joint_for_non_collinear_pairs():
+    members = [
+        {"id":"m1","start":(0,0,0),"end":(1000,0,0),"role":"beam"},
+        {"id":"m2","start":(1000,0,0),"end":(1000,1000,0),"role":"column"}
+    ]
+    joints = auto_generate_joints(members, tolerance=5.0)
+    assert len(joints) == 1
+    joint = joints[0]
+    assert joint['member_count'] == 2
+    assert joint['type'] in ('Angle', 'Moment')
+    assert joint['connection_type'] == 'bolted'
+    assert joint['position'] == [1000, 0, 0]

@@ -5517,3 +5517,327 @@ AttributeError: 'str' object has no attribute 'get'
 2026-03-27 10:53:42,738 [INFO] aibuildx.main_pipeline_agent: [Stage:end] ifc_export job=outputs/90d567e6 duration=0.030s
 2026-03-27 10:53:42,738 [INFO] aibuildx.main_pipeline_agent: [Stage:start] report_aggregation job=outputs/90d567e6
 2026-03-27 10:53:42,738 [INFO] aibuildx.main_pipeline_agent: [Stage:end] report_aggregation job=outputs/90d567e6 duration=0.001s
+2026-04-29 20:16:37,807 [INFO] aibuildx.main_pipeline_agent: [Stage:start] miner job=outputs/bc3c7151
+2026-04-29 20:16:37,840 [INFO] aibuildx.main_pipeline_agent: [Stage:end] miner job=outputs/bc3c7151 duration=0.031s
+2026-04-29 20:16:37,840 [INFO] aibuildx.main_pipeline_agent: [Stage:start] auto_repair job=outputs/bc3c7151
+2026-04-29 20:16:38,409 [INFO] aibuildx.main_pipeline_agent: [Stage:end] auto_repair job=outputs/bc3c7151 duration=0.569s
+2026-04-29 20:16:38,410 [INFO] aibuildx.main_pipeline_agent: [Stage:start] geometry job=outputs/bc3c7151
+2026-04-29 20:16:38,413 [INFO] aibuildx.main_pipeline_agent: [Stage:end] geometry job=outputs/bc3c7151 duration=0.004s
+2026-04-29 20:16:38,413 [INFO] aibuildx.main_pipeline_agent: [Stage:start] nodes_and_joints job=outputs/bc3c7151
+2026-04-29 20:16:38,425 [INFO] aibuildx.main_pipeline_agent: [Stage:end] nodes_and_joints job=outputs/bc3c7151 duration=0.011s
+2026-04-29 20:16:38,425 [INFO] aibuildx.main_pipeline_agent: [Stage:start] connection_parser job=outputs/bc3c7151
+2026-04-29 20:16:38,437 [INFO] aibuildx.main_pipeline_agent: [Stage:end] connection_parser job=outputs/bc3c7151 duration=0.012s
+2026-04-29 20:16:38,437 [INFO] aibuildx.main_pipeline_agent: [Stage:start] coordinate_origin_fix job=outputs/bc3c7151
+2026-04-29 20:16:38,441 [INFO] aibuildx.main_pipeline_agent: Universal coordinate origin fix applied successfully
+2026-04-29 20:16:38,441 [INFO] aibuildx.main_pipeline_agent: [Stage:end] coordinate_origin_fix job=outputs/bc3c7151 duration=0.004s
+2026-04-29 20:16:38,441 [INFO] aibuildx.main_pipeline_agent: [Stage:start] joint_enrichment job=outputs/bc3c7151
+2026-04-29 20:16:38,676 [INFO] aibuildx.main_pipeline_agent: [Stage:end] joint_enrichment job=outputs/bc3c7151 duration=0.235s
+2026-04-29 20:16:38,676 [INFO] aibuildx.main_pipeline_agent: [Stage:start] classification job=outputs/bc3c7151
+2026-04-29 20:16:38,678 [INFO] aibuildx.main_pipeline_agent: [Stage:end] classification job=outputs/bc3c7151 duration=0.002s
+2026-04-29 20:16:38,678 [INFO] aibuildx.main_pipeline_agent: [Stage:start] loads job=outputs/bc3c7151
+2026-04-29 20:16:38,678 [INFO] aibuildx.main_pipeline_agent: [Stage:end] loads job=outputs/bc3c7151 duration=0.000s
+2026-04-29 20:16:38,678 [INFO] aibuildx.main_pipeline_agent: [Stage:start] deflection job=outputs/bc3c7151
+2026-04-29 20:16:38,678 [INFO] aibuildx.main_pipeline_agent: [Stage:end] deflection job=outputs/bc3c7151 duration=0.000s
+2026-04-29 20:16:38,678 [INFO] aibuildx.main_pipeline_agent: [Stage:start] connection_synthesis job=outputs/bc3c7151
+2026-04-29 20:16:38,678 [INFO] aibuildx.main_pipeline_agent: Using MODEL-DRIVEN connection synthesis (6 AI models)
+2026-04-29 20:16:38,679 [ERROR] aibuildx.main_pipeline_agent: Model-driven agent import failed: No module named 'xgboost'
+2026-04-29 20:16:38,679 [WARNING] aibuildx.main_pipeline_agent: Falling back to standards-based connection synthesis
+2026-04-29 20:16:38,687 [INFO] aibuildx.main_pipeline_agent: [Stage:end] connection_synthesis job=outputs/bc3c7151 duration=0.009s
+2026-04-29 20:16:38,687 [INFO] aibuildx.main_pipeline_agent: [Stage:start] detailing_ai job=outputs/bc3c7151
+2026-04-29 20:16:38,900 [WARNING] aibuildx.main_pipeline_agent: Detailing AI stage failed: No module named 'xgboost'
+2026-04-29 20:16:38,900 [INFO] aibuildx.main_pipeline_agent: [Stage:end] detailing_ai job=outputs/bc3c7151 duration=0.213s
+2026-04-29 20:16:38,900 [INFO] aibuildx.main_pipeline_agent: [Stage:start] clash_detection job=outputs/bc3c7151
+2026-04-29 20:16:38,902 [INFO] aibuildx.main_pipeline_agent: Running comprehensive clash detection...
+2026-04-29 20:16:38,972 [INFO] aibuildx.main_pipeline_agent: Clash detection complete: 413 clashes found
+2026-04-29 20:16:38,972 [INFO] aibuildx.main_pipeline_agent: [Stage:end] clash_detection job=outputs/bc3c7151 duration=0.072s
+2026-04-29 20:16:38,972 [INFO] aibuildx.main_pipeline_agent: [Stage:start] clash_correction job=outputs/bc3c7151
+2026-04-29 20:16:38,973 [INFO] aibuildx.main_pipeline_agent: Applying clash corrections to 413 clashes...
+2026-04-29 20:16:38,974 [INFO] aibuildx.main_pipeline_agent: Correction results - Auto-fixed: 0, Review: 407, Failed: 0
+2026-04-29 20:16:38,974 [INFO] aibuildx.main_pipeline_agent: [Stage:end] clash_correction job=outputs/bc3c7151 duration=0.002s
+2026-04-29 20:16:38,974 [INFO] aibuildx.main_pipeline_agent: [Stage:start] compliance job=outputs/bc3c7151
+2026-04-29 20:16:38,974 [INFO] aibuildx.main_pipeline_agent: [Stage:end] compliance job=outputs/bc3c7151 duration=0.001s
+2026-04-29 20:16:38,974 [INFO] aibuildx.main_pipeline_agent: [Stage:start] connection_capacity job=outputs/bc3c7151
+2026-04-29 20:16:38,975 [INFO] aibuildx.main_pipeline_agent: [Stage:end] connection_capacity job=outputs/bc3c7151 duration=0.000s
+2026-04-29 20:16:38,975 [INFO] aibuildx.main_pipeline_agent: [Stage:start] fabrication_tolerances job=outputs/bc3c7151
+2026-04-29 20:16:38,975 [INFO] aibuildx.main_pipeline_agent: [Stage:end] fabrication_tolerances job=outputs/bc3c7151 duration=0.000s
+2026-04-29 20:16:38,975 [INFO] aibuildx.main_pipeline_agent: [Stage:start] erection_sequence job=outputs/bc3c7151
+2026-04-29 20:16:38,975 [INFO] aibuildx.main_pipeline_agent: [Stage:end] erection_sequence job=outputs/bc3c7151 duration=0.000s
+2026-04-29 20:16:38,975 [INFO] aibuildx.main_pipeline_agent: [Stage:start] clash_avoidance job=outputs/bc3c7151
+2026-04-29 20:16:38,977 [INFO] aibuildx.main_pipeline_agent: [Stage:end] clash_avoidance job=outputs/bc3c7151 duration=0.002s
+2026-04-29 20:16:38,977 [INFO] aibuildx.main_pipeline_agent: [Stage:start] stability job=outputs/bc3c7151
+2026-04-29 20:16:38,978 [INFO] aibuildx.main_pipeline_agent: [Stage:end] stability job=outputs/bc3c7151 duration=0.000s
+2026-04-29 20:16:38,978 [INFO] aibuildx.main_pipeline_agent: [Stage:start] ifc_export job=outputs/bc3c7151
+2026-04-29 20:16:39,018 [INFO] aibuildx.main_pipeline_agent: IFC coordinates post-processed and verified
+2026-04-29 20:16:39,018 [INFO] aibuildx.main_pipeline_agent: [Stage:end] ifc_export job=outputs/bc3c7151 duration=0.040s
+2026-04-29 20:16:39,018 [INFO] aibuildx.main_pipeline_agent: [Stage:start] report_aggregation job=outputs/bc3c7151
+2026-04-29 20:16:39,020 [INFO] aibuildx.main_pipeline_agent: [Stage:end] report_aggregation job=outputs/bc3c7151 duration=0.002s
+2026-04-29 20:28:01,896 [INFO] aibuildx.main_pipeline_agent: [Stage:start] miner job=outputs/9fff3629
+2026-04-29 20:28:02,318 [INFO] aibuildx.main_pipeline_agent: [Stage:end] miner job=outputs/9fff3629 duration=0.421s
+2026-04-29 20:28:02,319 [INFO] aibuildx.main_pipeline_agent: [Stage:start] auto_repair job=outputs/9fff3629
+2026-04-29 20:28:02,918 [INFO] aibuildx.main_pipeline_agent: [Stage:end] auto_repair job=outputs/9fff3629 duration=0.599s
+2026-04-29 20:28:02,918 [INFO] aibuildx.main_pipeline_agent: [Stage:start] geometry job=outputs/9fff3629
+2026-04-29 20:28:02,922 [INFO] aibuildx.main_pipeline_agent: [Stage:end] geometry job=outputs/9fff3629 duration=0.004s
+2026-04-29 20:28:02,922 [INFO] aibuildx.main_pipeline_agent: [Stage:start] nodes_and_joints job=outputs/9fff3629
+2026-04-29 20:28:02,934 [INFO] aibuildx.main_pipeline_agent: [Stage:end] nodes_and_joints job=outputs/9fff3629 duration=0.012s
+2026-04-29 20:28:02,934 [INFO] aibuildx.main_pipeline_agent: [Stage:start] connection_parser job=outputs/9fff3629
+2026-04-29 20:28:02,945 [INFO] aibuildx.main_pipeline_agent: [Stage:end] connection_parser job=outputs/9fff3629 duration=0.012s
+2026-04-29 20:28:02,945 [INFO] aibuildx.main_pipeline_agent: [Stage:start] coordinate_origin_fix job=outputs/9fff3629
+2026-04-29 20:28:02,946 [INFO] aibuildx.main_pipeline_agent: Universal coordinate origin fix applied successfully
+2026-04-29 20:28:02,946 [INFO] aibuildx.main_pipeline_agent: [Stage:end] coordinate_origin_fix job=outputs/9fff3629 duration=0.000s
+2026-04-29 20:28:02,946 [INFO] aibuildx.main_pipeline_agent: [Stage:start] joint_enrichment job=outputs/9fff3629
+2026-04-29 20:28:03,177 [INFO] aibuildx.main_pipeline_agent: [Stage:end] joint_enrichment job=outputs/9fff3629 duration=0.231s
+2026-04-29 20:28:03,177 [INFO] aibuildx.main_pipeline_agent: [Stage:start] classification job=outputs/9fff3629
+2026-04-29 20:28:03,178 [INFO] aibuildx.main_pipeline_agent: [Stage:end] classification job=outputs/9fff3629 duration=0.000s
+2026-04-29 20:28:03,178 [INFO] aibuildx.main_pipeline_agent: [Stage:start] loads job=outputs/9fff3629
+2026-04-29 20:28:03,178 [INFO] aibuildx.main_pipeline_agent: [Stage:end] loads job=outputs/9fff3629 duration=0.000s
+2026-04-29 20:28:03,178 [INFO] aibuildx.main_pipeline_agent: [Stage:start] deflection job=outputs/9fff3629
+2026-04-29 20:28:03,178 [INFO] aibuildx.main_pipeline_agent: [Stage:end] deflection job=outputs/9fff3629 duration=0.000s
+2026-04-29 20:28:03,178 [INFO] aibuildx.main_pipeline_agent: [Stage:start] connection_synthesis job=outputs/9fff3629
+2026-04-29 20:28:03,178 [INFO] aibuildx.main_pipeline_agent: Using MODEL-DRIVEN connection synthesis (6 AI models)
+2026-04-29 20:28:03,178 [ERROR] aibuildx.main_pipeline_agent: Model-driven agent import failed: No module named 'xgboost'
+2026-04-29 20:28:03,178 [WARNING] aibuildx.main_pipeline_agent: Falling back to standards-based connection synthesis
+2026-04-29 20:28:03,187 [INFO] aibuildx.main_pipeline_agent: [Stage:end] connection_synthesis job=outputs/9fff3629 duration=0.009s
+2026-04-29 20:28:03,187 [INFO] aibuildx.main_pipeline_agent: [Stage:start] detailing_ai job=outputs/9fff3629
+2026-04-29 20:28:03,189 [WARNING] aibuildx.main_pipeline_agent: Detailing AI stage failed: No module named 'xgboost'
+2026-04-29 20:28:03,189 [INFO] aibuildx.main_pipeline_agent: [Stage:end] detailing_ai job=outputs/9fff3629 duration=0.002s
+2026-04-29 20:28:03,189 [INFO] aibuildx.main_pipeline_agent: [Stage:start] clash_detection job=outputs/9fff3629
+2026-04-29 20:28:03,189 [INFO] aibuildx.main_pipeline_agent: Running comprehensive clash detection...
+2026-04-29 20:28:03,260 [INFO] aibuildx.main_pipeline_agent: Clash detection complete: 413 clashes found
+2026-04-29 20:28:03,261 [INFO] aibuildx.main_pipeline_agent: [Stage:end] clash_detection job=outputs/9fff3629 duration=0.071s
+2026-04-29 20:28:03,261 [INFO] aibuildx.main_pipeline_agent: [Stage:start] clash_correction job=outputs/9fff3629
+2026-04-29 20:28:03,261 [INFO] aibuildx.main_pipeline_agent: Applying clash corrections to 413 clashes...
+2026-04-29 20:28:03,261 [INFO] aibuildx.main_pipeline_agent: Correction results - Auto-fixed: 0, Review: 407, Failed: 0
+2026-04-29 20:28:03,261 [INFO] aibuildx.main_pipeline_agent: [Stage:end] clash_correction job=outputs/9fff3629 duration=0.001s
+2026-04-29 20:28:03,261 [INFO] aibuildx.main_pipeline_agent: [Stage:start] compliance job=outputs/9fff3629
+2026-04-29 20:28:03,262 [INFO] aibuildx.main_pipeline_agent: [Stage:end] compliance job=outputs/9fff3629 duration=0.000s
+2026-04-29 20:28:03,262 [INFO] aibuildx.main_pipeline_agent: [Stage:start] connection_capacity job=outputs/9fff3629
+2026-04-29 20:28:03,262 [INFO] aibuildx.main_pipeline_agent: [Stage:end] connection_capacity job=outputs/9fff3629 duration=0.000s
+2026-04-29 20:28:03,262 [INFO] aibuildx.main_pipeline_agent: [Stage:start] fabrication_tolerances job=outputs/9fff3629
+2026-04-29 20:28:03,262 [INFO] aibuildx.main_pipeline_agent: [Stage:end] fabrication_tolerances job=outputs/9fff3629 duration=0.000s
+2026-04-29 20:28:03,262 [INFO] aibuildx.main_pipeline_agent: [Stage:start] erection_sequence job=outputs/9fff3629
+2026-04-29 20:28:03,262 [INFO] aibuildx.main_pipeline_agent: [Stage:end] erection_sequence job=outputs/9fff3629 duration=0.000s
+2026-04-29 20:28:03,263 [INFO] aibuildx.main_pipeline_agent: [Stage:start] clash_avoidance job=outputs/9fff3629
+2026-04-29 20:28:03,263 [INFO] aibuildx.main_pipeline_agent: [Stage:end] clash_avoidance job=outputs/9fff3629 duration=0.000s
+2026-04-29 20:28:03,263 [INFO] aibuildx.main_pipeline_agent: [Stage:start] stability job=outputs/9fff3629
+2026-04-29 20:28:03,264 [INFO] aibuildx.main_pipeline_agent: [Stage:end] stability job=outputs/9fff3629 duration=0.000s
+2026-04-29 20:28:03,264 [INFO] aibuildx.main_pipeline_agent: [Stage:start] ifc_export job=outputs/9fff3629
+2026-04-29 20:28:03,305 [INFO] aibuildx.main_pipeline_agent: IFC coordinates post-processed and verified
+2026-04-29 20:28:03,305 [INFO] aibuildx.main_pipeline_agent: [Stage:end] ifc_export job=outputs/9fff3629 duration=0.042s
+2026-04-29 20:28:03,305 [INFO] aibuildx.main_pipeline_agent: [Stage:start] report_aggregation job=outputs/9fff3629
+2026-04-29 20:28:03,306 [INFO] aibuildx.main_pipeline_agent: [Stage:end] report_aggregation job=outputs/9fff3629 duration=0.000s
+2026-04-29 20:28:14,873 [INFO] aibuildx.main_pipeline_agent: [Stage:start] miner job=outputs/37f50baa
+2026-04-29 20:28:14,903 [INFO] aibuildx.main_pipeline_agent: [Stage:end] miner job=outputs/37f50baa duration=0.029s
+2026-04-29 20:28:14,903 [INFO] aibuildx.main_pipeline_agent: [Stage:start] auto_repair job=outputs/37f50baa
+2026-04-29 20:28:15,464 [INFO] aibuildx.main_pipeline_agent: [Stage:end] auto_repair job=outputs/37f50baa duration=0.561s
+2026-04-29 20:28:15,464 [INFO] aibuildx.main_pipeline_agent: [Stage:start] geometry job=outputs/37f50baa
+2026-04-29 20:28:15,468 [INFO] aibuildx.main_pipeline_agent: [Stage:end] geometry job=outputs/37f50baa duration=0.004s
+2026-04-29 20:28:15,468 [INFO] aibuildx.main_pipeline_agent: [Stage:start] nodes_and_joints job=outputs/37f50baa
+2026-04-29 20:28:15,479 [INFO] aibuildx.main_pipeline_agent: [Stage:end] nodes_and_joints job=outputs/37f50baa duration=0.011s
+2026-04-29 20:28:15,479 [INFO] aibuildx.main_pipeline_agent: [Stage:start] connection_parser job=outputs/37f50baa
+2026-04-29 20:28:15,491 [INFO] aibuildx.main_pipeline_agent: [Stage:end] connection_parser job=outputs/37f50baa duration=0.011s
+2026-04-29 20:28:15,491 [INFO] aibuildx.main_pipeline_agent: [Stage:start] coordinate_origin_fix job=outputs/37f50baa
+2026-04-29 20:28:15,491 [INFO] aibuildx.main_pipeline_agent: Universal coordinate origin fix applied successfully
+2026-04-29 20:28:15,491 [INFO] aibuildx.main_pipeline_agent: [Stage:end] coordinate_origin_fix job=outputs/37f50baa duration=0.000s
+2026-04-29 20:28:15,491 [INFO] aibuildx.main_pipeline_agent: [Stage:start] joint_enrichment job=outputs/37f50baa
+2026-04-29 20:28:15,715 [INFO] aibuildx.main_pipeline_agent: [Stage:end] joint_enrichment job=outputs/37f50baa duration=0.224s
+2026-04-29 20:28:15,715 [INFO] aibuildx.main_pipeline_agent: [Stage:start] classification job=outputs/37f50baa
+2026-04-29 20:28:15,715 [INFO] aibuildx.main_pipeline_agent: [Stage:end] classification job=outputs/37f50baa duration=0.000s
+2026-04-29 20:28:15,715 [INFO] aibuildx.main_pipeline_agent: [Stage:start] loads job=outputs/37f50baa
+2026-04-29 20:28:15,715 [INFO] aibuildx.main_pipeline_agent: [Stage:end] loads job=outputs/37f50baa duration=0.000s
+2026-04-29 20:28:15,715 [INFO] aibuildx.main_pipeline_agent: [Stage:start] deflection job=outputs/37f50baa
+2026-04-29 20:28:15,716 [INFO] aibuildx.main_pipeline_agent: [Stage:end] deflection job=outputs/37f50baa duration=0.000s
+2026-04-29 20:28:15,716 [INFO] aibuildx.main_pipeline_agent: [Stage:start] connection_synthesis job=outputs/37f50baa
+2026-04-29 20:28:15,716 [INFO] aibuildx.main_pipeline_agent: Using MODEL-DRIVEN connection synthesis (6 AI models)
+2026-04-29 20:28:15,716 [ERROR] aibuildx.main_pipeline_agent: Model-driven agent import failed: No module named 'xgboost'
+2026-04-29 20:28:15,716 [WARNING] aibuildx.main_pipeline_agent: Falling back to standards-based connection synthesis
+2026-04-29 20:28:15,724 [INFO] aibuildx.main_pipeline_agent: [Stage:end] connection_synthesis job=outputs/37f50baa duration=0.008s
+2026-04-29 20:28:15,724 [INFO] aibuildx.main_pipeline_agent: [Stage:start] detailing_ai job=outputs/37f50baa
+2026-04-29 20:28:15,727 [WARNING] aibuildx.main_pipeline_agent: Detailing AI stage failed: No module named 'xgboost'
+2026-04-29 20:28:15,727 [INFO] aibuildx.main_pipeline_agent: [Stage:end] detailing_ai job=outputs/37f50baa duration=0.003s
+2026-04-29 20:28:15,727 [INFO] aibuildx.main_pipeline_agent: [Stage:start] clash_detection job=outputs/37f50baa
+2026-04-29 20:28:15,727 [INFO] aibuildx.main_pipeline_agent: Running comprehensive clash detection...
+2026-04-29 20:28:15,800 [INFO] aibuildx.main_pipeline_agent: Clash detection complete: 413 clashes found
+2026-04-29 20:28:15,800 [INFO] aibuildx.main_pipeline_agent: [Stage:end] clash_detection job=outputs/37f50baa duration=0.073s
+2026-04-29 20:28:15,800 [INFO] aibuildx.main_pipeline_agent: [Stage:start] clash_correction job=outputs/37f50baa
+2026-04-29 20:28:15,800 [INFO] aibuildx.main_pipeline_agent: Applying clash corrections to 413 clashes...
+2026-04-29 20:28:15,800 [INFO] aibuildx.main_pipeline_agent: Correction results - Auto-fixed: 0, Review: 407, Failed: 0
+2026-04-29 20:28:15,801 [INFO] aibuildx.main_pipeline_agent: [Stage:end] clash_correction job=outputs/37f50baa duration=0.001s
+2026-04-29 20:28:15,801 [INFO] aibuildx.main_pipeline_agent: [Stage:start] compliance job=outputs/37f50baa
+2026-04-29 20:28:15,801 [INFO] aibuildx.main_pipeline_agent: [Stage:end] compliance job=outputs/37f50baa duration=0.000s
+2026-04-29 20:28:15,801 [INFO] aibuildx.main_pipeline_agent: [Stage:start] connection_capacity job=outputs/37f50baa
+2026-04-29 20:28:15,801 [INFO] aibuildx.main_pipeline_agent: [Stage:end] connection_capacity job=outputs/37f50baa duration=0.000s
+2026-04-29 20:28:15,801 [INFO] aibuildx.main_pipeline_agent: [Stage:start] fabrication_tolerances job=outputs/37f50baa
+2026-04-29 20:28:15,801 [INFO] aibuildx.main_pipeline_agent: [Stage:end] fabrication_tolerances job=outputs/37f50baa duration=0.000s
+2026-04-29 20:28:15,801 [INFO] aibuildx.main_pipeline_agent: [Stage:start] erection_sequence job=outputs/37f50baa
+2026-04-29 20:28:15,801 [INFO] aibuildx.main_pipeline_agent: [Stage:end] erection_sequence job=outputs/37f50baa duration=0.000s
+2026-04-29 20:28:15,801 [INFO] aibuildx.main_pipeline_agent: [Stage:start] clash_avoidance job=outputs/37f50baa
+2026-04-29 20:28:15,801 [INFO] aibuildx.main_pipeline_agent: [Stage:end] clash_avoidance job=outputs/37f50baa duration=0.000s
+2026-04-29 20:28:15,801 [INFO] aibuildx.main_pipeline_agent: [Stage:start] stability job=outputs/37f50baa
+2026-04-29 20:28:15,801 [INFO] aibuildx.main_pipeline_agent: [Stage:end] stability job=outputs/37f50baa duration=0.000s
+2026-04-29 20:28:15,801 [INFO] aibuildx.main_pipeline_agent: [Stage:start] ifc_export job=outputs/37f50baa
+2026-04-29 20:28:15,835 [INFO] aibuildx.main_pipeline_agent: IFC coordinates post-processed and verified
+2026-04-29 20:28:15,835 [INFO] aibuildx.main_pipeline_agent: [Stage:end] ifc_export job=outputs/37f50baa duration=0.033s
+2026-04-29 20:28:15,835 [INFO] aibuildx.main_pipeline_agent: [Stage:start] report_aggregation job=outputs/37f50baa
+2026-04-29 20:28:15,835 [INFO] aibuildx.main_pipeline_agent: [Stage:end] report_aggregation job=outputs/37f50baa duration=0.000s
+2026-04-29 20:39:39,760 [INFO] aibuildx.main_pipeline_agent: [Stage:start] miner job=outputs/91fa12d1
+2026-04-29 20:39:39,821 [INFO] aibuildx.main_pipeline_agent: [Stage:end] miner job=outputs/91fa12d1 duration=0.058s
+2026-04-29 20:39:39,821 [INFO] aibuildx.main_pipeline_agent: [Stage:start] auto_repair job=outputs/91fa12d1
+2026-04-29 20:39:41,063 [INFO] aibuildx.main_pipeline_agent: [Stage:end] auto_repair job=outputs/91fa12d1 duration=1.242s
+2026-04-29 20:39:41,063 [INFO] aibuildx.main_pipeline_agent: [Stage:start] geometry job=outputs/91fa12d1
+2026-04-29 20:39:41,066 [INFO] aibuildx.main_pipeline_agent: [Stage:end] geometry job=outputs/91fa12d1 duration=0.004s
+2026-04-29 20:39:41,066 [INFO] aibuildx.main_pipeline_agent: [Stage:start] nodes_and_joints job=outputs/91fa12d1
+2026-04-29 20:39:41,082 [INFO] aibuildx.main_pipeline_agent: [Stage:end] nodes_and_joints job=outputs/91fa12d1 duration=0.015s
+2026-04-29 20:39:41,082 [INFO] aibuildx.main_pipeline_agent: [Stage:start] connection_parser job=outputs/91fa12d1
+2026-04-29 20:39:41,095 [INFO] aibuildx.main_pipeline_agent: [Stage:end] connection_parser job=outputs/91fa12d1 duration=0.013s
+2026-04-29 20:39:41,095 [INFO] aibuildx.main_pipeline_agent: [Stage:start] coordinate_origin_fix job=outputs/91fa12d1
+2026-04-29 20:39:41,095 [INFO] aibuildx.main_pipeline_agent: Universal coordinate origin fix applied successfully
+2026-04-29 20:39:41,095 [INFO] aibuildx.main_pipeline_agent: [Stage:end] coordinate_origin_fix job=outputs/91fa12d1 duration=0.000s
+2026-04-29 20:39:41,095 [INFO] aibuildx.main_pipeline_agent: [Stage:start] joint_enrichment job=outputs/91fa12d1
+2026-04-29 20:39:41,366 [INFO] aibuildx.main_pipeline_agent: [Stage:end] joint_enrichment job=outputs/91fa12d1 duration=0.270s
+2026-04-29 20:39:41,366 [INFO] aibuildx.main_pipeline_agent: [Stage:start] classification job=outputs/91fa12d1
+2026-04-29 20:39:41,366 [INFO] aibuildx.main_pipeline_agent: [Stage:end] classification job=outputs/91fa12d1 duration=0.000s
+2026-04-29 20:39:41,366 [INFO] aibuildx.main_pipeline_agent: [Stage:start] loads job=outputs/91fa12d1
+2026-04-29 20:39:41,367 [INFO] aibuildx.main_pipeline_agent: [Stage:end] loads job=outputs/91fa12d1 duration=0.000s
+2026-04-29 20:39:41,367 [INFO] aibuildx.main_pipeline_agent: [Stage:start] deflection job=outputs/91fa12d1
+2026-04-29 20:39:41,367 [INFO] aibuildx.main_pipeline_agent: [Stage:end] deflection job=outputs/91fa12d1 duration=0.000s
+2026-04-29 20:39:41,367 [INFO] aibuildx.main_pipeline_agent: [Stage:start] connection_synthesis job=outputs/91fa12d1
+2026-04-29 20:39:41,367 [INFO] aibuildx.main_pipeline_agent: Using MODEL-DRIVEN connection synthesis (6 AI models)
+2026-04-29 20:39:41,368 [ERROR] aibuildx.main_pipeline_agent: Model-driven agent import failed: No module named 'xgboost'
+2026-04-29 20:39:41,368 [WARNING] aibuildx.main_pipeline_agent: Falling back to standards-based connection synthesis
+2026-04-29 20:39:41,378 [INFO] aibuildx.main_pipeline_agent: [Stage:end] connection_synthesis job=outputs/91fa12d1 duration=0.011s
+2026-04-29 20:39:41,378 [INFO] aibuildx.main_pipeline_agent: [Stage:start] detailing_ai job=outputs/91fa12d1
+2026-04-29 20:39:41,385 [WARNING] aibuildx.main_pipeline_agent: Detailing AI stage failed: No module named 'xgboost'
+2026-04-29 20:39:41,385 [INFO] aibuildx.main_pipeline_agent: [Stage:end] detailing_ai job=outputs/91fa12d1 duration=0.007s
+2026-04-29 20:39:41,385 [INFO] aibuildx.main_pipeline_agent: [Stage:start] clash_detection job=outputs/91fa12d1
+2026-04-29 20:39:41,385 [INFO] aibuildx.main_pipeline_agent: Running comprehensive clash detection...
+2026-04-29 20:39:41,470 [INFO] aibuildx.main_pipeline_agent: Clash detection complete: 413 clashes found
+2026-04-29 20:39:41,470 [INFO] aibuildx.main_pipeline_agent: [Stage:end] clash_detection job=outputs/91fa12d1 duration=0.084s
+2026-04-29 20:39:41,470 [INFO] aibuildx.main_pipeline_agent: [Stage:start] clash_correction job=outputs/91fa12d1
+2026-04-29 20:39:41,470 [INFO] aibuildx.main_pipeline_agent: Applying clash corrections to 413 clashes...
+2026-04-29 20:39:41,471 [INFO] aibuildx.main_pipeline_agent: Correction results - Auto-fixed: 0, Review: 407, Failed: 0
+2026-04-29 20:39:41,471 [INFO] aibuildx.main_pipeline_agent: [Stage:end] clash_correction job=outputs/91fa12d1 duration=0.001s
+2026-04-29 20:39:41,471 [INFO] aibuildx.main_pipeline_agent: [Stage:start] compliance job=outputs/91fa12d1
+2026-04-29 20:39:41,471 [INFO] aibuildx.main_pipeline_agent: [Stage:end] compliance job=outputs/91fa12d1 duration=0.000s
+2026-04-29 20:39:41,471 [INFO] aibuildx.main_pipeline_agent: [Stage:start] connection_capacity job=outputs/91fa12d1
+2026-04-29 20:39:41,471 [INFO] aibuildx.main_pipeline_agent: [Stage:end] connection_capacity job=outputs/91fa12d1 duration=0.000s
+2026-04-29 20:39:41,471 [INFO] aibuildx.main_pipeline_agent: [Stage:start] fabrication_tolerances job=outputs/91fa12d1
+2026-04-29 20:39:41,471 [INFO] aibuildx.main_pipeline_agent: [Stage:end] fabrication_tolerances job=outputs/91fa12d1 duration=0.000s
+2026-04-29 20:39:41,471 [INFO] aibuildx.main_pipeline_agent: [Stage:start] erection_sequence job=outputs/91fa12d1
+2026-04-29 20:39:41,472 [INFO] aibuildx.main_pipeline_agent: [Stage:end] erection_sequence job=outputs/91fa12d1 duration=0.001s
+2026-04-29 20:39:41,472 [INFO] aibuildx.main_pipeline_agent: [Stage:start] clash_avoidance job=outputs/91fa12d1
+2026-04-29 20:39:41,472 [INFO] aibuildx.main_pipeline_agent: [Stage:end] clash_avoidance job=outputs/91fa12d1 duration=0.000s
+2026-04-29 20:39:41,472 [INFO] aibuildx.main_pipeline_agent: [Stage:start] stability job=outputs/91fa12d1
+2026-04-29 20:39:41,473 [INFO] aibuildx.main_pipeline_agent: [Stage:end] stability job=outputs/91fa12d1 duration=0.000s
+2026-04-29 20:39:41,473 [INFO] aibuildx.main_pipeline_agent: [Stage:start] ifc_export job=outputs/91fa12d1
+2026-04-29 20:39:41,526 [INFO] aibuildx.main_pipeline_agent: IFC coordinates post-processed and verified
+2026-04-29 20:39:41,526 [INFO] aibuildx.main_pipeline_agent: [Stage:end] ifc_export job=outputs/91fa12d1 duration=0.053s
+2026-04-29 20:39:41,526 [INFO] aibuildx.main_pipeline_agent: [Stage:start] report_aggregation job=outputs/91fa12d1
+2026-04-29 20:39:41,526 [INFO] aibuildx.main_pipeline_agent: [Stage:end] report_aggregation job=outputs/91fa12d1 duration=0.001s
+2026-04-29 20:44:30,880 [INFO] aibuildx.main_pipeline_agent: [Stage:start] miner job=outputs/7caebbe9
+2026-04-29 20:44:31,388 [INFO] aibuildx.main_pipeline_agent: [Stage:end] miner job=outputs/7caebbe9 duration=0.506s
+2026-04-29 20:44:31,388 [INFO] aibuildx.main_pipeline_agent: [Stage:start] auto_repair job=outputs/7caebbe9
+2026-04-29 20:44:32,291 [INFO] aibuildx.main_pipeline_agent: [Stage:end] auto_repair job=outputs/7caebbe9 duration=0.903s
+2026-04-29 20:44:32,291 [INFO] aibuildx.main_pipeline_agent: [Stage:start] geometry job=outputs/7caebbe9
+2026-04-29 20:44:32,296 [INFO] aibuildx.main_pipeline_agent: [Stage:end] geometry job=outputs/7caebbe9 duration=0.005s
+2026-04-29 20:44:32,296 [INFO] aibuildx.main_pipeline_agent: [Stage:start] nodes_and_joints job=outputs/7caebbe9
+2026-04-29 20:44:32,311 [INFO] aibuildx.main_pipeline_agent: [Stage:end] nodes_and_joints job=outputs/7caebbe9 duration=0.014s
+2026-04-29 20:44:32,311 [INFO] aibuildx.main_pipeline_agent: [Stage:start] connection_parser job=outputs/7caebbe9
+2026-04-29 20:44:32,328 [INFO] aibuildx.main_pipeline_agent: [Stage:end] connection_parser job=outputs/7caebbe9 duration=0.017s
+2026-04-29 20:44:32,328 [INFO] aibuildx.main_pipeline_agent: [Stage:start] coordinate_origin_fix job=outputs/7caebbe9
+2026-04-29 20:44:32,328 [INFO] aibuildx.main_pipeline_agent: Universal coordinate origin fix applied successfully
+2026-04-29 20:44:32,328 [INFO] aibuildx.main_pipeline_agent: [Stage:end] coordinate_origin_fix job=outputs/7caebbe9 duration=0.001s
+2026-04-29 20:44:32,328 [INFO] aibuildx.main_pipeline_agent: [Stage:start] joint_enrichment job=outputs/7caebbe9
+2026-04-29 20:44:32,602 [INFO] aibuildx.main_pipeline_agent: [Stage:end] joint_enrichment job=outputs/7caebbe9 duration=0.274s
+2026-04-29 20:44:32,602 [INFO] aibuildx.main_pipeline_agent: [Stage:start] classification job=outputs/7caebbe9
+2026-04-29 20:44:32,603 [INFO] aibuildx.main_pipeline_agent: [Stage:end] classification job=outputs/7caebbe9 duration=0.000s
+2026-04-29 20:44:32,603 [INFO] aibuildx.main_pipeline_agent: [Stage:start] loads job=outputs/7caebbe9
+2026-04-29 20:44:32,603 [INFO] aibuildx.main_pipeline_agent: [Stage:end] loads job=outputs/7caebbe9 duration=0.000s
+2026-04-29 20:44:32,603 [INFO] aibuildx.main_pipeline_agent: [Stage:start] deflection job=outputs/7caebbe9
+2026-04-29 20:44:32,603 [INFO] aibuildx.main_pipeline_agent: [Stage:end] deflection job=outputs/7caebbe9 duration=0.000s
+2026-04-29 20:44:32,603 [INFO] aibuildx.main_pipeline_agent: [Stage:start] connection_synthesis job=outputs/7caebbe9
+2026-04-29 20:44:32,603 [INFO] aibuildx.main_pipeline_agent: Using MODEL-DRIVEN connection synthesis (6 AI models)
+2026-04-29 20:44:32,604 [ERROR] aibuildx.main_pipeline_agent: Model-driven agent import failed: No module named 'xgboost'
+2026-04-29 20:44:32,604 [WARNING] aibuildx.main_pipeline_agent: Falling back to standards-based connection synthesis
+2026-04-29 20:44:32,616 [INFO] aibuildx.main_pipeline_agent: [Stage:end] connection_synthesis job=outputs/7caebbe9 duration=0.013s
+2026-04-29 20:44:32,617 [INFO] aibuildx.main_pipeline_agent: [Stage:start] detailing_ai job=outputs/7caebbe9
+2026-04-29 20:44:32,620 [WARNING] aibuildx.main_pipeline_agent: Detailing AI stage failed: No module named 'xgboost'
+2026-04-29 20:44:32,620 [INFO] aibuildx.main_pipeline_agent: [Stage:end] detailing_ai job=outputs/7caebbe9 duration=0.004s
+2026-04-29 20:44:32,620 [INFO] aibuildx.main_pipeline_agent: [Stage:start] clash_detection job=outputs/7caebbe9
+2026-04-29 20:44:32,620 [INFO] aibuildx.main_pipeline_agent: Running comprehensive clash detection...
+2026-04-29 20:44:32,736 [INFO] aibuildx.main_pipeline_agent: Clash detection complete: 413 clashes found
+2026-04-29 20:44:32,736 [INFO] aibuildx.main_pipeline_agent: [Stage:end] clash_detection job=outputs/7caebbe9 duration=0.116s
+2026-04-29 20:44:32,736 [INFO] aibuildx.main_pipeline_agent: [Stage:start] clash_correction job=outputs/7caebbe9
+2026-04-29 20:44:32,736 [INFO] aibuildx.main_pipeline_agent: Applying clash corrections to 413 clashes...
+2026-04-29 20:44:32,737 [INFO] aibuildx.main_pipeline_agent: Correction results - Auto-fixed: 0, Review: 407, Failed: 0
+2026-04-29 20:44:32,737 [INFO] aibuildx.main_pipeline_agent: [Stage:end] clash_correction job=outputs/7caebbe9 duration=0.001s
+2026-04-29 20:44:32,738 [INFO] aibuildx.main_pipeline_agent: [Stage:start] compliance job=outputs/7caebbe9
+2026-04-29 20:44:32,738 [INFO] aibuildx.main_pipeline_agent: [Stage:end] compliance job=outputs/7caebbe9 duration=0.001s
+2026-04-29 20:44:32,738 [INFO] aibuildx.main_pipeline_agent: [Stage:start] connection_capacity job=outputs/7caebbe9
+2026-04-29 20:44:32,738 [INFO] aibuildx.main_pipeline_agent: [Stage:end] connection_capacity job=outputs/7caebbe9 duration=0.000s
+2026-04-29 20:44:32,738 [INFO] aibuildx.main_pipeline_agent: [Stage:start] fabrication_tolerances job=outputs/7caebbe9
+2026-04-29 20:44:32,739 [INFO] aibuildx.main_pipeline_agent: [Stage:end] fabrication_tolerances job=outputs/7caebbe9 duration=0.000s
+2026-04-29 20:44:32,739 [INFO] aibuildx.main_pipeline_agent: [Stage:start] erection_sequence job=outputs/7caebbe9
+2026-04-29 20:44:32,739 [INFO] aibuildx.main_pipeline_agent: [Stage:end] erection_sequence job=outputs/7caebbe9 duration=0.000s
+2026-04-29 20:44:32,739 [INFO] aibuildx.main_pipeline_agent: [Stage:start] clash_avoidance job=outputs/7caebbe9
+2026-04-29 20:44:32,739 [INFO] aibuildx.main_pipeline_agent: [Stage:end] clash_avoidance job=outputs/7caebbe9 duration=0.000s
+2026-04-29 20:44:32,739 [INFO] aibuildx.main_pipeline_agent: [Stage:start] stability job=outputs/7caebbe9
+2026-04-29 20:44:32,739 [INFO] aibuildx.main_pipeline_agent: [Stage:end] stability job=outputs/7caebbe9 duration=0.000s
+2026-04-29 20:44:32,739 [INFO] aibuildx.main_pipeline_agent: [Stage:start] ifc_export job=outputs/7caebbe9
+2026-04-29 20:44:32,796 [INFO] aibuildx.main_pipeline_agent: IFC coordinates post-processed and verified
+2026-04-29 20:44:32,796 [INFO] aibuildx.main_pipeline_agent: [Stage:end] ifc_export job=outputs/7caebbe9 duration=0.056s
+2026-04-29 20:44:32,796 [INFO] aibuildx.main_pipeline_agent: [Stage:start] report_aggregation job=outputs/7caebbe9
+2026-04-29 20:44:32,796 [INFO] aibuildx.main_pipeline_agent: [Stage:end] report_aggregation job=outputs/7caebbe9 duration=0.000s
+2026-04-29 21:22:45,631 [INFO] aibuildx.main_pipeline_agent: [Stage:start] miner job=outputs/c6a6f02b
+2026-04-29 21:22:45,961 [INFO] aibuildx.main_pipeline_agent: [Stage:end] miner job=outputs/c6a6f02b duration=0.328s
+2026-04-29 21:22:45,961 [INFO] aibuildx.main_pipeline_agent: [Stage:start] auto_repair job=outputs/c6a6f02b
+2026-04-29 21:22:47,717 [INFO] aibuildx.main_pipeline_agent: [Stage:end] auto_repair job=outputs/c6a6f02b duration=1.756s
+2026-04-29 21:22:47,717 [INFO] aibuildx.main_pipeline_agent: [Stage:start] geometry job=outputs/c6a6f02b
+2026-04-29 21:22:47,746 [INFO] aibuildx.main_pipeline_agent: [Stage:end] geometry job=outputs/c6a6f02b duration=0.028s
+2026-04-29 21:22:47,746 [INFO] aibuildx.main_pipeline_agent: [Stage:start] nodes_and_joints job=outputs/c6a6f02b
+2026-04-29 21:22:47,887 [INFO] aibuildx.main_pipeline_agent: [Stage:end] nodes_and_joints job=outputs/c6a6f02b duration=0.141s
+2026-04-29 21:22:47,887 [INFO] aibuildx.main_pipeline_agent: [Stage:start] connection_parser job=outputs/c6a6f02b
+2026-04-29 21:22:47,941 [INFO] aibuildx.main_pipeline_agent: [Stage:end] connection_parser job=outputs/c6a6f02b duration=0.054s
+2026-04-29 21:22:47,941 [INFO] aibuildx.main_pipeline_agent: [Stage:start] coordinate_origin_fix job=outputs/c6a6f02b
+2026-04-29 21:22:47,942 [INFO] aibuildx.main_pipeline_agent: Universal coordinate origin fix applied successfully
+2026-04-29 21:22:47,942 [INFO] aibuildx.main_pipeline_agent: [Stage:end] coordinate_origin_fix job=outputs/c6a6f02b duration=0.001s
+2026-04-29 21:22:47,942 [INFO] aibuildx.main_pipeline_agent: [Stage:start] joint_enrichment job=outputs/c6a6f02b
+2026-04-29 21:22:48,687 [INFO] aibuildx.main_pipeline_agent: [Stage:end] joint_enrichment job=outputs/c6a6f02b duration=0.745s
+2026-04-29 21:22:48,688 [INFO] aibuildx.main_pipeline_agent: [Stage:start] classification job=outputs/c6a6f02b
+2026-04-29 21:22:48,688 [INFO] aibuildx.main_pipeline_agent: [Stage:end] classification job=outputs/c6a6f02b duration=0.000s
+2026-04-29 21:22:48,688 [INFO] aibuildx.main_pipeline_agent: [Stage:start] loads job=outputs/c6a6f02b
+2026-04-29 21:22:48,688 [INFO] aibuildx.main_pipeline_agent: [Stage:end] loads job=outputs/c6a6f02b duration=0.000s
+2026-04-29 21:22:48,688 [INFO] aibuildx.main_pipeline_agent: [Stage:start] deflection job=outputs/c6a6f02b
+2026-04-29 21:22:48,688 [INFO] aibuildx.main_pipeline_agent: [Stage:end] deflection job=outputs/c6a6f02b duration=0.000s
+2026-04-29 21:22:48,689 [INFO] aibuildx.main_pipeline_agent: [Stage:start] connection_synthesis job=outputs/c6a6f02b
+2026-04-29 21:22:48,689 [INFO] aibuildx.main_pipeline_agent: Using MODEL-DRIVEN connection synthesis (6 AI models)
+2026-04-29 21:22:48,689 [ERROR] aibuildx.main_pipeline_agent: Model-driven agent import failed: No module named 'xgboost'
+2026-04-29 21:22:48,690 [WARNING] aibuildx.main_pipeline_agent: Falling back to standards-based connection synthesis
+2026-04-29 21:22:48,712 [INFO] aibuildx.main_pipeline_agent: [Stage:end] connection_synthesis job=outputs/c6a6f02b duration=0.024s
+2026-04-29 21:22:48,712 [INFO] aibuildx.main_pipeline_agent: [Stage:start] detailing_ai job=outputs/c6a6f02b
+2026-04-29 21:22:48,721 [WARNING] aibuildx.main_pipeline_agent: Detailing AI stage failed: No module named 'xgboost'
+2026-04-29 21:22:48,722 [INFO] aibuildx.main_pipeline_agent: [Stage:end] detailing_ai job=outputs/c6a6f02b duration=0.009s
+2026-04-29 21:22:48,722 [INFO] aibuildx.main_pipeline_agent: [Stage:start] clash_detection job=outputs/c6a6f02b
+2026-04-29 21:22:48,722 [INFO] aibuildx.main_pipeline_agent: Running comprehensive clash detection...
+2026-04-29 21:22:59,790 [INFO] aibuildx.main_pipeline_agent: Clash detection complete: 825 clashes found
+2026-04-29 21:22:59,791 [INFO] aibuildx.main_pipeline_agent: [Stage:end] clash_detection job=outputs/c6a6f02b duration=11.069s
+2026-04-29 21:22:59,791 [INFO] aibuildx.main_pipeline_agent: [Stage:start] clash_correction job=outputs/c6a6f02b
+2026-04-29 21:22:59,791 [INFO] aibuildx.main_pipeline_agent: Applying clash corrections to 825 clashes...
+2026-04-29 21:22:59,798 [INFO] aibuildx.main_pipeline_agent: Correction results - Auto-fixed: 0, Review: 790, Failed: 0
+2026-04-29 21:22:59,799 [INFO] aibuildx.main_pipeline_agent: [Stage:end] clash_correction job=outputs/c6a6f02b duration=0.007s
+2026-04-29 21:22:59,799 [INFO] aibuildx.main_pipeline_agent: [Stage:start] compliance job=outputs/c6a6f02b
+2026-04-29 21:22:59,801 [INFO] aibuildx.main_pipeline_agent: [Stage:end] compliance job=outputs/c6a6f02b duration=0.002s
+2026-04-29 21:22:59,801 [INFO] aibuildx.main_pipeline_agent: [Stage:start] connection_capacity job=outputs/c6a6f02b
+2026-04-29 21:22:59,801 [INFO] aibuildx.main_pipeline_agent: [Stage:end] connection_capacity job=outputs/c6a6f02b duration=0.000s
+2026-04-29 21:22:59,802 [INFO] aibuildx.main_pipeline_agent: [Stage:start] fabrication_tolerances job=outputs/c6a6f02b
+2026-04-29 21:22:59,802 [INFO] aibuildx.main_pipeline_agent: [Stage:end] fabrication_tolerances job=outputs/c6a6f02b duration=0.000s
+2026-04-29 21:22:59,802 [INFO] aibuildx.main_pipeline_agent: [Stage:start] erection_sequence job=outputs/c6a6f02b
+2026-04-29 21:22:59,804 [INFO] aibuildx.main_pipeline_agent: [Stage:end] erection_sequence job=outputs/c6a6f02b duration=0.001s
+2026-04-29 21:22:59,804 [INFO] aibuildx.main_pipeline_agent: [Stage:start] clash_avoidance job=outputs/c6a6f02b
+2026-04-29 21:22:59,805 [INFO] aibuildx.main_pipeline_agent: [Stage:end] clash_avoidance job=outputs/c6a6f02b duration=0.001s
+2026-04-29 21:22:59,805 [INFO] aibuildx.main_pipeline_agent: [Stage:start] stability job=outputs/c6a6f02b
+2026-04-29 21:22:59,805 [INFO] aibuildx.main_pipeline_agent: [Stage:end] stability job=outputs/c6a6f02b duration=0.001s
+2026-04-29 21:22:59,806 [INFO] aibuildx.main_pipeline_agent: [Stage:start] ifc_export job=outputs/c6a6f02b
+2026-04-29 21:22:59,948 [INFO] aibuildx.main_pipeline_agent: IFC coordinates post-processed and verified
+2026-04-29 21:22:59,949 [INFO] aibuildx.main_pipeline_agent: [Stage:end] ifc_export job=outputs/c6a6f02b duration=0.143s
+2026-04-29 21:22:59,949 [INFO] aibuildx.main_pipeline_agent: [Stage:start] report_aggregation job=outputs/c6a6f02b
+2026-04-29 21:22:59,950 [INFO] aibuildx.main_pipeline_agent: [Stage:end] report_aggregation job=outputs/c6a6f02b duration=0.001s
