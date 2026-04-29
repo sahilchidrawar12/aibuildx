@@ -5,40 +5,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>IFC Viewer</title>
   <link rel="stylesheet" href="/static/viewer.css" />
-  <!-- Three.js and IFC.js via CDN -->
-  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
-  <script src="https://unpkg.com/three@0.160.0/examples/js/controls/OrbitControls.js"></script>
-  <script src="https://unpkg.com/web-ifc@0.0.46/web-ifc-api.js"></script>
-  <script src="https://unpkg.com/web-ifc-three@0.0.126/IFCLoader.js"></script>
 </head>
 <body>
-  <div id="toolbar">
-    <span>IFC Viewer</span>
-    <button id="btnFit">Fit</button>
-    <button id="btnExplode">Explode</button>
-    <button id="btnResetExplode">Reset Explode</button>
-    <button id="btnClip">Toggle Clipping</button>
-    <button id="btnMeasure">Measure</button>
-    <button id="btnProps">Properties</button>
-    {% if has_ifc %}
-    <span id="status">Model loaded for job {{ job_id }}</span>
-    {% else %}
-    <span id="status">No IFC found for job {{ job_id }}</span>
-    {% endif %}
-  </div>
-  <div id="container"></div>
-  <div id="sidebar">
-    <h3>Selection</h3>
-    <pre id="selection"></pre>
-    <h3>Properties</h3>
-    <pre id="properties"></pre>
+  <div id="app">
+    <header id="topbar">
+      <div class="brand">
+        <div class="title">Tekla Steel Viewer</div>
+        <div class="subtitle">Job {{ job_id }}</div>
+      </div>
+      <div id="legend" aria-label="Model legend"></div>
+      <div id="status">Initializing...</div>
+    </header>
+
+    <div id="main">
+      <aside id="toolbar">
+        <button id="tool-home" title="Home view">⌂</button>
+        <button id="tool-fit" title="Fit model">⛶</button>
+        <button id="tool-front" title="Front view">F</button>
+        <button id="tool-top" title="Top view">T</button>
+        <button id="tool-left" title="Left view">L</button>
+        <button id="tool-ortho" title="Toggle orthographic">⟂</button>
+        <button id="tool-grid" title="Toggle grid">#</button>
+        <button id="tool-download" title="Download IFC">⬇</button>
+        <button id="tool-reset" title="Reset scene">↻</button>
+      </aside>
+
+      <section id="viewport">
+        <div id="viewer"></div>
+        <div id="loadingOverlay">
+          <div class="spinner"></div>
+          <div class="loading-text">Loading IFC...</div>
+        </div>
+      </section>
+
+      <aside id="sidepanel">
+        <div class="panel">
+          <div class="panel-title">Model Info</div>
+          <div id="modelStats">Waiting for model...</div>
+        </div>
+        <div class="panel">
+          <div class="panel-title">Selection</div>
+          <pre id="selection">Nothing selected</pre>
+        </div>
+      </aside>
+    </div>
   </div>
 
-  <script>
+  <script type="module">
     const JOB_ID = "{{ job_id }}";
     const HAS_IFC = {{ 'true' if has_ifc else 'false' }};
-    const IFC_URL = `/api/download/${JOB_ID}/model.ifc`;
+    const IFC_JSON_URL = `/api/download/${JOB_ID}/ifc.json`;
+    const IFC_IFC_URL = `/api/download/${JOB_ID}/model.ifc`;
+    window.VIEWER_BOOTSTRAP = { JOB_ID, HAS_IFC, IFC_JSON_URL, IFC_IFC_URL };
+    await import('/static/viewer.js');
   </script>
-  <script src="/static/viewer.js"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.module.js",
+        "three/examples/jsm/controls/OrbitControls.js": "https://cdn.jsdelivr.net/npm/three@0.152.2/examples/jsm/controls/OrbitControls.js"
+      }
+    }
+  </script>
 </body>
 </html>

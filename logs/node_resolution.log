@@ -258,3 +258,488 @@
 2025-12-02 00:28:01,208 [INFO] aibuildx.node_resolution: Snapped 2 members to 3 nodes
 2025-12-02 00:28:01,208 [INFO] aibuildx.node_resolution: Snapped 2 members to 3 nodes
 2025-12-02 00:28:01,208 [INFO] aibuildx.node_resolution: Generated 0 joints
+2025-12-16 22:14:53,386 [INFO] aibuildx.node_resolution: Snapped 204 members to 21 nodes
+2025-12-16 22:14:53,387 [INFO] aibuildx.node_resolution: Generated 21 joints with position fields and member references
+2025-12-16 22:14:53,389 [INFO] aibuildx.node_resolution: Snapped 204 members to 21 nodes
+2025-12-16 22:14:53,390 [INFO] aibuildx.node_resolution: Snapped 204 members to 21 nodes
+2025-12-16 22:14:53,390 [INFO] aibuildx.node_resolution: Generated 21 joints with position fields and member references
+2025-12-16 22:14:54,662 [INFO] aibuildx.node_resolution: Snapped 216 members to 30 nodes
+2025-12-16 22:14:54,663 [INFO] aibuildx.node_resolution: Generated 20 joints with position fields and member references
+2025-12-16 22:14:54,664 [INFO] aibuildx.node_resolution: Snapped 216 members to 30 nodes
+2025-12-16 22:14:54,665 [INFO] aibuildx.node_resolution: Snapped 216 members to 30 nodes
+2025-12-16 22:14:54,665 [INFO] aibuildx.node_resolution: Generated 20 joints with position fields and member references
+2025-12-16 22:14:57,860 [INFO] aibuildx.node_resolution: Snapped 204 members to 21 nodes
+2025-12-16 22:14:57,861 [INFO] aibuildx.node_resolution: Generated 21 joints with position fields and member references
+2025-12-16 22:14:57,863 [INFO] aibuildx.node_resolution: Snapped 204 members to 21 nodes
+2025-12-16 22:14:57,864 [INFO] aibuildx.node_resolution: Snapped 204 members to 21 nodes
+2025-12-16 22:14:57,864 [INFO] aibuildx.node_resolution: Generated 21 joints with position fields and member references
+2025-12-16 22:14:58,869 [INFO] aibuildx.node_resolution: Snapped 216 members to 30 nodes
+2025-12-16 22:14:58,869 [INFO] aibuildx.node_resolution: Generated 20 joints with position fields and member references
+2025-12-16 22:14:58,871 [INFO] aibuildx.node_resolution: Snapped 216 members to 30 nodes
+2025-12-16 22:14:58,871 [INFO] aibuildx.node_resolution: Snapped 216 members to 30 nodes
+2025-12-16 22:14:58,871 [INFO] aibuildx.node_resolution: Generated 20 joints with position fields and member references
+2025-12-16 22:15:09,155 [INFO] aibuildx.node_resolution: Snapped 204 members to 21 nodes
+2025-12-16 22:15:09,156 [INFO] aibuildx.node_resolution: Generated 21 joints with position fields and member references
+2025-12-16 22:15:09,158 [INFO] aibuildx.node_resolution: Snapped 204 members to 21 nodes
+2025-12-16 22:15:09,159 [INFO] aibuildx.node_resolution: Snapped 204 members to 21 nodes
+2025-12-16 22:15:09,159 [INFO] aibuildx.node_resolution: Generated 21 joints with position fields and member references
+2025-12-16 22:15:10,224 [INFO] aibuildx.node_resolution: Snapped 216 members to 30 nodes
+2025-12-16 22:15:10,224 [INFO] aibuildx.node_resolution: Generated 20 joints with position fields and member references
+2025-12-16 22:15:10,226 [INFO] aibuildx.node_resolution: Snapped 216 members to 30 nodes
+2025-12-16 22:15:10,227 [INFO] aibuildx.node_resolution: Snapped 216 members to 30 nodes
+2025-12-16 22:15:10,227 [INFO] aibuildx.node_resolution: Generated 20 joints with position fields and member references
+2025-12-16 22:19:10,550 [INFO] aibuildx.node_resolution: Snapped 44 members to 10 nodes
+2025-12-16 22:19:10,550 [INFO] aibuildx.node_resolution: Generated 8 joints with position fields and member references
+2025-12-16 22:19:10,551 [INFO] aibuildx.node_resolution: Snapped 44 members to 10 nodes
+2025-12-16 22:19:10,551 [INFO] aibuildx.node_resolution: Snapped 44 members to 10 nodes
+2025-12-16 22:19:10,551 [INFO] aibuildx.node_resolution: Generated 8 joints with position fields and member references
+2025-12-16 22:23:50,884 [INFO] aibuildx.node_resolution: Snapped 44 members to 10 nodes
+2025-12-16 22:23:50,885 [INFO] aibuildx.node_resolution: Generated 8 joints with position fields and member references
+2025-12-16 22:23:50,886 [INFO] aibuildx.node_resolution: Snapped 44 members to 10 nodes
+2025-12-16 22:23:50,886 [INFO] aibuildx.node_resolution: Snapped 44 members to 10 nodes
+2025-12-16 22:23:50,886 [INFO] aibuildx.node_resolution: Generated 8 joints with position fields and member references
+2025-12-16 22:26:05,337 [INFO] aibuildx.node_resolution: Snapped 5 members to 1 nodes
+2025-12-16 22:26:05,338 [INFO] aibuildx.node_resolution: Generated 1 joints with position fields and member references
+2025-12-16 22:26:05,338 [INFO] aibuildx.node_resolution: Snapped 5 members to 1 nodes
+2025-12-16 22:26:05,339 [INFO] aibuildx.node_resolution: Snapped 5 members to 1 nodes
+2025-12-16 22:26:05,339 [INFO] aibuildx.node_resolution: Generated 1 joints with position fields and member references
+2025-12-16 22:29:28,638 [INFO] aibuildx.node_resolution: Snapped 44 members to 10 nodes
+2025-12-16 22:29:28,638 [INFO] aibuildx.node_resolution: Generated 8 joints with position fields and member references
+2025-12-16 22:29:28,639 [INFO] aibuildx.node_resolution: Snapped 44 members to 10 nodes
+2025-12-16 22:29:28,639 [INFO] aibuildx.node_resolution: Snapped 44 members to 10 nodes
+2025-12-16 22:29:28,639 [INFO] aibuildx.node_resolution: Generated 8 joints with position fields and member references
+2025-12-16 22:31:28,306 [INFO] aibuildx.node_resolution: Snapped 44 members to 10 nodes
+2025-12-16 22:31:28,306 [INFO] aibuildx.node_resolution: Generated 8 joints with position fields and member references
+2025-12-16 22:31:28,307 [INFO] aibuildx.node_resolution: Snapped 44 members to 10 nodes
+2025-12-16 22:31:28,307 [INFO] aibuildx.node_resolution: Snapped 44 members to 10 nodes
+2025-12-16 22:31:28,307 [INFO] aibuildx.node_resolution: Generated 8 joints with position fields and member references
+2025-12-16 22:38:22,221 [INFO] aibuildx.node_resolution: Snapped 44 members to 10 nodes
+2025-12-16 22:38:22,230 [INFO] aibuildx.node_resolution: Generated 8 joints with position fields and member references
+2025-12-16 22:38:22,245 [INFO] aibuildx.node_resolution: Snapped 44 members to 10 nodes
+2025-12-16 22:38:22,246 [INFO] aibuildx.node_resolution: Snapped 44 members to 10 nodes
+2025-12-16 22:38:22,246 [INFO] aibuildx.node_resolution: Generated 8 joints with position fields and member references
+2025-12-16 22:55:16,412 [INFO] aibuildx.node_resolution: Snapped 141 members to 7 nodes
+2025-12-16 22:55:16,414 [INFO] aibuildx.node_resolution: Generated 7 joints with position fields and member references
+2025-12-16 22:55:16,415 [INFO] aibuildx.node_resolution: Snapped 141 members to 7 nodes
+2025-12-16 22:55:16,415 [INFO] aibuildx.node_resolution: Snapped 141 members to 7 nodes
+2025-12-16 22:55:16,415 [INFO] aibuildx.node_resolution: Generated 7 joints with position fields and member references
+2025-12-16 22:55:43,204 [INFO] aibuildx.node_resolution: Snapped 474 members to 2 nodes
+2025-12-16 22:55:43,206 [INFO] aibuildx.node_resolution: Generated 2 joints with position fields and member references
+2025-12-16 22:55:43,209 [INFO] aibuildx.node_resolution: Snapped 474 members to 2 nodes
+2025-12-16 22:55:43,211 [INFO] aibuildx.node_resolution: Snapped 474 members to 2 nodes
+2025-12-16 22:55:43,213 [INFO] aibuildx.node_resolution: Generated 2 joints with position fields and member references
+2025-12-16 22:55:44,816 [INFO] aibuildx.node_resolution: Snapped 552 members to 8 nodes
+2025-12-16 22:55:44,817 [INFO] aibuildx.node_resolution: Generated 8 joints with position fields and member references
+2025-12-16 22:55:44,823 [INFO] aibuildx.node_resolution: Snapped 552 members to 8 nodes
+2025-12-16 22:55:44,825 [INFO] aibuildx.node_resolution: Snapped 552 members to 8 nodes
+2025-12-16 22:55:44,826 [INFO] aibuildx.node_resolution: Generated 8 joints with position fields and member references
+2025-12-16 22:55:46,341 [INFO] aibuildx.node_resolution: Snapped 276 members to 1 nodes
+2025-12-16 22:55:46,342 [INFO] aibuildx.node_resolution: Generated 1 joints with position fields and member references
+2025-12-16 22:55:46,344 [INFO] aibuildx.node_resolution: Snapped 276 members to 1 nodes
+2025-12-16 22:55:46,345 [INFO] aibuildx.node_resolution: Snapped 276 members to 1 nodes
+2025-12-16 22:55:46,346 [INFO] aibuildx.node_resolution: Generated 1 joints with position fields and member references
+2025-12-16 22:59:50,721 [INFO] aibuildx.node_resolution: Snapped 44 members to 10 nodes
+2025-12-16 22:59:50,721 [INFO] aibuildx.node_resolution: Generated 8 joints with position fields and member references
+2025-12-16 22:59:50,722 [INFO] aibuildx.node_resolution: Snapped 44 members to 10 nodes
+2025-12-16 22:59:50,723 [INFO] aibuildx.node_resolution: Snapped 44 members to 10 nodes
+2025-12-16 22:59:50,723 [INFO] aibuildx.node_resolution: Generated 8 joints with position fields and member references
+2025-12-16 23:05:59,794 [INFO] aibuildx.node_resolution: Snapped 72 members to 66 nodes
+2025-12-16 23:05:59,794 [INFO] aibuildx.node_resolution: Generated 21 joints with position fields and member references
+2025-12-16 23:05:59,797 [INFO] aibuildx.node_resolution: Snapped 72 members to 66 nodes
+2025-12-16 23:05:59,798 [INFO] aibuildx.node_resolution: Snapped 72 members to 66 nodes
+2025-12-16 23:05:59,798 [INFO] aibuildx.node_resolution: Generated 21 joints with position fields and member references
+2025-12-16 23:06:00,642 [INFO] aibuildx.node_resolution: Snapped 187 members to 88 nodes
+2025-12-16 23:06:00,642 [INFO] aibuildx.node_resolution: Generated 48 joints with position fields and member references
+2025-12-16 23:06:00,646 [INFO] aibuildx.node_resolution: Snapped 187 members to 88 nodes
+2025-12-16 23:06:00,648 [INFO] aibuildx.node_resolution: Snapped 187 members to 88 nodes
+2025-12-16 23:06:00,648 [INFO] aibuildx.node_resolution: Generated 48 joints with position fields and member references
+2025-12-16 23:06:02,693 [INFO] aibuildx.node_resolution: Snapped 487 members to 222 nodes
+2025-12-16 23:06:02,693 [INFO] aibuildx.node_resolution: Generated 163 joints with position fields and member references
+2025-12-16 23:06:02,714 [INFO] aibuildx.node_resolution: Snapped 487 members to 222 nodes
+2025-12-16 23:06:02,723 [INFO] aibuildx.node_resolution: Snapped 487 members to 222 nodes
+2025-12-16 23:06:02,723 [INFO] aibuildx.node_resolution: Generated 163 joints with position fields and member references
+2025-12-16 23:06:13,008 [INFO] aibuildx.node_resolution: Snapped 262 members to 35 nodes
+2025-12-16 23:06:13,008 [INFO] aibuildx.node_resolution: Generated 33 joints with position fields and member references
+2025-12-16 23:06:13,011 [INFO] aibuildx.node_resolution: Snapped 262 members to 35 nodes
+2025-12-16 23:06:13,012 [INFO] aibuildx.node_resolution: Snapped 262 members to 35 nodes
+2025-12-16 23:06:13,012 [INFO] aibuildx.node_resolution: Generated 33 joints with position fields and member references
+2025-12-16 23:07:59,450 [INFO] aibuildx.node_resolution: Snapped 141 members to 7 nodes
+2025-12-16 23:07:59,450 [INFO] aibuildx.node_resolution: Generated 7 joints with position fields and member references
+2025-12-16 23:07:59,451 [INFO] aibuildx.node_resolution: Snapped 141 members to 7 nodes
+2025-12-16 23:07:59,451 [INFO] aibuildx.node_resolution: Snapped 141 members to 7 nodes
+2025-12-16 23:07:59,452 [INFO] aibuildx.node_resolution: Generated 7 joints with position fields and member references
+2025-12-16 23:08:33,334 [INFO] aibuildx.node_resolution: Snapped 262 members to 35 nodes
+2025-12-16 23:08:33,334 [INFO] aibuildx.node_resolution: Generated 33 joints with position fields and member references
+2025-12-16 23:08:33,337 [INFO] aibuildx.node_resolution: Snapped 262 members to 35 nodes
+2025-12-16 23:08:33,338 [INFO] aibuildx.node_resolution: Snapped 262 members to 35 nodes
+2025-12-16 23:08:33,339 [INFO] aibuildx.node_resolution: Generated 33 joints with position fields and member references
+2025-12-16 23:22:54,403 [INFO] aibuildx.node_resolution: Snapped 72 members to 80 nodes
+2025-12-16 23:22:54,403 [INFO] aibuildx.node_resolution: Generated 16 joints with position fields and member references
+2025-12-16 23:22:54,405 [INFO] aibuildx.node_resolution: Snapped 72 members to 80 nodes
+2025-12-16 23:22:54,406 [INFO] aibuildx.node_resolution: Snapped 72 members to 80 nodes
+2025-12-16 23:22:54,406 [INFO] aibuildx.node_resolution: Generated 16 joints with position fields and member references
+2025-12-16 23:22:55,829 [INFO] aibuildx.node_resolution: Snapped 187 members to 199 nodes
+2025-12-16 23:22:55,829 [INFO] aibuildx.node_resolution: Generated 4 joints with position fields and member references
+2025-12-16 23:22:55,837 [INFO] aibuildx.node_resolution: Snapped 187 members to 199 nodes
+2025-12-16 23:22:55,841 [INFO] aibuildx.node_resolution: Snapped 187 members to 199 nodes
+2025-12-16 23:22:55,841 [INFO] aibuildx.node_resolution: Generated 4 joints with position fields and member references
+2025-12-16 23:22:59,557 [INFO] aibuildx.node_resolution: Snapped 487 members to 291 nodes
+2025-12-16 23:22:59,557 [INFO] aibuildx.node_resolution: Generated 203 joints with position fields and member references
+2025-12-16 23:22:59,586 [INFO] aibuildx.node_resolution: Snapped 487 members to 291 nodes
+2025-12-16 23:22:59,600 [INFO] aibuildx.node_resolution: Snapped 487 members to 291 nodes
+2025-12-16 23:22:59,600 [INFO] aibuildx.node_resolution: Generated 203 joints with position fields and member references
+2025-12-16 23:23:21,520 [INFO] aibuildx.node_resolution: Snapped 262 members to 75 nodes
+2025-12-16 23:23:21,521 [INFO] aibuildx.node_resolution: Generated 71 joints with position fields and member references
+2025-12-16 23:23:21,525 [INFO] aibuildx.node_resolution: Snapped 262 members to 75 nodes
+2025-12-16 23:23:21,527 [INFO] aibuildx.node_resolution: Snapped 262 members to 75 nodes
+2025-12-16 23:23:21,527 [INFO] aibuildx.node_resolution: Generated 71 joints with position fields and member references
+2025-12-16 23:23:39,630 [INFO] aibuildx.node_resolution: Snapped 262 members to 75 nodes
+2025-12-16 23:23:39,630 [INFO] aibuildx.node_resolution: Generated 71 joints with position fields and member references
+2025-12-16 23:23:39,635 [INFO] aibuildx.node_resolution: Snapped 262 members to 75 nodes
+2025-12-16 23:23:39,637 [INFO] aibuildx.node_resolution: Snapped 262 members to 75 nodes
+2025-12-16 23:23:39,637 [INFO] aibuildx.node_resolution: Generated 71 joints with position fields and member references
+2025-12-16 23:28:36,635 [INFO] aibuildx.node_resolution: Snapped 960 members to 1289 nodes
+2025-12-16 23:28:36,636 [INFO] aibuildx.node_resolution: Generated 17 joints with position fields and member references
+2025-12-16 23:28:36,936 [INFO] aibuildx.node_resolution: Snapped 960 members to 1289 nodes
+2025-12-16 23:28:37,086 [INFO] aibuildx.node_resolution: Snapped 960 members to 1289 nodes
+2025-12-16 23:28:37,087 [INFO] aibuildx.node_resolution: Generated 17 joints with position fields and member references
+2025-12-16 23:28:43,321 [INFO] aibuildx.node_resolution: Snapped 960 members to 1289 nodes
+2025-12-16 23:28:43,321 [INFO] aibuildx.node_resolution: Generated 17 joints with position fields and member references
+2025-12-16 23:28:43,956 [INFO] aibuildx.node_resolution: Snapped 960 members to 1289 nodes
+2025-12-16 23:28:44,133 [INFO] aibuildx.node_resolution: Snapped 960 members to 1289 nodes
+2025-12-16 23:28:44,134 [INFO] aibuildx.node_resolution: Generated 17 joints with position fields and member references
+2025-12-16 23:29:30,484 [INFO] aibuildx.node_resolution: Snapped 956 members to 1095 nodes
+2025-12-16 23:29:30,485 [INFO] aibuildx.node_resolution: Generated 72 joints with position fields and member references
+2025-12-16 23:29:30,721 [INFO] aibuildx.node_resolution: Snapped 956 members to 1095 nodes
+2025-12-16 23:29:30,839 [INFO] aibuildx.node_resolution: Snapped 956 members to 1095 nodes
+2025-12-16 23:29:30,839 [INFO] aibuildx.node_resolution: Generated 72 joints with position fields and member references
+2025-12-16 23:29:53,218 [INFO] aibuildx.node_resolution: Snapped 956 members to 1095 nodes
+2025-12-16 23:29:53,220 [INFO] aibuildx.node_resolution: Generated 72 joints with position fields and member references
+2025-12-16 23:29:53,479 [INFO] aibuildx.node_resolution: Snapped 956 members to 1095 nodes
+2025-12-16 23:29:53,591 [INFO] aibuildx.node_resolution: Snapped 956 members to 1095 nodes
+2025-12-16 23:29:53,592 [INFO] aibuildx.node_resolution: Generated 72 joints with position fields and member references
+2025-12-16 23:33:53,583 [INFO] aibuildx.node_resolution: Snapped 956 members to 1095 nodes
+2025-12-16 23:33:53,584 [INFO] aibuildx.node_resolution: Generated 72 joints with position fields and member references
+2025-12-16 23:33:53,893 [INFO] aibuildx.node_resolution: Snapped 956 members to 1095 nodes
+2025-12-16 23:33:54,002 [INFO] aibuildx.node_resolution: Snapped 956 members to 1095 nodes
+2025-12-16 23:33:54,003 [INFO] aibuildx.node_resolution: Generated 72 joints with position fields and member references
+2025-12-16 23:37:09,154 [INFO] aibuildx.node_resolution: Snapped 236 members to 282 nodes
+2025-12-16 23:37:09,155 [INFO] aibuildx.node_resolution: Generated 42 joints with position fields and member references
+2025-12-16 23:37:09,173 [INFO] aibuildx.node_resolution: Snapped 236 members to 282 nodes
+2025-12-16 23:37:09,182 [INFO] aibuildx.node_resolution: Snapped 236 members to 282 nodes
+2025-12-16 23:37:09,182 [INFO] aibuildx.node_resolution: Generated 42 joints with position fields and member references
+2025-12-16 23:37:43,073 [INFO] aibuildx.node_resolution: Snapped 456 members to 801 nodes
+2025-12-16 23:37:43,073 [INFO] aibuildx.node_resolution: Generated 1 joints with position fields and member references
+2025-12-16 23:37:43,266 [INFO] aibuildx.node_resolution: Snapped 456 members to 801 nodes
+2025-12-16 23:37:43,325 [INFO] aibuildx.node_resolution: Snapped 456 members to 801 nodes
+2025-12-16 23:37:43,325 [INFO] aibuildx.node_resolution: Generated 1 joints with position fields and member references
+2025-12-16 23:37:59,375 [INFO] aibuildx.node_resolution: Snapped 236 members to 282 nodes
+2025-12-16 23:37:59,376 [INFO] aibuildx.node_resolution: Generated 42 joints with position fields and member references
+2025-12-16 23:37:59,393 [INFO] aibuildx.node_resolution: Snapped 236 members to 282 nodes
+2025-12-16 23:37:59,401 [INFO] aibuildx.node_resolution: Snapped 236 members to 282 nodes
+2025-12-16 23:37:59,401 [INFO] aibuildx.node_resolution: Generated 42 joints with position fields and member references
+2025-12-16 23:38:39,661 [INFO] aibuildx.node_resolution: Snapped 456 members to 801 nodes
+2025-12-16 23:38:39,662 [INFO] aibuildx.node_resolution: Generated 1 joints with position fields and member references
+2025-12-16 23:38:39,799 [INFO] aibuildx.node_resolution: Snapped 456 members to 801 nodes
+2025-12-16 23:38:39,875 [INFO] aibuildx.node_resolution: Snapped 456 members to 801 nodes
+2025-12-16 23:38:39,875 [INFO] aibuildx.node_resolution: Generated 1 joints with position fields and member references
+2025-12-16 23:42:08,003 [INFO] aibuildx.node_resolution: Snapped 262 members to 75 nodes
+2025-12-16 23:42:08,003 [INFO] aibuildx.node_resolution: Generated 71 joints with position fields and member references
+2025-12-16 23:42:08,010 [INFO] aibuildx.node_resolution: Snapped 262 members to 75 nodes
+2025-12-16 23:42:08,014 [INFO] aibuildx.node_resolution: Snapped 262 members to 75 nodes
+2025-12-16 23:42:08,014 [INFO] aibuildx.node_resolution: Generated 71 joints with position fields and member references
+2025-12-16 23:42:24,927 [INFO] aibuildx.node_resolution: Snapped 262 members to 75 nodes
+2025-12-16 23:42:24,928 [INFO] aibuildx.node_resolution: Generated 71 joints with position fields and member references
+2025-12-16 23:42:24,932 [INFO] aibuildx.node_resolution: Snapped 262 members to 75 nodes
+2025-12-16 23:42:24,933 [INFO] aibuildx.node_resolution: Snapped 262 members to 75 nodes
+2025-12-16 23:42:24,934 [INFO] aibuildx.node_resolution: Generated 71 joints with position fields and member references
+2025-12-16 23:42:28,980 [INFO] aibuildx.node_resolution: Snapped 456 members to 801 nodes
+2025-12-16 23:42:28,980 [INFO] aibuildx.node_resolution: Generated 1 joints with position fields and member references
+2025-12-16 23:42:29,106 [INFO] aibuildx.node_resolution: Snapped 456 members to 801 nodes
+2025-12-16 23:42:29,188 [INFO] aibuildx.node_resolution: Snapped 456 members to 801 nodes
+2025-12-16 23:42:29,189 [INFO] aibuildx.node_resolution: Generated 1 joints with position fields and member references
+2025-12-16 23:44:04,853 [INFO] aibuildx.node_resolution: Snapped 236 members to 282 nodes
+2025-12-16 23:44:04,854 [INFO] aibuildx.node_resolution: Generated 42 joints with position fields and member references
+2025-12-16 23:44:04,869 [INFO] aibuildx.node_resolution: Snapped 236 members to 282 nodes
+2025-12-16 23:44:04,877 [INFO] aibuildx.node_resolution: Snapped 236 members to 282 nodes
+2025-12-16 23:44:04,877 [INFO] aibuildx.node_resolution: Generated 42 joints with position fields and member references
+2025-12-16 23:47:57,892 [INFO] aibuildx.node_resolution: Snapped 236 members to 282 nodes
+2025-12-16 23:47:57,893 [INFO] aibuildx.node_resolution: Generated 42 joints with position fields and member references
+2025-12-16 23:47:57,909 [INFO] aibuildx.node_resolution: Snapped 236 members to 282 nodes
+2025-12-16 23:47:57,916 [INFO] aibuildx.node_resolution: Snapped 236 members to 282 nodes
+2025-12-16 23:47:57,917 [INFO] aibuildx.node_resolution: Generated 42 joints with position fields and member references
+2025-12-16 23:53:57,719 [INFO] aibuildx.node_resolution: Snapped 236 members to 282 nodes
+2025-12-16 23:53:57,720 [INFO] aibuildx.node_resolution: Generated 42 joints with position fields and member references
+2025-12-16 23:53:57,737 [INFO] aibuildx.node_resolution: Snapped 236 members to 282 nodes
+2025-12-16 23:53:57,746 [INFO] aibuildx.node_resolution: Snapped 236 members to 282 nodes
+2025-12-16 23:53:57,746 [INFO] aibuildx.node_resolution: Generated 42 joints with position fields and member references
+2025-12-16 23:54:08,433 [INFO] aibuildx.node_resolution: Snapped 236 members to 282 nodes
+2025-12-16 23:54:08,434 [INFO] aibuildx.node_resolution: Generated 42 joints with position fields and member references
+2025-12-16 23:54:08,449 [INFO] aibuildx.node_resolution: Snapped 236 members to 282 nodes
+2025-12-16 23:54:08,457 [INFO] aibuildx.node_resolution: Snapped 236 members to 282 nodes
+2025-12-16 23:54:08,457 [INFO] aibuildx.node_resolution: Generated 42 joints with position fields and member references
+2025-12-17 00:18:37,941 [INFO] aibuildx.node_resolution: Snapped 236 members to 282 nodes
+2025-12-17 00:18:37,942 [INFO] aibuildx.node_resolution: Generated 42 joints with position fields and member references
+2025-12-17 00:18:37,958 [INFO] aibuildx.node_resolution: Snapped 236 members to 282 nodes
+2025-12-17 00:18:37,965 [INFO] aibuildx.node_resolution: Snapped 236 members to 282 nodes
+2025-12-17 00:18:37,965 [INFO] aibuildx.node_resolution: Generated 42 joints with position fields and member references
+2025-12-17 00:18:47,513 [INFO] aibuildx.node_resolution: Snapped 236 members to 282 nodes
+2025-12-17 00:18:47,514 [INFO] aibuildx.node_resolution: Generated 42 joints with position fields and member references
+2025-12-17 00:18:47,530 [INFO] aibuildx.node_resolution: Snapped 236 members to 282 nodes
+2025-12-17 00:18:47,538 [INFO] aibuildx.node_resolution: Snapped 236 members to 282 nodes
+2025-12-17 00:18:47,538 [INFO] aibuildx.node_resolution: Generated 42 joints with position fields and member references
+2025-12-17 00:19:05,340 [INFO] aibuildx.node_resolution: Snapped 236 members to 282 nodes
+2025-12-17 00:19:05,341 [INFO] aibuildx.node_resolution: Generated 42 joints with position fields and member references
+2025-12-17 00:19:05,356 [INFO] aibuildx.node_resolution: Snapped 236 members to 282 nodes
+2025-12-17 00:19:05,364 [INFO] aibuildx.node_resolution: Snapped 236 members to 282 nodes
+2025-12-17 00:19:05,364 [INFO] aibuildx.node_resolution: Generated 42 joints with position fields and member references
+2025-12-17 00:20:10,109 [INFO] aibuildx.node_resolution: Snapped 456 members to 801 nodes
+2025-12-17 00:20:10,110 [INFO] aibuildx.node_resolution: Generated 1 joints with position fields and member references
+2025-12-17 00:20:10,231 [INFO] aibuildx.node_resolution: Snapped 456 members to 801 nodes
+2025-12-17 00:20:10,292 [INFO] aibuildx.node_resolution: Snapped 456 members to 801 nodes
+2025-12-17 00:20:10,293 [INFO] aibuildx.node_resolution: Generated 1 joints with position fields and member references
+2025-12-17 00:23:51,201 [INFO] aibuildx.node_resolution: Snapped 236 members to 282 nodes
+2025-12-17 00:23:51,201 [INFO] aibuildx.node_resolution: Generated 42 joints with position fields and member references
+2025-12-17 00:23:51,218 [INFO] aibuildx.node_resolution: Snapped 236 members to 282 nodes
+2025-12-17 00:23:51,228 [INFO] aibuildx.node_resolution: Snapped 236 members to 282 nodes
+2025-12-17 00:23:51,228 [INFO] aibuildx.node_resolution: Generated 42 joints with position fields and member references
+2025-12-17 00:24:37,994 [INFO] aibuildx.node_resolution: Snapped 141 members to 7 nodes
+2025-12-17 00:24:37,994 [INFO] aibuildx.node_resolution: Generated 7 joints with position fields and member references
+2025-12-17 00:24:37,995 [INFO] aibuildx.node_resolution: Snapped 141 members to 7 nodes
+2025-12-17 00:24:37,996 [INFO] aibuildx.node_resolution: Snapped 141 members to 7 nodes
+2025-12-17 00:24:37,996 [INFO] aibuildx.node_resolution: Generated 7 joints with position fields and member references
+2025-12-17 00:24:58,082 [INFO] aibuildx.node_resolution: Snapped 236 members to 282 nodes
+2025-12-17 00:24:58,082 [INFO] aibuildx.node_resolution: Generated 42 joints with position fields and member references
+2025-12-17 00:24:58,098 [INFO] aibuildx.node_resolution: Snapped 236 members to 282 nodes
+2025-12-17 00:24:58,105 [INFO] aibuildx.node_resolution: Snapped 236 members to 282 nodes
+2025-12-17 00:24:58,105 [INFO] aibuildx.node_resolution: Generated 42 joints with position fields and member references
+2025-12-17 00:30:01,963 [INFO] aibuildx.node_resolution: Snapped 1812 members to 1637 nodes
+2025-12-17 00:30:01,965 [INFO] aibuildx.node_resolution: Generated 397 joints with position fields and member references
+2025-12-17 00:30:02,450 [INFO] aibuildx.node_resolution: Snapped 1812 members to 1637 nodes
+2025-12-17 00:30:02,694 [INFO] aibuildx.node_resolution: Snapped 1812 members to 1637 nodes
+2025-12-17 00:30:02,695 [INFO] aibuildx.node_resolution: Generated 397 joints with position fields and member references
+2025-12-17 00:31:43,917 [INFO] aibuildx.node_resolution: Snapped 20575 members to 20890 nodes
+2025-12-17 00:31:43,997 [INFO] aibuildx.node_resolution: Generated 512 joints with position fields and member references
+2025-12-17 00:33:05,239 [INFO] aibuildx.node_resolution: Snapped 20575 members to 20890 nodes
+2025-12-17 00:33:45,933 [INFO] aibuildx.node_resolution: Snapped 20575 members to 20890 nodes
+2025-12-17 00:33:46,070 [INFO] aibuildx.node_resolution: Generated 512 joints with position fields and member references
+2025-12-17 00:35:35,994 [INFO] aibuildx.node_resolution: Snapped 710 members to 799 nodes
+2025-12-17 00:35:35,994 [INFO] aibuildx.node_resolution: Generated 14 joints with position fields and member references
+2025-12-17 00:35:36,209 [INFO] aibuildx.node_resolution: Snapped 710 members to 799 nodes
+2025-12-17 00:35:36,268 [INFO] aibuildx.node_resolution: Snapped 710 members to 799 nodes
+2025-12-17 00:35:36,268 [INFO] aibuildx.node_resolution: Generated 14 joints with position fields and member references
+2025-12-17 00:36:02,202 [INFO] aibuildx.node_resolution: Snapped 378 members to 430 nodes
+2025-12-17 00:36:02,203 [INFO] aibuildx.node_resolution: Generated 0 joints with position fields and member references
+2025-12-17 00:36:02,245 [INFO] aibuildx.node_resolution: Snapped 378 members to 430 nodes
+2025-12-17 00:36:02,265 [INFO] aibuildx.node_resolution: Snapped 378 members to 430 nodes
+2025-12-17 00:36:02,266 [INFO] aibuildx.node_resolution: Generated 0 joints with position fields and member references
+2025-12-17 00:36:13,403 [INFO] aibuildx.node_resolution: Snapped 378 members to 430 nodes
+2025-12-17 00:36:13,404 [INFO] aibuildx.node_resolution: Generated 0 joints with position fields and member references
+2025-12-17 00:36:13,444 [INFO] aibuildx.node_resolution: Snapped 378 members to 430 nodes
+2025-12-17 00:36:13,463 [INFO] aibuildx.node_resolution: Snapped 378 members to 430 nodes
+2025-12-17 00:36:13,463 [INFO] aibuildx.node_resolution: Generated 0 joints with position fields and member references
+2025-12-17 00:36:50,938 [INFO] aibuildx.node_resolution: Snapped 710 members to 799 nodes
+2025-12-17 00:36:50,939 [INFO] aibuildx.node_resolution: Generated 14 joints with position fields and member references
+2025-12-17 00:36:51,065 [INFO] aibuildx.node_resolution: Snapped 710 members to 799 nodes
+2025-12-17 00:36:51,129 [INFO] aibuildx.node_resolution: Snapped 710 members to 799 nodes
+2025-12-17 00:36:51,129 [INFO] aibuildx.node_resolution: Generated 14 joints with position fields and member references
+2025-12-17 00:41:34,458 [INFO] aibuildx.node_resolution: Snapped 384 members to 434 nodes
+2025-12-17 00:41:34,459 [INFO] aibuildx.node_resolution: Generated 4 joints with position fields and member references
+2025-12-17 00:41:34,495 [INFO] aibuildx.node_resolution: Snapped 384 members to 434 nodes
+2025-12-17 00:41:34,513 [INFO] aibuildx.node_resolution: Snapped 384 members to 434 nodes
+2025-12-17 00:41:34,513 [INFO] aibuildx.node_resolution: Generated 4 joints with position fields and member references
+2025-12-17 00:45:07,264 [INFO] aibuildx.node_resolution: Snapped 358 members to 386 nodes
+2025-12-17 00:45:07,265 [INFO] aibuildx.node_resolution: Generated 4 joints with position fields and member references
+2025-12-17 00:45:07,294 [INFO] aibuildx.node_resolution: Snapped 358 members to 386 nodes
+2025-12-17 00:45:07,307 [INFO] aibuildx.node_resolution: Snapped 358 members to 386 nodes
+2025-12-17 00:45:07,308 [INFO] aibuildx.node_resolution: Generated 4 joints with position fields and member references
+2025-12-17 00:58:50,567 [INFO] aibuildx.node_resolution: Snapped 358 members to 386 nodes
+2025-12-17 00:58:50,568 [INFO] aibuildx.node_resolution: Generated 4 joints with position fields and member references
+2025-12-17 00:58:50,598 [INFO] aibuildx.node_resolution: Snapped 358 members to 386 nodes
+2025-12-17 00:58:50,612 [INFO] aibuildx.node_resolution: Snapped 358 members to 386 nodes
+2025-12-17 00:58:50,612 [INFO] aibuildx.node_resolution: Generated 4 joints with position fields and member references
+2025-12-17 01:04:00,172 [INFO] aibuildx.node_resolution: Snapped 20575 members to 20890 nodes
+2025-12-17 01:04:00,183 [INFO] aibuildx.node_resolution: Generated 512 joints with position fields and member references
+2025-12-17 01:05:23,213 [INFO] aibuildx.node_resolution: Snapped 20575 members to 20890 nodes
+2025-12-17 01:06:03,988 [INFO] aibuildx.node_resolution: Snapped 20575 members to 20890 nodes
+2025-12-17 01:06:03,999 [INFO] aibuildx.node_resolution: Generated 512 joints with position fields and member references
+2025-12-17 01:07:07,552 [INFO] aibuildx.node_resolution: Snapped 1812 members to 1637 nodes
+2025-12-17 01:07:07,566 [INFO] aibuildx.node_resolution: Generated 397 joints with position fields and member references
+2025-12-17 01:07:08,781 [INFO] aibuildx.node_resolution: Snapped 1812 members to 1637 nodes
+2025-12-17 01:07:09,447 [INFO] aibuildx.node_resolution: Snapped 1812 members to 1637 nodes
+2025-12-17 01:07:09,459 [INFO] aibuildx.node_resolution: Generated 397 joints with position fields and member references
+2025-12-17 01:08:09,207 [INFO] aibuildx.node_resolution: Snapped 182 members to 228 nodes
+2025-12-17 01:08:09,207 [INFO] aibuildx.node_resolution: Generated 24 joints with position fields and member references
+2025-12-17 01:08:09,218 [INFO] aibuildx.node_resolution: Snapped 182 members to 228 nodes
+2025-12-17 01:08:09,223 [INFO] aibuildx.node_resolution: Snapped 182 members to 228 nodes
+2025-12-17 01:08:09,223 [INFO] aibuildx.node_resolution: Generated 24 joints with position fields and member references
+2025-12-17 01:08:13,193 [INFO] aibuildx.node_resolution: Snapped 148 members to 113 nodes
+2025-12-17 01:08:13,194 [INFO] aibuildx.node_resolution: Generated 49 joints with position fields and member references
+2025-12-17 01:08:13,198 [INFO] aibuildx.node_resolution: Snapped 148 members to 113 nodes
+2025-12-17 01:08:13,200 [INFO] aibuildx.node_resolution: Snapped 148 members to 113 nodes
+2025-12-17 01:08:13,200 [INFO] aibuildx.node_resolution: Generated 49 joints with position fields and member references
+2025-12-17 01:09:19,588 [INFO] aibuildx.node_resolution: Snapped 148 members to 113 nodes
+2025-12-17 01:09:19,613 [INFO] aibuildx.node_resolution: Generated 49 joints with position fields and member references
+2025-12-17 01:09:19,770 [INFO] aibuildx.node_resolution: Snapped 148 members to 113 nodes
+2025-12-17 01:09:19,783 [INFO] aibuildx.node_resolution: Snapped 148 members to 113 nodes
+2025-12-17 01:09:19,789 [INFO] aibuildx.node_resolution: Generated 49 joints with position fields and member references
+2025-12-17 01:18:47,867 [INFO] aibuildx.node_resolution: Snapped 710 members to 799 nodes
+2025-12-17 01:18:47,890 [INFO] aibuildx.node_resolution: Generated 14 joints with position fields and member references
+2025-12-17 01:18:48,326 [INFO] aibuildx.node_resolution: Snapped 710 members to 799 nodes
+2025-12-17 01:18:48,464 [INFO] aibuildx.node_resolution: Snapped 710 members to 799 nodes
+2025-12-17 01:18:48,478 [INFO] aibuildx.node_resolution: Generated 14 joints with position fields and member references
+2025-12-17 01:20:57,452 [INFO] aibuildx.node_resolution: Snapped 358 members to 386 nodes
+2025-12-17 01:20:57,465 [INFO] aibuildx.node_resolution: Generated 4 joints with position fields and member references
+2025-12-17 01:20:57,675 [INFO] aibuildx.node_resolution: Snapped 358 members to 386 nodes
+2025-12-17 01:20:57,714 [INFO] aibuildx.node_resolution: Snapped 358 members to 386 nodes
+2025-12-17 01:20:57,714 [INFO] aibuildx.node_resolution: Generated 4 joints with position fields and member references
+2025-12-17 01:25:58,997 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2025-12-17 01:25:58,998 [INFO] aibuildx.node_resolution: Generated 106 joints with position fields and member references
+2025-12-17 01:25:59,007 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2025-12-17 01:25:59,011 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2025-12-17 01:25:59,011 [INFO] aibuildx.node_resolution: Generated 106 joints with position fields and member references
+2025-12-17 01:28:51,874 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2025-12-17 01:28:51,904 [INFO] aibuildx.node_resolution: Generated 106 joints with position fields and member references
+2025-12-17 01:28:52,117 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2025-12-17 01:28:52,146 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2025-12-17 01:28:52,152 [INFO] aibuildx.node_resolution: Generated 106 joints with position fields and member references
+2025-12-17 01:36:14,886 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2025-12-17 01:36:14,886 [INFO] aibuildx.node_resolution: Generated 106 joints with position fields and member references
+2025-12-17 01:36:14,896 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2025-12-17 01:36:14,899 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2025-12-17 01:36:14,900 [INFO] aibuildx.node_resolution: Generated 106 joints with position fields and member references
+2025-12-17 01:37:03,382 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2025-12-17 01:37:03,383 [INFO] aibuildx.node_resolution: Generated 106 joints with position fields and member references
+2025-12-17 01:37:03,391 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2025-12-17 01:37:03,394 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2025-12-17 01:37:03,394 [INFO] aibuildx.node_resolution: Generated 106 joints with position fields and member references
+2025-12-17 01:37:50,494 [INFO] aibuildx.node_resolution: Snapped 148 members to 113 nodes
+2025-12-17 01:37:50,495 [INFO] aibuildx.node_resolution: Generated 49 joints with position fields and member references
+2025-12-17 01:37:50,498 [INFO] aibuildx.node_resolution: Snapped 148 members to 113 nodes
+2025-12-17 01:37:50,499 [INFO] aibuildx.node_resolution: Snapped 148 members to 113 nodes
+2025-12-17 01:37:50,499 [INFO] aibuildx.node_resolution: Generated 49 joints with position fields and member references
+2025-12-17 01:40:14,525 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2025-12-17 01:40:14,526 [INFO] aibuildx.node_resolution: Generated 106 joints with position fields and member references
+2025-12-17 01:40:14,534 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2025-12-17 01:40:14,538 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2025-12-17 01:40:14,538 [INFO] aibuildx.node_resolution: Generated 106 joints with position fields and member references
+2025-12-17 01:41:17,761 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2025-12-17 01:41:17,762 [INFO] aibuildx.node_resolution: Generated 106 joints with position fields and member references
+2025-12-17 01:41:17,770 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2025-12-17 01:41:17,774 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2025-12-17 01:41:17,774 [INFO] aibuildx.node_resolution: Generated 106 joints with position fields and member references
+2025-12-17 12:38:35,887 [INFO] aibuildx.node_resolution: Snapped 148 members to 113 nodes
+2025-12-17 12:38:35,888 [INFO] aibuildx.node_resolution: Generated 49 joints with position fields and member references
+2025-12-17 12:38:35,894 [INFO] aibuildx.node_resolution: Snapped 148 members to 113 nodes
+2025-12-17 12:38:35,896 [INFO] aibuildx.node_resolution: Snapped 148 members to 113 nodes
+2025-12-17 12:38:35,896 [INFO] aibuildx.node_resolution: Generated 49 joints with position fields and member references
+2025-12-17 12:40:42,980 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2025-12-17 12:40:42,981 [INFO] aibuildx.node_resolution: Generated 106 joints with position fields and member references
+2025-12-17 12:40:43,020 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2025-12-17 12:40:43,038 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2025-12-17 12:40:43,040 [INFO] aibuildx.node_resolution: Generated 106 joints with position fields and member references
+2026-01-08 20:17:14,810 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2026-01-08 20:17:14,811 [INFO] aibuildx.node_resolution: Generated 106 joints with position fields and member references
+2026-01-08 20:17:14,819 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2026-01-08 20:17:14,823 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2026-01-08 20:17:14,823 [INFO] aibuildx.node_resolution: Generated 106 joints with position fields and member references
+2026-01-08 22:28:50,732 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2026-01-08 22:28:50,732 [INFO] aibuildx.node_resolution: Generated 106 joints with position fields and member references
+2026-01-08 22:28:50,740 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2026-01-08 22:28:50,744 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2026-01-08 22:28:50,744 [INFO] aibuildx.node_resolution: Generated 106 joints with position fields and member references
+2026-01-13 16:26:50,778 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2026-01-13 16:26:50,779 [INFO] aibuildx.node_resolution: Generated 106 joints with position fields and member references
+2026-01-13 16:26:50,790 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2026-01-13 16:26:50,793 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2026-01-13 16:26:50,794 [INFO] aibuildx.node_resolution: Generated 106 joints with position fields and member references
+2026-02-19 19:27:47,046 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2026-02-19 19:27:47,048 [INFO] aibuildx.node_resolution: Generated 106 joints with position fields and member references
+2026-02-19 19:27:47,062 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2026-02-19 19:27:47,067 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2026-02-19 19:27:47,067 [INFO] aibuildx.node_resolution: Generated 106 joints with position fields and member references
+2026-02-19 19:44:15,022 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2026-02-19 19:44:15,022 [INFO] aibuildx.node_resolution: Generated 106 joints with position fields and member references
+2026-02-19 19:44:15,030 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2026-02-19 19:44:15,034 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2026-02-19 19:44:15,035 [INFO] aibuildx.node_resolution: Generated 106 joints with position fields and member references
+2026-03-01 14:27:21,548 [INFO] aibuildx.node_resolution: Snapped 601 members to 545 nodes
+2026-03-01 14:27:21,550 [INFO] aibuildx.node_resolution: Generated 276 joints with position fields and member references
+2026-03-01 14:27:21,607 [INFO] aibuildx.node_resolution: Snapped 601 members to 545 nodes
+2026-03-01 14:27:21,634 [INFO] aibuildx.node_resolution: Snapped 601 members to 545 nodes
+2026-03-01 14:27:21,635 [INFO] aibuildx.node_resolution: Generated 276 joints with position fields and member references
+2026-03-01 20:43:11,297 [INFO] aibuildx.node_resolution: Snapped 2 members to 3 nodes
+2026-03-01 20:43:11,297 [INFO] aibuildx.node_resolution: Generated 0 joints with position fields and member references
+2026-03-01 20:43:11,304 [INFO] aibuildx.node_resolution: Snapped 2 members to 1 nodes
+2026-03-01 20:43:11,304 [INFO] aibuildx.node_resolution: Generated 1 joints with position fields and member references
+2026-03-01 20:43:11,305 [INFO] aibuildx.node_resolution: Snapped 2 members to 1 nodes
+2026-03-01 20:43:11,305 [INFO] aibuildx.node_resolution: Snapped 2 members to 1 nodes
+2026-03-01 20:43:11,305 [INFO] aibuildx.node_resolution: Generated 1 joints with position fields and member references
+2026-03-01 20:43:11,712 [INFO] aibuildx.node_resolution: Snapped 1 members to 1 nodes
+2026-03-01 20:43:11,712 [INFO] aibuildx.node_resolution: Generated 0 joints with position fields and member references
+2026-03-01 20:43:11,713 [INFO] aibuildx.node_resolution: Snapped 1 members to 1 nodes
+2026-03-01 20:43:11,713 [INFO] aibuildx.node_resolution: Snapped 1 members to 1 nodes
+2026-03-01 20:43:11,713 [INFO] aibuildx.node_resolution: Generated 0 joints with position fields and member references
+2026-03-01 20:43:11,718 [INFO] aibuildx.node_resolution: Snapped 1 members to 1 nodes
+2026-03-01 20:43:11,718 [INFO] aibuildx.node_resolution: Generated 0 joints with position fields and member references
+2026-03-01 20:43:11,719 [INFO] aibuildx.node_resolution: Snapped 1 members to 1 nodes
+2026-03-01 20:43:11,719 [INFO] aibuildx.node_resolution: Snapped 1 members to 1 nodes
+2026-03-01 20:43:11,719 [INFO] aibuildx.node_resolution: Generated 0 joints with position fields and member references
+2026-03-01 20:43:25,903 [INFO] aibuildx.node_resolution: Snapped 2 members to 3 nodes
+2026-03-01 20:43:25,904 [INFO] aibuildx.node_resolution: Generated 0 joints with position fields and member references
+2026-03-01 20:43:25,904 [INFO] aibuildx.node_resolution: Snapped 2 members to 3 nodes
+2026-03-01 20:43:25,905 [INFO] aibuildx.node_resolution: Snapped 2 members to 3 nodes
+2026-03-01 20:43:25,905 [INFO] aibuildx.node_resolution: Generated 0 joints with position fields and member references
+2026-03-01 20:43:26,177 [INFO] aibuildx.node_resolution: Snapped 1 members to 1 nodes
+2026-03-01 20:43:26,177 [INFO] aibuildx.node_resolution: Generated 0 joints with position fields and member references
+2026-03-01 20:43:26,178 [INFO] aibuildx.node_resolution: Snapped 1 members to 1 nodes
+2026-03-01 20:43:26,178 [INFO] aibuildx.node_resolution: Snapped 1 members to 1 nodes
+2026-03-01 20:43:26,178 [INFO] aibuildx.node_resolution: Generated 0 joints with position fields and member references
+2026-03-01 20:43:26,234 [INFO] aibuildx.node_resolution: Snapped 0 members to 0 nodes
+2026-03-01 20:43:26,234 [INFO] aibuildx.node_resolution: Snapped 0 members to 0 nodes
+2026-03-01 20:43:26,234 [INFO] aibuildx.node_resolution: Generated 0 joints with position fields and member references
+2026-03-01 20:43:26,977 [INFO] aibuildx.node_resolution: Snapped 3 members to 1 nodes
+2026-03-01 20:43:26,977 [INFO] aibuildx.node_resolution: Generated 1 joints with position fields and member references
+2026-03-01 20:43:26,978 [INFO] aibuildx.node_resolution: Snapped 3 members to 1 nodes
+2026-03-01 20:43:26,978 [INFO] aibuildx.node_resolution: Snapped 3 members to 1 nodes
+2026-03-01 20:43:26,978 [INFO] aibuildx.node_resolution: Generated 1 joints with position fields and member references
+2026-03-01 20:43:27,081 [INFO] aibuildx.node_resolution: Snapped 4 members to 1 nodes
+2026-03-01 20:43:27,082 [INFO] aibuildx.node_resolution: Generated 1 joints with position fields and member references
+2026-03-01 20:43:27,082 [INFO] aibuildx.node_resolution: Snapped 4 members to 1 nodes
+2026-03-01 20:43:27,082 [INFO] aibuildx.node_resolution: Snapped 4 members to 1 nodes
+2026-03-01 20:43:27,082 [INFO] aibuildx.node_resolution: Generated 1 joints with position fields and member references
+2026-03-01 20:43:27,167 [INFO] aibuildx.node_resolution: Snapped 4 members to 1 nodes
+2026-03-01 20:43:27,167 [INFO] aibuildx.node_resolution: Generated 1 joints with position fields and member references
+2026-03-01 20:43:27,168 [INFO] aibuildx.node_resolution: Snapped 4 members to 1 nodes
+2026-03-01 20:43:27,168 [INFO] aibuildx.node_resolution: Snapped 4 members to 1 nodes
+2026-03-01 20:43:27,168 [INFO] aibuildx.node_resolution: Generated 1 joints with position fields and member references
+2026-03-01 20:43:27,226 [INFO] aibuildx.node_resolution: Snapped 3 members to 4 nodes
+2026-03-01 20:43:27,226 [INFO] aibuildx.node_resolution: Snapped 3 members to 4 nodes
+2026-03-01 20:43:27,226 [INFO] aibuildx.node_resolution: Generated 1 joints with position fields and member references
+2026-03-01 20:43:27,242 [INFO] aibuildx.node_resolution: Snapped 4 members to 1 nodes
+2026-03-01 20:43:27,242 [INFO] aibuildx.node_resolution: Generated 1 joints with position fields and member references
+2026-03-01 20:43:27,243 [INFO] aibuildx.node_resolution: Snapped 4 members to 1 nodes
+2026-03-01 20:43:27,244 [INFO] aibuildx.node_resolution: Snapped 4 members to 1 nodes
+2026-03-01 20:43:27,244 [INFO] aibuildx.node_resolution: Generated 1 joints with position fields and member references
+2026-03-01 20:43:27,265 [INFO] aibuildx.node_resolution: Snapped 2 members to 3 nodes
+2026-03-01 20:43:27,266 [INFO] aibuildx.node_resolution: Generated 0 joints with position fields and member references
+2026-03-01 20:43:27,396 [INFO] aibuildx.node_resolution: Snapped 2 members to 1 nodes
+2026-03-01 20:43:27,396 [INFO] aibuildx.node_resolution: Generated 1 joints with position fields and member references
+2026-03-01 20:43:27,397 [INFO] aibuildx.node_resolution: Snapped 2 members to 1 nodes
+2026-03-01 20:43:27,397 [INFO] aibuildx.node_resolution: Snapped 2 members to 1 nodes
+2026-03-01 20:43:27,397 [INFO] aibuildx.node_resolution: Generated 1 joints with position fields and member references
+2026-03-01 20:43:27,426 [INFO] aibuildx.node_resolution: Snapped 1 members to 1 nodes
+2026-03-01 20:43:27,426 [INFO] aibuildx.node_resolution: Generated 0 joints with position fields and member references
+2026-03-01 20:43:27,426 [INFO] aibuildx.node_resolution: Snapped 1 members to 1 nodes
+2026-03-01 20:43:27,427 [INFO] aibuildx.node_resolution: Snapped 1 members to 1 nodes
+2026-03-01 20:43:27,427 [INFO] aibuildx.node_resolution: Generated 0 joints with position fields and member references
+2026-03-01 20:43:27,433 [INFO] aibuildx.node_resolution: Snapped 1 members to 1 nodes
+2026-03-01 20:43:27,433 [INFO] aibuildx.node_resolution: Generated 0 joints with position fields and member references
+2026-03-01 20:43:27,433 [INFO] aibuildx.node_resolution: Snapped 1 members to 1 nodes
+2026-03-01 20:43:27,433 [INFO] aibuildx.node_resolution: Snapped 1 members to 1 nodes
+2026-03-01 20:43:27,433 [INFO] aibuildx.node_resolution: Generated 0 joints with position fields and member references
+2026-03-27 10:53:42,087 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2026-03-27 10:53:42,087 [INFO] aibuildx.node_resolution: Generated 106 joints with position fields and member references
+2026-03-27 10:53:42,095 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2026-03-27 10:53:42,100 [INFO] aibuildx.node_resolution: Snapped 348 members to 184 nodes
+2026-03-27 10:53:42,100 [INFO] aibuildx.node_resolution: Generated 106 joints with position fields and member references

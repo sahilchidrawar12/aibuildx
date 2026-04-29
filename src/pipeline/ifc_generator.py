@@ -76,14 +76,17 @@ def generate_i_shape_profile(profile: Dict[str, Any], member_id: str) -> Dict[st
     flange_thick_m = _to_metres(profile.get('flange_thickness') or 12.0)
     fillet_radius_m = _to_metres(profile.get('fillet_radius') or 10.0)
     
-    # FIX: Area is already in mm² in the profile dict, convert to m² correctly (divide by 1e6, not apply _to_metres)
+    # FIX: Area is always in mm² in the profile dict, convert to m² by dividing by 1e6
     area_mm2 = profile.get('area') or 0.0
-    area_m2 = (area_mm2 / 1e6) if area_mm2 >= 100 else area_mm2  # mm² → m²
+    area_m2 = area_mm2 / 1e6  # mm² → m²
     
-    # FIX: Ix/Iy/Zx/Zy are already in correct units in profile dict, don't double-convert
-    ix_m4 = profile.get('Ix')
-    if ix_m4 and abs(ix_m4) >= 1e6:  # If looks like mm⁴, convert to m⁴
-        ix_m4 = ix_m4 / 1e12
+    # FIX: Ix/Iy are always in mm⁴ in the profile dict, convert to m⁴ by dividing by 1e12
+    ix_m4 = (profile.get('Ix') or 0.0) / 1e12  # mm⁴ → m⁴
+    iy_m4 = (profile.get('Iy') or 0.0) / 1e12  # mm⁴ → m⁴
+    
+    # FIX: Zx/Zy are always in mm³ in the profile dict, convert to m³ by dividing by 1e9
+    zx_m3 = (profile.get('Zx') or 0.0) / 1e9  # mm³ → m³
+    zy_m3 = (profile.get('Zy') or 0.0) / 1e9  # mm³ → m³
     
     return {
         "type": "IfcIShapeProfileDef",
@@ -96,9 +99,9 @@ def generate_i_shape_profile(profile: Dict[str, Any], member_id: str) -> Dict[st
         "fillet_radius": fillet_radius_m,
         "area": area_m2,  # Corrected to m²
         "Ix": ix_m4,  # Second moment about strong axis (m⁴)
-        "Iy": profile.get('Iy') / 1e12 if profile.get('Iy') and abs(profile.get('Iy')) >= 1e6 else profile.get('Iy'),  # Corrected
-        "Zx": profile.get('Zx') / 1e9 if profile.get('Zx') and abs(profile.get('Zx')) >= 1e6 else profile.get('Zx'),  # mm³ → m³
-        "Zy": profile.get('Zy') / 1e9 if profile.get('Zy') and abs(profile.get('Zy')) >= 1e6 else profile.get('Zy'),  # mm³ → m³
+        "Iy": iy_m4,  # Second moment about weak axis (m⁴)
+        "Zx": zx_m3,  # Section modulus about strong axis (m³)
+        "Zy": zy_m3,  # Section modulus about weak axis (m³)
     }
 
 def generate_rectangular_profile(profile: Dict[str, Any], member_id: str) -> Dict[str, Any]:
@@ -115,6 +118,11 @@ def generate_rectangular_profile(profile: Dict[str, Any], member_id: str) -> Dic
     width_m = _to_metres(profile.get('width') or 150.0)
     thickness_m = _to_metres(profile.get('wall_thickness') or profile.get('thickness') or 8.0)
     
+    # FIX: Proper unit conversions for rectangular profiles
+    area_m2 = (profile.get('area') or 0.0) / 1e6 if profile.get('area') else None  # mm² → m²
+    ix_m4 = (profile.get('Ix') or 0.0) / 1e12 if profile.get('Ix') else None      # mm⁴ → m⁴
+    iy_m4 = (profile.get('Iy') or 0.0) / 1e12 if profile.get('Iy') else None      # mm⁴ → m⁴
+    
     return {
         "type": "IfcRectangleProfileDef",
         "profile_name": profile.get('name') or f"RHS-{member_id[:8]}",
@@ -122,9 +130,9 @@ def generate_rectangular_profile(profile: Dict[str, Any], member_id: str) -> Dic
         "x_dim": width_m,
         "y_dim": depth_m,
         "wall_thickness": thickness_m,
-        "area": _to_metres(_to_metres(profile.get('area'))) if profile.get('area') else None,
-        "Ix": _to_metres(_to_metres(_to_metres(profile.get('Ix')))) if profile.get('Ix') else None,
-        "Iy": _to_metres(_to_metres(_to_metres(profile.get('Iy')))) if profile.get('Iy') else None,
+        "area": area_m2,
+        "Ix": ix_m4,
+        "Iy": iy_m4,
     }
 
 def generate_profile_def(profile: Dict[str, Any], member_id: str) -> Dict[str, Any]:
@@ -262,7 +270,16 @@ def generate_ifc_beam(member: Dict[str,Any]) -> Dict[str,Any]:
     direction_norm = normalize_vector(direction)
 
     profile = member.get('profile') or member.get('geom') or {}
-    material = member.get('material') or {}
+    material_input = member.get('material') or 'S235'
+    
+    # Handle material - could be string or dict
+    if isinstance(material_input, str):
+        material = {'name': material_input}
+    elif isinstance(material_input, dict):
+        material = material_input.copy()
+    else:
+        material = {'name': 'S235'}
+    
     # Enrich material with typical steel properties when missing
     material.setdefault('name', 'S235')
     material.setdefault('E', 210000.0)  # MPa

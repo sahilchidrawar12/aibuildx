@@ -112,12 +112,12 @@ class ConversionCLI:
             
             if not isinstance(data, dict):
                 errors.append("Root must be a dictionary")
-            
+
             # Check for required keys
             for key in ['miner', 'engineer', 'validator']:
                 if key not in data:
                     warnings.append(f"Missing key: {key}")
-            
+
             # Check members
             members = data.get('miner', {}).get('members', [])
             if not members:
@@ -128,6 +128,30 @@ class ConversionCLI:
                         errors.append(f"Member {i} missing 'id'")
                     if not m.get('start') or not m.get('end'):
                         errors.append(f"Member {i} missing geometry (start/end)")
+                    else:
+                        start = m.get('start')
+                        end = m.get('end')
+                        if start == end:
+                            errors.append(f"Member {i} has zero length geometry")
+                    if not m.get('section') and not m.get('profile'):
+                        warnings.append(f"Member {i} missing section/profile; Tekla may assign a default")
+                    if not m.get('material'):
+                        warnings.append(f"Member {i} missing material; defaulting to S355 for Tekla export")
+
+            # Tekla readiness hints
+            if members and not errors:
+                tekla_ready = True
+                for i, m in enumerate(members):
+                    if not m.get('section') and not m.get('profile'):
+                        tekla_ready = False
+                        break
+                    if not m.get('start') or not m.get('end'):
+                        tekla_ready = False
+                        break
+                if tekla_ready:
+                    print("✅ Tekla readiness: Looks good for export. Run 'python cli.py convert --input <file> --output <folder>' and then validate output before import.")
+                else:
+                    warnings.append("Tekla readiness check found missing section or geometry fields on some members")
             
             # Report
             print(f"✅ Validation complete")

@@ -22,6 +22,34 @@ Notes
 - The project references Tekla assemblies via `$(TeklaPath)\bin\...`. Adjust the `HintPath` in the `.csproj` if your Tekla installation is elsewhere.
 - Once built, copy the compiled DLL into Tekla's plugins folder or create a Tekla plugin/extension that calls `TeklaModelBuilder.ImportMembers("path_to_json")`.
 
+Validation & Tekla Connection
+- Start the Python API server:
+   ```bash
+   python run_api_server.py
+   ```
+- Start Tekla Structures and open or create a model.
+- Load the compiled plugin into Tekla so the bridge can connect.
+- Confirm the connection with the status endpoint:
+   ```bash
+   curl http://localhost:8000/api/v1/tekla/status
+   ```
+- Validate payloads before export with the CLI:
+   ```bash
+   python cli.py validate --input outputs/final.json
+   ```
+- Or validate via API before sending to Tekla:
+   ```bash
+   curl -X POST http://localhost:8000/api/v1/tekla/validate \
+     -H 'Content-Type: application/json' \
+     -d '{"objects": [...]}'
+   ```
+
+Simple frontend export (recommended)
+- If you are using the web UI, the final page already includes a single `Export to Tekla` button.
+- That button generates a Tekla-ready IFC file and provides a download link.
+- You then open Tekla Structures and import the downloaded IFC file.
+- This is the easiest path and does not require the real-time WebSocket bridge or plugin.
+
 Packaging
 - After a successful build you can package the DLL for distribution using the provided PowerShell helper. From `tekla_integration` run:
    ```powershell

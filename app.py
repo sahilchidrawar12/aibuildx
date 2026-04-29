@@ -5,6 +5,8 @@ Allows users to upload DWG files, run the full pipeline, and export to Tekla Str
 import os
 import json
 import uuid
+import urllib.request
+import urllib.error
 from pathlib import Path
 from werkzeug.utils import secure_filename
 from flask import Flask, render_template, request, jsonify, send_file
@@ -155,6 +157,93 @@ def job_status(job_id):
         'download_url': f'/api/download/{job_id}/'
     }), 200
 
+def query_local_tekla_api(path, method='GET', payload=None, timeout=5):
+    url = f'http://localhost:8000{path}'
+    headers = {'Content-Type': 'application/json'}
+    data = None
+
+    if payload is not None:
+        data = json.dumps(payload).encode('utf-8')
+
+    request_obj = urllib.request.Request(url, data=data, headers=headers, method=method)
+
+    try:
+        with urllib.request.urlopen(request_obj, timeout=timeout) as response:
+            response_data = response.read().decode('utf-8')
+            return json.loads(response_data)
+    except urllib.error.HTTPError as e:
+        try:
+            error_body = e.read().decode('utf-8')
+            return {'error': error_body, 'status': e.code}
+        except Exception:
+            return {'error': str(e), 'status': e.code}
+    except Exception as e:
+        return {'error': str(e)}
+
+
+def _normalize_profile_value(profile):
+    if profile is None:
+        return 'HEA200'
+    if isinstance(profile, str):
+        return profile
+    if isinstance(profile, dict):
+        return profile.get('profile') or profile.get('name') or profile.get('profile_name') or 'HEA200'
+    return str(profile)
+
+
+def convert_pipeline_result_to_tekla_objects(result):
+    objects = []
+    warnings = []
+
+    if not isinstance(result, dict):
+        return objects, ['Pipeline result is not a JSON object']
+
+    members = result.get('miner', {}).get('members', [])
+    if not isinstance(members, list):
+        members = []
+
+    for member in members:
+        if not isinstance(member, dict):
+            continue
+
+        start = member.get('start') or member.get('start_point') or []
+        end = member.get('end') or member.get('end_point') or []
+
+        if not (isinstance(start, list) and isinstance(end, list) and len(start) == 3 and len(end) == 3):
+            warnings.append(f"Skipping member {member.get('id', 'unknown')}: invalid geometry")
+            continue
+
+        if start == end:
+            warnings.append(f"Skipping member {member.get('id', 'unknown')}: zero-length geometry")
+            continue
+
+        member_type = str(member.get('type', 'beam')).lower()
+        if member_type not in {'beam', 'column'}:
+            member_type = 'beam'
+
+        profile = _normalize_profile_value(member.get('profile') or member.get('section'))
+        material = member.get('material') or 'S355'
+        object_id = member.get('id') or str(uuid.uuid4())
+
+        tekla_obj = {
+            'id': object_id,
+            'type': member_type,
+            'name': member.get('name') or object_id,
+            'start_point': start,
+            'end_point': end,
+            'profile': profile,
+            'material': material
+        }
+
+        # Add rotation_angle for beams
+        if member_type == 'beam':
+            tekla_obj['rotation_angle'] = float(member.get('rotation', 0.0))
+
+        objects.append(tekla_obj)
+
+    return objects, warnings
+
+
 @app.route('/api/export-tekla/<job_id>')
 def export_to_tekla(job_id):
     """Prepare Tekla export (returns IFC + metadata)."""
@@ -187,6 +276,49 @@ def export_to_tekla(job_id):
         }), 200
     except Exception as e:
         return jsonify({'status': 'error', 'message': str(e)}), 500
+
+
+@app.route('/api/export-tekla-direct/<job_id>')
+def export_to_tekla_direct(job_id):
+    """Send pipeline model objects directly to a connected Tekla API bridge."""
+    result_path = os.path.join(OUTPUT_FOLDER, job_id, 'result.json')
+    final_path = os.path.join(OUTPUT_FOLDER, job_id, 'final.json')
+    
+    if not os.path.exists(result_path) and not os.path.exists(final_path):
+        return jsonify({'status': 'error', 'message': 'No pipeline result found'}), 404
+
+    result_file = result_path if os.path.exists(result_path) else final_path
+    with open(result_file, 'r') as f:
+        result = json.load(f)
+
+    tekla_status = query_local_tekla_api('/api/v1/tekla/status')
+    if not isinstance(tekla_status, dict) or not tekla_status.get('connected'):
+        msg = tekla_status.get('error', 'Tekla API bridge is not available or not connected')
+        return jsonify({'status': 'error', 'message': f'Direct Tekla API unavailable: {msg}'}), 503
+
+    objects, warnings = convert_pipeline_result_to_tekla_objects(result)
+    if not objects:
+        return jsonify({'status': 'error', 'message': 'No valid Tekla objects could be created from the pipeline output', 'warnings': warnings}), 400
+
+    payload = {'objects': objects, 'transaction_id': f'tx_{job_id}'}
+    tekla_response = query_local_tekla_api('/api/v1/tekla/create', method='POST', payload=payload)
+
+    if not isinstance(tekla_response, dict) or tekla_response.get('success') is not True:
+        return jsonify({'status': 'error', 'message': 'Tekla API create call failed', 'tekla_response': tekla_response, 'warnings': warnings}), 500
+
+    ifc_path = os.path.join(OUTPUT_FOLDER, job_id, 'model.ifc')
+    ifc_exists = os.path.exists(ifc_path)
+
+    return jsonify({
+        'status': 'ok',
+        'job_id': job_id,
+        'tekla_sent': True,
+        'tekla_response': tekla_response,
+        'warnings': warnings,
+        'ifc_available': ifc_exists,
+        'ifc_path': f'/api/download/{job_id}/model.ifc' if ifc_exists else None
+    }), 200
+
 
 @app.route('/viewer/<job_id>')
 def viewer(job_id):

@@ -35,7 +35,14 @@ import numpy as np
 from .profile_db import profile_mapper, MATERIAL_CATALOG, SECTION_GEOM
 from .node_resolution import auto_generate_joints
 from .logging_setup import get_logger
-from .ml_models import load_member_type_classifier, load_section_selector, train_member_type_classifier, train_section_selector
+from .ml_models import (
+    load_member_type_classifier, 
+    load_section_selector, 
+    load_material_classifier,
+    train_member_type_classifier, 
+    train_section_selector,
+    train_material_classifier
+)
 
 logger = get_logger("auto_repair")
 
@@ -235,12 +242,12 @@ def ml_select_material(member: Dict[str, Any]) -> Dict[str, Any]:
     Use trained material classifier to predict optimal material from member properties.
     
     ML Model Input:
-    - role: Member role (beam/column/brace)
-    - span_m: Member span
-    - estimated_stress: Estimated stress state
+    - role_encoded: 0=beam, 1=column, 2=brace
+    - span_m: Member span in meters
+    - stress_type: 0=compression, 1=bending, 2=tension, 3=combined
     
     ML Model Output:
-    - material_name: Material grade (S235/S355/S450)
+    - material_index: 0=S235, 1=S355, 2=S450, 3=S460, 4=S275
     - confidence: Model confidence (0-1)
     
     Improves as material selection data collected and model retrained.
@@ -249,57 +256,118 @@ def ml_select_material(member: Dict[str, Any]) -> Dict[str, Any]:
         return member['material']
     
     try:
+        classifier = load_material_classifier()
+        
+        # Get role with confidence
         role, role_confidence = ml_infer_member_role(member)
         span_m = (member.get('length') or 1000.0) / 1000.0
         
-        # Estimate stress state from role and span
+        # Encode role: beam=0, column=1, brace=2
+        role_map = {'beam': 0, 'column': 1, 'brace': 2}
+        role_encoded = role_map.get(role, 0)
+        
+        # Determine stress type from role and geometry
         if role == 'column':
-            stress_category = 'high_compression'
+            stress_type = 0  # compression
         elif role == 'beam':
-            stress_category = 'bending' if span_m > 8 else 'bending_short'
+            stress_type = 1  # bending
+        elif role == 'brace':
+            # Check if tension or combined based on orientation
+            start = member.get('start', [0, 0, 0])
+            end = member.get('end', [1, 0, 0])
+            dz = abs(end[2] - start[2])
+            length = member.get('length') or 1.0
+            if dz / length > 0.5:
+                stress_type = 3  # combined (vertical bracing)
+            else:
+                stress_type = 2  # tension (diagonal bracing)
         else:
-            stress_category = 'tension_compression'
+            stress_type = 3  # combined fallback
         
-        # Material selection matrix - RULE-BASED FALLBACK when confidence > threshold
-        # but would replace with actual ML classifier if available
-        material_options = {
-            'column': [('S355', 0.90), ('S235', 0.75)],
-            'beam': [('S355', 0.85), ('S235', 0.80)],
-            'brace': [('S355', 0.88), ('S235', 0.80)],
-        }
+        stress_category = ['compression', 'bending', 'tension', 'combined'][stress_type]
         
-        candidates = material_options.get(role, [('S235', 0.70)])
+        if classifier:
+            # Use ML model
+            features = [[role_encoded, span_m, stress_type]]
+            material_idx = int(classifier.predict(features)[0])
+            proba = classifier.predict_proba(features)[0]
+            confidence = float(max(proba)) if proba is not None else 0.5
+            
+            # Map index to material name
+            material_names = ['S235', 'S355', 'S450', 'S460', 'S275']
+            if 0 <= material_idx < len(material_names):
+                mat_name = material_names[material_idx]
+            else:
+                mat_name = 'S355'  # fallback
+                confidence = 0.5
+            
+            method = 'ml_material_classifier'
+        else:
+            # Fallback: engineering rules when model unavailable
+            logger.debug("Material classifier not available, using engineering rules")
+            
+            if role == 'column':
+                if span_m > 10:
+                    mat_name = 'S450'
+                    confidence = 0.85
+                elif span_m > 5:
+                    mat_name = 'S355'
+                    confidence = 0.80
+                else:
+                    mat_name = 'S275'
+                    confidence = 0.75
+            elif role == 'beam':
+                if span_m > 12:
+                    mat_name = 'S450'
+                    confidence = 0.80
+                elif span_m > 6:
+                    mat_name = 'S355'
+                    confidence = 0.75
+                else:
+                    mat_name = 'S235'
+                    confidence = 0.70
+            else:  # brace
+                if span_m > 15:
+                    mat_name = 'S450'
+                    confidence = 0.80
+                elif span_m > 8:
+                    mat_name = 'S355'
+                    confidence = 0.75
+                else:
+                    mat_name = 'S275'
+                    confidence = 0.70
+            
+            method = 'fallback_engineering_rules'
         
-        if candidates:
-            mat_name, confidence = candidates[0]
-            if mat_name in MATERIAL_CATALOG:
-                material = {'name': mat_name, **MATERIAL_CATALOG[mat_name]}
-                material['_ml_selection'] = {
-                    'role': role,
-                    'role_confidence': role_confidence,
-                    'stress_category': stress_category,
-                    'selection_confidence': confidence,
-                    'method': 'ml_material_classifier'
-                }
-                logger.info("ML material selected [%s]: %s for %s (confidence=%.2f)",
-                           member.get('id')[:8], mat_name, role, confidence)
-                return material
+        # Create material dict from catalog
+        if mat_name in MATERIAL_CATALOG:
+            material = {'name': mat_name, **MATERIAL_CATALOG[mat_name]}
+        else:
+            # Ultimate fallback
+            material = {'name': 'S355', **MATERIAL_CATALOG.get('S355', {})}
+            mat_name = 'S355'
+            confidence = 0.5
+            method = 'ultimate_fallback'
         
-        # Fallback to S235
-        material = {'name': 'S235', **MATERIAL_CATALOG.get('S235', {})}
         material['_ml_selection'] = {
             'role': role,
-            'selection_confidence': 0.5,
-            'method': 'fallback_default'
+            'role_confidence': role_confidence,
+            'stress_category': stress_category,
+            'span_m': span_m,
+            'selection_confidence': confidence,
+            'method': method
         }
+        
+        logger.info("ML material selected [%s]: %s for %s (confidence=%.2f)",
+                   member.get('id')[:8], mat_name, role, confidence)
         return material
     
     except Exception as e:
-        logger.warning("ML material selection failed: %s, using S235", str(e))
-        material = {'name': 'S235', **MATERIAL_CATALOG.get('S235', {})}
+        logger.warning("ML material selection failed: %s, using S355 fallback", str(e))
+        material = {'name': 'S355', **MATERIAL_CATALOG.get('S355', {})}
         material['_ml_selection'] = {
             'method': 'fallback_error',
-            'selection_confidence': 0.3,
+            'selection_confidence': 0.5,
             'error': str(e)
         }
         return material

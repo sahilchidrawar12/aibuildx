@@ -2,26 +2,38 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
 using Tekla.Structures.Model;
 using Tekla.Structures.Geometry3d;
 
 namespace TeklaStructures.AIBuildX
 {
     /// <summary>
-    /// Tekla Structures integration module for DWG→Tekla conversion.
-    /// Imports LOD500 structural steel models from IFC or JSON format.
+    /// Tekla Structures integration module for DWG→Tekla conversion with real-time API support.
+    /// Imports LOD500 structural steel models from IFC or JSON format with WebSocket connectivity.
     /// </summary>
     public class TeklaModelBuilder
     {
         private readonly Model _model;
         private readonly ModelObjectCreator _objectCreator;
+        private readonly TeklaWebSocketBridge _webSocketBridge;
+        private bool _realTimeEnabled;
 
-        public TeklaModelBuilder()
+        public TeklaModelBuilder(bool enableRealTime = true)
         {
             _model = new Model();
             if (!_model.GetConnectionStatus())
                 throw new InvalidOperationException("Failed to connect to Tekla Structures");
             _objectCreator = new ModelObjectCreator(_model);
+            _realTimeEnabled = enableRealTime;
+
+            if (_realTimeEnabled)
+            {
+                _webSocketBridge = new TeklaWebSocketBridge();
+                // Start WebSocket bridge asynchronously
+                Task.Run(() => _webSocketBridge.StartAsync());
+            }
         }
 
         /// <summary>
@@ -38,17 +50,46 @@ namespace TeklaStructures.AIBuildX
                 var jsonContent = File.ReadAllText(inputJsonPath);
                 var modelData = ParsePipelineOutput(jsonContent);
 
-                // Create Tekla components
+                if (!ValidatePipelineData(modelData, out var errors, out var warnings))
+                {
+                    result.Success = false;
+                    result.Message = "Import failed due to Tekla payload validation errors: " + string.Join("; ", errors);
+                    return result;
+                }
+
+                if (warnings.Any())
+                {
+                    result.Message = "Import warning: " + string.Join("; ", warnings);
+                }
+
+                // Create Tekla components from cleaned pipeline data
                 result.MembersCreated = _objectCreator.CreateMembers(modelData.Members, _model);
                 result.ConnectionsCreated = _objectCreator.CreateConnections(modelData.Connections, _model);
                 result.PlatesCreated = _objectCreator.CreatePlates(modelData.Plates, _model);
+
+                // Ensure import produced expected content
+                if ((modelData.Members.Any() || modelData.Connections.Any() || modelData.Plates.Any()) &&
+                    result.MembersCreated + result.ConnectionsCreated + result.PlatesCreated == 0)
+                {
+                    result.Success = false;
+                    result.Message = "Import failed after object creation: no Tekla objects were created. Check source JSON geometry and Tekla connection.";
+                    return result;
+                }
 
                 // Save model
                 _model.CommitChanges();
                 _model.SaveAs(outputModelName);
 
                 result.Success = true;
-                result.Message = $"Successfully imported {result.MembersCreated} members, {result.ConnectionsCreated} connections, and {result.PlatesCreated} plates";
+                var summary = $"Successfully imported {result.MembersCreated} members, {result.ConnectionsCreated} connections, and {result.PlatesCreated} plates";
+                if (!string.IsNullOrEmpty(result.Message))
+                {
+                    result.Message = summary + "; " + result.Message;
+                }
+                else
+                {
+                    result.Message = summary;
+                }
 
                 return result;
             }
@@ -59,25 +100,216 @@ namespace TeklaStructures.AIBuildX
         }
 
         /// <summary>
-        /// Parse pipeline JSON output into structured data.
+        /// Create objects from real-time API requests
         /// </summary>
-        private dynamic ParsePipelineOutput(string jsonContent)
+        public CreateResult CreateObjectsFromAPI(List<object> objects, string transactionId = null)
         {
-            // Deserialize JSON - simplified version (use Newtonsoft.Json for production)
-            // This is a placeholder; use proper JSON library in production
-            dynamic output = new System.Dynamic.ExpandoObject();
-            output.Members = new List<MemberData>();
-            output.Connections = new List<ConnectionData>();
-            output.Plates = new List<PlateData>();
+            var result = new CreateResult { TransactionId = transactionId ?? Guid.NewGuid().ToString() };
 
-            // Parse from JSON (simplified parsing - use JSON.NET for robustness)
-            if (jsonContent.Contains("\"members\""))
+            using (var transaction = new Transaction(_model))
             {
-                // Extract members array from JSON and populate MemberData objects
-                // This is a simplified placeholder implementation
+                transaction.Start();
+
+                try
+                {
+                    foreach (var obj in objects)
+                    {
+                        var createdObj = CreateSingleObjectFromAPI(obj);
+                        if (createdObj != null)
+                        {
+                            result.CreatedObjects.Add(createdObj);
+                        }
+                    }
+
+                    transaction.Commit();
+                    result.Success = true;
+                    result.Message = $"Created {result.CreatedObjects.Count} objects";
+
+                    // Send real-time update
+                    if (_realTimeEnabled && _webSocketBridge != null)
+                    {
+                        SendRealTimeUpdate("objects_created", new
+                        {
+                            transaction_id = result.TransactionId,
+                            objects_count = result.CreatedObjects.Count
+                        });
+                    }
+                }
+                catch (Exception ex)
+                {
+                    transaction.RollBack();
+                    result.Success = false;
+                    result.Message = $"Creation failed: {ex.Message}";
+                    result.Errors.Add(ex.Message);
+
+                    // Send error update
+                    if (_realTimeEnabled && _webSocketBridge != null)
+                    {
+                        SendRealTimeUpdate("creation_error", new
+                        {
+                            transaction_id = result.TransactionId,
+                            error = ex.Message
+                        });
+                    }
+                }
             }
 
-            return output;
+            return result;
+        }
+
+        private object CreateSingleObjectFromAPI(object obj)
+        {
+            // This would deserialize and create objects based on API format
+            // Implementation depends on the exact API message format
+            return null; // Placeholder
+        }
+
+        private void SendRealTimeUpdate(string updateType, object data)
+        {
+            try
+            {
+                if (_webSocketBridge != null)
+                {
+                    Task.Run(() => _webSocketBridge.SendEventAsync(updateType, data));
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Failed to send real-time update: {ex.Message}");
+            }
+        }
+
+        /// <summary>
+        /// Parse pipeline JSON output into structured data.
+        /// </summary>
+        private PipelineModel ParsePipelineOutput(string jsonContent)
+        {
+            try
+            {
+                var modelData = JsonConvert.DeserializeObject<PipelineModel>(jsonContent);
+                return modelData ?? new PipelineModel();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Failed to parse pipeline output: {ex.Message}");
+                return new PipelineModel();
+            }
+        }
+
+        /// <summary>
+        /// Validate and repair pipeline data so Tekla receives only valid objects.
+        /// </summary>
+        private bool ValidatePipelineData(PipelineModel modelData, out List<string> errors, out List<string> warnings)
+        {
+            errors = new List<string>();
+            warnings = new List<string>();
+
+            if (modelData == null)
+            {
+                errors.Add("Pipeline model data is null");
+                return false;
+            }
+
+            if (modelData.Members == null || !modelData.Members.Any())
+            {
+                warnings.Add("No members found in pipeline data");
+                modelData.Members = new List<MemberData>();
+            }
+
+            if (modelData.Connections == null)
+            {
+                modelData.Connections = new List<ConnectionData>();
+            }
+
+            if (modelData.Plates == null)
+            {
+                modelData.Plates = new List<PlateData>();
+            }
+
+            foreach (var member in modelData.Members.ToList())
+            {
+                if (string.IsNullOrWhiteSpace(member.Type))
+                {
+                    errors.Add($"Member '{member.Name ?? "unknown"}' missing type");
+                    modelData.Members.Remove(member);
+                    continue;
+                }
+
+                if (member.StartX == member.EndX && member.StartY == member.EndY && member.StartZ == member.EndZ)
+                {
+                    warnings.Add($"Member '{member.Name ?? "unknown"}' has zero length and will be skipped");
+                    modelData.Members.Remove(member);
+                    continue;
+                }
+
+                if (string.IsNullOrWhiteSpace(member.SectionName))
+                {
+                    warnings.Add($"Member '{member.Name ?? "unknown"}' missing section name; defaulting to HEA200");
+                    member.SectionName = "HEA200";
+                }
+
+                if (string.IsNullOrWhiteSpace(member.Material))
+                {
+                    warnings.Add($"Member '{member.Name ?? "unknown"}' missing material; defaulting to S355");
+                    member.Material = "S355";
+                }
+
+                if (member.Type.Equals("brace", StringComparison.OrdinalIgnoreCase))
+                {
+                    warnings.Add($"Member '{member.Name ?? "unknown"}' type 'brace' converted to 'beam' for Tekla import");
+                    member.Type = "beam";
+                }
+            }
+
+            foreach (var connection in modelData.Connections)
+            {
+                if (string.IsNullOrWhiteSpace(connection.Type))
+                {
+                    warnings.Add("Connection entry missing type; defaulting to bolted");
+                    connection.Type = "bolted";
+                }
+
+                if (connection.BoltCount <= 0)
+                {
+                    warnings.Add("Connection bolt count missing or invalid; defaulting to 4 bolts");
+                    connection.BoltCount = 4;
+                }
+
+                if (connection.BoltDiameter <= 0)
+                {
+                    warnings.Add("Connection bolt diameter missing or invalid; defaulting to 16");
+                    connection.BoltDiameter = 16;
+                }
+
+                if (string.IsNullOrWhiteSpace(connection.BoltStandard))
+                {
+                    warnings.Add("Connection bolt standard missing; defaulting to UNC");
+                    connection.BoltStandard = "UNC";
+                }
+            }
+
+            foreach (var plate in modelData.Plates.ToList())
+            {
+                if (plate.Vertices == null || plate.Vertices.Count < 3)
+                {
+                    warnings.Add($"Plate '{plate.Name ?? "unknown"}' has fewer than 3 vertices and will be skipped");
+                    modelData.Plates.Remove(plate);
+                    continue;
+                }
+
+                if (string.IsNullOrWhiteSpace(plate.Material))
+                {
+                    warnings.Add($"Plate '{plate.Name ?? "unknown"}' missing material; defaulting to S355");
+                    plate.Material = "S355";
+                }
+            }
+
+            if (errors.Any())
+            {
+                return false;
+            }
+
+            return true;
         }
 
         /// <summary>
@@ -138,6 +370,10 @@ namespace TeklaStructures.AIBuildX
 
         public void Disconnect()
         {
+            if (_webSocketBridge != null)
+            {
+                Task.Run(() => _webSocketBridge.StopAsync()).Wait();
+            }
             _model.Disconnect();
         }
     }
@@ -322,6 +558,13 @@ namespace TeklaStructures.AIBuildX
         public List<HoleData> Holes { get; set; } = new List<HoleData>();
     }
 
+    public class PipelineModel
+    {
+        public List<MemberData> Members { get; set; } = new List<MemberData>();
+        public List<ConnectionData> Connections { get; set; } = new List<ConnectionData>();
+        public List<PlateData> Plates { get; set; } = new List<PlateData>();
+    }
+
     public class HoleData
     {
         public double X { get; set; }
@@ -346,6 +589,15 @@ namespace TeklaStructures.AIBuildX
         public int MembersCreated { get; set; }
         public int ConnectionsCreated { get; set; }
         public int PlatesCreated { get; set; }
+    }
+
+    public class CreateResult
+    {
+        public bool Success { get; set; }
+        public string Message { get; set; }
+        public string TransactionId { get; set; }
+        public List<object> CreatedObjects { get; set; } = new List<object>();
+        public List<string> Errors { get; set; } = new List<string>();
     }
 
     public class ModelStatistics

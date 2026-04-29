@@ -250,3 +250,658 @@
 2025-12-02 00:28:01,208 [INFO] aibuildx.geometry_agent: Merged 3 nodes (tolerance=10.0 mm)
 2025-12-02 00:28:01,208 [INFO] aibuildx.geometry_agent: Merged 3 nodes (tolerance=10.0 mm)
 2025-12-02 00:28:01,208 [INFO] aibuildx.geometry_agent: Merged 3 nodes (tolerance=10.0 mm)
+2025-12-16 22:14:53,386 [INFO] aibuildx.geometry_agent: Merged 21 nodes (tolerance=10.0 mm)
+2025-12-16 22:14:53,387 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 22:14:53,388 [INFO] aibuildx.geometry_agent: Merged 21 nodes (tolerance=10.0 mm)
+2025-12-16 22:14:53,389 [INFO] aibuildx.geometry_agent: Merged 21 nodes (tolerance=10.0 mm)
+2025-12-16 22:14:53,390 [INFO] aibuildx.geometry_agent: Merged 21 nodes (tolerance=10.0 mm)
+2025-12-16 22:14:54,662 [INFO] aibuildx.geometry_agent: Merged 30 nodes (tolerance=10.0 mm)
+2025-12-16 22:14:54,663 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 22:14:54,664 [INFO] aibuildx.geometry_agent: Merged 30 nodes (tolerance=10.0 mm)
+2025-12-16 22:14:54,664 [INFO] aibuildx.geometry_agent: Merged 30 nodes (tolerance=10.0 mm)
+2025-12-16 22:14:54,665 [INFO] aibuildx.geometry_agent: Merged 30 nodes (tolerance=10.0 mm)
+2025-12-16 22:14:57,860 [INFO] aibuildx.geometry_agent: Merged 21 nodes (tolerance=10.0 mm)
+2025-12-16 22:14:57,862 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 22:14:57,862 [INFO] aibuildx.geometry_agent: Merged 21 nodes (tolerance=10.0 mm)
+2025-12-16 22:14:57,863 [INFO] aibuildx.geometry_agent: Merged 21 nodes (tolerance=10.0 mm)
+2025-12-16 22:14:57,864 [INFO] aibuildx.geometry_agent: Merged 21 nodes (tolerance=10.0 mm)
+2025-12-16 22:14:58,868 [INFO] aibuildx.geometry_agent: Merged 30 nodes (tolerance=10.0 mm)
+2025-12-16 22:14:58,869 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 22:14:58,870 [INFO] aibuildx.geometry_agent: Merged 30 nodes (tolerance=10.0 mm)
+2025-12-16 22:14:58,870 [INFO] aibuildx.geometry_agent: Merged 30 nodes (tolerance=10.0 mm)
+2025-12-16 22:14:58,871 [INFO] aibuildx.geometry_agent: Merged 30 nodes (tolerance=10.0 mm)
+2025-12-16 22:15:09,155 [INFO] aibuildx.geometry_agent: Merged 21 nodes (tolerance=10.0 mm)
+2025-12-16 22:15:09,156 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 22:15:09,157 [INFO] aibuildx.geometry_agent: Merged 21 nodes (tolerance=10.0 mm)
+2025-12-16 22:15:09,158 [INFO] aibuildx.geometry_agent: Merged 21 nodes (tolerance=10.0 mm)
+2025-12-16 22:15:09,158 [INFO] aibuildx.geometry_agent: Merged 21 nodes (tolerance=10.0 mm)
+2025-12-16 22:15:10,224 [INFO] aibuildx.geometry_agent: Merged 30 nodes (tolerance=10.0 mm)
+2025-12-16 22:15:10,224 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 22:15:10,225 [INFO] aibuildx.geometry_agent: Merged 30 nodes (tolerance=10.0 mm)
+2025-12-16 22:15:10,226 [INFO] aibuildx.geometry_agent: Merged 30 nodes (tolerance=10.0 mm)
+2025-12-16 22:15:10,226 [INFO] aibuildx.geometry_agent: Merged 30 nodes (tolerance=10.0 mm)
+2025-12-16 22:19:10,549 [INFO] aibuildx.geometry_agent: Merged 10 nodes (tolerance=10.0 mm)
+2025-12-16 22:19:10,551 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 22:19:10,551 [INFO] aibuildx.geometry_agent: Merged 10 nodes (tolerance=10.0 mm)
+2025-12-16 22:19:10,551 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:19:10,551 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:19:10,551 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:19:10,551 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:19:10,551 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:19:10,551 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:19:10,551 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:19:10,551 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:19:10,551 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:19:10,551 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:19:10,551 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:19:10,551 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:19:10,551 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:19:10,551 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:19:10,551 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:19:10,551 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:19:10,551 [INFO] aibuildx.geometry_agent: Merged 10 nodes (tolerance=10.0 mm)
+2025-12-16 22:19:10,551 [INFO] aibuildx.geometry_agent: Merged 10 nodes (tolerance=10.0 mm)
+2025-12-16 22:23:50,884 [INFO] aibuildx.geometry_agent: Merged 10 nodes (tolerance=10.0 mm)
+2025-12-16 22:23:50,885 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 22:23:50,885 [INFO] aibuildx.geometry_agent: Merged 10 nodes (tolerance=10.0 mm)
+2025-12-16 22:23:50,885 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:23:50,886 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:23:50,886 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:23:50,886 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:23:50,886 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:23:50,886 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:23:50,886 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:23:50,886 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:23:50,886 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:23:50,886 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:23:50,886 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:23:50,886 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:23:50,886 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:23:50,886 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:23:50,886 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:23:50,886 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:23:50,886 [INFO] aibuildx.geometry_agent: Merged 10 nodes (tolerance=10.0 mm)
+2025-12-16 22:23:50,886 [INFO] aibuildx.geometry_agent: Merged 10 nodes (tolerance=10.0 mm)
+2025-12-16 22:26:05,337 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2025-12-16 22:26:05,338 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 22:26:05,338 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2025-12-16 22:26:05,338 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:26:05,338 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:26:05,338 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2025-12-16 22:26:05,339 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2025-12-16 22:29:28,637 [INFO] aibuildx.geometry_agent: Merged 10 nodes (tolerance=10.0 mm)
+2025-12-16 22:29:28,638 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 22:29:28,639 [INFO] aibuildx.geometry_agent: Merged 10 nodes (tolerance=10.0 mm)
+2025-12-16 22:29:28,639 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:29:28,639 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:29:28,639 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:29:28,639 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:29:28,639 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:29:28,639 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:29:28,639 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:29:28,639 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:29:28,639 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:29:28,639 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:29:28,639 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:29:28,639 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:29:28,639 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:29:28,639 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:29:28,639 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:29:28,639 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:29:28,639 [INFO] aibuildx.geometry_agent: Merged 10 nodes (tolerance=10.0 mm)
+2025-12-16 22:29:28,639 [INFO] aibuildx.geometry_agent: Merged 10 nodes (tolerance=10.0 mm)
+2025-12-16 22:31:28,305 [INFO] aibuildx.geometry_agent: Merged 10 nodes (tolerance=10.0 mm)
+2025-12-16 22:31:28,306 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 22:31:28,306 [INFO] aibuildx.geometry_agent: Merged 10 nodes (tolerance=10.0 mm)
+2025-12-16 22:31:28,306 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:31:28,306 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:31:28,306 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:31:28,306 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:31:28,306 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:31:28,306 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:31:28,306 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:31:28,306 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:31:28,306 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:31:28,306 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:31:28,306 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:31:28,306 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:31:28,306 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:31:28,306 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:31:28,306 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:31:28,307 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:31:28,307 [INFO] aibuildx.geometry_agent: Merged 10 nodes (tolerance=10.0 mm)
+2025-12-16 22:31:28,307 [INFO] aibuildx.geometry_agent: Merged 10 nodes (tolerance=10.0 mm)
+2025-12-16 22:38:22,214 [INFO] aibuildx.geometry_agent: Merged 10 nodes (tolerance=10.0 mm)
+2025-12-16 22:38:22,234 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 22:38:22,236 [INFO] aibuildx.geometry_agent: Merged 10 nodes (tolerance=10.0 mm)
+2025-12-16 22:38:22,236 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:38:22,240 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:38:22,240 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:38:22,240 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:38:22,241 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:38:22,241 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:38:22,241 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:38:22,241 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:38:22,241 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:38:22,241 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:38:22,242 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:38:22,242 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:38:22,242 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:38:22,242 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:38:22,242 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:38:22,243 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:38:22,244 [INFO] aibuildx.geometry_agent: Merged 10 nodes (tolerance=10.0 mm)
+2025-12-16 22:38:22,245 [INFO] aibuildx.geometry_agent: Merged 10 nodes (tolerance=10.0 mm)
+2025-12-16 22:55:16,410 [INFO] aibuildx.geometry_agent: Merged 7 nodes (tolerance=10.0 mm)
+2025-12-16 22:55:16,414 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 22:55:16,415 [INFO] aibuildx.geometry_agent: Merged 7 nodes (tolerance=10.0 mm)
+2025-12-16 22:55:16,415 [INFO] aibuildx.geometry_agent: Merged 7 nodes (tolerance=10.0 mm)
+2025-12-16 22:55:16,415 [INFO] aibuildx.geometry_agent: Merged 7 nodes (tolerance=10.0 mm)
+2025-12-16 22:55:43,203 [INFO] aibuildx.geometry_agent: Merged 2 nodes (tolerance=10.0 mm)
+2025-12-16 22:55:43,206 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 22:55:43,207 [INFO] aibuildx.geometry_agent: Merged 2 nodes (tolerance=10.0 mm)
+2025-12-16 22:55:43,209 [INFO] aibuildx.geometry_agent: Merged 2 nodes (tolerance=10.0 mm)
+2025-12-16 22:55:43,210 [INFO] aibuildx.geometry_agent: Merged 2 nodes (tolerance=10.0 mm)
+2025-12-16 22:55:44,815 [INFO] aibuildx.geometry_agent: Merged 8 nodes (tolerance=10.0 mm)
+2025-12-16 22:55:44,817 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 22:55:44,819 [INFO] aibuildx.geometry_agent: Merged 8 nodes (tolerance=10.0 mm)
+2025-12-16 22:55:44,819 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,819 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,819 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,819 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,819 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,819 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,819 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,819 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,819 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,819 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,819 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,819 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,819 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,819 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,819 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,819 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,819 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,819 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,819 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,819 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,819 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,819 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,820 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,820 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,820 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,820 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,820 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,820 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,820 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,820 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,820 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,820 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,820 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,820 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,820 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,820 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,820 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,820 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,820 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,820 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,820 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,820 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,820 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,820 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,820 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,820 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,820 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,820 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,820 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,820 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:55:44,822 [INFO] aibuildx.geometry_agent: Merged 8 nodes (tolerance=10.0 mm)
+2025-12-16 22:55:44,824 [INFO] aibuildx.geometry_agent: Merged 8 nodes (tolerance=10.0 mm)
+2025-12-16 22:55:46,341 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2025-12-16 22:55:46,342 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 22:55:46,343 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2025-12-16 22:55:46,344 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2025-12-16 22:55:46,345 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2025-12-16 22:59:50,721 [INFO] aibuildx.geometry_agent: Merged 10 nodes (tolerance=10.0 mm)
+2025-12-16 22:59:50,722 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 22:59:50,722 [INFO] aibuildx.geometry_agent: Merged 10 nodes (tolerance=10.0 mm)
+2025-12-16 22:59:50,722 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:59:50,722 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:59:50,722 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:59:50,722 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:59:50,722 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:59:50,722 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:59:50,722 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:59:50,722 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:59:50,722 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:59:50,722 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:59:50,722 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:59:50,722 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:59:50,722 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:59:50,722 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:59:50,722 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:59:50,722 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-16 22:59:50,722 [INFO] aibuildx.geometry_agent: Merged 10 nodes (tolerance=10.0 mm)
+2025-12-16 22:59:50,723 [INFO] aibuildx.geometry_agent: Merged 10 nodes (tolerance=10.0 mm)
+2025-12-16 23:05:59,793 [INFO] aibuildx.geometry_agent: Merged 66 nodes (tolerance=10.0 mm)
+2025-12-16 23:05:59,795 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 23:05:59,795 [INFO] aibuildx.geometry_agent: Merged 66 nodes (tolerance=10.0 mm)
+2025-12-16 23:05:59,797 [INFO] aibuildx.geometry_agent: Merged 66 nodes (tolerance=10.0 mm)
+2025-12-16 23:05:59,798 [INFO] aibuildx.geometry_agent: Merged 66 nodes (tolerance=10.0 mm)
+2025-12-16 23:06:00,641 [INFO] aibuildx.geometry_agent: Merged 88 nodes (tolerance=10.0 mm)
+2025-12-16 23:06:00,643 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 23:06:00,645 [INFO] aibuildx.geometry_agent: Merged 88 nodes (tolerance=10.0 mm)
+2025-12-16 23:06:00,646 [INFO] aibuildx.geometry_agent: Merged 88 nodes (tolerance=10.0 mm)
+2025-12-16 23:06:00,648 [INFO] aibuildx.geometry_agent: Merged 88 nodes (tolerance=10.0 mm)
+2025-12-16 23:06:02,692 [INFO] aibuildx.geometry_agent: Merged 222 nodes (tolerance=10.0 mm)
+2025-12-16 23:06:02,694 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 23:06:02,704 [INFO] aibuildx.geometry_agent: Merged 222 nodes (tolerance=10.0 mm)
+2025-12-16 23:06:02,713 [INFO] aibuildx.geometry_agent: Merged 222 nodes (tolerance=10.0 mm)
+2025-12-16 23:06:02,722 [INFO] aibuildx.geometry_agent: Merged 222 nodes (tolerance=10.0 mm)
+2025-12-16 23:06:13,007 [INFO] aibuildx.geometry_agent: Merged 35 nodes (tolerance=10.0 mm)
+2025-12-16 23:06:13,008 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 23:06:13,009 [INFO] aibuildx.geometry_agent: Merged 35 nodes (tolerance=10.0 mm)
+2025-12-16 23:06:13,010 [INFO] aibuildx.geometry_agent: Merged 35 nodes (tolerance=10.0 mm)
+2025-12-16 23:06:13,012 [INFO] aibuildx.geometry_agent: Merged 35 nodes (tolerance=10.0 mm)
+2025-12-16 23:07:59,449 [INFO] aibuildx.geometry_agent: Merged 7 nodes (tolerance=10.0 mm)
+2025-12-16 23:07:59,450 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 23:07:59,451 [INFO] aibuildx.geometry_agent: Merged 7 nodes (tolerance=10.0 mm)
+2025-12-16 23:07:59,451 [INFO] aibuildx.geometry_agent: Merged 7 nodes (tolerance=10.0 mm)
+2025-12-16 23:07:59,451 [INFO] aibuildx.geometry_agent: Merged 7 nodes (tolerance=10.0 mm)
+2025-12-16 23:08:33,333 [INFO] aibuildx.geometry_agent: Merged 35 nodes (tolerance=10.0 mm)
+2025-12-16 23:08:33,335 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 23:08:33,335 [INFO] aibuildx.geometry_agent: Merged 35 nodes (tolerance=10.0 mm)
+2025-12-16 23:08:33,337 [INFO] aibuildx.geometry_agent: Merged 35 nodes (tolerance=10.0 mm)
+2025-12-16 23:08:33,338 [INFO] aibuildx.geometry_agent: Merged 35 nodes (tolerance=10.0 mm)
+2025-12-16 23:22:54,402 [INFO] aibuildx.geometry_agent: Merged 80 nodes (tolerance=10.0 mm)
+2025-12-16 23:22:54,403 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 23:22:54,404 [INFO] aibuildx.geometry_agent: Merged 80 nodes (tolerance=10.0 mm)
+2025-12-16 23:22:54,405 [INFO] aibuildx.geometry_agent: Merged 80 nodes (tolerance=10.0 mm)
+2025-12-16 23:22:54,406 [INFO] aibuildx.geometry_agent: Merged 80 nodes (tolerance=10.0 mm)
+2025-12-16 23:22:55,828 [INFO] aibuildx.geometry_agent: Merged 199 nodes (tolerance=10.0 mm)
+2025-12-16 23:22:55,829 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 23:22:55,833 [INFO] aibuildx.geometry_agent: Merged 199 nodes (tolerance=10.0 mm)
+2025-12-16 23:22:55,837 [INFO] aibuildx.geometry_agent: Merged 199 nodes (tolerance=10.0 mm)
+2025-12-16 23:22:55,841 [INFO] aibuildx.geometry_agent: Merged 199 nodes (tolerance=10.0 mm)
+2025-12-16 23:22:59,555 [INFO] aibuildx.geometry_agent: Merged 291 nodes (tolerance=10.0 mm)
+2025-12-16 23:22:59,558 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 23:22:59,572 [INFO] aibuildx.geometry_agent: Merged 291 nodes (tolerance=10.0 mm)
+2025-12-16 23:22:59,586 [INFO] aibuildx.geometry_agent: Merged 291 nodes (tolerance=10.0 mm)
+2025-12-16 23:22:59,599 [INFO] aibuildx.geometry_agent: Merged 291 nodes (tolerance=10.0 mm)
+2025-12-16 23:23:21,519 [INFO] aibuildx.geometry_agent: Merged 75 nodes (tolerance=10.0 mm)
+2025-12-16 23:23:21,521 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 23:23:21,523 [INFO] aibuildx.geometry_agent: Merged 75 nodes (tolerance=10.0 mm)
+2025-12-16 23:23:21,525 [INFO] aibuildx.geometry_agent: Merged 75 nodes (tolerance=10.0 mm)
+2025-12-16 23:23:21,527 [INFO] aibuildx.geometry_agent: Merged 75 nodes (tolerance=10.0 mm)
+2025-12-16 23:23:39,629 [INFO] aibuildx.geometry_agent: Merged 75 nodes (tolerance=10.0 mm)
+2025-12-16 23:23:39,631 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 23:23:39,633 [INFO] aibuildx.geometry_agent: Merged 75 nodes (tolerance=10.0 mm)
+2025-12-16 23:23:39,635 [INFO] aibuildx.geometry_agent: Merged 75 nodes (tolerance=10.0 mm)
+2025-12-16 23:23:39,637 [INFO] aibuildx.geometry_agent: Merged 75 nodes (tolerance=10.0 mm)
+2025-12-16 23:28:36,633 [INFO] aibuildx.geometry_agent: Merged 1289 nodes (tolerance=10.0 mm)
+2025-12-16 23:28:36,638 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 23:28:36,786 [INFO] aibuildx.geometry_agent: Merged 1289 nodes (tolerance=10.0 mm)
+2025-12-16 23:28:36,935 [INFO] aibuildx.geometry_agent: Merged 1289 nodes (tolerance=10.0 mm)
+2025-12-16 23:28:37,086 [INFO] aibuildx.geometry_agent: Merged 1289 nodes (tolerance=10.0 mm)
+2025-12-16 23:28:43,319 [INFO] aibuildx.geometry_agent: Merged 1289 nodes (tolerance=10.0 mm)
+2025-12-16 23:28:43,322 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 23:28:43,736 [INFO] aibuildx.geometry_agent: Merged 1289 nodes (tolerance=10.0 mm)
+2025-12-16 23:28:43,955 [INFO] aibuildx.geometry_agent: Merged 1289 nodes (tolerance=10.0 mm)
+2025-12-16 23:28:44,133 [INFO] aibuildx.geometry_agent: Merged 1289 nodes (tolerance=10.0 mm)
+2025-12-16 23:29:30,483 [INFO] aibuildx.geometry_agent: Merged 1095 nodes (tolerance=10.0 mm)
+2025-12-16 23:29:30,486 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 23:29:30,603 [INFO] aibuildx.geometry_agent: Merged 1095 nodes (tolerance=10.0 mm)
+2025-12-16 23:29:30,721 [INFO] aibuildx.geometry_agent: Merged 1095 nodes (tolerance=10.0 mm)
+2025-12-16 23:29:30,838 [INFO] aibuildx.geometry_agent: Merged 1095 nodes (tolerance=10.0 mm)
+2025-12-16 23:29:53,217 [INFO] aibuildx.geometry_agent: Merged 1095 nodes (tolerance=10.0 mm)
+2025-12-16 23:29:53,221 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 23:29:53,366 [INFO] aibuildx.geometry_agent: Merged 1095 nodes (tolerance=10.0 mm)
+2025-12-16 23:29:53,478 [INFO] aibuildx.geometry_agent: Merged 1095 nodes (tolerance=10.0 mm)
+2025-12-16 23:29:53,591 [INFO] aibuildx.geometry_agent: Merged 1095 nodes (tolerance=10.0 mm)
+2025-12-16 23:33:53,579 [INFO] aibuildx.geometry_agent: Merged 1095 nodes (tolerance=10.0 mm)
+2025-12-16 23:33:53,584 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 23:33:53,783 [INFO] aibuildx.geometry_agent: Merged 1095 nodes (tolerance=10.0 mm)
+2025-12-16 23:33:53,892 [INFO] aibuildx.geometry_agent: Merged 1095 nodes (tolerance=10.0 mm)
+2025-12-16 23:33:54,002 [INFO] aibuildx.geometry_agent: Merged 1095 nodes (tolerance=10.0 mm)
+2025-12-16 23:37:09,153 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-16 23:37:09,155 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 23:37:09,164 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-16 23:37:09,173 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-16 23:37:09,182 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-16 23:37:43,072 [INFO] aibuildx.geometry_agent: Merged 801 nodes (tolerance=10.0 mm)
+2025-12-16 23:37:43,074 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 23:37:43,206 [INFO] aibuildx.geometry_agent: Merged 801 nodes (tolerance=10.0 mm)
+2025-12-16 23:37:43,265 [INFO] aibuildx.geometry_agent: Merged 801 nodes (tolerance=10.0 mm)
+2025-12-16 23:37:43,324 [INFO] aibuildx.geometry_agent: Merged 801 nodes (tolerance=10.0 mm)
+2025-12-16 23:37:59,375 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-16 23:37:59,377 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 23:37:59,385 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-16 23:37:59,393 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-16 23:37:59,400 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-16 23:38:39,660 [INFO] aibuildx.geometry_agent: Merged 801 nodes (tolerance=10.0 mm)
+2025-12-16 23:38:39,662 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 23:38:39,722 [INFO] aibuildx.geometry_agent: Merged 801 nodes (tolerance=10.0 mm)
+2025-12-16 23:38:39,799 [INFO] aibuildx.geometry_agent: Merged 801 nodes (tolerance=10.0 mm)
+2025-12-16 23:38:39,874 [INFO] aibuildx.geometry_agent: Merged 801 nodes (tolerance=10.0 mm)
+2025-12-16 23:42:08,002 [INFO] aibuildx.geometry_agent: Merged 75 nodes (tolerance=10.0 mm)
+2025-12-16 23:42:08,004 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 23:42:08,006 [INFO] aibuildx.geometry_agent: Merged 75 nodes (tolerance=10.0 mm)
+2025-12-16 23:42:08,010 [INFO] aibuildx.geometry_agent: Merged 75 nodes (tolerance=10.0 mm)
+2025-12-16 23:42:08,013 [INFO] aibuildx.geometry_agent: Merged 75 nodes (tolerance=10.0 mm)
+2025-12-16 23:42:24,926 [INFO] aibuildx.geometry_agent: Merged 75 nodes (tolerance=10.0 mm)
+2025-12-16 23:42:24,928 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 23:42:24,929 [INFO] aibuildx.geometry_agent: Merged 75 nodes (tolerance=10.0 mm)
+2025-12-16 23:42:24,931 [INFO] aibuildx.geometry_agent: Merged 75 nodes (tolerance=10.0 mm)
+2025-12-16 23:42:24,933 [INFO] aibuildx.geometry_agent: Merged 75 nodes (tolerance=10.0 mm)
+2025-12-16 23:42:28,979 [INFO] aibuildx.geometry_agent: Merged 801 nodes (tolerance=10.0 mm)
+2025-12-16 23:42:28,981 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 23:42:29,043 [INFO] aibuildx.geometry_agent: Merged 801 nodes (tolerance=10.0 mm)
+2025-12-16 23:42:29,106 [INFO] aibuildx.geometry_agent: Merged 801 nodes (tolerance=10.0 mm)
+2025-12-16 23:42:29,188 [INFO] aibuildx.geometry_agent: Merged 801 nodes (tolerance=10.0 mm)
+2025-12-16 23:44:04,852 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-16 23:44:04,854 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 23:44:04,862 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-16 23:44:04,869 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-16 23:44:04,877 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-16 23:47:57,891 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-16 23:47:57,893 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 23:47:57,901 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-16 23:47:57,908 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-16 23:47:57,916 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-16 23:53:57,716 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-16 23:53:57,721 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 23:53:57,728 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-16 23:53:57,737 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-16 23:53:57,745 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-16 23:54:08,432 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-16 23:54:08,434 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-16 23:54:08,441 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-16 23:54:08,449 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-16 23:54:08,456 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-17 00:18:37,939 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-17 00:18:37,942 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-17 00:18:37,950 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-17 00:18:37,957 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-17 00:18:37,965 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-17 00:18:47,511 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-17 00:18:47,514 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-17 00:18:47,522 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-17 00:18:47,530 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-17 00:18:47,538 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-17 00:19:05,339 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-17 00:19:05,341 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-17 00:19:05,348 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-17 00:19:05,356 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-17 00:19:05,364 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-17 00:20:10,104 [INFO] aibuildx.geometry_agent: Merged 801 nodes (tolerance=10.0 mm)
+2025-12-17 00:20:10,111 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-17 00:20:10,169 [INFO] aibuildx.geometry_agent: Merged 801 nodes (tolerance=10.0 mm)
+2025-12-17 00:20:10,231 [INFO] aibuildx.geometry_agent: Merged 801 nodes (tolerance=10.0 mm)
+2025-12-17 00:20:10,292 [INFO] aibuildx.geometry_agent: Merged 801 nodes (tolerance=10.0 mm)
+2025-12-17 00:23:51,199 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-17 00:23:51,201 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-17 00:23:51,210 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-17 00:23:51,218 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-17 00:23:51,225 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-17 00:24:37,991 [INFO] aibuildx.geometry_agent: Merged 7 nodes (tolerance=10.0 mm)
+2025-12-17 00:24:37,995 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-17 00:24:37,995 [INFO] aibuildx.geometry_agent: Merged 7 nodes (tolerance=10.0 mm)
+2025-12-17 00:24:37,995 [INFO] aibuildx.geometry_agent: Merged 7 nodes (tolerance=10.0 mm)
+2025-12-17 00:24:37,995 [INFO] aibuildx.geometry_agent: Merged 7 nodes (tolerance=10.0 mm)
+2025-12-17 00:24:58,079 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-17 00:24:58,083 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-17 00:24:58,090 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-17 00:24:58,097 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-17 00:24:58,105 [INFO] aibuildx.geometry_agent: Merged 282 nodes (tolerance=10.0 mm)
+2025-12-17 00:30:01,958 [INFO] aibuildx.geometry_agent: Merged 1637 nodes (tolerance=10.0 mm)
+2025-12-17 00:30:01,966 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-17 00:30:02,208 [INFO] aibuildx.geometry_agent: Merged 1637 nodes (tolerance=10.0 mm)
+2025-12-17 00:30:02,449 [INFO] aibuildx.geometry_agent: Merged 1637 nodes (tolerance=10.0 mm)
+2025-12-17 00:30:02,693 [INFO] aibuildx.geometry_agent: Merged 1637 nodes (tolerance=10.0 mm)
+2025-12-17 00:31:43,892 [INFO] aibuildx.geometry_agent: Merged 20890 nodes (tolerance=10.0 mm)
+2025-12-17 00:31:44,001 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-17 00:32:24,404 [INFO] aibuildx.geometry_agent: Merged 20890 nodes (tolerance=10.0 mm)
+2025-12-17 00:33:05,213 [INFO] aibuildx.geometry_agent: Merged 20890 nodes (tolerance=10.0 mm)
+2025-12-17 00:33:45,842 [INFO] aibuildx.geometry_agent: Merged 20890 nodes (tolerance=10.0 mm)
+2025-12-17 00:35:35,992 [INFO] aibuildx.geometry_agent: Merged 799 nodes (tolerance=10.0 mm)
+2025-12-17 00:35:35,995 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-17 00:35:36,148 [INFO] aibuildx.geometry_agent: Merged 799 nodes (tolerance=10.0 mm)
+2025-12-17 00:35:36,208 [INFO] aibuildx.geometry_agent: Merged 799 nodes (tolerance=10.0 mm)
+2025-12-17 00:35:36,267 [INFO] aibuildx.geometry_agent: Merged 799 nodes (tolerance=10.0 mm)
+2025-12-17 00:36:02,200 [INFO] aibuildx.geometry_agent: Merged 430 nodes (tolerance=10.0 mm)
+2025-12-17 00:36:02,206 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-17 00:36:02,226 [INFO] aibuildx.geometry_agent: Merged 430 nodes (tolerance=10.0 mm)
+2025-12-17 00:36:02,245 [INFO] aibuildx.geometry_agent: Merged 430 nodes (tolerance=10.0 mm)
+2025-12-17 00:36:02,265 [INFO] aibuildx.geometry_agent: Merged 430 nodes (tolerance=10.0 mm)
+2025-12-17 00:36:13,402 [INFO] aibuildx.geometry_agent: Merged 430 nodes (tolerance=10.0 mm)
+2025-12-17 00:36:13,404 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-17 00:36:13,424 [INFO] aibuildx.geometry_agent: Merged 430 nodes (tolerance=10.0 mm)
+2025-12-17 00:36:13,443 [INFO] aibuildx.geometry_agent: Merged 430 nodes (tolerance=10.0 mm)
+2025-12-17 00:36:13,462 [INFO] aibuildx.geometry_agent: Merged 430 nodes (tolerance=10.0 mm)
+2025-12-17 00:36:50,937 [INFO] aibuildx.geometry_agent: Merged 799 nodes (tolerance=10.0 mm)
+2025-12-17 00:36:50,940 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-17 00:36:51,002 [INFO] aibuildx.geometry_agent: Merged 799 nodes (tolerance=10.0 mm)
+2025-12-17 00:36:51,065 [INFO] aibuildx.geometry_agent: Merged 799 nodes (tolerance=10.0 mm)
+2025-12-17 00:36:51,128 [INFO] aibuildx.geometry_agent: Merged 799 nodes (tolerance=10.0 mm)
+2025-12-17 00:41:34,456 [INFO] aibuildx.geometry_agent: Merged 434 nodes (tolerance=10.0 mm)
+2025-12-17 00:41:34,459 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-17 00:41:34,477 [INFO] aibuildx.geometry_agent: Merged 434 nodes (tolerance=10.0 mm)
+2025-12-17 00:41:34,495 [INFO] aibuildx.geometry_agent: Merged 434 nodes (tolerance=10.0 mm)
+2025-12-17 00:41:34,512 [INFO] aibuildx.geometry_agent: Merged 434 nodes (tolerance=10.0 mm)
+2025-12-17 00:45:07,263 [INFO] aibuildx.geometry_agent: Merged 386 nodes (tolerance=10.0 mm)
+2025-12-17 00:45:07,265 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-17 00:45:07,279 [INFO] aibuildx.geometry_agent: Merged 386 nodes (tolerance=10.0 mm)
+2025-12-17 00:45:07,293 [INFO] aibuildx.geometry_agent: Merged 386 nodes (tolerance=10.0 mm)
+2025-12-17 00:45:07,307 [INFO] aibuildx.geometry_agent: Merged 386 nodes (tolerance=10.0 mm)
+2025-12-17 00:58:50,564 [INFO] aibuildx.geometry_agent: Merged 386 nodes (tolerance=10.0 mm)
+2025-12-17 00:58:50,569 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-17 00:58:50,583 [INFO] aibuildx.geometry_agent: Merged 386 nodes (tolerance=10.0 mm)
+2025-12-17 00:58:50,597 [INFO] aibuildx.geometry_agent: Merged 386 nodes (tolerance=10.0 mm)
+2025-12-17 00:58:50,612 [INFO] aibuildx.geometry_agent: Merged 386 nodes (tolerance=10.0 mm)
+2025-12-17 01:04:00,150 [INFO] aibuildx.geometry_agent: Merged 20890 nodes (tolerance=10.0 mm)
+2025-12-17 01:04:00,188 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-17 01:04:41,839 [INFO] aibuildx.geometry_agent: Merged 20890 nodes (tolerance=10.0 mm)
+2025-12-17 01:05:23,192 [INFO] aibuildx.geometry_agent: Merged 20890 nodes (tolerance=10.0 mm)
+2025-12-17 01:06:03,965 [INFO] aibuildx.geometry_agent: Merged 20890 nodes (tolerance=10.0 mm)
+2025-12-17 01:07:07,537 [INFO] aibuildx.geometry_agent: Merged 1637 nodes (tolerance=10.0 mm)
+2025-12-17 01:07:07,670 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-17 01:07:08,237 [INFO] aibuildx.geometry_agent: Merged 1637 nodes (tolerance=10.0 mm)
+2025-12-17 01:07:08,750 [INFO] aibuildx.geometry_agent: Merged 1637 nodes (tolerance=10.0 mm)
+2025-12-17 01:07:09,432 [INFO] aibuildx.geometry_agent: Merged 1637 nodes (tolerance=10.0 mm)
+2025-12-17 01:08:09,207 [INFO] aibuildx.geometry_agent: Merged 228 nodes (tolerance=10.0 mm)
+2025-12-17 01:08:09,208 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-17 01:08:09,213 [INFO] aibuildx.geometry_agent: Merged 228 nodes (tolerance=10.0 mm)
+2025-12-17 01:08:09,218 [INFO] aibuildx.geometry_agent: Merged 228 nodes (tolerance=10.0 mm)
+2025-12-17 01:08:09,223 [INFO] aibuildx.geometry_agent: Merged 228 nodes (tolerance=10.0 mm)
+2025-12-17 01:08:13,193 [INFO] aibuildx.geometry_agent: Merged 113 nodes (tolerance=10.0 mm)
+2025-12-17 01:08:13,194 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-17 01:08:13,196 [INFO] aibuildx.geometry_agent: Merged 113 nodes (tolerance=10.0 mm)
+2025-12-17 01:08:13,196 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-17 01:08:13,196 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-17 01:08:13,196 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-17 01:08:13,196 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-17 01:08:13,196 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-17 01:08:13,196 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-17 01:08:13,198 [INFO] aibuildx.geometry_agent: Merged 113 nodes (tolerance=10.0 mm)
+2025-12-17 01:08:13,200 [INFO] aibuildx.geometry_agent: Merged 113 nodes (tolerance=10.0 mm)
+2025-12-17 01:09:19,528 [INFO] aibuildx.geometry_agent: Merged 113 nodes (tolerance=10.0 mm)
+2025-12-17 01:09:19,675 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-17 01:09:19,682 [INFO] aibuildx.geometry_agent: Merged 113 nodes (tolerance=10.0 mm)
+2025-12-17 01:09:19,707 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-17 01:09:19,713 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-17 01:09:19,720 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-17 01:09:19,720 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-17 01:09:19,726 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-17 01:09:19,737 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-17 01:09:19,763 [INFO] aibuildx.geometry_agent: Merged 113 nodes (tolerance=10.0 mm)
+2025-12-17 01:09:19,776 [INFO] aibuildx.geometry_agent: Merged 113 nodes (tolerance=10.0 mm)
+2025-12-17 01:18:47,858 [INFO] aibuildx.geometry_agent: Merged 799 nodes (tolerance=10.0 mm)
+2025-12-17 01:18:48,016 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-17 01:18:48,142 [INFO] aibuildx.geometry_agent: Merged 799 nodes (tolerance=10.0 mm)
+2025-12-17 01:18:48,313 [INFO] aibuildx.geometry_agent: Merged 799 nodes (tolerance=10.0 mm)
+2025-12-17 01:18:48,433 [INFO] aibuildx.geometry_agent: Merged 799 nodes (tolerance=10.0 mm)
+2025-12-17 01:20:57,440 [INFO] aibuildx.geometry_agent: Merged 386 nodes (tolerance=10.0 mm)
+2025-12-17 01:20:57,555 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-17 01:20:57,605 [INFO] aibuildx.geometry_agent: Merged 386 nodes (tolerance=10.0 mm)
+2025-12-17 01:20:57,663 [INFO] aibuildx.geometry_agent: Merged 386 nodes (tolerance=10.0 mm)
+2025-12-17 01:20:57,707 [INFO] aibuildx.geometry_agent: Merged 386 nodes (tolerance=10.0 mm)
+2025-12-17 01:25:58,997 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2025-12-17 01:25:58,998 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-17 01:25:59,002 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2025-12-17 01:25:59,006 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2025-12-17 01:25:59,010 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2025-12-17 01:28:51,857 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2025-12-17 01:28:52,030 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-17 01:28:52,051 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2025-12-17 01:28:52,079 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2025-12-17 01:28:52,127 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2025-12-17 01:36:14,884 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2025-12-17 01:36:14,887 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-17 01:36:14,891 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2025-12-17 01:36:14,896 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2025-12-17 01:36:14,899 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2025-12-17 01:37:03,382 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2025-12-17 01:37:03,384 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-17 01:37:03,387 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2025-12-17 01:37:03,390 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2025-12-17 01:37:03,394 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2025-12-17 01:37:50,494 [INFO] aibuildx.geometry_agent: Merged 113 nodes (tolerance=10.0 mm)
+2025-12-17 01:37:50,495 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-17 01:37:50,496 [INFO] aibuildx.geometry_agent: Merged 113 nodes (tolerance=10.0 mm)
+2025-12-17 01:37:50,496 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-17 01:37:50,496 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-17 01:37:50,496 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-17 01:37:50,496 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-17 01:37:50,496 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-17 01:37:50,497 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-17 01:37:50,498 [INFO] aibuildx.geometry_agent: Merged 113 nodes (tolerance=10.0 mm)
+2025-12-17 01:37:50,499 [INFO] aibuildx.geometry_agent: Merged 113 nodes (tolerance=10.0 mm)
+2025-12-17 01:40:14,525 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2025-12-17 01:40:14,527 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-17 01:40:14,530 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2025-12-17 01:40:14,534 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2025-12-17 01:40:14,538 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2025-12-17 01:41:17,761 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2025-12-17 01:41:17,762 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-17 01:41:17,766 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2025-12-17 01:41:17,770 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2025-12-17 01:41:17,773 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2025-12-17 12:38:35,885 [INFO] aibuildx.geometry_agent: Merged 113 nodes (tolerance=10.0 mm)
+2025-12-17 12:38:35,889 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-17 12:38:35,890 [INFO] aibuildx.geometry_agent: Merged 113 nodes (tolerance=10.0 mm)
+2025-12-17 12:38:35,890 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-17 12:38:35,890 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-17 12:38:35,890 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-17 12:38:35,891 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-17 12:38:35,891 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-17 12:38:35,891 [WARNING] aibuildx.geometry_agent: Zero length member encountered
+2025-12-17 12:38:35,894 [INFO] aibuildx.geometry_agent: Merged 113 nodes (tolerance=10.0 mm)
+2025-12-17 12:38:35,896 [INFO] aibuildx.geometry_agent: Merged 113 nodes (tolerance=10.0 mm)
+2025-12-17 12:40:42,978 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2025-12-17 12:40:42,985 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2025-12-17 12:40:42,999 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2025-12-17 12:40:43,019 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2025-12-17 12:40:43,037 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2026-01-08 20:17:14,810 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2026-01-08 20:17:14,811 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2026-01-08 20:17:14,815 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2026-01-08 20:17:14,819 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2026-01-08 20:17:14,823 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2026-01-08 22:28:50,731 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2026-01-08 22:28:50,733 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2026-01-08 22:28:50,736 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2026-01-08 22:28:50,740 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2026-01-08 22:28:50,744 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2026-01-13 16:26:50,777 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2026-01-13 16:26:50,780 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2026-01-13 16:26:50,784 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2026-01-13 16:26:50,790 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2026-01-13 16:26:50,793 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2026-02-19 19:27:47,044 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2026-02-19 19:27:47,053 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2026-02-19 19:27:47,057 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2026-02-19 19:27:47,062 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2026-02-19 19:27:47,066 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2026-02-19 19:44:15,021 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2026-02-19 19:44:15,023 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2026-02-19 19:44:15,026 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2026-02-19 19:44:15,030 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2026-02-19 19:44:15,034 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2026-03-01 14:27:21,548 [INFO] aibuildx.geometry_agent: Merged 545 nodes (tolerance=10.0 mm)
+2026-03-01 14:27:21,550 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2026-03-01 14:27:21,578 [INFO] aibuildx.geometry_agent: Merged 545 nodes (tolerance=10.0 mm)
+2026-03-01 14:27:21,606 [INFO] aibuildx.geometry_agent: Merged 545 nodes (tolerance=10.0 mm)
+2026-03-01 14:27:21,634 [INFO] aibuildx.geometry_agent: Merged 545 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:11,296 [INFO] aibuildx.geometry_agent: Merged 3 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:11,304 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:11,304 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2026-03-01 20:43:11,304 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:11,304 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:11,305 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:11,712 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:11,713 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2026-03-01 20:43:11,713 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:11,713 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:11,713 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:11,718 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:11,718 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2026-03-01 20:43:11,718 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:11,719 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:11,719 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:25,903 [INFO] aibuildx.geometry_agent: Merged 3 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:25,904 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2026-03-01 20:43:25,904 [INFO] aibuildx.geometry_agent: Merged 3 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:25,904 [INFO] aibuildx.geometry_agent: Merged 3 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:25,904 [INFO] aibuildx.geometry_agent: Merged 3 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:26,177 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:26,178 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2026-03-01 20:43:26,178 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:26,178 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:26,178 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:26,234 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2026-03-01 20:43:26,234 [INFO] aibuildx.geometry_agent: Merged 0 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:26,234 [INFO] aibuildx.geometry_agent: Merged 0 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:26,234 [INFO] aibuildx.geometry_agent: Merged 0 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:26,977 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:26,978 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2026-03-01 20:43:26,978 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:26,978 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:26,978 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:27,081 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:27,082 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2026-03-01 20:43:27,082 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:27,082 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:27,082 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:27,167 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:27,168 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2026-03-01 20:43:27,168 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:27,168 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:27,168 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:27,226 [INFO] aibuildx.geometry_agent: Merged 4 nodes (tolerance=5.0 mm)
+2026-03-01 20:43:27,226 [INFO] aibuildx.geometry_agent: Merged 4 nodes (tolerance=5.0 mm)
+2026-03-01 20:43:27,242 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:27,243 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2026-03-01 20:43:27,243 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:27,243 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:27,243 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:27,265 [INFO] aibuildx.geometry_agent: Merged 3 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:27,396 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:27,397 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2026-03-01 20:43:27,397 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:27,397 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:27,397 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:27,426 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:27,426 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2026-03-01 20:43:27,426 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:27,426 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:27,426 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:27,433 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:27,433 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2026-03-01 20:43:27,433 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:27,433 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-01 20:43:27,433 [INFO] aibuildx.geometry_agent: Merged 1 nodes (tolerance=10.0 mm)
+2026-03-27 10:53:42,086 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2026-03-27 10:53:42,088 [INFO] aibuildx.geometry_agent: Global coordinate system set to (0, 0, 0)
+2026-03-27 10:53:42,091 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2026-03-27 10:53:42,095 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)
+2026-03-27 10:53:42,099 [INFO] aibuildx.geometry_agent: Merged 184 nodes (tolerance=10.0 mm)

@@ -2,6 +2,7 @@ const uploadArea = document.getElementById('uploadArea');
 const fileInput = document.getElementById('fileInput');
 const uploadBtn = document.getElementById('uploadBtn');
 const exportTeklaBtn = document.getElementById('exportTeklaBtn');
+const sendTeklaDirectBtn = document.getElementById('sendTeklaDirectBtn');
 const filePreview = document.getElementById('filePreview');
 const fileName = document.getElementById('fileName');
 const fileSize = document.getElementById('fileSize');
@@ -348,7 +349,7 @@ exportTeklaBtn.addEventListener('click', async () => {
                 <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
                 </svg>
-                Export to Tekla
+                Export to Tekla IFC
             `;
         } else {
             teklaStatus.innerHTML = `
@@ -382,6 +383,58 @@ exportTeklaBtn.addEventListener('click', async () => {
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
             </svg>
             Retry Export
+        `;
+    }
+});
+
+sendTeklaDirectBtn?.addEventListener('click', async () => {
+    if (!currentJobId) return;
+
+    sendTeklaDirectBtn.disabled = true;
+    sendTeklaDirectBtn.innerHTML = `
+        <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none" opacity="0.25"></circle>
+            <path d="M4 12a8 8 0 018-8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"></path>
+        </svg>
+        Sending...
+    `;
+
+    try {
+        const response = await fetch(`/api/export-tekla-direct/${currentJobId}`);
+        const data = await response.json();
+        const directStatus = document.getElementById('teklaDirectStatus');
+
+        if (response.ok && data.status === 'ok') {
+            directStatus.innerHTML = `
+                <strong style="color: var(--success);">✓ Sent to Tekla API</strong><br>
+                <span style="font-size: 0.875rem; color: var(--gray-600);">
+                    ${data.tekla_response?.message || 'Tekla structure render request was accepted.'}
+                </span>
+            `;
+        } else {
+            directStatus.innerHTML = `
+                <strong style="color: var(--error);">❌ Direct Tekla export failed</strong><br>
+                <span style="font-size: 0.875rem; color: var(--gray-600);">
+                    ${data.message || 'Tekla bridge is not connected or the payload is invalid.'}
+                </span>
+            `;
+        }
+    } catch (error) {
+        document.getElementById('teklaDirectStatus').innerHTML = `
+            <strong style="color: var(--error);">❌ Error</strong><br>
+            <span style="font-size: 0.875rem; color: var(--gray-600);">
+                ${error.message}
+            </span>
+        `;
+    } finally {
+        sendTeklaDirectBtn.disabled = false;
+        sendTeklaDirectBtn.innerHTML = `
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Send directly to Tekla
         `;
     }
 });

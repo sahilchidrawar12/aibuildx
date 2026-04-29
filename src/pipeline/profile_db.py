@@ -42,13 +42,16 @@ _add_section("ISMB200", 0.045, 0.00034, 0.00008, 0.00007, 0.000018, 32.0, 35.0, 
 
 # MATERIAL_CATALOG
 MATERIAL_CATALOG = {
-    "ASTM A36": {"fy": 250.0, "fu": 400.0, "unit": "MPa"},
-    "ASTM A992": {"fy": 345.0, "fu": 450.0, "unit": "MPa"},
-    "A572 G50": {"fy": 345.0, "fu": 450.0, "unit": "MPa"},
-    "S235": {"fy": 235.0, "fu": 360.0, "unit": "MPa"},
-    "S355": {"fy": 355.0, "fu": 510.0, "unit": "MPa"},
-    "IS2062 E250": {"fy": 250.0, "fu": 410.0, "unit": "MPa"},
-    "IS2062 E350": {"fy": 350.0, "fu": 510.0, "unit": "MPa"}
+    "ASTM A36": {"fy": 250.0, "fu": 400.0, "unit": "MPa", "E": 210000.0, "density": 7850.0},
+    "ASTM A992": {"fy": 345.0, "fu": 450.0, "unit": "MPa", "E": 210000.0, "density": 7850.0},
+    "A572 G50": {"fy": 345.0, "fu": 450.0, "unit": "MPa", "E": 210000.0, "density": 7850.0},
+    "S235": {"fy": 235.0, "fu": 360.0, "unit": "MPa", "E": 210000.0, "density": 7850.0},
+    "S275": {"fy": 275.0, "fu": 430.0, "unit": "MPa", "E": 210000.0, "density": 7850.0},
+    "S355": {"fy": 355.0, "fu": 510.0, "unit": "MPa", "E": 210000.0, "density": 7850.0},
+    "S450": {"fy": 450.0, "fu": 550.0, "unit": "MPa", "E": 210000.0, "density": 7850.0},
+    "S460": {"fy": 460.0, "fu": 570.0, "unit": "MPa", "E": 210000.0, "density": 7850.0},
+    "IS2062 E250": {"fy": 250.0, "fu": 410.0, "unit": "MPa", "E": 210000.0, "density": 7850.0},
+    "IS2062 E350": {"fy": 350.0, "fu": 510.0, "unit": "MPa", "E": 210000.0, "density": 7850.0}
 }
 
 def normalize_name(name: str) -> str:

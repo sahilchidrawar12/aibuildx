@@ -40,6 +40,7 @@ plotly==5.16.1
 # API & Web
 fastapi==0.101.0
 uvicorn==0.23.2
+websockets==11.0.3
 requests==2.31.0
 
 # Configuration
