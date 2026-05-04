@@ -3,7 +3,7 @@
 Returns best-of-candidates by a simple cost-per-capacity metric.
 """
 from typing import Dict, Any, List, Optional, Tuple
-from src.pipeline import pipeline_v2 as legacy
+from ..utils import pipeline_v2 as legacy
 
 
 def process(input_data: Dict[str, Any]) -> Dict[str, Any]:

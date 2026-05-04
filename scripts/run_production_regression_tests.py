@@ -29,8 +29,8 @@ import logging
 workspace_root = Path(__file__).parent.parent
 sys.path.insert(0, str(workspace_root / "src"))
 
-from pipeline.testing.test_projects import create_all_test_projects
-from pipeline.testing.regression_test_harness import RegressionTestHarness
+from src.pipeline.testing.test_projects import create_all_test_projects
+from src.pipeline.testing.regression_test_harness import RegressionTestHarness
 
 logging.basicConfig(
     level=logging.INFO,

@@ -551,6 +551,6 @@ def synthesize_connections(members: List[Dict[str, Any]],
 def synthesize_connections_aisc_standards(members: List[Dict[str, Any]], 
                                          joints: List[Dict[str, Any]] = None) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
     """Fallback to the standards-based synthesis agent (existing flow)."""
-    from src.pipeline.agents.connection_synthesis_agent import synthesize_connections as standards
+    from ...agents.connection_synthesis_agent import synthesize_connections as standards
     return standards(members, joints)
 

@@ -21,10 +21,10 @@ try:
     from comprehensive_clash_corrector_v2 import ComprehensiveClashCorrector
     from connection_classifier_agent import ConnectionClassifier
 except ImportError:
-    from src.pipeline.agents.comprehensive_clash_detector_v2 import ComprehensiveClashDetector, Clash
-    from src.pipeline.agents.comprehensive_clash_corrector_v2 import ComprehensiveClashCorrector
-    from src.pipeline.agents.connection_classifier_agent import ConnectionClassifier
-from src.pipeline.agents.tolerance_and_standards_providers import ToleranceProvider, StandardsProvider
+    from ...agents.comprehensive_clash_detector_v2 import ComprehensiveClashDetector, Clash
+    from ...agents.comprehensive_clash_corrector_v2 import ComprehensiveClashCorrector
+    from ...agents.connection_classifier_agent import ConnectionClassifier
+from ...agents.tolerance_and_standards_providers import ToleranceProvider, StandardsProvider
 
 logger = logging.getLogger(__name__)
 

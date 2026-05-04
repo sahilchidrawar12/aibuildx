@@ -1,0 +1,681 @@
+{
+  "phase1_material_upgrade": {
+    "results": [
+      {
+        "scenario": 1,
+        "loads": {
+          "axial_kn": 2000,
+          "seismic_zone": "high",
+          "environment": "corrosive"
+        },
+        "selected_material": "ASTM A709 Gr70W",
+        "expected": "Q460",
+        "match": false
+      },
+      {
+        "scenario": 2,
+        "loads": {
+          "axial_kn": 1500,
+          "seismic_zone": "moderate",
+          "environment": "normal"
+        },
+        "selected_material": "ASTM A709 Gr70W",
+        "expected": "ASTM A913 Gr65",
+        "match": false
+      },
+      {
+        "scenario": 3,
+        "loads": {
+          "axial_kn": 800,
+          "seismic_zone": "low",
+          "environment": "exposed"
+        },
+        "selected_material": "ASTM A992",
+        "expected": "ASTM A709 Gr50W",
+        "match": false
+      }
+    ],
+    "accuracy": 0.0,
+    "status": "FAIL"
+  },
+  "phase2_connection_design": {
+    "results": [
+      {
+        "connection_type": "beam_column_moment",
+        "loads": {
+          "moment_knm": 500,
+          "shear_kn": 200
+        },
+        "design": {
+          "status": "NO_FEASIBLE_SOLUTION",
+          "confidence": 0.0
+        },
+        "has_bolt_specs": false,
+        "has_weld_specs": false
+      },
+      {
+        "connection_type": "brace_gusset",
+        "loads": {
+          "axial_kn": 800,
+          "shear_kn": 150
+        },
+        "design": {
+          "status": "NO_FEASIBLE_SOLUTION",
+          "confidence": 0.0
+        },
+        "has_bolt_specs": false,
+        "has_weld_specs": false
+      },
+      {
+        "connection_type": "base_plate",
+        "loads": {
+          "axial_kn": 3000,
+          "moment_knm": 800
+        },
+        "design": {
+          "status": "NO_FEASIBLE_SOLUTION",
+          "confidence": 0.0
+        },
+        "has_bolt_specs": false,
+        "has_weld_specs": false
+      }
+    ],
+    "accuracy": 0.0,
+    "status": "FAIL"
+  },
+  "phase3_profile_optimization": {
+    "results": [
+      {
+        "case": {
+          "type": "i_beam",
+          "loads": {
+            "axial_kn": 500,
+            "moment_knm": 200,
+            "shear_kn": 150
+          },
+          "span_m": 8.0
+        },
+        "optimized_profile": "W14x925",
+        "weight_kg_per_m": 1382.610138,
+        "utilization": {
+          "compression": 0.008230027459931864,
+          "flexure": 0.07234401164766079,
+          "shear": 0.03465632354126907
+        },
+        "success": true
+      },
+      {
+        "case": {
+          "type": "hss_rect",
+          "loads": {
+            "axial_kn": 800,
+            "shear_kn": 100
+          },
+          "length_m": 6.0
+        },
+        "optimized_profile": "HSS8x8x5/16",
+        "weight_kg_per_m": 40.465402940000004,
+        "utilization": {
+          "axial": 0.8060687453781105,
+          "shear": 0.3530811913892944
+        },
+        "success": true
+      },
+      {
+        "case": {
+          "type": "hss_round",
+          "loads": {
+            "axial_kn": 600,
+            "shear_kn": 80
+          },
+          "length_m": 5.0
+        },
+        "optimized_profile": "HSS8.000x0.500",
+        "weight_kg_per_m": 57.2289178,
+        "utilization": {
+          "axial": 0.5115308880030632,
+          "shear": 0.057694391558255405
+        },
+        "success": true
+      }
+    ],
+    "success_rate": 100.0,
+    "status": "PASS"
+  },
+  "phase4_integration": {
+    "optimized_system": {
+      "system_type": "building_frame",
+      "optimization_criteria": "balanced_optimum",
+      "components": {
+        "beams": [
+          {
+            "name": "W14x925",
+            "type": "wide_flange",
+            "material": "ASTM A992",
+            "dimensions": {
+              "depth_mm": 628.396,
+              "flange_width_mm": 177.79999999999998,
+              "flange_thickness_mm": 60.45199999999999,
+              "web_thickness_mm": 33.274
+            },
+            "properties": {
+              "area_mm2": 176128.68,
+              "moment_inertia_mm4": 2518197550.0,
+              "section_modulus_mm3": 8013243.0,
+              "weight_kg_per_m": 1382.610138
+            },
+            "capacities": {
+              "compression_kn": 54677.82485427157,
+              "moment_knm": 2488.1119515,
+              "shear_kn": 3895.3929962952
+            },
+            "utilization": {
+              "compression": 0.004938016475959118,
+              "flexure": 0.5425800873574559,
+              "shear": 0.09241686277671751
+            },
+            "optimization_score": 12.796721204744067,
+            "criteria": "balanced_optimum"
+          },
+          {
+            "name": "W14x925",
+            "type": "wide_flange",
+            "material": "ASTM A992",
+            "dimensions": {
+              "depth_mm": 628.396,
+              "flange_width_mm": 177.79999999999998,
+              "flange_thickness_mm": 60.45199999999999,
+              "web_thickness_mm": 33.274
+            },
+            "properties": {
+              "area_mm2": 176128.68,
+              "moment_inertia_mm4": 2518197550.0,
+              "section_modulus_mm3": 8013243.0,
+              "weight_kg_per_m": 1382.610138
+            },
+            "capacities": {
+              "compression_kn": 54677.82485427157,
+              "moment_knm": 2488.1119515,
+              "shear_kn": 3895.3929962952
+            },
+            "utilization": {
+              "compression": 0.004938016475959118,
+              "flexure": 0.5425800873574559,
+              "shear": 0.09241686277671751
+            },
+            "optimization_score": 17.062294939658756,
+            "criteria": "balanced_optimum"
+          },
+          {
+            "name": "W14x925",
+            "type": "wide_flange",
+            "material": "ASTM A992",
+            "dimensions": {
+              "depth_mm": 628.396,
+              "flange_width_mm": 177.79999999999998,
+              "flange_thickness_mm": 60.45199999999999,
+              "web_thickness_mm": 33.274
+            },
+            "properties": {
+              "area_mm2": 176128.68,
+              "moment_inertia_mm4": 2518197550.0,
+              "section_modulus_mm3": 8013243.0,
+              "weight_kg_per_m": 1382.610138
+            },
+            "capacities": {
+              "compression_kn": 54677.82485427157,
+              "moment_knm": 2488.1119515,
+              "shear_kn": 3895.3929962952
+            },
+            "utilization": {
+              "compression": 0.004938016475959118,
+              "flexure": 0.5425800873574559,
+              "shear": 0.09241686277671751
+            },
+            "optimization_score": 21.327868674573438,
+            "criteria": "balanced_optimum"
+          }
+        ],
+        "columns": [
+          {
+            "name": "W14x925",
+            "type": "wide_flange",
+            "material": "ASTM A992",
+            "dimensions": {
+              "depth_mm": 628.396,
+              "flange_width_mm": 177.79999999999998,
+              "flange_thickness_mm": 60.45199999999999,
+              "web_thickness_mm": 33.274
+            },
+            "properties": {
+              "area_mm2": 176128.68,
+              "moment_inertia_mm4": 2518197550.0,
+              "section_modulus_mm3": 8013243.0,
+              "weight_kg_per_m": 1382.610138
+            },
+            "capacities": {
+              "compression_kn": 54677.82485427157,
+              "moment_knm": 2488.1119515,
+              "shear_kn": 3895.3929962952
+            },
+            "utilization": {
+              "compression": 0.024690082379795593,
+              "flexure": 0.10851601747149117,
+              "shear": 0.046208431388358756
+            },
+            "optimization_score": 21.407518240885683,
+            "criteria": "maximum_strength"
+          },
+          {
+            "name": "W14x925",
+            "type": "wide_flange",
+            "material": "ASTM A992",
+            "dimensions": {
+              "depth_mm": 628.396,
+              "flange_width_mm": 177.79999999999998,
+              "flange_thickness_mm": 60.45199999999999,
+              "web_thickness_mm": 33.274
+            },
+            "properties": {
+              "area_mm2": 176128.68,
+              "moment_inertia_mm4": 2518197550.0,
+              "section_modulus_mm3": 8013243.0,
+              "weight_kg_per_m": 1382.610138
+            },
+            "capacities": {
+              "compression_kn": 54677.82485427157,
+              "moment_knm": 2488.1119515,
+              "shear_kn": 3895.3929962952
+            },
+            "utilization": {
+              "compression": 0.03292010983972746,
+              "flexure": 0.18086002911915194,
+              "shear": 0.06931264708253813
+            },
+            "optimization_score": 15.099926550373262,
+            "criteria": "maximum_strength"
+          }
+        ],
+        "braces": [
+          {
+            "name": "HSS8x8x5/16",
+            "type": "hss_rectangular",
+            "material": "ASTM A500 GrB",
+            "shape": "rectangular",
+            "dimensions": {
+              "h": 8.0,
+              "b": 8.0,
+              "t": 0.313,
+              "area": 7.99,
+              "Ix": 60.1,
+              "Iy": 60.1,
+              "Zx": 15.0,
+              "Zy": 15.0
+            },
+            "properties": {
+              "area_mm2": 5154.8284,
+              "moment_inertia_mm4": 25015483.1,
+              "weight_kg_per_m": 40.465402940000004
+            },
+            "capacities": {
+              "axial_kn": 1040.2319095422747,
+              "shear_kn": 254.8988793367056
+            },
+            "utilization": {
+              "axial": 0.8651916863385014,
+              "shear": 0.5296217870839416
+            },
+            "optimization_score": 0.2023270147,
+            "criteria": "minimum_weight"
+          },
+          {
+            "name": "HSS10x10x1/4",
+            "type": "hss_rectangular",
+            "material": "ASTM A500 GrB",
+            "shape": "rectangular",
+            "dimensions": {
+              "h": 10.0,
+              "b": 10.0,
+              "t": 0.25,
+              "area": 8.37,
+              "Ix": 128.0,
+              "Iy": 128.0,
+              "Zx": 25.6,
+              "Zy": 25.6
+            },
+            "properties": {
+              "area_mm2": 5399.989199999999,
+              "moment_inertia_mm4": 53277568.0,
+              "weight_kg_per_m": 42.38991521999999
+            },
+            "capacities": {
+              "axial_kn": 1205.5333502644214,
+              "shear_kn": 262.2914109
+            },
+            "utilization": {
+              "axial": 0.8958690356953734,
+              "shear": 0.6176336443657446
+            },
+            "optimization_score": 0.25433949131999994,
+            "criteria": "minimum_weight"
+          }
+        ]
+      },
+      "system_metrics": {
+        "total_weight_kg": 58981.03429576,
+        "material_efficiency": 0.3211803070160382,
+        "cost_estimate": {
+          "material_cost_usd": 0.0,
+          "fabrication_cost_usd": 0.0,
+          "erection_cost_usd": 0.0,
+          "total_cost_usd": 0.0
+        },
+        "constructability_score": 0.5000000000000001
+      }
+    },
+    "integration_time_seconds": 0.0005171298980712891,
+    "integration_score": 100.0,
+    "components_validated": {
+      "beams": true,
+      "columns": true,
+      "braces": true,
+      "metrics": true
+    },
+    "status": "PASS"
+  },
+  "birds_nest_validation": {
+    "birds_nest_system": {
+      "system_type": "stadium_roof_structure",
+      "optimization_criteria": "balanced_optimum",
+      "components": {
+        "beams": [
+          {
+            "error": "No suitable profile found"
+          },
+          {
+            "error": "No suitable profile found"
+          },
+          {
+            "error": "No suitable profile found"
+          }
+        ],
+        "columns": [
+          {
+            "name": "W14x925",
+            "type": "wide_flange",
+            "material": "ASTM A992",
+            "dimensions": {
+              "depth_mm": 628.396,
+              "flange_width_mm": 177.79999999999998,
+              "flange_thickness_mm": 60.45199999999999,
+              "web_thickness_mm": 33.274
+            },
+            "properties": {
+              "area_mm2": 176128.68,
+              "moment_inertia_mm4": 2518197550.0,
+              "section_modulus_mm3": 8013243.0,
+              "weight_kg_per_m": 1382.610138
+            },
+            "capacities": {
+              "compression_kn": 54677.82485427157,
+              "moment_knm": 2488.1119515,
+              "shear_kn": 3895.3929962952
+            },
+            "utilization": {
+              "compression": 0.03292010983972746,
+              "flexure": 0.18086002911915194,
+              "shear": 0.06931264708253813
+            },
+            "optimization_score": 15.099926550373262,
+            "criteria": "maximum_strength"
+          },
+          {
+            "name": "W14x925",
+            "type": "wide_flange",
+            "material": "ASTM A992",
+            "dimensions": {
+              "depth_mm": 628.396,
+              "flange_width_mm": 177.79999999999998,
+              "flange_thickness_mm": 60.45199999999999,
+              "web_thickness_mm": 33.274
+            },
+            "properties": {
+              "area_mm2": 176128.68,
+              "moment_inertia_mm4": 2518197550.0,
+              "section_modulus_mm3": 8013243.0,
+              "weight_kg_per_m": 1382.610138
+            },
+            "capacities": {
+              "compression_kn": 54677.82485427157,
+              "moment_knm": 2488.1119515,
+              "shear_kn": 3895.3929962952
+            },
+            "utilization": {
+              "compression": 0.049380164759591186,
+              "flexure": 0.28937604659064314,
+              "shear": 0.10396897062380721
+            },
+            "optimization_score": 9.99750347937384,
+            "criteria": "maximum_strength"
+          }
+        ],
+        "braces": [
+          {
+            "name": "HSS12x12x5/16",
+            "type": "hss_rectangular",
+            "material": "ASTM A500 GrB",
+            "shape": "rectangular",
+            "dimensions": {
+              "h": 12.0,
+              "b": 12.0,
+              "t": 0.313,
+              "area": 12.2,
+              "Ix": 265.0,
+              "Iy": 265.0,
+              "Zx": 44.2,
+              "Zy": 44.2
+            },
+            "properties": {
+              "area_mm2": 7870.951999999999,
+              "moment_inertia_mm4": 110301215.0,
+              "weight_kg_per_m": 61.7869732
+            },
+            "capacities": {
+              "axial_kn": 1652.0041363265668,
+              "shear_kn": 393.1678673143055
+            },
+            "utilization": {
+              "axial": 0.8171892371903439,
+              "shear": 0.4578197125557688
+            },
+            "optimization_score": 0.4942957856,
+            "criteria": "minimum_weight"
+          },
+          {
+            "name": "HSS12x12x1/2",
+            "type": "hss_rectangular",
+            "material": "ASTM A500 GrB",
+            "shape": "rectangular",
+            "dimensions": {
+              "h": 12.0,
+              "b": 12.0,
+              "t": 0.5,
+              "area": 18.3,
+              "Ix": 374.0,
+              "Iy": 374.0,
+              "Zx": 62.3,
+              "Zy": 62.3
+            },
+            "properties": {
+              "area_mm2": 11806.428,
+              "moment_inertia_mm4": 155670394.0,
+              "weight_kg_per_m": 92.6804598
+            },
+            "capacities": {
+              "axial_kn": 2023.1222155540243,
+              "shear_kn": 607.4116884
+            },
+            "utilization": {
+              "axial": 0.8897139214632551,
+              "shear": 0.44450906223292236
+            },
+            "optimization_score": 0.926804598,
+            "criteria": "minimum_weight"
+          }
+        ]
+      },
+      "system_metrics": {
+        "total_weight_kg": 41493.497658,
+        "material_efficiency": 0.435222184198995,
+        "cost_estimate": {
+          "material_cost_usd": 0.0,
+          "fabrication_cost_usd": 0.0,
+          "erection_cost_usd": 0.0,
+          "total_cost_usd": 0.0
+        },
+        "constructability_score": 0.8
+      },
+      "birds_nest_analysis": {
+        "curved_member_optimization": "Q460 high-strength steel recommended for 20% weight reduction",
+        "connection_complexity": "Complex 3D connections requiring advanced gusset plate design",
+        "fabrication_challenges": "Double curvature requires specialized forming techniques",
+        "material_efficiency_gain": "25% weight reduction vs conventional design",
+        "cost_savings": "$2.5M estimated savings on 42,000 ton steel structure"
+      }
+    },
+    "validation_metrics": {
+      "total_weight_kg": 41493.497658,
+      "material_efficiency": 0.435222184198995,
+      "weight_target_kg": 42000000,
+      "weight_achievement_percent": 99.90120595795715,
+      "efficiency_target_percent": 40.0,
+      "has_q460_materials": false,
+      "has_advanced_connections": false
+    },
+    "validation_score": 30,
+    "production_ready": false,
+    "status": "FAIL"
+  },
+  "phase4_auto_repair": {
+    "repaired_payload": {
+      "members": [
+        {
+          "id": "beam_001",
+          "start": [
+            0,
+            0,
+            0
+          ],
+          "end": [
+            8000,
+            0,
+            0
+          ],
+          "profile": {
+            "area": 15000.0,
+            "Ix": 18000000.0,
+            "Iy": 2600000.0,
+            "Zx": 300000.0,
+            "Zy": 100000.0,
+            "r": 52.0,
+            "wpm": 118.0,
+            "thickness": 14.0,
+            "dims": {},
+            "_ml_selection": {
+              "role": "beam",
+              "role_confidence": 1.0,
+              "axial_estimate_N": 50000,
+              "moment_estimate_Nmm": 1000000000000.0,
+              "selected": "W10",
+              "selection_confidence": 1.0,
+              "method": "ml_section_selector"
+            }
+          },
+          "material": {
+            "name": "ASTM A36",
+            "fy": 250.0,
+            "fu": 400.0,
+            "unit": "MPa",
+            "E": 210000.0,
+            "density": 7850.0,
+            "_ml_selection": {
+              "role": "beam",
+              "role_confidence": 1.0,
+              "stress_category": "bending",
+              "span_m": 1.0,
+              "selection_confidence": 0.75,
+              "method": "ml_material_classifier"
+            }
+          },
+          "role": "beam",
+          "_role_confidence": 1.0,
+          "node_start": 0,
+          "node_end": 1
+        },
+        {
+          "id": "column_001",
+          "start": [
+            0,
+            0,
+            0
+          ],
+          "end": [
+            0,
+            0,
+            4000
+          ],
+          "profile": {
+            "area": 15000.0,
+            "Ix": 18000000.0,
+            "Iy": 2600000.0,
+            "Zx": 300000.0,
+            "Zy": 100000.0,
+            "r": 52.0,
+            "wpm": 118.0,
+            "thickness": 14.0,
+            "dims": {},
+            "_ml_selection": {
+              "role": "column",
+              "role_confidence": 1.0,
+              "axial_estimate_N": 500000.0,
+              "moment_estimate_Nmm": 100000000000.0,
+              "selected": "W10",
+              "selection_confidence": 1.0,
+              "method": "ml_section_selector"
+            }
+          },
+          "material": {
+            "name": "ASTM A572 Gr50",
+            "_ml_selection": {
+              "role": "column",
+              "role_confidence": 1.0,
+              "stress_category": "compression",
+              "span_m": 1.0,
+              "selection_confidence": 0.6,
+              "method": "ultimate_fallback"
+            }
+          },
+          "role": "column",
+          "_role_confidence": 1.0,
+          "node_start": 0,
+          "node_end": 2
+        }
+      ],
+      "joints": [],
+      "loads": {
+        "dead_load": 10.0,
+        "live_load": 5.0,
+        "wind_load": 2.5
+      }
+    },
+    "repair_time_seconds": 0.01822519302368164,
+    "repair_success_rate": 100.0,
+    "validation": {
+      "profiles_assigned": 2,
+      "materials_assigned": 2,
+      "roles_assigned": 2,
+      "total_members": 2
+    },
+    "status": "PASS"
+  }
+}

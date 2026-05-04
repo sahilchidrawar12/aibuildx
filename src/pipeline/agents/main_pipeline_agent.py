@@ -6,7 +6,7 @@ from typing import Dict, Any
 import json
 import os
 import time
-from src.pipeline.logging_setup import get_logger
+from ..utils.logging_setup import get_logger
 
 logger = get_logger("main_pipeline_agent")
 
@@ -37,12 +37,12 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
                     payload_entities = dxf_entities
             elif dxf_entities.lower().endswith('.dxf'):
                 # Use new modular DXF parser
-                from src.pipeline.dxf_parser import parse_dxf_file
+                from ..parsers.dxf_parser import parse_dxf_file
                 payload_entities = parse_dxf_file(dxf_entities)
             elif dxf_entities.lower().endswith('.ifc'):
                 # Use legacy IFC parser (can be modernized later)
                 try:
-                    from src.pipeline import pipeline_v2 as legacy
+                    from ..utils import pipeline_v2 as legacy
                     payload_entities = legacy.extract_from_ifc(dxf_entities)
                 except Exception as e:
                     logger.error(f"IFC extraction failed: {e}")
@@ -58,7 +58,7 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
         # 1.5) Auto-repair missing fields
         ts, nm = stage("auto_repair")
         try:
-            from src.pipeline.auto_repair_engine import repair_pipeline
+            from ..repair.auto_repair_engine import repair_pipeline
             if isinstance(payload_entities, dict):
                 repaired = repair_pipeline({'members': payload_entities.get('members', [])})
             elif isinstance(payload_entities, list):
@@ -77,7 +77,7 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
 
         # 2) Geometry agent: set CS, merge nodes, resolve orientation
         ts, nm = stage("geometry")
-        from src.pipeline.geometry_agent import set_global_coordinate_system, merge_nodes, resolve_member_orientation
+        from ..geometry.geometry_agent import set_global_coordinate_system, merge_nodes, resolve_member_orientation
         set_global_coordinate_system({}, origin=(0,0,0))
         nodes, mapping = merge_nodes(members, tolerance=10.0)
         for m in members:
@@ -86,7 +86,7 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
 
         # 3) Node resolution and joints
         ts, nm = stage("nodes_and_joints")
-        from src.pipeline.node_resolution import snap_nodes, auto_generate_joints
+        from ..nodes.node_resolution import snap_nodes, auto_generate_joints
         nodes, members = snap_nodes(members, tolerance=10.0)
         joints = auto_generate_joints(members, tolerance=10.0)
         out['nodes'] = nodes
@@ -96,7 +96,7 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
         # 3.5) Connection parser: convert circles to joints with member links
         ts, nm = stage("connection_parser")
         try:
-            from src.pipeline.agents.connection_parser_agent import parse_connections
+            from .connection_parser_agent import parse_connections
             circles = payload_entities.get('circles', [])
             if circles:
                 parsed_joints = parse_connections(circles, members, search_radius_mm=150.0)
@@ -112,7 +112,7 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
         # 3.7) Universal coordinate origin fix (applies to IFC data with coordinate issues)
         ts, nm = stage("coordinate_origin_fix")
         try:
-            from src.pipeline.universal_geometry_engine import fix_coordinate_origins_universal
+            from ..geometry.universal_geometry_engine import fix_coordinate_origins_universal
             # Build IFC-like structure from current state
             ifc_data = {
                 'members': members,
@@ -137,7 +137,7 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
         # 3.8) Joint enrichment (hidden/brace/splice/support/slot)
         ts, nm = stage("joint_enrichment")
         try:
-            from src.pipeline import joint_enrichment
+            from ..joints import joint_enrichment
             joints = joint_enrichment.enrich_joints(members, joints)
             out['joints'] = joints
             out['joint_enrichment'] = True
@@ -148,8 +148,8 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
 
         # 4) Section and material classification
         ts, nm = stage("classification")
-        from src.pipeline.section_classifier import classify_section
-        from src.pipeline.material_classifier import classify_material
+        from ..sections.section_classifier import classify_section
+        from ..materials.material_classifier import classify_material
         for m in members:
             prof = classify_section(m)
             if prof:
@@ -165,14 +165,14 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
 
         # 5) Loads & combinations
         ts, nm = stage("loads")
-        from src.pipeline.load_combination import generate_lrfd, generate_asd
+        from ..loads.load_combination import generate_lrfd, generate_asd
         loads = data.get('loads', {'dead':0.0,'live':0.0,'wind':0.0,'seismic':0.0})
         out['load_combinations'] = generate_lrfd(loads)
         end(ts, nm)
 
         # 6) Deflection checks
         ts, nm = stage("deflection")
-        from src.pipeline.deflection_agent import check_deflection
+        from ..agents.deflection_agent import check_deflection
         E_default = 210000.0  # MPa
         deflection_reports = []
         for m in members:
@@ -187,7 +187,7 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
         ts, nm = stage("connection_synthesis")
         try:
             # Use enhanced model-driven agent with AI predictions
-            from src.pipeline.agents.connection_synthesis_agent_enhanced import (
+            from .connection_synthesis_agent_enhanced import (
                 synthesize_connections_model_driven,
                 ModelInferenceEngine
             )
@@ -213,7 +213,7 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
             logger.error(f"Model-driven agent import failed: {e}")
             logger.warning("Falling back to standards-based connection synthesis")
             try:
-                from src.pipeline.agents.connection_synthesis_agent import synthesize_connections
+                from .connection_synthesis_agent import synthesize_connections
                 plates_synth, bolts_synth = synthesize_connections(members, joints)
             except Exception:
                 plates_synth, bolts_synth = [], []
@@ -221,7 +221,7 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
             logger.error(f"Model-driven synthesis failed: {e}")
             logger.warning("Falling back to standards-based connection synthesis")
             try:
-                from src.pipeline.agents.connection_synthesis_agent import synthesize_connections
+                from .connection_synthesis_agent import synthesize_connections
                 plates_synth, bolts_synth = synthesize_connections(members, joints)
             except Exception:
                 plates_synth, bolts_synth = [], []
@@ -233,7 +233,7 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
         # 7.2) Detailing AI (Tekla-like) – model-driven with standards fallback
         ts, nm = stage("detailing_ai")
         try:
-            from src.pipeline.agents.detailing_ai_agent import generate_detailing
+            from .detailing_ai_agent import generate_detailing
             detailing = generate_detailing(members, joints, plates_synth)
             out['detailing'] = detailing
             copes_ct = len(detailing.get('copes', []))
@@ -267,8 +267,8 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
         else:
             ts, nm = stage("clash_detection")
             try:
-                from src.pipeline.agents.comprehensive_clash_detector_v2 import ComprehensiveClashDetector
-                from src.pipeline.agents.tolerance_and_standards_providers import (
+                from .comprehensive_clash_detector_v2 import ComprehensiveClashDetector
+                from .tolerance_and_standards_providers import (
                     ToleranceProvider, StandardsProvider
                 )
                 logger.info("Running comprehensive clash detection...")
@@ -305,7 +305,7 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
             ts, nm = stage("clash_correction")
             try:
                 if out.get('clashes_detected'):
-                    from src.pipeline.agents.comprehensive_clash_corrector_v2 import ComprehensiveClashCorrector
+                    from .comprehensive_clash_corrector_v2 import ComprehensiveClashCorrector
                     logger.info(f"Applying clash corrections to {len(out['clashes_detected'])} clashes...")
                     corrector = ComprehensiveClashCorrector()
                     corrections, corr_summary = corrector.correct_all_clashes(
@@ -327,7 +327,7 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
 
         # 7) Code compliance checks
         ts, nm = stage("compliance")
-        from src.pipeline.code_compliance import check_member_basic
+        from ..compliance.code_compliance import check_member_basic
         compliance_reports = []
         for m in members:
             mat = m.get('material') or {'fy': 355.0}
@@ -338,7 +338,7 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
 
         # 8) Connection capacity and design
         ts, nm = stage("connection_capacity")
-        from src.pipeline.connection_capacity import check_bolt_group
+        from ..connections.connection_capacity import check_bolt_group
         conn_reports = []
         connections = data.get('connections') or []
         for c in connections:
@@ -352,7 +352,7 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
 
         # 9) Fabrication tolerances checks
         ts, nm = stage("fabrication_tolerances")
-        from src.pipeline.fabrication_tolerances import check_edge_distance, check_bolt_spacing
+        from ..fabrication.fabrication_tolerances import check_edge_distance, check_bolt_spacing
         fab_reports = []
         for p in data.get('plates', []):
             ok_edge = check_edge_distance(p.get('thickness',10.0), p.get('edge_distance',80.0))
@@ -363,13 +363,13 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
 
         # 10) Erection sequencing
         ts, nm = stage("erection_sequence")
-        from src.pipeline.erection_sequencing import sequence_erection
+        from ..erection.erection_sequencing import sequence_erection
         out['erection_sequence'] = sequence_erection(members)
         end(ts, nm)
 
         # 11) Clash avoidance adjustments
         ts, nm = stage("clash_avoidance")
-        from src.pipeline.clash_avoidance import avoid_clashes
+        from ..clash.clash_avoidance import avoid_clashes
         plates = data.get('plates', [])
         bolts = data.get('bolts', [])
         clash_adj = avoid_clashes(plates, bolts)
@@ -378,7 +378,7 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
 
         # 12) Stability checks
         ts, nm = stage("stability")
-        from src.pipeline.stability_engine import euler_buckling_capacity, klr, p_delta_amplification
+        from ..stability.stability_engine import euler_buckling_capacity, klr, p_delta_amplification
         stability_reports = []
         for m in members:
             r = m.get('geom',{}).get('r') or 1.0
@@ -398,7 +398,7 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
             out['ifc_coordinates_verified'] = False
         else:
             ts, nm = stage("ifc_export")
-            from src.pipeline.ifc_generator import export_ifc_model
+            from ..generators.ifc_generator import export_ifc_model
             ifc_model = export_ifc_model(
                 members,
                 out.get('plates') or data.get('plates', []),
@@ -411,7 +411,7 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
         # 13.5) Post-process IFC model to fix any remaining coordinate issues
         if not os.getenv('AIBUILDX_DISABLE_IFC'):
             try:
-                from src.pipeline.universal_geometry_engine import fix_coordinate_origins_universal
+                from ..geometry.universal_geometry_engine import fix_coordinate_origins_universal
                 ifc_model_fixed = fix_coordinate_origins_universal(out['ifc'])
                 out['ifc'] = ifc_model_fixed
                 out['ifc_coordinates_verified'] = True
@@ -423,7 +423,7 @@ def process(payload: Dict[str, Any]) -> Dict[str, Any]:
 
         # 14) Report aggregation
         ts, nm = stage("report_aggregation")
-        from src.pipeline.report_aggregator import aggregate_reports
+        from ..reporting.report_aggregator import aggregate_reports
         agent_reports = [{'agent':'geometry','ok':True}, {'agent':'sections','ok':True}, {'agent':'material','ok':True}, {'agent':'loads','ok':True}, {'agent':'deflection','ok':True}, {'agent':'compliance','ok': all(c.get('compliance',{}).get('moment_ok',True) for c in compliance_reports)}]
         final_report = aggregate_reports(agent_reports)
         out['final'] = final_report

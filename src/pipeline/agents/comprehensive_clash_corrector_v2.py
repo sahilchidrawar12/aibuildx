@@ -28,7 +28,7 @@ try:
         Clash, ClashCategory, ClashSeverity, ComprehensiveClashDetector
     )
 except ImportError:
-    from src.pipeline.agents.comprehensive_clash_detector_v2 import (
+    from ...agents.comprehensive_clash_detector_v2 import (
         Clash, ClashCategory, ClashSeverity, ComprehensiveClashDetector
     )
 

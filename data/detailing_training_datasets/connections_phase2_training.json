@@ -1,0 +1,188 @@
+[
+  {
+    "id": "phase2_training_00001",
+    "connection_type": "seismic_resistant_moment",
+    "loads": {
+      "shear_kn": 450,
+      "tension_kn": 120,
+      "moment_knm": 180
+    },
+    "members": {
+      "primary": "W24x131",
+      "secondary": "W14x283",
+      "material": "Q460"
+    },
+    "design_requirements": {
+      "accessibility": "inspection",
+      "seismic_zone": "high",
+      "inspection_interval_years": 5
+    },
+    "optimal_design": {
+      "bolt_grade": "A490",
+      "bolt_diameter_mm": 25.4,
+      "bolt_count": 16,
+      "weld_type": "CJP",
+      "weld_rod": "E90",
+      "weld_size_in": 0.75,
+      "plate_thickness_mm": 32,
+      "accessibility_rating": "fair",
+      "inspection_time_min": 35
+    },
+    "performance_metrics": {
+      "capacity_shear_kn": 520,
+      "capacity_moment_knm": 220,
+      "weight_kg": 45,
+      "cost_factor": 1.8,
+      "constructability": "complex"
+    }
+  },
+  {
+    "id": "phase2_training_00002",
+    "connection_type": "high_strength_brace",
+    "loads": {
+      "shear_kn": 380,
+      "tension_kn": 650,
+      "moment_knm": 25
+    },
+    "members": {
+      "primary": "HSS8x8x5/8",
+      "secondary": "W18x97",
+      "material": "ASTM A913 Gr65"
+    },
+    "design_requirements": {
+      "accessibility": "maintenance",
+      "environment": "weathering",
+      "replacement_frequency": "rare"
+    },
+    "optimal_design": {
+      "bolt_grade": "A490",
+      "bolt_diameter_mm": 22.23,
+      "bolt_count": 12,
+      "weld_type": "PJP",
+      "weld_rod": "E80",
+      "weld_size_in": 0.625,
+      "gusset_thickness_mm": 25,
+      "accessibility_rating": "fair",
+      "inspection_time_min": 30
+    },
+    "performance_metrics": {
+      "capacity_tension_kn": 720,
+      "capacity_shear_kn": 420,
+      "weight_kg": 38,
+      "cost_factor": 1.6,
+      "constructability": "moderate"
+    }
+  },
+  {
+    "id": "phase2_training_00003",
+    "connection_type": "complex_junction_cjp",
+    "loads": {
+      "shear_kn": 280,
+      "tension_kn": 180,
+      "moment_knm": 95
+    },
+    "members": {
+      "primary": "W21x111",
+      "secondary": ["W12x65", "W12x65"],
+      "material": "ASTM A992"
+    },
+    "design_requirements": {
+      "accessibility": "inspection",
+      "member_count": 3,
+      "inspection_access": "required"
+    },
+    "optimal_design": {
+      "bolt_grade": "A490",
+      "bolt_diameter_mm": 19.05,
+      "bolt_count": 20,
+      "weld_type": "CJP",
+      "weld_rod": "E90",
+      "weld_size_in": 0.5,
+      "node_plate_thickness_mm": 28,
+      "accessibility_rating": "excellent",
+      "inspection_time_min": 20
+    },
+    "performance_metrics": {
+      "capacity_shear_kn": 320,
+      "capacity_moment_knm": 110,
+      "weight_kg": 52,
+      "cost_factor": 2.1,
+      "constructability": "complex"
+    }
+  },
+  {
+    "id": "phase2_training_00004",
+    "connection_type": "accessible_maintenance",
+    "loads": {
+      "shear_kn": 150,
+      "tension_kn": 80,
+      "moment_knm": 45
+    },
+    "members": {
+      "primary": "W16x89",
+      "secondary": "W10x49",
+      "material": "ASTM A572 Gr65"
+    },
+    "design_requirements": {
+      "accessibility": "maintenance",
+      "maintenance_clearance_mm": 300,
+      "bolt_replacement": "easy"
+    },
+    "optimal_design": {
+      "bolt_grade": "A325",
+      "bolt_diameter_mm": 19.05,
+      "bolt_count": 8,
+      "weld_type": "fillet",
+      "weld_rod": "E70",
+      "weld_size_in": 0.375,
+      "end_plate_thickness_mm": 20,
+      "accessibility_rating": "excellent",
+      "inspection_time_min": 15
+    },
+    "performance_metrics": {
+      "capacity_shear_kn": 180,
+      "capacity_moment_knm": 55,
+      "weight_kg": 28,
+      "cost_factor": 1.2,
+      "constructability": "simple"
+    }
+  },
+  {
+    "id": "phase2_training_00005",
+    "connection_type": "seismic_resistant_moment",
+    "loads": {
+      "shear_kn": 520,
+      "tension_kn": 90,
+      "moment_knm": 250
+    },
+    "members": {
+      "primary": "W27x146",
+      "secondary": "W14x426",
+      "material": "Q460"
+    },
+    "design_requirements": {
+      "accessibility": "inspection",
+      "seismic_zone": "very_high",
+      "ductility_requirement": "high"
+    },
+    "optimal_design": {
+      "bolt_grade": "A490",
+      "bolt_diameter_mm": 28.58,
+      "bolt_count": 20,
+      "weld_type": "CJP",
+      "weld_rod": "E90",
+      "weld_size_in": 0.875,
+      "plate_thickness_mm": 38,
+      "accessibility_rating": "fair",
+      "inspection_time_min": 40
+    },
+    "performance_metrics": {
+      "capacity_shear_kn": 580,
+      "capacity_moment_knm": 280,
+      "weight_kg": 68,
+      "cost_factor": 2.3,
+      "constructability": "very_complex"
+    }
+  }
+]</content>
+<parameter name="filePath">/Users/sahil/Documents/aibuildx/data/detailing_training_datasets/connections_phase2_training.json

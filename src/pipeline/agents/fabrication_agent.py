@@ -3,7 +3,7 @@
 Scaffold returns a list of fabrication steps based on member properties.
 """
 from typing import Dict, Any, List
-from src.pipeline import pipeline_v2 as legacy
+from ..utils import pipeline_v2 as legacy
 
 
 def process(input_data: Dict[str, Any]) -> Dict[str, Any]:

@@ -9,7 +9,7 @@ Class:
 """
 from typing import Dict, List, Optional, Tuple
 
-from src.pipeline.materials.databases import MATERIAL_DATABASE
+from .databases import MATERIAL_DATABASE
 
 
 class MaterialSelector:

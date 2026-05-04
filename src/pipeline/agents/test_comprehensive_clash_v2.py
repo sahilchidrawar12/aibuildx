@@ -23,11 +23,11 @@ try:
     from comprehensive_clash_corrector_v2 import ComprehensiveClashCorrector
     from main_pipeline_agent_enhanced import EnhancedMainPipelineAgent, run_enhanced_pipeline
 except ImportError:
-    from src.pipeline.agents.comprehensive_clash_detector_v2 import (
+    from ...agents.comprehensive_clash_detector_v2 import (
         ComprehensiveClashDetector, ClashCategory, ClashSeverity
     )
-    from src.pipeline.agents.comprehensive_clash_corrector_v2 import ComprehensiveClashCorrector
-    from src.pipeline.agents.main_pipeline_agent_enhanced import EnhancedMainPipelineAgent, run_enhanced_pipeline
+    from ...agents.comprehensive_clash_corrector_v2 import ComprehensiveClashCorrector
+    from ...agents.main_pipeline_agent_enhanced import EnhancedMainPipelineAgent, run_enhanced_pipeline
 
 # ============================================================================
 # TEST DATA GENERATORS - CREATE COMPLEX STRUCTURES

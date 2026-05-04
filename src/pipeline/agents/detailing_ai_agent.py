@@ -22,7 +22,7 @@ from pathlib import Path
 
 try:
     # Reuse existing model inference engine for consistency/caching
-    from src.pipeline.agents.connection_synthesis_agent_enhanced import ModelInferenceEngine
+    from ...agents.connection_synthesis_agent_enhanced import ModelInferenceEngine
 except Exception:  # pragma: no cover - graceful fallback
     ModelInferenceEngine = None  # type: ignore
 
