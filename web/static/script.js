@@ -10,6 +10,18 @@ const fileRemove = document.getElementById('fileRemove');
 
 let selectedFile = null;
 let currentJobId = null;
+let aiValidationState = { ready: false, report: null, pending: false, needsUserConfirmation: false };
+
+const validationModal = document.getElementById('validationModal');
+const validationTitle = document.getElementById('validationTitle');
+const validationAdvice = document.getElementById('validationAdvice');
+const validationSuggestions = document.getElementById('validationSuggestions');
+const validationConfidence = document.getElementById('validationConfidence');
+const validationGaps = document.getElementById('validationGaps');
+const validationSemantic = document.getElementById('validationSemantic');
+const validationYesBtn = document.getElementById('validationYesBtn');
+const validationNoBtn = document.getElementById('validationNoBtn');
+const validationCloseBtn = document.getElementById('validationCloseBtn');
 
 // File selection
 uploadArea.addEventListener('click', (e) => {
@@ -24,6 +36,20 @@ fileInput.addEventListener('change', (e) => {
 fileRemove.addEventListener('click', (e) => {
     e.stopPropagation();
     removeFile();
+});
+
+validationYesBtn?.addEventListener('click', async () => {
+    if (!currentJobId) return;
+    await resolveAiAction(currentJobId, 'apply_all', 'yes');
+});
+
+validationNoBtn?.addEventListener('click', async () => {
+    if (!currentJobId) return;
+    await resolveAiAction(currentJobId, 'accept_as_is', 'no');
+});
+
+validationCloseBtn?.addEventListener('click', () => {
+    hideValidationModal();
 });
 
 // Drag and drop
@@ -67,6 +93,170 @@ function formatFileSize(bytes) {
     const sizes = ['Bytes', 'KB', 'MB', 'GB'];
     const i = Math.floor(Math.log(bytes) / Math.log(k));
     return Math.round((bytes / Math.pow(k, i)) * 100) / 100 + ' ' + sizes[i];
+}
+
+function showValidationModal() {
+    if (!validationModal) return;
+    validationModal.style.display = 'flex';
+}
+
+function hideValidationModal() {
+    if (!validationModal) return;
+    validationModal.style.display = 'none';
+}
+
+function renderAiSummary(report) {
+    const aiSummary = document.getElementById('aiSummary');
+    if (!aiSummary || !report) return;
+
+    aiSummary.innerHTML = `
+        <strong>Self-Healing Consultant</strong>
+        <p class="muted">Confidence ${Math.round((report.confidence_score || 0) * 100)}% — ${report.advisory_text || 'Review suggested before Tekla export.'}</p>
+    `;
+
+    const trendPanel = document.getElementById('aiTrendPanel');
+    if (trendPanel) {
+        trendPanel.innerHTML = `
+            <strong>Global AI Trend</strong>
+            <p class="muted">Average confidence ${Math.round((report.confidence_score || 0) * 100)}% for this job.</p>
+        `;
+    }
+}
+
+async function runAiValidation(jobId) {
+    aiValidationState.pending = true;
+    try {
+        const response = await fetch(`/api/ai-validate/${jobId}`);
+        const data = await response.json();
+        if (!response.ok || data.status !== 'ok') {
+            document.getElementById('aiSummary').innerHTML = `
+                <strong>Self-Healing Consultant</strong>
+                <p class="muted">Unable to validate: ${data.message || 'Unknown error'}. Export is still available.</p>
+            `;
+            exportTeklaBtn.disabled = false;
+            sendTeklaDirectBtn.disabled = false;
+            return;
+        }
+
+        aiValidationState.ready = true;
+        aiValidationState.report = data.audit;
+        aiValidationState.pending = false;
+        aiValidationState.needsUserConfirmation = data.needs_user_confirmation;
+        renderAiReport(data.audit);
+        fetchAiTrend();
+
+        if (data.needs_user_confirmation) {
+            showConsultantDialog(data.audit);
+        } else {
+            exportTeklaBtn.disabled = false;
+            sendTeklaDirectBtn.disabled = false;
+        }
+    } catch (error) {
+        console.error('AI validation error', error);
+        const aiSummary = document.getElementById('aiSummary');
+        if (aiSummary) {
+            aiSummary.innerHTML = `
+                <strong>Self-Healing Consultant</strong>
+                <p class="muted">Validation unavailable: ${error.message}. Export is still available.</p>
+            `;
+        }
+        exportTeklaBtn.disabled = false;
+        sendTeklaDirectBtn.disabled = false;
+    }
+}
+
+function renderAiReport(audit) {
+    if (!audit) return;
+    const aiSummary = document.getElementById('aiSummary');
+    if (aiSummary) {
+        aiSummary.innerHTML = `
+            <strong>Self-Healing Consultant</strong>
+            <p class="muted">${audit.advisory_text || 'Validation complete.'}</p>
+            <div style="margin-top: 10px; font-size: 0.9rem; color: var(--gray-200);">
+                <span>Confidence: ${Math.round(audit.confidence_score * 100)}%</span> ·
+                <span>Gaps: ${audit.disconnected_node_count}</span> ·
+                <span>Classification issues: ${audit.semantic_mismatch_count}</span>
+            </div>
+        `;
+    }
+    if (validationConfidence) {
+        validationConfidence.textContent = (audit.confidence_score || 0).toFixed(2);
+    }
+    if (validationGaps) {
+        validationGaps.textContent = audit.disconnected_node_count || 0;
+    }
+    if (validationSemantic) {
+        validationSemantic.textContent = audit.semantic_mismatch_count || 0;
+    }
+}
+
+function showConsultantDialog(audit) {
+    if (!validationAdvice || !validationSuggestions) return;
+    validationAdvice.textContent = audit.advisory_text || 'The AI consultant recommends reviewing the model before export.';
+    validationSuggestions.innerHTML = '';
+    (audit.suggestions || []).forEach((suggestion) => {
+        const p = document.createElement('p');
+        p.textContent = suggestion;
+        validationSuggestions.appendChild(p);
+    });
+    showValidationModal();
+}
+
+async function resolveAiAction(jobId, action, decision) {
+    if (!jobId) return;
+    validationYesBtn.disabled = true;
+    validationNoBtn.disabled = true;
+    try {
+        const response = await fetch(`/api/ai-act/${jobId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ action, decision })
+        });
+        const data = await response.json();
+        if (response.ok && data.status === 'ok') {
+            aiValidationState.report = data.audit;
+            aiValidationState.needsUserConfirmation = false;
+            renderAiReport(data.audit);
+            hideValidationModal();
+            exportTeklaBtn.disabled = false;
+            sendTeklaDirectBtn.disabled = false;
+            document.getElementById('teklaStatus').innerHTML = `
+                <strong style="color: var(--success);">✓ Self-healing update applied</strong><br>
+                <span style="font-size: 0.875rem; color: var(--gray-600);">The model is ready for Tekla export.</span>
+            `;
+        } else {
+            document.getElementById('teklaStatus').innerHTML = `
+                <strong style="color: var(--error);">❌ Self-healing action failed</strong><br>
+                <span style="font-size: 0.875rem; color: var(--gray-600);">${data.message || 'Please try again.'}</span>
+            `;
+        }
+    } catch (error) {
+        document.getElementById('teklaStatus').innerHTML = `
+            <strong style="color: var(--error);">❌ Self-healing action failed</strong><br>
+            <span style="font-size: 0.875rem; color: var(--gray-600);">${error.message}</span>
+        `;
+    } finally {
+        validationYesBtn.disabled = false;
+        validationNoBtn.disabled = false;
+    }
+}
+
+async function fetchAiTrend() {
+    try {
+        const response = await fetch('/api/ai-feedback-trend');
+        const data = await response.json();
+        if (!response.ok || data.status !== 'ok') return;
+        const trendPanel = document.getElementById('aiTrendPanel');
+        if (!trendPanel) return;
+        trendPanel.innerHTML = `
+            <strong>AI Confidence Trend</strong>
+            <p class="muted">Average confidence across ${data.trend.decisions} decisions: ${Math.round((data.trend.average_confidence || 0) * 100)}%</p>
+        `;
+    } catch (error) {
+        console.warn('Unable to load AI trend', error);
+    }
 }
 
 // Upload and process
@@ -286,6 +476,10 @@ function showResults(data) {
     } else {
         console.warn('qualityMetrics element not found, skipping metrics display');
     }
+
+    exportTeklaBtn.disabled = true;
+    sendTeklaDirectBtn.disabled = true;
+    runAiValidation(currentJobId);
     
     // Show results section
     console.log('Showing results section...');
@@ -297,7 +491,15 @@ function showResults(data) {
 // Export to Tekla
 exportTeklaBtn.addEventListener('click', async () => {
     if (!currentJobId) return;
-    
+    if (!aiValidationState.ready) {
+        showConsultantDialog(aiValidationState.report || { suggestions: ['AI validation is still pending. Please wait or refresh the page.'] });
+        return;
+    }
+    if (aiValidationState.needsUserConfirmation) {
+        showConsultantDialog(aiValidationState.report || { suggestions: ['AI validation requires action before export.'] });
+        return;
+    }
+
     // Show loading state
     exportTeklaBtn.disabled = true;
     exportTeklaBtn.innerHTML = `

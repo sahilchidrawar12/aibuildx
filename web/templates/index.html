@@ -196,11 +196,18 @@
                         </button>
                         <p class="tekla-status" id="teklaStatus"></p>
                         <p class="tekla-status" id="teklaDirectStatus"></p>
+                        <div id="aiSummary" class="ai-summary">
+                            <strong>Self-Healing Consultant</strong>
+                            <p class="muted">Validating before Tekla export...</p>
+                        </div>
                     </div>
 
                     <div class="result-card">
                         <div class="result-icon">✨</div>
                         <h3>Quality Report</h3>
+                        <div id="aiTrendPanel" class="ai-trend">
+                            <p class="muted">AI confidence trend loading...</p>
+                        </div>
                         <div class="quality-metrics">
                             <div class="metric">
                                 <div class="metric-label">Accuracy</div>
@@ -219,6 +226,29 @@
                     </button>
                 </div>
             </section>
+
+            <div id="validationModal" class="modal" style="display:none;">
+                <div class="modal-backdrop"></div>
+                <div class="modal-card">
+                    <div class="modal-header">
+                        <h2 id="validationTitle">AI Validation Consultant</h2>
+                        <button class="close-modal" id="validationCloseBtn">×</button>
+                    </div>
+                    <div class="modal-content">
+                        <p id="validationAdvice" class="section-desc"></p>
+                        <div id="validationSuggestions" class="validation-suggestions"></div>
+                        <div class="validation-metrics">
+                            <div><strong>Confidence</strong>: <span id="validationConfidence">0.0</span></div>
+                            <div><strong>Disconnected nodes</strong>: <span id="validationGaps">0</span></div>
+                            <div><strong>Semantic mismatches</strong>: <span id="validationSemantic">0</span></div>
+                        </div>
+                        <div class="modal-actions">
+                            <button class="btn btn-tekla" id="validationYesBtn">Yes, repair now</button>
+                            <button class="btn btn-secondary" id="validationNoBtn">No, export as-is</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!-- Error Section -->
             <section id="errorSection" class="glass-card error-card" style="display: none;">

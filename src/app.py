@@ -7,10 +7,19 @@ import json
 import uuid
 import urllib.request
 import urllib.error
+import datetime
 from pathlib import Path
 from werkzeug.utils import secure_filename
 from flask import Flask, render_template, request, jsonify, send_file
 from .pipeline.utils.pipeline_compat import run_pipeline
+from .pipeline.agents.llm_validation_agent import (
+    LLMValidationAgent,
+    load_job_result,
+    save_job_result,
+    save_ai_audit,
+    record_ai_feedback,
+    aggregate_feedback_trends,
+)
 
 # Configuration - use project root paths
 PROJECT_ROOT = Path(__file__).parent.parent
@@ -157,6 +166,96 @@ def job_status(job_id):
         'files': files,
         'download_url': f'/api/download/{job_id}/'
     }), 200
+
+
+@app.route('/api/ai-validate/<job_id>')
+def ai_validate(job_id):
+    job_output_dir = os.path.join(OUTPUT_FOLDER, job_id)
+    if not os.path.exists(job_output_dir):
+        return jsonify({'status': 'error', 'message': 'Job not found'}), 404
+
+    result = load_job_result(job_output_dir)
+    if not result:
+        return jsonify({'status': 'error', 'message': 'No valid pipeline result to audit'}), 404
+
+    try:
+        agent = LLMValidationAgent()
+        audit_report = agent.audit(result)
+        save_ai_audit(job_output_dir, audit_report)
+        response_payload = {
+            'status': 'ok',
+            'job_id': job_id,
+            'audit': audit_report,
+            'needs_user_confirmation': audit_report.get('scale_correction_needed', False) or audit_report.get('disconnected_node_count', 0) > 0 or audit_report.get('semantic_mismatch_count', 0) > 0
+        }
+        return jsonify(response_payload), 200
+    except Exception as exc:
+        return jsonify({'status': 'error', 'message': str(exc)}), 500
+
+
+@app.route('/api/ai-act/<job_id>', methods=['POST'])
+def ai_act(job_id):
+    job_output_dir = os.path.join(OUTPUT_FOLDER, job_id)
+    if not os.path.exists(job_output_dir):
+        return jsonify({'status': 'error', 'message': 'Job not found'}), 404
+
+    payload = request.get_json(silent=True) or {}
+    action = payload.get('action', 'accept_as_is')
+    user_decision = payload.get('decision', 'no')
+
+    result = load_job_result(job_output_dir)
+    if not result:
+        return jsonify({'status': 'error', 'message': 'No valid pipeline result to modify'}), 404
+
+    try:
+        agent = LLMValidationAgent()
+        audit_report = agent.audit(result)
+        apply_scale = action in ('apply_all', 'rescale') and audit_report.get('scale_correction_needed', False)
+        snap_nodes = action in ('apply_all', 'snap_nodes') or (action == 'apply_all' and audit_report.get('disconnected_node_count', 0) > 0)
+        repair_plan = audit_report.get('llm_repair_plan') if isinstance(audit_report, dict) else None
+
+        if action in ('apply_all', 'rescale', 'snap_nodes'):
+            corrected = agent.apply_repair(result, apply_scale=apply_scale, snap_nodes=snap_nodes, repair_plan=repair_plan)
+            saved = save_job_result(job_output_dir, corrected)
+            if not saved:
+                return jsonify({'status': 'error', 'message': 'Failed to persist repaired model'}), 500
+        else:
+            corrected = result
+
+        feedback = {
+            'timestamp': datetime.datetime.utcnow().isoformat() + 'Z',
+            'job_id': job_id,
+            'action': action,
+            'decision': user_decision,
+            'accepted': user_decision.lower() in ('yes', 'y', 'accept', 'apply'),
+            'confidence_score': audit_report.get('confidence_score', 0.0),
+            'scale_correction_needed': audit_report.get('scale_correction_needed', False),
+            'disconnected_node_count': audit_report.get('disconnected_node_count', 0),
+            'semantic_mismatch_count': audit_report.get('semantic_mismatch_count', 0),
+            'suggestions': audit_report.get('suggestions', []),
+        }
+        record_ai_feedback(job_output_dir, feedback, audit_report=audit_report)
+        save_ai_audit(job_output_dir, audit_report)
+
+        return jsonify({
+            'status': 'ok',
+            'job_id': job_id,
+            'action': action,
+            'audit': audit_report,
+            'repaired': action in ('apply_all', 'rescale', 'snap_nodes')
+        }), 200
+    except Exception as exc:
+        return jsonify({'status': 'error', 'message': str(exc)}), 500
+
+
+@app.route('/api/ai-feedback-trend')
+def ai_feedback_trend():
+    try:
+        trend = aggregate_feedback_trends(OUTPUT_FOLDER)
+        return jsonify({'status': 'ok', 'trend': trend}), 200
+    except Exception as exc:
+        return jsonify({'status': 'error', 'message': str(exc)}), 500
+
 
 def query_local_tekla_api(path, method='GET', payload=None, timeout=5):
     url = f'http://localhost:8000{path}'
