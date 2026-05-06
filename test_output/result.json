@@ -1,0 +1,7875 @@
+{
+  "miner": {
+    "members": [
+      {
+        "id": "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "end": [
+          0.0,
+          10000.0,
+          0.0
+        ],
+        "length": 10000.0,
+        "layer": "STR_GRIDS",
+        "dir": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "rotation": 90.0,
+        "node_start": 0,
+        "node_end": 1,
+        "material": {
+          "name": "ASTM A992",
+          "fy": 345.0,
+          "fu": 450.0,
+          "unit": "MPa",
+          "E": 210000.0,
+          "density": 7850.0
+        },
+        "erection_seq": 1
+      },
+      {
+        "id": "4ab6263f-fc25-4e33-985f-9590defe2dff",
+        "start": [
+          6000.0,
+          0.0,
+          0.0
+        ],
+        "end": [
+          6000.0,
+          10000.0,
+          0.0
+        ],
+        "length": 10000.0,
+        "layer": "STR_GRIDS",
+        "dir": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "rotation": 90.0,
+        "node_start": 2,
+        "node_end": 3,
+        "material": {
+          "name": "ASTM A992",
+          "fy": 345.0,
+          "fu": 450.0,
+          "unit": "MPa",
+          "E": 210000.0,
+          "density": 7850.0
+        },
+        "erection_seq": 2
+      },
+      {
+        "id": "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "end": [
+          6000.0,
+          0.0,
+          0.0
+        ],
+        "length": 6000.0,
+        "layer": "STR_GRIDS",
+        "dir": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "rotation": 0.0,
+        "node_start": 0,
+        "node_end": 2,
+        "material": {
+          "name": "ASTM A992",
+          "fy": 345.0,
+          "fu": 450.0,
+          "unit": "MPa",
+          "E": 210000.0,
+          "density": 7850.0
+        },
+        "erection_seq": 3
+      },
+      {
+        "id": "32b51350-7944-4444-aef9-b0fb73afbdb1",
+        "start": [
+          0.0,
+          10000.0,
+          0.0
+        ],
+        "end": [
+          6000.0,
+          10000.0,
+          0.0
+        ],
+        "length": 6000.0,
+        "layer": "STR_GRIDS",
+        "dir": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "rotation": 0.0,
+        "node_start": 1,
+        "node_end": 3,
+        "material": {
+          "name": "ASTM A992",
+          "fy": 345.0,
+          "fu": 450.0,
+          "unit": "MPa",
+          "E": 210000.0,
+          "density": 7850.0
+        },
+        "erection_seq": 4
+      },
+      {
+        "id": "6a224b9c-d4a3-403d-af8f-407671e71667",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "end": [
+          6000.0,
+          0.0,
+          0.0
+        ],
+        "length": 6000.0,
+        "layer": "STR_BEAMS",
+        "dir": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "rotation": 0.0,
+        "node_start": 0,
+        "node_end": 2,
+        "material": {
+          "name": "ASTM A992",
+          "fy": 345.0,
+          "fu": 450.0,
+          "unit": "MPa",
+          "E": 210000.0,
+          "density": 7850.0
+        },
+        "erection_seq": 5
+      },
+      {
+        "id": "0992e5a0-27e3-4e71-8641-c39f0cae6894",
+        "start": [
+          0.0,
+          10000.0,
+          0.0
+        ],
+        "end": [
+          6000.0,
+          10000.0,
+          0.0
+        ],
+        "length": 6000.0,
+        "layer": "STR_BEAMS",
+        "dir": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "rotation": 0.0,
+        "node_start": 1,
+        "node_end": 3,
+        "material": {
+          "name": "ASTM A992",
+          "fy": 345.0,
+          "fu": 450.0,
+          "unit": "MPa",
+          "E": 210000.0,
+          "density": 7850.0
+        },
+        "erection_seq": 6
+      }
+    ],
+    "circles": [
+      {
+        "type": "CIRCLE",
+        "center": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "radius": 100.0,
+        "layer": "STR_COLUMNS"
+      },
+      {
+        "type": "CIRCLE",
+        "center": [
+          6000.0,
+          0.0,
+          0.0
+        ],
+        "radius": 100.0,
+        "layer": "STR_COLUMNS"
+      },
+      {
+        "type": "CIRCLE",
+        "center": [
+          0.0,
+          10000.0,
+          0.0
+        ],
+        "radius": 100.0,
+        "layer": "STR_COLUMNS"
+      },
+      {
+        "type": "CIRCLE",
+        "center": [
+          6000.0,
+          10000.0,
+          0.0
+        ],
+        "radius": 100.0,
+        "layer": "STR_COLUMNS"
+      }
+    ],
+    "annotations": [
+      {
+        "text": "ISMB400",
+        "position": [
+          150.0,
+          150.0,
+          0.0
+        ],
+        "layer": "STR_TEXT"
+      },
+      {
+        "text": "ISMB400",
+        "position": [
+          6150.0,
+          150.0,
+          0.0
+        ],
+        "layer": "STR_TEXT"
+      },
+      {
+        "text": "ISMB400",
+        "position": [
+          150.0,
+          10150.0,
+          0.0
+        ],
+        "layer": "STR_TEXT"
+      },
+      {
+        "text": "ISMB400",
+        "position": [
+          6150.0,
+          10150.0,
+          0.0
+        ],
+        "layer": "STR_TEXT"
+      },
+      {
+        "text": "ISMB350",
+        "position": [
+          3000.0,
+          200.0,
+          0.0
+        ],
+        "layer": "STR_TEXT"
+      },
+      {
+        "text": "ISMB350",
+        "position": [
+          3000.0,
+          10200.0,
+          0.0
+        ],
+        "layer": "STR_TEXT"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "id": 0,
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    {
+      "id": 1,
+      "x": 0.0,
+      "y": 10000.0,
+      "z": 0.0
+    },
+    {
+      "id": 2,
+      "x": 6000.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    {
+      "id": 3,
+      "x": 6000.0,
+      "y": 10000.0,
+      "z": 0.0
+    }
+  ],
+  "joints": [
+    {
+      "id": "joint_0",
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "node_id": 0,
+      "members": [
+        "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+        "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+        "6a224b9c-d4a3-403d-af8f-407671e71667"
+      ],
+      "member_count": 3,
+      "type": "Bolted",
+      "connection_type": "bolted",
+      "joint_category": "standard"
+    },
+    {
+      "id": "joint_1",
+      "position": [
+        0.0,
+        10000.0,
+        0.0
+      ],
+      "location": [
+        0.0,
+        10000.0,
+        0.0
+      ],
+      "x": 0.0,
+      "y": 10000.0,
+      "z": 0.0,
+      "node_id": 1,
+      "members": [
+        "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+        "32b51350-7944-4444-aef9-b0fb73afbdb1",
+        "0992e5a0-27e3-4e71-8641-c39f0cae6894"
+      ],
+      "member_count": 3,
+      "type": "Bolted",
+      "connection_type": "bolted",
+      "joint_category": "standard"
+    },
+    {
+      "id": "joint_2",
+      "position": [
+        6000.0,
+        0.0,
+        0.0
+      ],
+      "location": [
+        6000.0,
+        0.0,
+        0.0
+      ],
+      "x": 6000.0,
+      "y": 0.0,
+      "z": 0.0,
+      "node_id": 2,
+      "members": [
+        "4ab6263f-fc25-4e33-985f-9590defe2dff",
+        "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+        "6a224b9c-d4a3-403d-af8f-407671e71667"
+      ],
+      "member_count": 3,
+      "type": "Bolted",
+      "connection_type": "bolted",
+      "joint_category": "standard"
+    },
+    {
+      "id": "joint_3",
+      "position": [
+        6000.0,
+        10000.0,
+        0.0
+      ],
+      "location": [
+        6000.0,
+        10000.0,
+        0.0
+      ],
+      "x": 6000.0,
+      "y": 10000.0,
+      "z": 0.0,
+      "node_id": 3,
+      "members": [
+        "4ab6263f-fc25-4e33-985f-9590defe2dff",
+        "32b51350-7944-4444-aef9-b0fb73afbdb1",
+        "0992e5a0-27e3-4e71-8641-c39f0cae6894"
+      ],
+      "member_count": 3,
+      "type": "Bolted",
+      "connection_type": "bolted",
+      "joint_category": "standard"
+    },
+    {
+      "id": "joint_3e604cc9",
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "members": [
+        "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+        "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+        "6a224b9c-d4a3-403d-af8f-407671e71667"
+      ],
+      "member_count": 3,
+      "connection_type": "moment_bolted",
+      "layer": "STR_COLUMNS",
+      "search_radius": 150.0,
+      "detected_members": [
+        {
+          "id": "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+          "distance_from_center": 0.0
+        },
+        {
+          "id": "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+          "distance_from_center": 0.0
+        },
+        {
+          "id": "6a224b9c-d4a3-403d-af8f-407671e71667",
+          "distance_from_center": 0.0
+        }
+      ],
+      "joint_category": "standard"
+    },
+    {
+      "id": "joint_0a857275",
+      "position": [
+        6000.0,
+        0.0,
+        0.0
+      ],
+      "members": [
+        "4ab6263f-fc25-4e33-985f-9590defe2dff",
+        "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+        "6a224b9c-d4a3-403d-af8f-407671e71667"
+      ],
+      "member_count": 3,
+      "connection_type": "moment_bolted",
+      "layer": "STR_COLUMNS",
+      "search_radius": 150.0,
+      "detected_members": [
+        {
+          "id": "4ab6263f-fc25-4e33-985f-9590defe2dff",
+          "distance_from_center": 0.0
+        },
+        {
+          "id": "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+          "distance_from_center": 0.0
+        },
+        {
+          "id": "6a224b9c-d4a3-403d-af8f-407671e71667",
+          "distance_from_center": 0.0
+        }
+      ],
+      "joint_category": "standard"
+    },
+    {
+      "id": "joint_704da664",
+      "position": [
+        0.0,
+        10000.0,
+        0.0
+      ],
+      "members": [
+        "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+        "32b51350-7944-4444-aef9-b0fb73afbdb1",
+        "0992e5a0-27e3-4e71-8641-c39f0cae6894"
+      ],
+      "member_count": 3,
+      "connection_type": "moment_bolted",
+      "layer": "STR_COLUMNS",
+      "search_radius": 150.0,
+      "detected_members": [
+        {
+          "id": "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+          "distance_from_center": 0.0
+        },
+        {
+          "id": "32b51350-7944-4444-aef9-b0fb73afbdb1",
+          "distance_from_center": 0.0
+        },
+        {
+          "id": "0992e5a0-27e3-4e71-8641-c39f0cae6894",
+          "distance_from_center": 0.0
+        }
+      ],
+      "joint_category": "standard"
+    },
+    {
+      "id": "joint_8ac49102",
+      "position": [
+        6000.0,
+        10000.0,
+        0.0
+      ],
+      "members": [
+        "4ab6263f-fc25-4e33-985f-9590defe2dff",
+        "32b51350-7944-4444-aef9-b0fb73afbdb1",
+        "0992e5a0-27e3-4e71-8641-c39f0cae6894"
+      ],
+      "member_count": 3,
+      "connection_type": "moment_bolted",
+      "layer": "STR_COLUMNS",
+      "search_radius": 150.0,
+      "detected_members": [
+        {
+          "id": "4ab6263f-fc25-4e33-985f-9590defe2dff",
+          "distance_from_center": 0.0
+        },
+        {
+          "id": "32b51350-7944-4444-aef9-b0fb73afbdb1",
+          "distance_from_center": 0.0
+        },
+        {
+          "id": "0992e5a0-27e3-4e71-8641-c39f0cae6894",
+          "distance_from_center": 0.0
+        }
+      ],
+      "joint_category": "standard"
+    }
+  ],
+  "circles_parsed": 4,
+  "coordinate_origin_fixed": true,
+  "joint_enrichment": true,
+  "members_classified": [
+    {
+      "id": "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+      "start": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "end": [
+        0.0,
+        10000.0,
+        0.0
+      ],
+      "length": 10000.0,
+      "layer": "STR_GRIDS",
+      "dir": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "rotation": 90.0,
+      "node_start": 0,
+      "node_end": 1,
+      "material": {
+        "name": "ASTM A992",
+        "fy": 345.0,
+        "fu": 450.0,
+        "unit": "MPa",
+        "E": 210000.0,
+        "density": 7850.0
+      },
+      "erection_seq": 1
+    },
+    {
+      "id": "4ab6263f-fc25-4e33-985f-9590defe2dff",
+      "start": [
+        6000.0,
+        0.0,
+        0.0
+      ],
+      "end": [
+        6000.0,
+        10000.0,
+        0.0
+      ],
+      "length": 10000.0,
+      "layer": "STR_GRIDS",
+      "dir": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "rotation": 90.0,
+      "node_start": 2,
+      "node_end": 3,
+      "material": {
+        "name": "ASTM A992",
+        "fy": 345.0,
+        "fu": 450.0,
+        "unit": "MPa",
+        "E": 210000.0,
+        "density": 7850.0
+      },
+      "erection_seq": 2
+    },
+    {
+      "id": "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+      "start": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "end": [
+        6000.0,
+        0.0,
+        0.0
+      ],
+      "length": 6000.0,
+      "layer": "STR_GRIDS",
+      "dir": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "node_start": 0,
+      "node_end": 2,
+      "material": {
+        "name": "ASTM A992",
+        "fy": 345.0,
+        "fu": 450.0,
+        "unit": "MPa",
+        "E": 210000.0,
+        "density": 7850.0
+      },
+      "erection_seq": 3
+    },
+    {
+      "id": "32b51350-7944-4444-aef9-b0fb73afbdb1",
+      "start": [
+        0.0,
+        10000.0,
+        0.0
+      ],
+      "end": [
+        6000.0,
+        10000.0,
+        0.0
+      ],
+      "length": 6000.0,
+      "layer": "STR_GRIDS",
+      "dir": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "node_start": 1,
+      "node_end": 3,
+      "material": {
+        "name": "ASTM A992",
+        "fy": 345.0,
+        "fu": 450.0,
+        "unit": "MPa",
+        "E": 210000.0,
+        "density": 7850.0
+      },
+      "erection_seq": 4
+    },
+    {
+      "id": "6a224b9c-d4a3-403d-af8f-407671e71667",
+      "start": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "end": [
+        6000.0,
+        0.0,
+        0.0
+      ],
+      "length": 6000.0,
+      "layer": "STR_BEAMS",
+      "dir": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "node_start": 0,
+      "node_end": 2,
+      "material": {
+        "name": "ASTM A992",
+        "fy": 345.0,
+        "fu": 450.0,
+        "unit": "MPa",
+        "E": 210000.0,
+        "density": 7850.0
+      },
+      "erection_seq": 5
+    },
+    {
+      "id": "0992e5a0-27e3-4e71-8641-c39f0cae6894",
+      "start": [
+        0.0,
+        10000.0,
+        0.0
+      ],
+      "end": [
+        6000.0,
+        10000.0,
+        0.0
+      ],
+      "length": 6000.0,
+      "layer": "STR_BEAMS",
+      "dir": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "node_start": 1,
+      "node_end": 3,
+      "material": {
+        "name": "ASTM A992",
+        "fy": 345.0,
+        "fu": 450.0,
+        "unit": "MPa",
+        "E": 210000.0,
+        "density": 7850.0
+      },
+      "erection_seq": 6
+    }
+  ],
+  "load_combinations": [
+    {
+      "name": "1.4D",
+      "D": 0.0
+    },
+    {
+      "name": "1.2D+1.6L+0.5W",
+      "D": 0.0,
+      "L": 0.0,
+      "W": 0.0
+    },
+    {
+      "name": "1.2D+1.0E+0.5L",
+      "D": 0.0,
+      "E": 0.0,
+      "L": 0.0
+    },
+    {
+      "name": "0.9D+1.0E",
+      "D": 0.0,
+      "E": 0.0
+    }
+  ],
+  "deflection": [
+    {
+      "id": "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+      "deflection": {
+        "deflection": 0.0,
+        "limit_L240": 41.666666666666664,
+        "limit_L360": 27.77777777777778,
+        "ok_L240": true,
+        "ok_L360": true
+      }
+    },
+    {
+      "id": "4ab6263f-fc25-4e33-985f-9590defe2dff",
+      "deflection": {
+        "deflection": 0.0,
+        "limit_L240": 41.666666666666664,
+        "limit_L360": 27.77777777777778,
+        "ok_L240": true,
+        "ok_L360": true
+      }
+    },
+    {
+      "id": "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+      "deflection": {
+        "deflection": 0.0,
+        "limit_L240": 25.0,
+        "limit_L360": 16.666666666666668,
+        "ok_L240": true,
+        "ok_L360": true
+      }
+    },
+    {
+      "id": "32b51350-7944-4444-aef9-b0fb73afbdb1",
+      "deflection": {
+        "deflection": 0.0,
+        "limit_L240": 25.0,
+        "limit_L360": 16.666666666666668,
+        "ok_L240": true,
+        "ok_L360": true
+      }
+    },
+    {
+      "id": "6a224b9c-d4a3-403d-af8f-407671e71667",
+      "deflection": {
+        "deflection": 0.0,
+        "limit_L240": 25.0,
+        "limit_L360": 16.666666666666668,
+        "ok_L240": true,
+        "ok_L360": true
+      }
+    },
+    {
+      "id": "0992e5a0-27e3-4e71-8641-c39f0cae6894",
+      "deflection": {
+        "deflection": 0.0,
+        "limit_L240": 25.0,
+        "limit_L360": 16.666666666666668,
+        "ok_L240": true,
+        "ok_L360": true
+      }
+    }
+  ],
+  "plates": [
+    {
+      "id": "plate_0",
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "outline": {
+        "width_mm": 219.08902300206648,
+        "height_mm": 219.08902300206648
+      },
+      "thickness_mm": 19.05,
+      "material": {
+        "name": "A36",
+        "fy_mpa": 250,
+        "fu_mpa": 400
+      },
+      "members": [
+        "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+        "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+        "6a224b9c-d4a3-403d-af8f-407671e71667"
+      ],
+      "bolt_diameter_mm": 28.575,
+      "connection_load_kn": 900.0,
+      "joint_category": "standard",
+      "splice_type": null,
+      "slot_type": null,
+      "weld_specifications": {
+        "type": "Fillet",
+        "size_mm": 7.938,
+        "length_mm": 175.2712184016532,
+        "electrode": "E7018",
+        "process": "GMAW"
+      },
+      "synthesis_method": "MODEL-DRIVEN-AI",
+      "model_driven": true,
+      "models_used": [
+        "BoltSizePredictor",
+        "PlateThicknessPredictor",
+        "WeldSizePredictor",
+        "JointInferenceNet",
+        "BoltPatternOptimizer"
+      ],
+      "verification": "AISC/AWS Standards Compliant"
+    },
+    {
+      "id": "plate_1",
+      "position": [
+        0.0,
+        10000.0,
+        0.0
+      ],
+      "location": [
+        0.0,
+        10000.0,
+        0.0
+      ],
+      "outline": {
+        "width_mm": 219.08902300206648,
+        "height_mm": 219.08902300206648
+      },
+      "thickness_mm": 19.05,
+      "material": {
+        "name": "A36",
+        "fy_mpa": 250,
+        "fu_mpa": 400
+      },
+      "members": [
+        "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+        "32b51350-7944-4444-aef9-b0fb73afbdb1",
+        "0992e5a0-27e3-4e71-8641-c39f0cae6894"
+      ],
+      "bolt_diameter_mm": 28.575,
+      "connection_load_kn": 900.0,
+      "joint_category": "standard",
+      "splice_type": null,
+      "slot_type": null,
+      "weld_specifications": {
+        "type": "Fillet",
+        "size_mm": 7.938,
+        "length_mm": 175.2712184016532,
+        "electrode": "E7018",
+        "process": "GMAW"
+      },
+      "synthesis_method": "MODEL-DRIVEN-AI",
+      "model_driven": true,
+      "models_used": [
+        "BoltSizePredictor",
+        "PlateThicknessPredictor",
+        "WeldSizePredictor",
+        "JointInferenceNet",
+        "BoltPatternOptimizer"
+      ],
+      "verification": "AISC/AWS Standards Compliant"
+    },
+    {
+      "id": "plate_2",
+      "position": [
+        6000.0,
+        0.0,
+        0.0
+      ],
+      "location": [
+        6000.0,
+        0.0,
+        0.0
+      ],
+      "outline": {
+        "width_mm": 219.08902300206648,
+        "height_mm": 219.08902300206648
+      },
+      "thickness_mm": 19.05,
+      "material": {
+        "name": "A36",
+        "fy_mpa": 250,
+        "fu_mpa": 400
+      },
+      "members": [
+        "4ab6263f-fc25-4e33-985f-9590defe2dff",
+        "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+        "6a224b9c-d4a3-403d-af8f-407671e71667"
+      ],
+      "bolt_diameter_mm": 28.575,
+      "connection_load_kn": 900.0,
+      "joint_category": "standard",
+      "splice_type": null,
+      "slot_type": null,
+      "weld_specifications": {
+        "type": "Fillet",
+        "size_mm": 7.938,
+        "length_mm": 175.2712184016532,
+        "electrode": "E7018",
+        "process": "GMAW"
+      },
+      "synthesis_method": "MODEL-DRIVEN-AI",
+      "model_driven": true,
+      "models_used": [
+        "BoltSizePredictor",
+        "PlateThicknessPredictor",
+        "WeldSizePredictor",
+        "JointInferenceNet",
+        "BoltPatternOptimizer"
+      ],
+      "verification": "AISC/AWS Standards Compliant"
+    },
+    {
+      "id": "plate_3",
+      "position": [
+        6000.0,
+        10000.0,
+        0.0
+      ],
+      "location": [
+        6000.0,
+        10000.0,
+        0.0
+      ],
+      "outline": {
+        "width_mm": 219.08902300206648,
+        "height_mm": 219.08902300206648
+      },
+      "thickness_mm": 19.05,
+      "material": {
+        "name": "A36",
+        "fy_mpa": 250,
+        "fu_mpa": 400
+      },
+      "members": [
+        "4ab6263f-fc25-4e33-985f-9590defe2dff",
+        "32b51350-7944-4444-aef9-b0fb73afbdb1",
+        "0992e5a0-27e3-4e71-8641-c39f0cae6894"
+      ],
+      "bolt_diameter_mm": 28.575,
+      "connection_load_kn": 900.0,
+      "joint_category": "standard",
+      "splice_type": null,
+      "slot_type": null,
+      "weld_specifications": {
+        "type": "Fillet",
+        "size_mm": 7.938,
+        "length_mm": 175.2712184016532,
+        "electrode": "E7018",
+        "process": "GMAW"
+      },
+      "synthesis_method": "MODEL-DRIVEN-AI",
+      "model_driven": true,
+      "models_used": [
+        "BoltSizePredictor",
+        "PlateThicknessPredictor",
+        "WeldSizePredictor",
+        "JointInferenceNet",
+        "BoltPatternOptimizer"
+      ],
+      "verification": "AISC/AWS Standards Compliant"
+    },
+    {
+      "id": "plate_4",
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "outline": {
+        "width_mm": 219.08902300206648,
+        "height_mm": 219.08902300206648
+      },
+      "thickness_mm": 19.05,
+      "material": {
+        "name": "A36",
+        "fy_mpa": 250,
+        "fu_mpa": 400
+      },
+      "members": [
+        "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+        "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+        "6a224b9c-d4a3-403d-af8f-407671e71667"
+      ],
+      "bolt_diameter_mm": 28.575,
+      "connection_load_kn": 900.0,
+      "joint_category": "standard",
+      "splice_type": null,
+      "slot_type": null,
+      "weld_specifications": {
+        "type": "Fillet",
+        "size_mm": 7.938,
+        "length_mm": 175.2712184016532,
+        "electrode": "E7018",
+        "process": "GMAW"
+      },
+      "synthesis_method": "MODEL-DRIVEN-AI",
+      "model_driven": true,
+      "models_used": [
+        "BoltSizePredictor",
+        "PlateThicknessPredictor",
+        "WeldSizePredictor",
+        "JointInferenceNet",
+        "BoltPatternOptimizer"
+      ],
+      "verification": "AISC/AWS Standards Compliant"
+    },
+    {
+      "id": "plate_5",
+      "position": [
+        6000.0,
+        0.0,
+        0.0
+      ],
+      "location": [
+        6000.0,
+        0.0,
+        0.0
+      ],
+      "outline": {
+        "width_mm": 219.08902300206648,
+        "height_mm": 219.08902300206648
+      },
+      "thickness_mm": 19.05,
+      "material": {
+        "name": "A36",
+        "fy_mpa": 250,
+        "fu_mpa": 400
+      },
+      "members": [
+        "4ab6263f-fc25-4e33-985f-9590defe2dff",
+        "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+        "6a224b9c-d4a3-403d-af8f-407671e71667"
+      ],
+      "bolt_diameter_mm": 28.575,
+      "connection_load_kn": 900.0,
+      "joint_category": "standard",
+      "splice_type": null,
+      "slot_type": null,
+      "weld_specifications": {
+        "type": "Fillet",
+        "size_mm": 7.938,
+        "length_mm": 175.2712184016532,
+        "electrode": "E7018",
+        "process": "GMAW"
+      },
+      "synthesis_method": "MODEL-DRIVEN-AI",
+      "model_driven": true,
+      "models_used": [
+        "BoltSizePredictor",
+        "PlateThicknessPredictor",
+        "WeldSizePredictor",
+        "JointInferenceNet",
+        "BoltPatternOptimizer"
+      ],
+      "verification": "AISC/AWS Standards Compliant"
+    },
+    {
+      "id": "plate_6",
+      "position": [
+        0.0,
+        10000.0,
+        0.0
+      ],
+      "location": [
+        0.0,
+        10000.0,
+        0.0
+      ],
+      "outline": {
+        "width_mm": 219.08902300206648,
+        "height_mm": 219.08902300206648
+      },
+      "thickness_mm": 19.05,
+      "material": {
+        "name": "A36",
+        "fy_mpa": 250,
+        "fu_mpa": 400
+      },
+      "members": [
+        "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+        "32b51350-7944-4444-aef9-b0fb73afbdb1",
+        "0992e5a0-27e3-4e71-8641-c39f0cae6894"
+      ],
+      "bolt_diameter_mm": 28.575,
+      "connection_load_kn": 900.0,
+      "joint_category": "standard",
+      "splice_type": null,
+      "slot_type": null,
+      "weld_specifications": {
+        "type": "Fillet",
+        "size_mm": 7.938,
+        "length_mm": 175.2712184016532,
+        "electrode": "E7018",
+        "process": "GMAW"
+      },
+      "synthesis_method": "MODEL-DRIVEN-AI",
+      "model_driven": true,
+      "models_used": [
+        "BoltSizePredictor",
+        "PlateThicknessPredictor",
+        "WeldSizePredictor",
+        "JointInferenceNet",
+        "BoltPatternOptimizer"
+      ],
+      "verification": "AISC/AWS Standards Compliant"
+    },
+    {
+      "id": "plate_7",
+      "position": [
+        6000.0,
+        10000.0,
+        0.0
+      ],
+      "location": [
+        6000.0,
+        10000.0,
+        0.0
+      ],
+      "outline": {
+        "width_mm": 219.08902300206648,
+        "height_mm": 219.08902300206648
+      },
+      "thickness_mm": 19.05,
+      "material": {
+        "name": "A36",
+        "fy_mpa": 250,
+        "fu_mpa": 400
+      },
+      "members": [
+        "4ab6263f-fc25-4e33-985f-9590defe2dff",
+        "32b51350-7944-4444-aef9-b0fb73afbdb1",
+        "0992e5a0-27e3-4e71-8641-c39f0cae6894"
+      ],
+      "bolt_diameter_mm": 28.575,
+      "connection_load_kn": 900.0,
+      "joint_category": "standard",
+      "splice_type": null,
+      "slot_type": null,
+      "weld_specifications": {
+        "type": "Fillet",
+        "size_mm": 7.938,
+        "length_mm": 175.2712184016532,
+        "electrode": "E7018",
+        "process": "GMAW"
+      },
+      "synthesis_method": "MODEL-DRIVEN-AI",
+      "model_driven": true,
+      "models_used": [
+        "BoltSizePredictor",
+        "PlateThicknessPredictor",
+        "WeldSizePredictor",
+        "JointInferenceNet",
+        "BoltPatternOptimizer"
+      ],
+      "verification": "AISC/AWS Standards Compliant"
+    }
+  ],
+  "bolts": [
+    {
+      "id": "bolt_0",
+      "diameter_mm": 28.575,
+      "position": [
+        -36.51483716701108,
+        -36.51483716701108,
+        0.0
+      ],
+      "grade": "A325",
+      "fu_mpa": 825,
+      "plate_id": "plate_0",
+      "model_driven": true,
+      "slot_type": null
+    },
+    {
+      "id": "bolt_1",
+      "diameter_mm": 28.575,
+      "position": [
+        36.51483716701108,
+        -36.51483716701108,
+        0.0
+      ],
+      "grade": "A325",
+      "fu_mpa": 825,
+      "plate_id": "plate_0",
+      "model_driven": true,
+      "slot_type": null
+    },
+    {
+      "id": "bolt_2",
+      "diameter_mm": 28.575,
+      "position": [
+        -36.51483716701108,
+        36.51483716701108,
+        0.0
+      ],
+      "grade": "A325",
+      "fu_mpa": 825,
+      "plate_id": "plate_0",
+      "model_driven": true,
+      "slot_type": null
+    },
+    {
+      "id": "bolt_3",
+      "diameter_mm": 28.575,
+      "position": [
+        36.51483716701108,
+        36.51483716701108,
+        0.0
+      ],
+      "grade": "A325",
+      "fu_mpa": 825,
+      "plate_id": "plate_0",
+      "model_driven": true,
+      "slot_type": null
+    },
+    {
+      "id": "bolt_4",
+      "diameter_mm": 28.575,
+      "position": [
+        -36.51483716701108,
+        9963.485162832989,
+        0.0
+      ],
+      "grade": "A325",
+      "fu_mpa": 825,
+      "plate_id": "plate_1",
+      "model_driven": true,
+      "slot_type": null
+    },
+    {
+      "id": "bolt_5",
+      "diameter_mm": 28.575,
+      "position": [
+        36.51483716701108,
+        9963.485162832989,
+        0.0
+      ],
+      "grade": "A325",
+      "fu_mpa": 825,
+      "plate_id": "plate_1",
+      "model_driven": true,
+      "slot_type": null
+    },
+    {
+      "id": "bolt_6",
+      "diameter_mm": 28.575,
+      "position": [
+        -36.51483716701108,
+        10036.514837167011,
+        0.0
+      ],
+      "grade": "A325",
+      "fu_mpa": 825,
+      "plate_id": "plate_1",
+      "model_driven": true,
+      "slot_type": null
+    },
+    {
+      "id": "bolt_7",
+      "diameter_mm": 28.575,
+      "position": [
+        36.51483716701108,
+        10036.514837167011,
+        0.0
+      ],
+      "grade": "A325",
+      "fu_mpa": 825,
+      "plate_id": "plate_1",
+      "model_driven": true,
+      "slot_type": null
+    },
+    {
+      "id": "bolt_8",
+      "diameter_mm": 28.575,
+      "position": [
+        5963.485162832989,
+        -36.51483716701108,
+        0.0
+      ],
+      "grade": "A325",
+      "fu_mpa": 825,
+      "plate_id": "plate_2",
+      "model_driven": true,
+      "slot_type": null
+    },
+    {
+      "id": "bolt_9",
+      "diameter_mm": 28.575,
+      "position": [
+        6036.514837167011,
+        -36.51483716701108,
+        0.0
+      ],
+      "grade": "A325",
+      "fu_mpa": 825,
+      "plate_id": "plate_2",
+      "model_driven": true,
+      "slot_type": null
+    },
+    {
+      "id": "bolt_10",
+      "diameter_mm": 28.575,
+      "position": [
+        5963.485162832989,
+        36.51483716701108,
+        0.0
+      ],
+      "grade": "A325",
+      "fu_mpa": 825,
+      "plate_id": "plate_2",
+      "model_driven": true,
+      "slot_type": null
+    },
+    {
+      "id": "bolt_11",
+      "diameter_mm": 28.575,
+      "position": [
+        6036.514837167011,
+        36.51483716701108,
+        0.0
+      ],
+      "grade": "A325",
+      "fu_mpa": 825,
+      "plate_id": "plate_2",
+      "model_driven": true,
+      "slot_type": null
+    },
+    {
+      "id": "bolt_12",
+      "diameter_mm": 28.575,
+      "position": [
+        5963.485162832989,
+        9963.485162832989,
+        0.0
+      ],
+      "grade": "A325",
+      "fu_mpa": 825,
+      "plate_id": "plate_3",
+      "model_driven": true,
+      "slot_type": null
+    },
+    {
+      "id": "bolt_13",
+      "diameter_mm": 28.575,
+      "position": [
+        6036.514837167011,
+        9963.485162832989,
+        0.0
+      ],
+      "grade": "A325",
+      "fu_mpa": 825,
+      "plate_id": "plate_3",
+      "model_driven": true,
+      "slot_type": null
+    },
+    {
+      "id": "bolt_14",
+      "diameter_mm": 28.575,
+      "position": [
+        5963.485162832989,
+        10036.514837167011,
+        0.0
+      ],
+      "grade": "A325",
+      "fu_mpa": 825,
+      "plate_id": "plate_3",
+      "model_driven": true,
+      "slot_type": null
+    },
+    {
+      "id": "bolt_15",
+      "diameter_mm": 28.575,
+      "position": [
+        6036.514837167011,
+        10036.514837167011,
+        0.0
+      ],
+      "grade": "A325",
+      "fu_mpa": 825,
+      "plate_id": "plate_3",
+      "model_driven": true,
+      "slot_type": null
+    },
+    {
+      "id": "bolt_16",
+      "diameter_mm": 28.575,
+      "position": [
+        -36.51483716701108,
+        -36.51483716701108,
+        0.0
+      ],
+      "grade": "A325",
+      "fu_mpa": 825,
+      "plate_id": "plate_4",
+      "model_driven": true,
+      "slot_type": null
+    },
+    {
+      "id": "bolt_17",
+      "diameter_mm": 28.575,
+      "position": [
+        36.51483716701108,
+        -36.51483716701108,
+        0.0
+      ],
+      "grade": "A325",
+      "fu_mpa": 825,
+      "plate_id": "plate_4",
+      "model_driven": true,
+      "slot_type": null
+    },
+    {
+      "id": "bolt_18",
+      "diameter_mm": 28.575,
+      "position": [
+        -36.51483716701108,
+        36.51483716701108,
+        0.0
+      ],
+      "grade": "A325",
+      "fu_mpa": 825,
+      "plate_id": "plate_4",
+      "model_driven": true,
+      "slot_type": null
+    },
+    {
+      "id": "bolt_19",
+      "diameter_mm": 28.575,
+      "position": [
+        36.51483716701108,
+        36.51483716701108,
+        0.0
+      ],
+      "grade": "A325",
+      "fu_mpa": 825,
+      "plate_id": "plate_4",
+      "model_driven": true,
+      "slot_type": null
+    },
+    {
+      "id": "bolt_20",
+      "diameter_mm": 28.575,
+      "position": [
+        5963.485162832989,
+        -36.51483716701108,
+        0.0
+      ],
+      "grade": "A325",
+      "fu_mpa": 825,
+      "plate_id": "plate_5",
+      "model_driven": true,
+      "slot_type": null
+    },
+    {
+      "id": "bolt_21",
+      "diameter_mm": 28.575,
+      "position": [
+        6036.514837167011,
+        -36.51483716701108,
+        0.0
+      ],
+      "grade": "A325",
+      "fu_mpa": 825,
+      "plate_id": "plate_5",
+      "model_driven": true,
+      "slot_type": null
+    },
+    {
+      "id": "bolt_22",
+      "diameter_mm": 28.575,
+      "position": [
+        5963.485162832989,
+        36.51483716701108,
+        0.0
+      ],
+      "grade": "A325",
+      "fu_mpa": 825,
+      "plate_id": "plate_5",
+      "model_driven": true,
+      "slot_type": null
+    },
+    {
+      "id": "bolt_23",
+      "diameter_mm": 28.575,
+      "position": [
+        6036.514837167011,
+        36.51483716701108,
+        0.0
+      ],
+      "grade": "A325",
+      "fu_mpa": 825,
+      "plate_id": "plate_5",
+      "model_driven": true,
+      "slot_type": null
+    },
+    {
+      "id": "bolt_24",
+      "diameter_mm": 28.575,
+      "position": [
+        -36.51483716701108,
+        9963.485162832989,
+        0.0
+      ],
+      "grade": "A325",
+      "fu_mpa": 825,
+      "plate_id": "plate_6",
+      "model_driven": true,
+      "slot_type": null
+    },
+    {
+      "id": "bolt_25",
+      "diameter_mm": 28.575,
+      "position": [
+        36.51483716701108,
+        9963.485162832989,
+        0.0
+      ],
+      "grade": "A325",
+      "fu_mpa": 825,
+      "plate_id": "plate_6",
+      "model_driven": true,
+      "slot_type": null
+    },
+    {
+      "id": "bolt_26",
+      "diameter_mm": 28.575,
+      "position": [
+        -36.51483716701108,
+        10036.514837167011,
+        0.0
+      ],
+      "grade": "A325",
+      "fu_mpa": 825,
+      "plate_id": "plate_6",
+      "model_driven": true,
+      "slot_type": null
+    },
+    {
+      "id": "bolt_27",
+      "diameter_mm": 28.575,
+      "position": [
+        36.51483716701108,
+        10036.514837167011,
+        0.0
+      ],
+      "grade": "A325",
+      "fu_mpa": 825,
+      "plate_id": "plate_6",
+      "model_driven": true,
+      "slot_type": null
+    },
+    {
+      "id": "bolt_28",
+      "diameter_mm": 28.575,
+      "position": [
+        5963.485162832989,
+        9963.485162832989,
+        0.0
+      ],
+      "grade": "A325",
+      "fu_mpa": 825,
+      "plate_id": "plate_7",
+      "model_driven": true,
+      "slot_type": null
+    },
+    {
+      "id": "bolt_29",
+      "diameter_mm": 28.575,
+      "position": [
+        6036.514837167011,
+        9963.485162832989,
+        0.0
+      ],
+      "grade": "A325",
+      "fu_mpa": 825,
+      "plate_id": "plate_7",
+      "model_driven": true,
+      "slot_type": null
+    },
+    {
+      "id": "bolt_30",
+      "diameter_mm": 28.575,
+      "position": [
+        5963.485162832989,
+        10036.514837167011,
+        0.0
+      ],
+      "grade": "A325",
+      "fu_mpa": 825,
+      "plate_id": "plate_7",
+      "model_driven": true,
+      "slot_type": null
+    },
+    {
+      "id": "bolt_31",
+      "diameter_mm": 28.575,
+      "position": [
+        6036.514837167011,
+        10036.514837167011,
+        0.0
+      ],
+      "grade": "A325",
+      "fu_mpa": 825,
+      "plate_id": "plate_7",
+      "model_driven": true,
+      "slot_type": null
+    }
+  ],
+  "detailing": {
+    "copes": [
+      {
+        "member_id": "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+        "cope_length_mm": 45.0,
+        "cope_depth_mm": 52.5,
+        "method": "COPE",
+        "provenance": "fallback_standards",
+        "confidence": 0.35
+      },
+      {
+        "member_id": "4ab6263f-fc25-4e33-985f-9590defe2dff",
+        "cope_length_mm": 45.0,
+        "cope_depth_mm": 52.5,
+        "method": "COPE",
+        "provenance": "fallback_standards",
+        "confidence": 0.35
+      },
+      {
+        "member_id": "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+        "cope_length_mm": 45.0,
+        "cope_depth_mm": 52.5,
+        "method": "COPE",
+        "provenance": "fallback_standards",
+        "confidence": 0.35
+      },
+      {
+        "member_id": "32b51350-7944-4444-aef9-b0fb73afbdb1",
+        "cope_length_mm": 45.0,
+        "cope_depth_mm": 52.5,
+        "method": "COPE",
+        "provenance": "fallback_standards",
+        "confidence": 0.35
+      },
+      {
+        "member_id": "6a224b9c-d4a3-403d-af8f-407671e71667",
+        "cope_length_mm": 45.0,
+        "cope_depth_mm": 52.5,
+        "method": "COPE",
+        "provenance": "fallback_standards",
+        "confidence": 0.35
+      },
+      {
+        "member_id": "0992e5a0-27e3-4e71-8641-c39f0cae6894",
+        "cope_length_mm": 45.0,
+        "cope_depth_mm": 52.5,
+        "method": "COPE",
+        "provenance": "fallback_standards",
+        "confidence": 0.35
+      }
+    ],
+    "stiffeners": [
+      {
+        "id": "stiffener_b7439d5a-f630-4167-baf3-9861fd6be8b4_joint_0",
+        "member_id": "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_b7439d5a-f630-4167-baf3-9861fd6be8b4_joint_1",
+        "member_id": "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+        "position": [
+          0.0,
+          10000.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_b7439d5a-f630-4167-baf3-9861fd6be8b4_joint_3e604cc9",
+        "member_id": "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_b7439d5a-f630-4167-baf3-9861fd6be8b4_joint_704da664",
+        "member_id": "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+        "position": [
+          0.0,
+          10000.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_4ab6263f-fc25-4e33-985f-9590defe2dff_joint_2",
+        "member_id": "4ab6263f-fc25-4e33-985f-9590defe2dff",
+        "position": [
+          6000.0,
+          0.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_4ab6263f-fc25-4e33-985f-9590defe2dff_joint_3",
+        "member_id": "4ab6263f-fc25-4e33-985f-9590defe2dff",
+        "position": [
+          6000.0,
+          10000.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_4ab6263f-fc25-4e33-985f-9590defe2dff_joint_0a857275",
+        "member_id": "4ab6263f-fc25-4e33-985f-9590defe2dff",
+        "position": [
+          6000.0,
+          0.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_4ab6263f-fc25-4e33-985f-9590defe2dff_joint_8ac49102",
+        "member_id": "4ab6263f-fc25-4e33-985f-9590defe2dff",
+        "position": [
+          6000.0,
+          10000.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_6d94a98a-7369-4bb7-a348-a0eb150fc4cc_joint_0",
+        "member_id": "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_6d94a98a-7369-4bb7-a348-a0eb150fc4cc_joint_2",
+        "member_id": "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+        "position": [
+          6000.0,
+          0.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_6d94a98a-7369-4bb7-a348-a0eb150fc4cc_joint_3e604cc9",
+        "member_id": "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_6d94a98a-7369-4bb7-a348-a0eb150fc4cc_joint_0a857275",
+        "member_id": "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+        "position": [
+          6000.0,
+          0.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_32b51350-7944-4444-aef9-b0fb73afbdb1_joint_1",
+        "member_id": "32b51350-7944-4444-aef9-b0fb73afbdb1",
+        "position": [
+          0.0,
+          10000.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_32b51350-7944-4444-aef9-b0fb73afbdb1_joint_3",
+        "member_id": "32b51350-7944-4444-aef9-b0fb73afbdb1",
+        "position": [
+          6000.0,
+          10000.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_32b51350-7944-4444-aef9-b0fb73afbdb1_joint_704da664",
+        "member_id": "32b51350-7944-4444-aef9-b0fb73afbdb1",
+        "position": [
+          0.0,
+          10000.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_32b51350-7944-4444-aef9-b0fb73afbdb1_joint_8ac49102",
+        "member_id": "32b51350-7944-4444-aef9-b0fb73afbdb1",
+        "position": [
+          6000.0,
+          10000.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_6a224b9c-d4a3-403d-af8f-407671e71667_joint_0",
+        "member_id": "6a224b9c-d4a3-403d-af8f-407671e71667",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_6a224b9c-d4a3-403d-af8f-407671e71667_joint_2",
+        "member_id": "6a224b9c-d4a3-403d-af8f-407671e71667",
+        "position": [
+          6000.0,
+          0.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_6a224b9c-d4a3-403d-af8f-407671e71667_joint_3e604cc9",
+        "member_id": "6a224b9c-d4a3-403d-af8f-407671e71667",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_6a224b9c-d4a3-403d-af8f-407671e71667_joint_0a857275",
+        "member_id": "6a224b9c-d4a3-403d-af8f-407671e71667",
+        "position": [
+          6000.0,
+          0.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_0992e5a0-27e3-4e71-8641-c39f0cae6894_joint_1",
+        "member_id": "0992e5a0-27e3-4e71-8641-c39f0cae6894",
+        "position": [
+          0.0,
+          10000.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_0992e5a0-27e3-4e71-8641-c39f0cae6894_joint_3",
+        "member_id": "0992e5a0-27e3-4e71-8641-c39f0cae6894",
+        "position": [
+          6000.0,
+          10000.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_0992e5a0-27e3-4e71-8641-c39f0cae6894_joint_704da664",
+        "member_id": "0992e5a0-27e3-4e71-8641-c39f0cae6894",
+        "position": [
+          0.0,
+          10000.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_0992e5a0-27e3-4e71-8641-c39f0cae6894_joint_8ac49102",
+        "member_id": "0992e5a0-27e3-4e71-8641-c39f0cae6894",
+        "position": [
+          6000.0,
+          10000.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      }
+    ],
+    "welds": [
+      {
+        "id": "weld_joint_0",
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "type": "Fillet",
+        "size_mm": 6.0,
+        "length_mm": 150.0,
+        "provenance": "fallback_standards",
+        "confidence": 0.35
+      },
+      {
+        "id": "weld_joint_1",
+        "location": [
+          0.0,
+          10000.0,
+          0.0
+        ],
+        "type": "Fillet",
+        "size_mm": 6.0,
+        "length_mm": 150.0,
+        "provenance": "fallback_standards",
+        "confidence": 0.35
+      },
+      {
+        "id": "weld_joint_2",
+        "location": [
+          6000.0,
+          0.0,
+          0.0
+        ],
+        "type": "Fillet",
+        "size_mm": 6.0,
+        "length_mm": 150.0,
+        "provenance": "fallback_standards",
+        "confidence": 0.35
+      },
+      {
+        "id": "weld_joint_3",
+        "location": [
+          6000.0,
+          10000.0,
+          0.0
+        ],
+        "type": "Fillet",
+        "size_mm": 6.0,
+        "length_mm": 150.0,
+        "provenance": "fallback_standards",
+        "confidence": 0.35
+      },
+      {
+        "id": "weld_joint_3e604cc9",
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "type": "Fillet",
+        "size_mm": 6.0,
+        "length_mm": 150.0,
+        "provenance": "fallback_standards",
+        "confidence": 0.35
+      },
+      {
+        "id": "weld_joint_0a857275",
+        "location": [
+          6000.0,
+          0.0,
+          0.0
+        ],
+        "type": "Fillet",
+        "size_mm": 6.0,
+        "length_mm": 150.0,
+        "provenance": "fallback_standards",
+        "confidence": 0.35
+      },
+      {
+        "id": "weld_joint_704da664",
+        "location": [
+          0.0,
+          10000.0,
+          0.0
+        ],
+        "type": "Fillet",
+        "size_mm": 6.0,
+        "length_mm": 150.0,
+        "provenance": "fallback_standards",
+        "confidence": 0.35
+      },
+      {
+        "id": "weld_joint_8ac49102",
+        "location": [
+          6000.0,
+          10000.0,
+          0.0
+        ],
+        "type": "Fillet",
+        "size_mm": 6.0,
+        "length_mm": 150.0,
+        "provenance": "fallback_standards",
+        "confidence": 0.35
+      }
+    ],
+    "member_adjustments": [
+      {
+        "member_id": "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+        "extend_start_mm": 0.0,
+        "extend_end_mm": 150.0,
+        "shorten_mm": 0.0,
+        "provenance": "fallback_standards",
+        "confidence": 0.3
+      },
+      {
+        "member_id": "4ab6263f-fc25-4e33-985f-9590defe2dff",
+        "extend_start_mm": 0.0,
+        "extend_end_mm": 150.0,
+        "shorten_mm": 0.0,
+        "provenance": "fallback_standards",
+        "confidence": 0.3
+      },
+      {
+        "member_id": "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+        "extend_start_mm": 0.0,
+        "extend_end_mm": 120.0,
+        "shorten_mm": 0.0,
+        "provenance": "fallback_standards",
+        "confidence": 0.3
+      },
+      {
+        "member_id": "32b51350-7944-4444-aef9-b0fb73afbdb1",
+        "extend_start_mm": 0.0,
+        "extend_end_mm": 120.0,
+        "shorten_mm": 0.0,
+        "provenance": "fallback_standards",
+        "confidence": 0.3
+      },
+      {
+        "member_id": "6a224b9c-d4a3-403d-af8f-407671e71667",
+        "extend_start_mm": 0.0,
+        "extend_end_mm": 120.0,
+        "shorten_mm": 0.0,
+        "provenance": "fallback_standards",
+        "confidence": 0.3
+      },
+      {
+        "member_id": "0992e5a0-27e3-4e71-8641-c39f0cae6894",
+        "extend_start_mm": 0.0,
+        "extend_end_mm": 120.0,
+        "shorten_mm": 0.0,
+        "provenance": "fallback_standards",
+        "confidence": 0.3
+      }
+    ],
+    "secondary_parts": [],
+    "grids": [
+      {
+        "id": "grid_X1",
+        "axis": "X",
+        "coordinate_mm": 0.0
+      },
+      {
+        "id": "grid_X2",
+        "axis": "X",
+        "coordinate_mm": 6000.0
+      },
+      {
+        "id": "grid_Y1",
+        "axis": "Y",
+        "coordinate_mm": 0.0
+      },
+      {
+        "id": "grid_Y2",
+        "axis": "Y",
+        "coordinate_mm": 10000.0
+      }
+    ],
+    "levels": [
+      {
+        "id": "level_0",
+        "elevation_mm": 0.0,
+        "provenance": "inferred"
+      }
+    ],
+    "assemblies": [
+      {
+        "id": "asm_0",
+        "members": [
+          "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+          "4ab6263f-fc25-4e33-985f-9590defe2dff",
+          "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+          "32b51350-7944-4444-aef9-b0fb73afbdb1",
+          "6a224b9c-d4a3-403d-af8f-407671e71667",
+          "0992e5a0-27e3-4e71-8641-c39f0cae6894"
+        ],
+        "plates": [
+          "plate_0",
+          "plate_1",
+          "plate_2",
+          "plate_3",
+          "plate_4",
+          "plate_5",
+          "plate_6",
+          "plate_7"
+        ],
+        "bolts": [],
+        "provenance": "detailing_ai"
+      }
+    ],
+    "component_map": {
+      "6a224b9c-d4a3-403d-af8f-407671e71667": "Tekla:Beam",
+      "0992e5a0-27e3-4e71-8641-c39f0cae6894": "Tekla:Beam",
+      "plate_0": "Tekla:ConnectionPlate",
+      "plate_1": "Tekla:ConnectionPlate",
+      "plate_2": "Tekla:ConnectionPlate",
+      "plate_3": "Tekla:ConnectionPlate",
+      "plate_4": "Tekla:ConnectionPlate",
+      "plate_5": "Tekla:ConnectionPlate",
+      "plate_6": "Tekla:ConnectionPlate",
+      "plate_7": "Tekla:ConnectionPlate"
+    }
+  },
+  "clash_summary": {
+    "total": 6,
+    "critical": 0,
+    "major": 0,
+    "moderate": 6,
+    "by_category": {
+      "MEMBER_HUGE_SPAN": 6
+    }
+  },
+  "clashes_corrected": [],
+  "correction_summary": {},
+  "compliance": [
+    {
+      "id": "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+      "compliance": {
+        "ok": false,
+        "reason": "missing A or fy"
+      }
+    },
+    {
+      "id": "4ab6263f-fc25-4e33-985f-9590defe2dff",
+      "compliance": {
+        "ok": false,
+        "reason": "missing A or fy"
+      }
+    },
+    {
+      "id": "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+      "compliance": {
+        "ok": false,
+        "reason": "missing A or fy"
+      }
+    },
+    {
+      "id": "32b51350-7944-4444-aef9-b0fb73afbdb1",
+      "compliance": {
+        "ok": false,
+        "reason": "missing A or fy"
+      }
+    },
+    {
+      "id": "6a224b9c-d4a3-403d-af8f-407671e71667",
+      "compliance": {
+        "ok": false,
+        "reason": "missing A or fy"
+      }
+    },
+    {
+      "id": "0992e5a0-27e3-4e71-8641-c39f0cae6894",
+      "compliance": {
+        "ok": false,
+        "reason": "missing A or fy"
+      }
+    }
+  ],
+  "connections": [],
+  "fabrication": [],
+  "erection_sequence": [
+    {
+      "id": "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+      "start": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "end": [
+        0.0,
+        10000.0,
+        0.0
+      ],
+      "length": 10000.0,
+      "layer": "STR_GRIDS",
+      "dir": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "rotation": 90.0,
+      "node_start": 0,
+      "node_end": 1,
+      "material": {
+        "name": "ASTM A992",
+        "fy": 345.0,
+        "fu": 450.0,
+        "unit": "MPa",
+        "E": 210000.0,
+        "density": 7850.0
+      },
+      "erection_seq": 1
+    },
+    {
+      "id": "4ab6263f-fc25-4e33-985f-9590defe2dff",
+      "start": [
+        6000.0,
+        0.0,
+        0.0
+      ],
+      "end": [
+        6000.0,
+        10000.0,
+        0.0
+      ],
+      "length": 10000.0,
+      "layer": "STR_GRIDS",
+      "dir": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "rotation": 90.0,
+      "node_start": 2,
+      "node_end": 3,
+      "material": {
+        "name": "ASTM A992",
+        "fy": 345.0,
+        "fu": 450.0,
+        "unit": "MPa",
+        "E": 210000.0,
+        "density": 7850.0
+      },
+      "erection_seq": 2
+    },
+    {
+      "id": "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+      "start": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "end": [
+        6000.0,
+        0.0,
+        0.0
+      ],
+      "length": 6000.0,
+      "layer": "STR_GRIDS",
+      "dir": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "node_start": 0,
+      "node_end": 2,
+      "material": {
+        "name": "ASTM A992",
+        "fy": 345.0,
+        "fu": 450.0,
+        "unit": "MPa",
+        "E": 210000.0,
+        "density": 7850.0
+      },
+      "erection_seq": 3
+    },
+    {
+      "id": "32b51350-7944-4444-aef9-b0fb73afbdb1",
+      "start": [
+        0.0,
+        10000.0,
+        0.0
+      ],
+      "end": [
+        6000.0,
+        10000.0,
+        0.0
+      ],
+      "length": 6000.0,
+      "layer": "STR_GRIDS",
+      "dir": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "node_start": 1,
+      "node_end": 3,
+      "material": {
+        "name": "ASTM A992",
+        "fy": 345.0,
+        "fu": 450.0,
+        "unit": "MPa",
+        "E": 210000.0,
+        "density": 7850.0
+      },
+      "erection_seq": 4
+    },
+    {
+      "id": "6a224b9c-d4a3-403d-af8f-407671e71667",
+      "start": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "end": [
+        6000.0,
+        0.0,
+        0.0
+      ],
+      "length": 6000.0,
+      "layer": "STR_BEAMS",
+      "dir": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "node_start": 0,
+      "node_end": 2,
+      "material": {
+        "name": "ASTM A992",
+        "fy": 345.0,
+        "fu": 450.0,
+        "unit": "MPa",
+        "E": 210000.0,
+        "density": 7850.0
+      },
+      "erection_seq": 5
+    },
+    {
+      "id": "0992e5a0-27e3-4e71-8641-c39f0cae6894",
+      "start": [
+        0.0,
+        10000.0,
+        0.0
+      ],
+      "end": [
+        6000.0,
+        10000.0,
+        0.0
+      ],
+      "length": 6000.0,
+      "layer": "STR_BEAMS",
+      "dir": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "node_start": 1,
+      "node_end": 3,
+      "material": {
+        "name": "ASTM A992",
+        "fy": 345.0,
+        "fu": 450.0,
+        "unit": "MPa",
+        "E": 210000.0,
+        "density": 7850.0
+      },
+      "erection_seq": 6
+    }
+  ],
+  "clash_adjustments": {
+    "shifted": 0
+  },
+  "stability": [
+    {
+      "id": "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+      "Pcr": 0.02072616924228765,
+      "klr": 10000.0
+    },
+    {
+      "id": "4ab6263f-fc25-4e33-985f-9590defe2dff",
+      "Pcr": 0.02072616924228765,
+      "klr": 10000.0
+    },
+    {
+      "id": "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+      "Pcr": 0.05757269233968792,
+      "klr": 6000.0
+    },
+    {
+      "id": "32b51350-7944-4444-aef9-b0fb73afbdb1",
+      "Pcr": 0.05757269233968792,
+      "klr": 6000.0
+    },
+    {
+      "id": "6a224b9c-d4a3-403d-af8f-407671e71667",
+      "Pcr": 0.05757269233968792,
+      "klr": 6000.0
+    },
+    {
+      "id": "0992e5a0-27e3-4e71-8641-c39f0cae6894",
+      "Pcr": 0.05757269233968792,
+      "klr": 6000.0
+    }
+  ],
+  "ifc": {
+    "schema": "IFC4",
+    "project": {
+      "id": "507bf70b-f810-4ac1-8f04-d8fcc7363b87",
+      "name": "Steel Structure Project",
+      "description": "Automated DXF to IFC conversion with connection synthesis"
+    },
+    "site": {
+      "id": "5bf64b8c-62ee-4aaa-8183-01c2b315a171",
+      "name": "Construction Site",
+      "elevation": 0.0
+    },
+    "building": {
+      "id": "3c74c6c4-15d3-420c-a1a2-e18ef36a1524",
+      "name": "Building",
+      "elevation_of_ref_height": 0.0,
+      "elevation_of_terrain": 0.0
+    },
+    "storey": {
+      "id": "cfdbd3b9-8df1-483c-bde7-c2aed7a41aa1",
+      "name": "Ground Floor",
+      "elevation": 0.0
+    },
+    "units": {
+      "length": "METRE",
+      "area": "SQUARE_METRE",
+      "volume": "CUBIC_METRE",
+      "force": "NEWTON",
+      "stress": "MEGAPASCAL"
+    },
+    "owner_history": {
+      "creation_date": "2025-12-03",
+      "application": "AIBuildX",
+      "version": "3.0.0"
+    },
+    "beams": [
+      {
+        "type": "IfcBeam",
+        "id": "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+        "name": "Beam-b7439d5a",
+        "length": 10.0,
+        "profile": {
+          "type": "IfcIShapeProfileDef",
+          "profile_name": "I-Section-b7439d5a",
+          "profile_type": "I",
+          "depth": 0.3,
+          "width": 0.15,
+          "web_thickness": 0.008,
+          "flange_thickness": 0.012,
+          "fillet_radius": 0.01,
+          "area": 0.0,
+          "Ix": 0.0,
+          "Iy": 0.0,
+          "Zx": 0.0,
+          "Zy": 0.0
+        },
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "end": [
+          0.0,
+          10.0,
+          0.0
+        ],
+        "direction": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "material": {
+          "name": "ASTM A992",
+          "fy": 345.0,
+          "fu": 450.0,
+          "unit": "MPa",
+          "E": 210000.0,
+          "density": 7850.0
+        },
+        "placement": {
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        },
+        "representation": {
+          "profile_name": "I-Section-b7439d5a",
+          "profile_type": "IfcIShapeProfileDef",
+          "swept_area": {
+            "type": "IfcExtrudedAreaSolid",
+            "profile_type": "IfcIShapeProfileDef",
+            "profile_name": "I-Section-b7439d5a",
+            "extrusion_direction": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "extrusion_length": 10.0,
+            "area": 0.0,
+            "volume": null
+          }
+        },
+        "property_sets": {
+          "Pset_BeamCommon": {
+            "Reference": "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+            "LoadBearing": true,
+            "IsExternal": false
+          },
+          "Structural_Properties": {
+            "Length": 10.0,
+            "Layer": "STR_GRIDS",
+            "Rotation": 90.0,
+            "ErectionSequence": 1
+          }
+        },
+        "quantities": {
+          "Length": 10.0,
+          "CrossSectionArea": 0.0,
+          "GrossVolume": null,
+          "NetVolume": null,
+          "Mass": null,
+          "MassPerUnitLength": null
+        }
+      },
+      {
+        "type": "IfcBeam",
+        "id": "4ab6263f-fc25-4e33-985f-9590defe2dff",
+        "name": "Beam-4ab6263f",
+        "length": 10.0,
+        "profile": {
+          "type": "IfcIShapeProfileDef",
+          "profile_name": "I-Section-4ab6263f",
+          "profile_type": "I",
+          "depth": 0.3,
+          "width": 0.15,
+          "web_thickness": 0.008,
+          "flange_thickness": 0.012,
+          "fillet_radius": 0.01,
+          "area": 0.0,
+          "Ix": 0.0,
+          "Iy": 0.0,
+          "Zx": 0.0,
+          "Zy": 0.0
+        },
+        "start": [
+          6.0,
+          0.0,
+          0.0
+        ],
+        "end": [
+          6.0,
+          10.0,
+          0.0
+        ],
+        "direction": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "material": {
+          "name": "ASTM A992",
+          "fy": 345.0,
+          "fu": 450.0,
+          "unit": "MPa",
+          "E": 210000.0,
+          "density": 7850.0
+        },
+        "placement": {
+          "location": [
+            6.0,
+            0.0,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              6.0,
+              0.0,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        },
+        "representation": {
+          "profile_name": "I-Section-4ab6263f",
+          "profile_type": "IfcIShapeProfileDef",
+          "swept_area": {
+            "type": "IfcExtrudedAreaSolid",
+            "profile_type": "IfcIShapeProfileDef",
+            "profile_name": "I-Section-4ab6263f",
+            "extrusion_direction": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "extrusion_length": 10.0,
+            "area": 0.0,
+            "volume": null
+          }
+        },
+        "property_sets": {
+          "Pset_BeamCommon": {
+            "Reference": "4ab6263f-fc25-4e33-985f-9590defe2dff",
+            "LoadBearing": true,
+            "IsExternal": false
+          },
+          "Structural_Properties": {
+            "Length": 10.0,
+            "Layer": "STR_GRIDS",
+            "Rotation": 90.0,
+            "ErectionSequence": 2
+          }
+        },
+        "quantities": {
+          "Length": 10.0,
+          "CrossSectionArea": 0.0,
+          "GrossVolume": null,
+          "NetVolume": null,
+          "Mass": null,
+          "MassPerUnitLength": null
+        }
+      },
+      {
+        "type": "IfcBeam",
+        "id": "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+        "name": "Beam-6d94a98a",
+        "length": 6.0,
+        "profile": {
+          "type": "IfcIShapeProfileDef",
+          "profile_name": "I-Section-6d94a98a",
+          "profile_type": "I",
+          "depth": 0.3,
+          "width": 0.15,
+          "web_thickness": 0.008,
+          "flange_thickness": 0.012,
+          "fillet_radius": 0.01,
+          "area": 0.0,
+          "Ix": 0.0,
+          "Iy": 0.0,
+          "Zx": 0.0,
+          "Zy": 0.0
+        },
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "end": [
+          6.0,
+          0.0,
+          0.0
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "material": {
+          "name": "ASTM A992",
+          "fy": 345.0,
+          "fu": 450.0,
+          "unit": "MPa",
+          "E": 210000.0,
+          "density": 7850.0
+        },
+        "placement": {
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "representation": {
+          "profile_name": "I-Section-6d94a98a",
+          "profile_type": "IfcIShapeProfileDef",
+          "swept_area": {
+            "type": "IfcExtrudedAreaSolid",
+            "profile_type": "IfcIShapeProfileDef",
+            "profile_name": "I-Section-6d94a98a",
+            "extrusion_direction": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "extrusion_length": 6.0,
+            "area": 0.0,
+            "volume": null
+          }
+        },
+        "property_sets": {
+          "Pset_BeamCommon": {
+            "Reference": "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+            "LoadBearing": true,
+            "IsExternal": false
+          },
+          "Structural_Properties": {
+            "Length": 6.0,
+            "Layer": "STR_GRIDS",
+            "Rotation": 0.0,
+            "ErectionSequence": 3
+          }
+        },
+        "quantities": {
+          "Length": 6.0,
+          "CrossSectionArea": 0.0,
+          "GrossVolume": null,
+          "NetVolume": null,
+          "Mass": null,
+          "MassPerUnitLength": null
+        }
+      },
+      {
+        "type": "IfcBeam",
+        "id": "32b51350-7944-4444-aef9-b0fb73afbdb1",
+        "name": "Beam-32b51350",
+        "length": 6.0,
+        "profile": {
+          "type": "IfcIShapeProfileDef",
+          "profile_name": "I-Section-32b51350",
+          "profile_type": "I",
+          "depth": 0.3,
+          "width": 0.15,
+          "web_thickness": 0.008,
+          "flange_thickness": 0.012,
+          "fillet_radius": 0.01,
+          "area": 0.0,
+          "Ix": 0.0,
+          "Iy": 0.0,
+          "Zx": 0.0,
+          "Zy": 0.0
+        },
+        "start": [
+          0.0,
+          10.0,
+          0.0
+        ],
+        "end": [
+          6.0,
+          10.0,
+          0.0
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "material": {
+          "name": "ASTM A992",
+          "fy": 345.0,
+          "fu": 450.0,
+          "unit": "MPa",
+          "E": 210000.0,
+          "density": 7850.0
+        },
+        "placement": {
+          "location": [
+            0.0,
+            10.0,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              0.0,
+              10.0,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "representation": {
+          "profile_name": "I-Section-32b51350",
+          "profile_type": "IfcIShapeProfileDef",
+          "swept_area": {
+            "type": "IfcExtrudedAreaSolid",
+            "profile_type": "IfcIShapeProfileDef",
+            "profile_name": "I-Section-32b51350",
+            "extrusion_direction": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "extrusion_length": 6.0,
+            "area": 0.0,
+            "volume": null
+          }
+        },
+        "property_sets": {
+          "Pset_BeamCommon": {
+            "Reference": "32b51350-7944-4444-aef9-b0fb73afbdb1",
+            "LoadBearing": true,
+            "IsExternal": false
+          },
+          "Structural_Properties": {
+            "Length": 6.0,
+            "Layer": "STR_GRIDS",
+            "Rotation": 0.0,
+            "ErectionSequence": 4
+          }
+        },
+        "quantities": {
+          "Length": 6.0,
+          "CrossSectionArea": 0.0,
+          "GrossVolume": null,
+          "NetVolume": null,
+          "Mass": null,
+          "MassPerUnitLength": null
+        }
+      },
+      {
+        "type": "IfcBeam",
+        "id": "6a224b9c-d4a3-403d-af8f-407671e71667",
+        "name": "Beam-6a224b9c",
+        "length": 6.0,
+        "profile": {
+          "type": "IfcIShapeProfileDef",
+          "profile_name": "I-Section-6a224b9c",
+          "profile_type": "I",
+          "depth": 0.3,
+          "width": 0.15,
+          "web_thickness": 0.008,
+          "flange_thickness": 0.012,
+          "fillet_radius": 0.01,
+          "area": 0.0,
+          "Ix": 0.0,
+          "Iy": 0.0,
+          "Zx": 0.0,
+          "Zy": 0.0
+        },
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "end": [
+          6.0,
+          0.0,
+          0.0
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "material": {
+          "name": "ASTM A992",
+          "fy": 345.0,
+          "fu": 450.0,
+          "unit": "MPa",
+          "E": 210000.0,
+          "density": 7850.0
+        },
+        "placement": {
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "representation": {
+          "profile_name": "I-Section-6a224b9c",
+          "profile_type": "IfcIShapeProfileDef",
+          "swept_area": {
+            "type": "IfcExtrudedAreaSolid",
+            "profile_type": "IfcIShapeProfileDef",
+            "profile_name": "I-Section-6a224b9c",
+            "extrusion_direction": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "extrusion_length": 6.0,
+            "area": 0.0,
+            "volume": null
+          }
+        },
+        "property_sets": {
+          "Pset_BeamCommon": {
+            "Reference": "6a224b9c-d4a3-403d-af8f-407671e71667",
+            "LoadBearing": true,
+            "IsExternal": false
+          },
+          "Structural_Properties": {
+            "Length": 6.0,
+            "Layer": "STR_BEAMS",
+            "Rotation": 0.0,
+            "ErectionSequence": 5
+          }
+        },
+        "quantities": {
+          "Length": 6.0,
+          "CrossSectionArea": 0.0,
+          "GrossVolume": null,
+          "NetVolume": null,
+          "Mass": null,
+          "MassPerUnitLength": null
+        }
+      },
+      {
+        "type": "IfcBeam",
+        "id": "0992e5a0-27e3-4e71-8641-c39f0cae6894",
+        "name": "Beam-0992e5a0",
+        "length": 6.0,
+        "profile": {
+          "type": "IfcIShapeProfileDef",
+          "profile_name": "I-Section-0992e5a0",
+          "profile_type": "I",
+          "depth": 0.3,
+          "width": 0.15,
+          "web_thickness": 0.008,
+          "flange_thickness": 0.012,
+          "fillet_radius": 0.01,
+          "area": 0.0,
+          "Ix": 0.0,
+          "Iy": 0.0,
+          "Zx": 0.0,
+          "Zy": 0.0
+        },
+        "start": [
+          0.0,
+          10.0,
+          0.0
+        ],
+        "end": [
+          6.0,
+          10.0,
+          0.0
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "material": {
+          "name": "ASTM A992",
+          "fy": 345.0,
+          "fu": 450.0,
+          "unit": "MPa",
+          "E": 210000.0,
+          "density": 7850.0
+        },
+        "placement": {
+          "location": [
+            0.0,
+            10.0,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              0.0,
+              10.0,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "representation": {
+          "profile_name": "I-Section-0992e5a0",
+          "profile_type": "IfcIShapeProfileDef",
+          "swept_area": {
+            "type": "IfcExtrudedAreaSolid",
+            "profile_type": "IfcIShapeProfileDef",
+            "profile_name": "I-Section-0992e5a0",
+            "extrusion_direction": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "extrusion_length": 6.0,
+            "area": 0.0,
+            "volume": null
+          }
+        },
+        "property_sets": {
+          "Pset_BeamCommon": {
+            "Reference": "0992e5a0-27e3-4e71-8641-c39f0cae6894",
+            "LoadBearing": true,
+            "IsExternal": false
+          },
+          "Structural_Properties": {
+            "Length": 6.0,
+            "Layer": "STR_BEAMS",
+            "Rotation": 0.0,
+            "ErectionSequence": 6
+          }
+        },
+        "quantities": {
+          "Length": 6.0,
+          "CrossSectionArea": 0.0,
+          "GrossVolume": null,
+          "NetVolume": null,
+          "Mass": null,
+          "MassPerUnitLength": null
+        }
+      }
+    ],
+    "columns": [],
+    "plates": [
+      {
+        "type": "IfcPlate",
+        "id": "plate_0",
+        "name": "Plate-plate_0",
+        "outline": {
+          "width": 0.21908902300206648,
+          "height": 0.21908902300206648
+        },
+        "thickness": 0.01,
+        "material": {
+          "name": "A36",
+          "fy_mpa": 250,
+          "fu_mpa": 400
+        },
+        "placement": {
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "representation": {
+          "area": 0.048000000000000015,
+          "volume": 0.0004800000000000002,
+          "thickness": 0.01
+        },
+        "property_sets": {
+          "Pset_PlateCommon": {
+            "Reference": "plate_0",
+            "LoadBearing": true
+          }
+        },
+        "quantities": {
+          "Area": 0.048000000000000015,
+          "Volume": 0.0004800000000000002,
+          "Thickness": 0.01
+        },
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "type": "IfcPlate",
+        "id": "plate_1",
+        "name": "Plate-plate_1",
+        "outline": {
+          "width": 0.21908902300206648,
+          "height": 0.21908902300206648
+        },
+        "thickness": 0.01,
+        "material": {
+          "name": "A36",
+          "fy_mpa": 250,
+          "fu_mpa": 400
+        },
+        "placement": {
+          "location": [
+            0.0,
+            10.0,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              0.0,
+              10.0,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "representation": {
+          "area": 0.048000000000000015,
+          "volume": 0.0004800000000000002,
+          "thickness": 0.01
+        },
+        "property_sets": {
+          "Pset_PlateCommon": {
+            "Reference": "plate_1",
+            "LoadBearing": true
+          }
+        },
+        "quantities": {
+          "Area": 0.048000000000000015,
+          "Volume": 0.0004800000000000002,
+          "Thickness": 0.01
+        },
+        "position": [
+          0.0,
+          10.0,
+          0.0
+        ]
+      },
+      {
+        "type": "IfcPlate",
+        "id": "plate_2",
+        "name": "Plate-plate_2",
+        "outline": {
+          "width": 0.21908902300206648,
+          "height": 0.21908902300206648
+        },
+        "thickness": 0.01,
+        "material": {
+          "name": "A36",
+          "fy_mpa": 250,
+          "fu_mpa": 400
+        },
+        "placement": {
+          "location": [
+            6.0,
+            0.0,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              6.0,
+              0.0,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "representation": {
+          "area": 0.048000000000000015,
+          "volume": 0.0004800000000000002,
+          "thickness": 0.01
+        },
+        "property_sets": {
+          "Pset_PlateCommon": {
+            "Reference": "plate_2",
+            "LoadBearing": true
+          }
+        },
+        "quantities": {
+          "Area": 0.048000000000000015,
+          "Volume": 0.0004800000000000002,
+          "Thickness": 0.01
+        },
+        "position": [
+          6.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "type": "IfcPlate",
+        "id": "plate_3",
+        "name": "Plate-plate_3",
+        "outline": {
+          "width": 0.21908902300206648,
+          "height": 0.21908902300206648
+        },
+        "thickness": 0.01,
+        "material": {
+          "name": "A36",
+          "fy_mpa": 250,
+          "fu_mpa": 400
+        },
+        "placement": {
+          "location": [
+            6.0,
+            10.0,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              6.0,
+              10.0,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "representation": {
+          "area": 0.048000000000000015,
+          "volume": 0.0004800000000000002,
+          "thickness": 0.01
+        },
+        "property_sets": {
+          "Pset_PlateCommon": {
+            "Reference": "plate_3",
+            "LoadBearing": true
+          }
+        },
+        "quantities": {
+          "Area": 0.048000000000000015,
+          "Volume": 0.0004800000000000002,
+          "Thickness": 0.01
+        },
+        "position": [
+          6.0,
+          10.0,
+          0.0
+        ]
+      },
+      {
+        "type": "IfcPlate",
+        "id": "plate_4",
+        "name": "Plate-plate_4",
+        "outline": {
+          "width": 0.21908902300206648,
+          "height": 0.21908902300206648
+        },
+        "thickness": 0.01,
+        "material": {
+          "name": "A36",
+          "fy_mpa": 250,
+          "fu_mpa": 400
+        },
+        "placement": {
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "representation": {
+          "area": 0.048000000000000015,
+          "volume": 0.0004800000000000002,
+          "thickness": 0.01
+        },
+        "property_sets": {
+          "Pset_PlateCommon": {
+            "Reference": "plate_4",
+            "LoadBearing": true
+          }
+        },
+        "quantities": {
+          "Area": 0.048000000000000015,
+          "Volume": 0.0004800000000000002,
+          "Thickness": 0.01
+        },
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "type": "IfcPlate",
+        "id": "plate_5",
+        "name": "Plate-plate_5",
+        "outline": {
+          "width": 0.21908902300206648,
+          "height": 0.21908902300206648
+        },
+        "thickness": 0.01,
+        "material": {
+          "name": "A36",
+          "fy_mpa": 250,
+          "fu_mpa": 400
+        },
+        "placement": {
+          "location": [
+            6.0,
+            0.0,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              6.0,
+              0.0,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "representation": {
+          "area": 0.048000000000000015,
+          "volume": 0.0004800000000000002,
+          "thickness": 0.01
+        },
+        "property_sets": {
+          "Pset_PlateCommon": {
+            "Reference": "plate_5",
+            "LoadBearing": true
+          }
+        },
+        "quantities": {
+          "Area": 0.048000000000000015,
+          "Volume": 0.0004800000000000002,
+          "Thickness": 0.01
+        },
+        "position": [
+          6.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "type": "IfcPlate",
+        "id": "plate_6",
+        "name": "Plate-plate_6",
+        "outline": {
+          "width": 0.21908902300206648,
+          "height": 0.21908902300206648
+        },
+        "thickness": 0.01,
+        "material": {
+          "name": "A36",
+          "fy_mpa": 250,
+          "fu_mpa": 400
+        },
+        "placement": {
+          "location": [
+            0.0,
+            10.0,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              0.0,
+              10.0,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "representation": {
+          "area": 0.048000000000000015,
+          "volume": 0.0004800000000000002,
+          "thickness": 0.01
+        },
+        "property_sets": {
+          "Pset_PlateCommon": {
+            "Reference": "plate_6",
+            "LoadBearing": true
+          }
+        },
+        "quantities": {
+          "Area": 0.048000000000000015,
+          "Volume": 0.0004800000000000002,
+          "Thickness": 0.01
+        },
+        "position": [
+          0.0,
+          10.0,
+          0.0
+        ]
+      },
+      {
+        "type": "IfcPlate",
+        "id": "plate_7",
+        "name": "Plate-plate_7",
+        "outline": {
+          "width": 0.21908902300206648,
+          "height": 0.21908902300206648
+        },
+        "thickness": 0.01,
+        "material": {
+          "name": "A36",
+          "fy_mpa": 250,
+          "fu_mpa": 400
+        },
+        "placement": {
+          "location": [
+            6.0,
+            10.0,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              6.0,
+              10.0,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "representation": {
+          "area": 0.048000000000000015,
+          "volume": 0.0004800000000000002,
+          "thickness": 0.01
+        },
+        "property_sets": {
+          "Pset_PlateCommon": {
+            "Reference": "plate_7",
+            "LoadBearing": true
+          }
+        },
+        "quantities": {
+          "Area": 0.048000000000000015,
+          "Volume": 0.0004800000000000002,
+          "Thickness": 0.01
+        },
+        "position": [
+          6.0,
+          10.0,
+          0.0
+        ]
+      }
+    ],
+    "fasteners": [
+      {
+        "type": "IfcFastener",
+        "id": "bolt_0",
+        "name": "Bolt-bolt_0",
+        "diameter": 0.02,
+        "position": [
+          -0.03651483716701108,
+          -0.03651483716701108,
+          0.0
+        ],
+        "diameter_mm": 20.0,
+        "grade": "A325",
+        "placement": {
+          "location": [
+            -0.03651483716701108,
+            -0.03651483716701108,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              -0.03651483716701108,
+              -0.03651483716701108,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "property_sets": {
+          "Pset_FastenerCommon": {
+            "NominalDiameter": 0.02,
+            "DiameterMillimetres": 20.0,
+            "Grade": "A325"
+          }
+        }
+      },
+      {
+        "type": "IfcFastener",
+        "id": "bolt_1",
+        "name": "Bolt-bolt_1",
+        "diameter": 0.02,
+        "position": [
+          0.03651483716701108,
+          -0.03651483716701108,
+          0.0
+        ],
+        "diameter_mm": 20.0,
+        "grade": "A325",
+        "placement": {
+          "location": [
+            0.03651483716701108,
+            -0.03651483716701108,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              0.03651483716701108,
+              -0.03651483716701108,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "property_sets": {
+          "Pset_FastenerCommon": {
+            "NominalDiameter": 0.02,
+            "DiameterMillimetres": 20.0,
+            "Grade": "A325"
+          }
+        }
+      },
+      {
+        "type": "IfcFastener",
+        "id": "bolt_2",
+        "name": "Bolt-bolt_2",
+        "diameter": 0.02,
+        "position": [
+          -0.03651483716701108,
+          0.03651483716701108,
+          0.0
+        ],
+        "diameter_mm": 20.0,
+        "grade": "A325",
+        "placement": {
+          "location": [
+            -0.03651483716701108,
+            0.03651483716701108,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              -0.03651483716701108,
+              0.03651483716701108,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "property_sets": {
+          "Pset_FastenerCommon": {
+            "NominalDiameter": 0.02,
+            "DiameterMillimetres": 20.0,
+            "Grade": "A325"
+          }
+        }
+      },
+      {
+        "type": "IfcFastener",
+        "id": "bolt_3",
+        "name": "Bolt-bolt_3",
+        "diameter": 0.02,
+        "position": [
+          0.03651483716701108,
+          0.03651483716701108,
+          0.0
+        ],
+        "diameter_mm": 20.0,
+        "grade": "A325",
+        "placement": {
+          "location": [
+            0.03651483716701108,
+            0.03651483716701108,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              0.03651483716701108,
+              0.03651483716701108,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "property_sets": {
+          "Pset_FastenerCommon": {
+            "NominalDiameter": 0.02,
+            "DiameterMillimetres": 20.0,
+            "Grade": "A325"
+          }
+        }
+      },
+      {
+        "type": "IfcFastener",
+        "id": "bolt_4",
+        "name": "Bolt-bolt_4",
+        "diameter": 0.02,
+        "position": [
+          -0.03651483716701108,
+          9.963485162832988,
+          0.0
+        ],
+        "diameter_mm": 20.0,
+        "grade": "A325",
+        "placement": {
+          "location": [
+            -0.03651483716701108,
+            9.963485162832988,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              -0.03651483716701108,
+              9.963485162832988,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "property_sets": {
+          "Pset_FastenerCommon": {
+            "NominalDiameter": 0.02,
+            "DiameterMillimetres": 20.0,
+            "Grade": "A325"
+          }
+        }
+      },
+      {
+        "type": "IfcFastener",
+        "id": "bolt_5",
+        "name": "Bolt-bolt_5",
+        "diameter": 0.02,
+        "position": [
+          0.03651483716701108,
+          9.963485162832988,
+          0.0
+        ],
+        "diameter_mm": 20.0,
+        "grade": "A325",
+        "placement": {
+          "location": [
+            0.03651483716701108,
+            9.963485162832988,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              0.03651483716701108,
+              9.963485162832988,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "property_sets": {
+          "Pset_FastenerCommon": {
+            "NominalDiameter": 0.02,
+            "DiameterMillimetres": 20.0,
+            "Grade": "A325"
+          }
+        }
+      },
+      {
+        "type": "IfcFastener",
+        "id": "bolt_6",
+        "name": "Bolt-bolt_6",
+        "diameter": 0.02,
+        "position": [
+          -0.03651483716701108,
+          10.036514837167012,
+          0.0
+        ],
+        "diameter_mm": 20.0,
+        "grade": "A325",
+        "placement": {
+          "location": [
+            -0.03651483716701108,
+            10.036514837167012,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              -0.03651483716701108,
+              10.036514837167012,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "property_sets": {
+          "Pset_FastenerCommon": {
+            "NominalDiameter": 0.02,
+            "DiameterMillimetres": 20.0,
+            "Grade": "A325"
+          }
+        }
+      },
+      {
+        "type": "IfcFastener",
+        "id": "bolt_7",
+        "name": "Bolt-bolt_7",
+        "diameter": 0.02,
+        "position": [
+          0.03651483716701108,
+          10.036514837167012,
+          0.0
+        ],
+        "diameter_mm": 20.0,
+        "grade": "A325",
+        "placement": {
+          "location": [
+            0.03651483716701108,
+            10.036514837167012,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              0.03651483716701108,
+              10.036514837167012,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "property_sets": {
+          "Pset_FastenerCommon": {
+            "NominalDiameter": 0.02,
+            "DiameterMillimetres": 20.0,
+            "Grade": "A325"
+          }
+        }
+      },
+      {
+        "type": "IfcFastener",
+        "id": "bolt_8",
+        "name": "Bolt-bolt_8",
+        "diameter": 0.02,
+        "position": [
+          5.963485162832989,
+          -0.03651483716701108,
+          0.0
+        ],
+        "diameter_mm": 20.0,
+        "grade": "A325",
+        "placement": {
+          "location": [
+            5.963485162832989,
+            -0.03651483716701108,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              5.963485162832989,
+              -0.03651483716701108,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "property_sets": {
+          "Pset_FastenerCommon": {
+            "NominalDiameter": 0.02,
+            "DiameterMillimetres": 20.0,
+            "Grade": "A325"
+          }
+        }
+      },
+      {
+        "type": "IfcFastener",
+        "id": "bolt_9",
+        "name": "Bolt-bolt_9",
+        "diameter": 0.02,
+        "position": [
+          6.036514837167011,
+          -0.03651483716701108,
+          0.0
+        ],
+        "diameter_mm": 20.0,
+        "grade": "A325",
+        "placement": {
+          "location": [
+            6.036514837167011,
+            -0.03651483716701108,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              6.036514837167011,
+              -0.03651483716701108,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "property_sets": {
+          "Pset_FastenerCommon": {
+            "NominalDiameter": 0.02,
+            "DiameterMillimetres": 20.0,
+            "Grade": "A325"
+          }
+        }
+      },
+      {
+        "type": "IfcFastener",
+        "id": "bolt_10",
+        "name": "Bolt-bolt_10",
+        "diameter": 0.02,
+        "position": [
+          5.963485162832989,
+          0.03651483716701108,
+          0.0
+        ],
+        "diameter_mm": 20.0,
+        "grade": "A325",
+        "placement": {
+          "location": [
+            5.963485162832989,
+            0.03651483716701108,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              5.963485162832989,
+              0.03651483716701108,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "property_sets": {
+          "Pset_FastenerCommon": {
+            "NominalDiameter": 0.02,
+            "DiameterMillimetres": 20.0,
+            "Grade": "A325"
+          }
+        }
+      },
+      {
+        "type": "IfcFastener",
+        "id": "bolt_11",
+        "name": "Bolt-bolt_11",
+        "diameter": 0.02,
+        "position": [
+          6.036514837167011,
+          0.03651483716701108,
+          0.0
+        ],
+        "diameter_mm": 20.0,
+        "grade": "A325",
+        "placement": {
+          "location": [
+            6.036514837167011,
+            0.03651483716701108,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              6.036514837167011,
+              0.03651483716701108,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "property_sets": {
+          "Pset_FastenerCommon": {
+            "NominalDiameter": 0.02,
+            "DiameterMillimetres": 20.0,
+            "Grade": "A325"
+          }
+        }
+      },
+      {
+        "type": "IfcFastener",
+        "id": "bolt_12",
+        "name": "Bolt-bolt_12",
+        "diameter": 0.02,
+        "position": [
+          5.963485162832989,
+          9.963485162832988,
+          0.0
+        ],
+        "diameter_mm": 20.0,
+        "grade": "A325",
+        "placement": {
+          "location": [
+            5.963485162832989,
+            9.963485162832988,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              5.963485162832989,
+              9.963485162832988,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "property_sets": {
+          "Pset_FastenerCommon": {
+            "NominalDiameter": 0.02,
+            "DiameterMillimetres": 20.0,
+            "Grade": "A325"
+          }
+        }
+      },
+      {
+        "type": "IfcFastener",
+        "id": "bolt_13",
+        "name": "Bolt-bolt_13",
+        "diameter": 0.02,
+        "position": [
+          6.036514837167011,
+          9.963485162832988,
+          0.0
+        ],
+        "diameter_mm": 20.0,
+        "grade": "A325",
+        "placement": {
+          "location": [
+            6.036514837167011,
+            9.963485162832988,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              6.036514837167011,
+              9.963485162832988,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "property_sets": {
+          "Pset_FastenerCommon": {
+            "NominalDiameter": 0.02,
+            "DiameterMillimetres": 20.0,
+            "Grade": "A325"
+          }
+        }
+      },
+      {
+        "type": "IfcFastener",
+        "id": "bolt_14",
+        "name": "Bolt-bolt_14",
+        "diameter": 0.02,
+        "position": [
+          5.963485162832989,
+          10.036514837167012,
+          0.0
+        ],
+        "diameter_mm": 20.0,
+        "grade": "A325",
+        "placement": {
+          "location": [
+            5.963485162832989,
+            10.036514837167012,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              5.963485162832989,
+              10.036514837167012,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "property_sets": {
+          "Pset_FastenerCommon": {
+            "NominalDiameter": 0.02,
+            "DiameterMillimetres": 20.0,
+            "Grade": "A325"
+          }
+        }
+      },
+      {
+        "type": "IfcFastener",
+        "id": "bolt_15",
+        "name": "Bolt-bolt_15",
+        "diameter": 0.02,
+        "position": [
+          6.036514837167011,
+          10.036514837167012,
+          0.0
+        ],
+        "diameter_mm": 20.0,
+        "grade": "A325",
+        "placement": {
+          "location": [
+            6.036514837167011,
+            10.036514837167012,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              6.036514837167011,
+              10.036514837167012,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "property_sets": {
+          "Pset_FastenerCommon": {
+            "NominalDiameter": 0.02,
+            "DiameterMillimetres": 20.0,
+            "Grade": "A325"
+          }
+        }
+      },
+      {
+        "type": "IfcFastener",
+        "id": "bolt_16",
+        "name": "Bolt-bolt_16",
+        "diameter": 0.02,
+        "position": [
+          -0.03651483716701108,
+          -0.03651483716701108,
+          0.0
+        ],
+        "diameter_mm": 20.0,
+        "grade": "A325",
+        "placement": {
+          "location": [
+            -0.03651483716701108,
+            -0.03651483716701108,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              -0.03651483716701108,
+              -0.03651483716701108,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "property_sets": {
+          "Pset_FastenerCommon": {
+            "NominalDiameter": 0.02,
+            "DiameterMillimetres": 20.0,
+            "Grade": "A325"
+          }
+        }
+      },
+      {
+        "type": "IfcFastener",
+        "id": "bolt_17",
+        "name": "Bolt-bolt_17",
+        "diameter": 0.02,
+        "position": [
+          0.03651483716701108,
+          -0.03651483716701108,
+          0.0
+        ],
+        "diameter_mm": 20.0,
+        "grade": "A325",
+        "placement": {
+          "location": [
+            0.03651483716701108,
+            -0.03651483716701108,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              0.03651483716701108,
+              -0.03651483716701108,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "property_sets": {
+          "Pset_FastenerCommon": {
+            "NominalDiameter": 0.02,
+            "DiameterMillimetres": 20.0,
+            "Grade": "A325"
+          }
+        }
+      },
+      {
+        "type": "IfcFastener",
+        "id": "bolt_18",
+        "name": "Bolt-bolt_18",
+        "diameter": 0.02,
+        "position": [
+          -0.03651483716701108,
+          0.03651483716701108,
+          0.0
+        ],
+        "diameter_mm": 20.0,
+        "grade": "A325",
+        "placement": {
+          "location": [
+            -0.03651483716701108,
+            0.03651483716701108,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              -0.03651483716701108,
+              0.03651483716701108,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "property_sets": {
+          "Pset_FastenerCommon": {
+            "NominalDiameter": 0.02,
+            "DiameterMillimetres": 20.0,
+            "Grade": "A325"
+          }
+        }
+      },
+      {
+        "type": "IfcFastener",
+        "id": "bolt_19",
+        "name": "Bolt-bolt_19",
+        "diameter": 0.02,
+        "position": [
+          0.03651483716701108,
+          0.03651483716701108,
+          0.0
+        ],
+        "diameter_mm": 20.0,
+        "grade": "A325",
+        "placement": {
+          "location": [
+            0.03651483716701108,
+            0.03651483716701108,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              0.03651483716701108,
+              0.03651483716701108,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "property_sets": {
+          "Pset_FastenerCommon": {
+            "NominalDiameter": 0.02,
+            "DiameterMillimetres": 20.0,
+            "Grade": "A325"
+          }
+        }
+      },
+      {
+        "type": "IfcFastener",
+        "id": "bolt_20",
+        "name": "Bolt-bolt_20",
+        "diameter": 0.02,
+        "position": [
+          5.963485162832989,
+          -0.03651483716701108,
+          0.0
+        ],
+        "diameter_mm": 20.0,
+        "grade": "A325",
+        "placement": {
+          "location": [
+            5.963485162832989,
+            -0.03651483716701108,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              5.963485162832989,
+              -0.03651483716701108,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "property_sets": {
+          "Pset_FastenerCommon": {
+            "NominalDiameter": 0.02,
+            "DiameterMillimetres": 20.0,
+            "Grade": "A325"
+          }
+        }
+      },
+      {
+        "type": "IfcFastener",
+        "id": "bolt_21",
+        "name": "Bolt-bolt_21",
+        "diameter": 0.02,
+        "position": [
+          6.036514837167011,
+          -0.03651483716701108,
+          0.0
+        ],
+        "diameter_mm": 20.0,
+        "grade": "A325",
+        "placement": {
+          "location": [
+            6.036514837167011,
+            -0.03651483716701108,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              6.036514837167011,
+              -0.03651483716701108,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "property_sets": {
+          "Pset_FastenerCommon": {
+            "NominalDiameter": 0.02,
+            "DiameterMillimetres": 20.0,
+            "Grade": "A325"
+          }
+        }
+      },
+      {
+        "type": "IfcFastener",
+        "id": "bolt_22",
+        "name": "Bolt-bolt_22",
+        "diameter": 0.02,
+        "position": [
+          5.963485162832989,
+          0.03651483716701108,
+          0.0
+        ],
+        "diameter_mm": 20.0,
+        "grade": "A325",
+        "placement": {
+          "location": [
+            5.963485162832989,
+            0.03651483716701108,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              5.963485162832989,
+              0.03651483716701108,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "property_sets": {
+          "Pset_FastenerCommon": {
+            "NominalDiameter": 0.02,
+            "DiameterMillimetres": 20.0,
+            "Grade": "A325"
+          }
+        }
+      },
+      {
+        "type": "IfcFastener",
+        "id": "bolt_23",
+        "name": "Bolt-bolt_23",
+        "diameter": 0.02,
+        "position": [
+          6.036514837167011,
+          0.03651483716701108,
+          0.0
+        ],
+        "diameter_mm": 20.0,
+        "grade": "A325",
+        "placement": {
+          "location": [
+            6.036514837167011,
+            0.03651483716701108,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              6.036514837167011,
+              0.03651483716701108,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "property_sets": {
+          "Pset_FastenerCommon": {
+            "NominalDiameter": 0.02,
+            "DiameterMillimetres": 20.0,
+            "Grade": "A325"
+          }
+        }
+      },
+      {
+        "type": "IfcFastener",
+        "id": "bolt_24",
+        "name": "Bolt-bolt_24",
+        "diameter": 0.02,
+        "position": [
+          -0.03651483716701108,
+          9.963485162832988,
+          0.0
+        ],
+        "diameter_mm": 20.0,
+        "grade": "A325",
+        "placement": {
+          "location": [
+            -0.03651483716701108,
+            9.963485162832988,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              -0.03651483716701108,
+              9.963485162832988,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "property_sets": {
+          "Pset_FastenerCommon": {
+            "NominalDiameter": 0.02,
+            "DiameterMillimetres": 20.0,
+            "Grade": "A325"
+          }
+        }
+      },
+      {
+        "type": "IfcFastener",
+        "id": "bolt_25",
+        "name": "Bolt-bolt_25",
+        "diameter": 0.02,
+        "position": [
+          0.03651483716701108,
+          9.963485162832988,
+          0.0
+        ],
+        "diameter_mm": 20.0,
+        "grade": "A325",
+        "placement": {
+          "location": [
+            0.03651483716701108,
+            9.963485162832988,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              0.03651483716701108,
+              9.963485162832988,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "property_sets": {
+          "Pset_FastenerCommon": {
+            "NominalDiameter": 0.02,
+            "DiameterMillimetres": 20.0,
+            "Grade": "A325"
+          }
+        }
+      },
+      {
+        "type": "IfcFastener",
+        "id": "bolt_26",
+        "name": "Bolt-bolt_26",
+        "diameter": 0.02,
+        "position": [
+          -0.03651483716701108,
+          10.036514837167012,
+          0.0
+        ],
+        "diameter_mm": 20.0,
+        "grade": "A325",
+        "placement": {
+          "location": [
+            -0.03651483716701108,
+            10.036514837167012,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              -0.03651483716701108,
+              10.036514837167012,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "property_sets": {
+          "Pset_FastenerCommon": {
+            "NominalDiameter": 0.02,
+            "DiameterMillimetres": 20.0,
+            "Grade": "A325"
+          }
+        }
+      },
+      {
+        "type": "IfcFastener",
+        "id": "bolt_27",
+        "name": "Bolt-bolt_27",
+        "diameter": 0.02,
+        "position": [
+          0.03651483716701108,
+          10.036514837167012,
+          0.0
+        ],
+        "diameter_mm": 20.0,
+        "grade": "A325",
+        "placement": {
+          "location": [
+            0.03651483716701108,
+            10.036514837167012,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              0.03651483716701108,
+              10.036514837167012,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "property_sets": {
+          "Pset_FastenerCommon": {
+            "NominalDiameter": 0.02,
+            "DiameterMillimetres": 20.0,
+            "Grade": "A325"
+          }
+        }
+      },
+      {
+        "type": "IfcFastener",
+        "id": "bolt_28",
+        "name": "Bolt-bolt_28",
+        "diameter": 0.02,
+        "position": [
+          5.963485162832989,
+          9.963485162832988,
+          0.0
+        ],
+        "diameter_mm": 20.0,
+        "grade": "A325",
+        "placement": {
+          "location": [
+            5.963485162832989,
+            9.963485162832988,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              5.963485162832989,
+              9.963485162832988,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "property_sets": {
+          "Pset_FastenerCommon": {
+            "NominalDiameter": 0.02,
+            "DiameterMillimetres": 20.0,
+            "Grade": "A325"
+          }
+        }
+      },
+      {
+        "type": "IfcFastener",
+        "id": "bolt_29",
+        "name": "Bolt-bolt_29",
+        "diameter": 0.02,
+        "position": [
+          6.036514837167011,
+          9.963485162832988,
+          0.0
+        ],
+        "diameter_mm": 20.0,
+        "grade": "A325",
+        "placement": {
+          "location": [
+            6.036514837167011,
+            9.963485162832988,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              6.036514837167011,
+              9.963485162832988,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "property_sets": {
+          "Pset_FastenerCommon": {
+            "NominalDiameter": 0.02,
+            "DiameterMillimetres": 20.0,
+            "Grade": "A325"
+          }
+        }
+      },
+      {
+        "type": "IfcFastener",
+        "id": "bolt_30",
+        "name": "Bolt-bolt_30",
+        "diameter": 0.02,
+        "position": [
+          5.963485162832989,
+          10.036514837167012,
+          0.0
+        ],
+        "diameter_mm": 20.0,
+        "grade": "A325",
+        "placement": {
+          "location": [
+            5.963485162832989,
+            10.036514837167012,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              5.963485162832989,
+              10.036514837167012,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "property_sets": {
+          "Pset_FastenerCommon": {
+            "NominalDiameter": 0.02,
+            "DiameterMillimetres": 20.0,
+            "Grade": "A325"
+          }
+        }
+      },
+      {
+        "type": "IfcFastener",
+        "id": "bolt_31",
+        "name": "Bolt-bolt_31",
+        "diameter": 0.02,
+        "position": [
+          6.036514837167011,
+          10.036514837167012,
+          0.0
+        ],
+        "diameter_mm": 20.0,
+        "grade": "A325",
+        "placement": {
+          "location": [
+            6.036514837167011,
+            10.036514837167012,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              6.036514837167011,
+              10.036514837167012,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "property_sets": {
+          "Pset_FastenerCommon": {
+            "NominalDiameter": 0.02,
+            "DiameterMillimetres": 20.0,
+            "Grade": "A325"
+          }
+        }
+      }
+    ],
+    "joints": [
+      {
+        "type": "Bolted",
+        "id": "joint_0",
+        "name": "Bolted-joint_0",
+        "members": [
+          "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+          "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+          "6a224b9c-d4a3-403d-af8f-407671e71667"
+        ],
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "method": "Welded",
+        "placement": {
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "material": {},
+        "property_sets": {
+          "Pset_WeldingConnection": {}
+        }
+      },
+      {
+        "type": "Bolted",
+        "id": "joint_1",
+        "name": "Bolted-joint_1",
+        "members": [
+          "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+          "32b51350-7944-4444-aef9-b0fb73afbdb1",
+          "0992e5a0-27e3-4e71-8641-c39f0cae6894"
+        ],
+        "location": [
+          0.0,
+          10.0,
+          0.0
+        ],
+        "method": "Welded",
+        "placement": {
+          "location": [
+            0.0,
+            10.0,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              0.0,
+              10.0,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "material": {},
+        "property_sets": {
+          "Pset_WeldingConnection": {}
+        }
+      },
+      {
+        "type": "Bolted",
+        "id": "joint_2",
+        "name": "Bolted-joint_2",
+        "members": [
+          "4ab6263f-fc25-4e33-985f-9590defe2dff",
+          "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+          "6a224b9c-d4a3-403d-af8f-407671e71667"
+        ],
+        "location": [
+          6.0,
+          0.0,
+          0.0
+        ],
+        "method": "Welded",
+        "placement": {
+          "location": [
+            6.0,
+            0.0,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              6.0,
+              0.0,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "material": {},
+        "property_sets": {
+          "Pset_WeldingConnection": {}
+        }
+      },
+      {
+        "type": "Bolted",
+        "id": "joint_3",
+        "name": "Bolted-joint_3",
+        "members": [
+          "4ab6263f-fc25-4e33-985f-9590defe2dff",
+          "32b51350-7944-4444-aef9-b0fb73afbdb1",
+          "0992e5a0-27e3-4e71-8641-c39f0cae6894"
+        ],
+        "location": [
+          6.0,
+          10.0,
+          0.0
+        ],
+        "method": "Welded",
+        "placement": {
+          "location": [
+            6.0,
+            10.0,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              6.0,
+              10.0,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "material": {},
+        "property_sets": {
+          "Pset_WeldingConnection": {}
+        }
+      },
+      {
+        "type": "IfcWeld",
+        "id": "joint_3e604cc9",
+        "name": "IfcWeld-joint_3e",
+        "members": [
+          "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+          "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+          "6a224b9c-d4a3-403d-af8f-407671e71667"
+        ],
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "method": "Welded",
+        "placement": {
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "material": {},
+        "property_sets": {
+          "Pset_WeldingConnection": {
+            "WeldType": "Fillet",
+            "WeldSize": 0.0,
+            "WeldMethod": "Welded"
+          }
+        }
+      },
+      {
+        "type": "IfcWeld",
+        "id": "joint_0a857275",
+        "name": "IfcWeld-joint_0a",
+        "members": [
+          "4ab6263f-fc25-4e33-985f-9590defe2dff",
+          "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+          "6a224b9c-d4a3-403d-af8f-407671e71667"
+        ],
+        "location": [
+          6.0,
+          0.0,
+          0.0
+        ],
+        "method": "Welded",
+        "placement": {
+          "location": [
+            6.0,
+            0.0,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              6.0,
+              0.0,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "material": {},
+        "property_sets": {
+          "Pset_WeldingConnection": {
+            "WeldType": "Fillet",
+            "WeldSize": 0.0,
+            "WeldMethod": "Welded"
+          }
+        }
+      },
+      {
+        "type": "IfcWeld",
+        "id": "joint_704da664",
+        "name": "IfcWeld-joint_70",
+        "members": [
+          "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+          "32b51350-7944-4444-aef9-b0fb73afbdb1",
+          "0992e5a0-27e3-4e71-8641-c39f0cae6894"
+        ],
+        "location": [
+          0.0,
+          10.0,
+          0.0
+        ],
+        "method": "Welded",
+        "placement": {
+          "location": [
+            0.0,
+            10.0,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              0.0,
+              10.0,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "material": {},
+        "property_sets": {
+          "Pset_WeldingConnection": {
+            "WeldType": "Fillet",
+            "WeldSize": 0.0,
+            "WeldMethod": "Welded"
+          }
+        }
+      },
+      {
+        "type": "IfcWeld",
+        "id": "joint_8ac49102",
+        "name": "IfcWeld-joint_8a",
+        "members": [
+          "4ab6263f-fc25-4e33-985f-9590defe2dff",
+          "32b51350-7944-4444-aef9-b0fb73afbdb1",
+          "0992e5a0-27e3-4e71-8641-c39f0cae6894"
+        ],
+        "location": [
+          6.0,
+          10.0,
+          0.0
+        ],
+        "method": "Welded",
+        "placement": {
+          "location": [
+            6.0,
+            10.0,
+            0.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ref_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "Axis2Placement3D": {
+            "location": [
+              6.0,
+              10.0,
+              0.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "ref_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "material": {},
+        "property_sets": {
+          "Pset_WeldingConnection": {
+            "WeldType": "Fillet",
+            "WeldSize": 0.0,
+            "WeldMethod": "Welded"
+          }
+        }
+      }
+    ],
+    "stiffeners": [
+      {
+        "id": "stiffener_b7439d5a-f630-4167-baf3-9861fd6be8b4_joint_0",
+        "member_id": "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_b7439d5a-f630-4167-baf3-9861fd6be8b4_joint_1",
+        "member_id": "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+        "position": [
+          0.0,
+          10000.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_b7439d5a-f630-4167-baf3-9861fd6be8b4_joint_3e604cc9",
+        "member_id": "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_b7439d5a-f630-4167-baf3-9861fd6be8b4_joint_704da664",
+        "member_id": "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+        "position": [
+          0.0,
+          10000.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_4ab6263f-fc25-4e33-985f-9590defe2dff_joint_2",
+        "member_id": "4ab6263f-fc25-4e33-985f-9590defe2dff",
+        "position": [
+          6000.0,
+          0.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_4ab6263f-fc25-4e33-985f-9590defe2dff_joint_3",
+        "member_id": "4ab6263f-fc25-4e33-985f-9590defe2dff",
+        "position": [
+          6000.0,
+          10000.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_4ab6263f-fc25-4e33-985f-9590defe2dff_joint_0a857275",
+        "member_id": "4ab6263f-fc25-4e33-985f-9590defe2dff",
+        "position": [
+          6000.0,
+          0.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_4ab6263f-fc25-4e33-985f-9590defe2dff_joint_8ac49102",
+        "member_id": "4ab6263f-fc25-4e33-985f-9590defe2dff",
+        "position": [
+          6000.0,
+          10000.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_6d94a98a-7369-4bb7-a348-a0eb150fc4cc_joint_0",
+        "member_id": "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_6d94a98a-7369-4bb7-a348-a0eb150fc4cc_joint_2",
+        "member_id": "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+        "position": [
+          6000.0,
+          0.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_6d94a98a-7369-4bb7-a348-a0eb150fc4cc_joint_3e604cc9",
+        "member_id": "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_6d94a98a-7369-4bb7-a348-a0eb150fc4cc_joint_0a857275",
+        "member_id": "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+        "position": [
+          6000.0,
+          0.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_32b51350-7944-4444-aef9-b0fb73afbdb1_joint_1",
+        "member_id": "32b51350-7944-4444-aef9-b0fb73afbdb1",
+        "position": [
+          0.0,
+          10000.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_32b51350-7944-4444-aef9-b0fb73afbdb1_joint_3",
+        "member_id": "32b51350-7944-4444-aef9-b0fb73afbdb1",
+        "position": [
+          6000.0,
+          10000.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_32b51350-7944-4444-aef9-b0fb73afbdb1_joint_704da664",
+        "member_id": "32b51350-7944-4444-aef9-b0fb73afbdb1",
+        "position": [
+          0.0,
+          10000.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_32b51350-7944-4444-aef9-b0fb73afbdb1_joint_8ac49102",
+        "member_id": "32b51350-7944-4444-aef9-b0fb73afbdb1",
+        "position": [
+          6000.0,
+          10000.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_6a224b9c-d4a3-403d-af8f-407671e71667_joint_0",
+        "member_id": "6a224b9c-d4a3-403d-af8f-407671e71667",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_6a224b9c-d4a3-403d-af8f-407671e71667_joint_2",
+        "member_id": "6a224b9c-d4a3-403d-af8f-407671e71667",
+        "position": [
+          6000.0,
+          0.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_6a224b9c-d4a3-403d-af8f-407671e71667_joint_3e604cc9",
+        "member_id": "6a224b9c-d4a3-403d-af8f-407671e71667",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_6a224b9c-d4a3-403d-af8f-407671e71667_joint_0a857275",
+        "member_id": "6a224b9c-d4a3-403d-af8f-407671e71667",
+        "position": [
+          6000.0,
+          0.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_0992e5a0-27e3-4e71-8641-c39f0cae6894_joint_1",
+        "member_id": "0992e5a0-27e3-4e71-8641-c39f0cae6894",
+        "position": [
+          0.0,
+          10000.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_0992e5a0-27e3-4e71-8641-c39f0cae6894_joint_3",
+        "member_id": "0992e5a0-27e3-4e71-8641-c39f0cae6894",
+        "position": [
+          6000.0,
+          10000.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_0992e5a0-27e3-4e71-8641-c39f0cae6894_joint_704da664",
+        "member_id": "0992e5a0-27e3-4e71-8641-c39f0cae6894",
+        "position": [
+          0.0,
+          10000.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      },
+      {
+        "id": "stiffener_0992e5a0-27e3-4e71-8641-c39f0cae6894_joint_8ac49102",
+        "member_id": "0992e5a0-27e3-4e71-8641-c39f0cae6894",
+        "position": [
+          6000.0,
+          10000.0,
+          0.0
+        ],
+        "outline": {
+          "width_mm": 120.0,
+          "height_mm": 105.0
+        },
+        "thickness_mm": 8.0,
+        "type": "stiffener",
+        "provenance": "fallback_standards",
+        "confidence": 0.4,
+        "synthesis_method": "STANDARDS"
+      }
+    ],
+    "welds": [
+      {
+        "id": "weld_joint_0",
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "type": "Fillet",
+        "size_mm": 6.0,
+        "length_mm": 150.0,
+        "provenance": "fallback_standards",
+        "confidence": 0.35
+      },
+      {
+        "id": "weld_joint_1",
+        "location": [
+          0.0,
+          10000.0,
+          0.0
+        ],
+        "type": "Fillet",
+        "size_mm": 6.0,
+        "length_mm": 150.0,
+        "provenance": "fallback_standards",
+        "confidence": 0.35
+      },
+      {
+        "id": "weld_joint_2",
+        "location": [
+          6000.0,
+          0.0,
+          0.0
+        ],
+        "type": "Fillet",
+        "size_mm": 6.0,
+        "length_mm": 150.0,
+        "provenance": "fallback_standards",
+        "confidence": 0.35
+      },
+      {
+        "id": "weld_joint_3",
+        "location": [
+          6000.0,
+          10000.0,
+          0.0
+        ],
+        "type": "Fillet",
+        "size_mm": 6.0,
+        "length_mm": 150.0,
+        "provenance": "fallback_standards",
+        "confidence": 0.35
+      },
+      {
+        "id": "weld_joint_3e604cc9",
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "type": "Fillet",
+        "size_mm": 6.0,
+        "length_mm": 150.0,
+        "provenance": "fallback_standards",
+        "confidence": 0.35
+      },
+      {
+        "id": "weld_joint_0a857275",
+        "location": [
+          6000.0,
+          0.0,
+          0.0
+        ],
+        "type": "Fillet",
+        "size_mm": 6.0,
+        "length_mm": 150.0,
+        "provenance": "fallback_standards",
+        "confidence": 0.35
+      },
+      {
+        "id": "weld_joint_704da664",
+        "location": [
+          0.0,
+          10000.0,
+          0.0
+        ],
+        "type": "Fillet",
+        "size_mm": 6.0,
+        "length_mm": 150.0,
+        "provenance": "fallback_standards",
+        "confidence": 0.35
+      },
+      {
+        "id": "weld_joint_8ac49102",
+        "location": [
+          6000.0,
+          10000.0,
+          0.0
+        ],
+        "type": "Fillet",
+        "size_mm": 6.0,
+        "length_mm": 150.0,
+        "provenance": "fallback_standards",
+        "confidence": 0.35
+      }
+    ],
+    "secondary_parts": [],
+    "assemblies": [
+      {
+        "id": "asm_0",
+        "members": [
+          "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+          "4ab6263f-fc25-4e33-985f-9590defe2dff",
+          "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+          "32b51350-7944-4444-aef9-b0fb73afbdb1",
+          "6a224b9c-d4a3-403d-af8f-407671e71667",
+          "0992e5a0-27e3-4e71-8641-c39f0cae6894"
+        ],
+        "plates": [
+          "plate_0",
+          "plate_1",
+          "plate_2",
+          "plate_3",
+          "plate_4",
+          "plate_5",
+          "plate_6",
+          "plate_7"
+        ],
+        "bolts": [],
+        "provenance": "detailing_ai"
+      }
+    ],
+    "grids": [
+      {
+        "id": "grid_X1",
+        "axis": "X",
+        "coordinate_mm": 0.0
+      },
+      {
+        "id": "grid_X2",
+        "axis": "X",
+        "coordinate_mm": 6000.0
+      },
+      {
+        "id": "grid_Y1",
+        "axis": "Y",
+        "coordinate_mm": 0.0
+      },
+      {
+        "id": "grid_Y2",
+        "axis": "Y",
+        "coordinate_mm": 10000.0
+      }
+    ],
+    "levels": [
+      {
+        "id": "level_0",
+        "elevation_mm": 0.0,
+        "provenance": "inferred"
+      }
+    ],
+    "copes": [
+      {
+        "member_id": "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+        "cope_length_mm": 45.0,
+        "cope_depth_mm": 52.5,
+        "method": "COPE",
+        "provenance": "fallback_standards",
+        "confidence": 0.35
+      },
+      {
+        "member_id": "4ab6263f-fc25-4e33-985f-9590defe2dff",
+        "cope_length_mm": 45.0,
+        "cope_depth_mm": 52.5,
+        "method": "COPE",
+        "provenance": "fallback_standards",
+        "confidence": 0.35
+      },
+      {
+        "member_id": "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+        "cope_length_mm": 45.0,
+        "cope_depth_mm": 52.5,
+        "method": "COPE",
+        "provenance": "fallback_standards",
+        "confidence": 0.35
+      },
+      {
+        "member_id": "32b51350-7944-4444-aef9-b0fb73afbdb1",
+        "cope_length_mm": 45.0,
+        "cope_depth_mm": 52.5,
+        "method": "COPE",
+        "provenance": "fallback_standards",
+        "confidence": 0.35
+      },
+      {
+        "member_id": "6a224b9c-d4a3-403d-af8f-407671e71667",
+        "cope_length_mm": 45.0,
+        "cope_depth_mm": 52.5,
+        "method": "COPE",
+        "provenance": "fallback_standards",
+        "confidence": 0.35
+      },
+      {
+        "member_id": "0992e5a0-27e3-4e71-8641-c39f0cae6894",
+        "cope_length_mm": 45.0,
+        "cope_depth_mm": 52.5,
+        "method": "COPE",
+        "provenance": "fallback_standards",
+        "confidence": 0.35
+      }
+    ],
+    "component_map": {
+      "6a224b9c-d4a3-403d-af8f-407671e71667": "Tekla:Beam",
+      "0992e5a0-27e3-4e71-8641-c39f0cae6894": "Tekla:Beam",
+      "plate_0": "Tekla:ConnectionPlate",
+      "plate_1": "Tekla:ConnectionPlate",
+      "plate_2": "Tekla:ConnectionPlate",
+      "plate_3": "Tekla:ConnectionPlate",
+      "plate_4": "Tekla:ConnectionPlate",
+      "plate_5": "Tekla:ConnectionPlate",
+      "plate_6": "Tekla:ConnectionPlate",
+      "plate_7": "Tekla:ConnectionPlate"
+    },
+    "relationships": {
+      "spatial_containment": [
+        {
+          "type": "IfcRelContainedInSpatialStructure",
+          "relationship_id": "da62c842-6ec2-4230-bbc9-0b33b40d2962",
+          "element_id": "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+          "element_type": "IfcBeam",
+          "contained_in": "cfdbd3b9-8df1-483c-bde7-c2aed7a41aa1",
+          "container_type": "IfcBuildingStorey"
+        },
+        {
+          "type": "IfcRelContainedInSpatialStructure",
+          "relationship_id": "79b5d416-4203-4db3-8d2b-908e6ccc32e2",
+          "element_id": "4ab6263f-fc25-4e33-985f-9590defe2dff",
+          "element_type": "IfcBeam",
+          "contained_in": "cfdbd3b9-8df1-483c-bde7-c2aed7a41aa1",
+          "container_type": "IfcBuildingStorey"
+        },
+        {
+          "type": "IfcRelContainedInSpatialStructure",
+          "relationship_id": "89abd970-0317-478a-8eff-4964737a2e3d",
+          "element_id": "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+          "element_type": "IfcBeam",
+          "contained_in": "cfdbd3b9-8df1-483c-bde7-c2aed7a41aa1",
+          "container_type": "IfcBuildingStorey"
+        },
+        {
+          "type": "IfcRelContainedInSpatialStructure",
+          "relationship_id": "f9cb68c0-d675-4a19-8581-1e0effb10017",
+          "element_id": "32b51350-7944-4444-aef9-b0fb73afbdb1",
+          "element_type": "IfcBeam",
+          "contained_in": "cfdbd3b9-8df1-483c-bde7-c2aed7a41aa1",
+          "container_type": "IfcBuildingStorey"
+        },
+        {
+          "type": "IfcRelContainedInSpatialStructure",
+          "relationship_id": "1857cf2f-e909-4518-bd13-04b424389640",
+          "element_id": "6a224b9c-d4a3-403d-af8f-407671e71667",
+          "element_type": "IfcBeam",
+          "contained_in": "cfdbd3b9-8df1-483c-bde7-c2aed7a41aa1",
+          "container_type": "IfcBuildingStorey"
+        },
+        {
+          "type": "IfcRelContainedInSpatialStructure",
+          "relationship_id": "791bc400-4971-4f91-8121-df91c922f34a",
+          "element_id": "0992e5a0-27e3-4e71-8641-c39f0cae6894",
+          "element_type": "IfcBeam",
+          "contained_in": "cfdbd3b9-8df1-483c-bde7-c2aed7a41aa1",
+          "container_type": "IfcBuildingStorey"
+        },
+        {
+          "type": "IfcRelContainedInSpatialStructure",
+          "relationship_id": "96802a2c-6dc4-4b61-a338-c7545fdef27f",
+          "element_id": "plate_0",
+          "element_type": "IfcPlate",
+          "contained_in": "cfdbd3b9-8df1-483c-bde7-c2aed7a41aa1",
+          "container_type": "IfcBuildingStorey"
+        },
+        {
+          "type": "IfcRelContainedInSpatialStructure",
+          "relationship_id": "fb6516ba-cc39-42a8-a7f4-e5c2d528a43b",
+          "element_id": "plate_1",
+          "element_type": "IfcPlate",
+          "contained_in": "cfdbd3b9-8df1-483c-bde7-c2aed7a41aa1",
+          "container_type": "IfcBuildingStorey"
+        },
+        {
+          "type": "IfcRelContainedInSpatialStructure",
+          "relationship_id": "7167ae2b-0124-42e5-a8a1-be5178c6305f",
+          "element_id": "plate_2",
+          "element_type": "IfcPlate",
+          "contained_in": "cfdbd3b9-8df1-483c-bde7-c2aed7a41aa1",
+          "container_type": "IfcBuildingStorey"
+        },
+        {
+          "type": "IfcRelContainedInSpatialStructure",
+          "relationship_id": "c86ef9a0-458c-4675-9b2c-6fffc88c0bbc",
+          "element_id": "plate_3",
+          "element_type": "IfcPlate",
+          "contained_in": "cfdbd3b9-8df1-483c-bde7-c2aed7a41aa1",
+          "container_type": "IfcBuildingStorey"
+        },
+        {
+          "type": "IfcRelContainedInSpatialStructure",
+          "relationship_id": "85c62a95-d284-4c4f-bb3b-02b1e9f2ffff",
+          "element_id": "plate_4",
+          "element_type": "IfcPlate",
+          "contained_in": "cfdbd3b9-8df1-483c-bde7-c2aed7a41aa1",
+          "container_type": "IfcBuildingStorey"
+        },
+        {
+          "type": "IfcRelContainedInSpatialStructure",
+          "relationship_id": "b6bb5f8a-ef69-46b6-b6e5-cef54fe8f861",
+          "element_id": "plate_5",
+          "element_type": "IfcPlate",
+          "contained_in": "cfdbd3b9-8df1-483c-bde7-c2aed7a41aa1",
+          "container_type": "IfcBuildingStorey"
+        },
+        {
+          "type": "IfcRelContainedInSpatialStructure",
+          "relationship_id": "810f7b57-6c5b-4cd9-b9b2-53c9dab04235",
+          "element_id": "plate_6",
+          "element_type": "IfcPlate",
+          "contained_in": "cfdbd3b9-8df1-483c-bde7-c2aed7a41aa1",
+          "container_type": "IfcBuildingStorey"
+        },
+        {
+          "type": "IfcRelContainedInSpatialStructure",
+          "relationship_id": "5146238e-2ae5-4524-abb7-4c7d9eceebbc",
+          "element_id": "plate_7",
+          "element_type": "IfcPlate",
+          "contained_in": "cfdbd3b9-8df1-483c-bde7-c2aed7a41aa1",
+          "container_type": "IfcBuildingStorey"
+        },
+        {
+          "type": "IfcRelContainedInSpatialStructure",
+          "relationship_id": "ec4b8823-0c22-45c1-8f9e-6c7102f57db1",
+          "element_id": "joint_0",
+          "element_type": "Bolted",
+          "contained_in": "cfdbd3b9-8df1-483c-bde7-c2aed7a41aa1",
+          "container_type": "IfcBuildingStorey"
+        },
+        {
+          "type": "IfcRelContainedInSpatialStructure",
+          "relationship_id": "e51e1093-200d-4212-8f79-96e2c2258dc1",
+          "element_id": "joint_1",
+          "element_type": "Bolted",
+          "contained_in": "cfdbd3b9-8df1-483c-bde7-c2aed7a41aa1",
+          "container_type": "IfcBuildingStorey"
+        },
+        {
+          "type": "IfcRelContainedInSpatialStructure",
+          "relationship_id": "a38c3d2b-b916-4001-ad0c-9b94c81abbe9",
+          "element_id": "joint_2",
+          "element_type": "Bolted",
+          "contained_in": "cfdbd3b9-8df1-483c-bde7-c2aed7a41aa1",
+          "container_type": "IfcBuildingStorey"
+        },
+        {
+          "type": "IfcRelContainedInSpatialStructure",
+          "relationship_id": "64b0bc41-017c-4b6d-9a84-4d665a56d4df",
+          "element_id": "joint_3",
+          "element_type": "Bolted",
+          "contained_in": "cfdbd3b9-8df1-483c-bde7-c2aed7a41aa1",
+          "container_type": "IfcBuildingStorey"
+        },
+        {
+          "type": "IfcRelContainedInSpatialStructure",
+          "relationship_id": "f96a48d9-f478-4c5d-be85-4a0879db8059",
+          "element_id": "joint_3e604cc9",
+          "element_type": "IfcWeld",
+          "contained_in": "cfdbd3b9-8df1-483c-bde7-c2aed7a41aa1",
+          "container_type": "IfcBuildingStorey"
+        },
+        {
+          "type": "IfcRelContainedInSpatialStructure",
+          "relationship_id": "605f7005-d654-4d08-84b7-05f65033286c",
+          "element_id": "joint_0a857275",
+          "element_type": "IfcWeld",
+          "contained_in": "cfdbd3b9-8df1-483c-bde7-c2aed7a41aa1",
+          "container_type": "IfcBuildingStorey"
+        },
+        {
+          "type": "IfcRelContainedInSpatialStructure",
+          "relationship_id": "99b63111-3a4d-4240-8c79-8f2845670354",
+          "element_id": "joint_704da664",
+          "element_type": "IfcWeld",
+          "contained_in": "cfdbd3b9-8df1-483c-bde7-c2aed7a41aa1",
+          "container_type": "IfcBuildingStorey"
+        },
+        {
+          "type": "IfcRelContainedInSpatialStructure",
+          "relationship_id": "d18305a9-9650-4157-b2db-d110a516106a",
+          "element_id": "joint_8ac49102",
+          "element_type": "IfcWeld",
+          "contained_in": "cfdbd3b9-8df1-483c-bde7-c2aed7a41aa1",
+          "container_type": "IfcBuildingStorey"
+        },
+        {
+          "type": "IfcRelAggregates",
+          "relationship_id": "97c148b0-593f-4a00-b802-816f0cd87ca2",
+          "relating_element": "507bf70b-f810-4ac1-8f04-d8fcc7363b87",
+          "related_elements": [
+            "5bf64b8c-62ee-4aaa-8183-01c2b315a171"
+          ],
+          "relation": "Project contains Site"
+        },
+        {
+          "type": "IfcRelAggregates",
+          "relationship_id": "7f844f5e-3f7a-4dfc-b96c-453de25d8016",
+          "relating_element": "5bf64b8c-62ee-4aaa-8183-01c2b315a171",
+          "related_elements": [
+            "3c74c6c4-15d3-420c-a1a2-e18ef36a1524"
+          ],
+          "relation": "Site contains Building"
+        },
+        {
+          "type": "IfcRelAggregates",
+          "relationship_id": "709a9d94-8371-4bcb-93d3-53fc7c6c914a",
+          "relating_element": "3c74c6c4-15d3-420c-a1a2-e18ef36a1524",
+          "related_elements": [
+            "cfdbd3b9-8df1-483c-bde7-c2aed7a41aa1"
+          ],
+          "relation": "Building contains Storey"
+        }
+      ],
+      "structural_connections": [
+        {
+          "type": "IfcRelConnectsElements",
+          "connection_id": "22d7f091-f1d9-48e6-a15d-67bb21b6901e",
+          "relating_element": "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+          "related_element": "plate_0",
+          "connection_type": "PlateConnection",
+          "element_types": [
+            "IfcBeam",
+            "IfcPlate"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsElements",
+          "connection_id": "967b7338-ac56-4553-b6bc-32e273b43085",
+          "relating_element": "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+          "related_element": "plate_0",
+          "connection_type": "PlateConnection",
+          "element_types": [
+            "IfcBeam",
+            "IfcPlate"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsElements",
+          "connection_id": "8c486435-d521-43dd-b869-0a2598651141",
+          "relating_element": "6a224b9c-d4a3-403d-af8f-407671e71667",
+          "related_element": "plate_0",
+          "connection_type": "PlateConnection",
+          "element_types": [
+            "IfcBeam",
+            "IfcPlate"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsElements",
+          "connection_id": "94a09ec1-eb4e-4636-a131-fbfbfe39399e",
+          "relating_element": "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+          "related_element": "plate_1",
+          "connection_type": "PlateConnection",
+          "element_types": [
+            "IfcBeam",
+            "IfcPlate"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsElements",
+          "connection_id": "182344be-ebad-465c-be8d-737a14b72cd8",
+          "relating_element": "32b51350-7944-4444-aef9-b0fb73afbdb1",
+          "related_element": "plate_1",
+          "connection_type": "PlateConnection",
+          "element_types": [
+            "IfcBeam",
+            "IfcPlate"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsElements",
+          "connection_id": "3d70b226-1603-454c-b178-a6d9f5eb8002",
+          "relating_element": "0992e5a0-27e3-4e71-8641-c39f0cae6894",
+          "related_element": "plate_1",
+          "connection_type": "PlateConnection",
+          "element_types": [
+            "IfcBeam",
+            "IfcPlate"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsElements",
+          "connection_id": "77ea0cd6-bb4e-4db2-84f1-27d97cc157e7",
+          "relating_element": "4ab6263f-fc25-4e33-985f-9590defe2dff",
+          "related_element": "plate_2",
+          "connection_type": "PlateConnection",
+          "element_types": [
+            "IfcBeam",
+            "IfcPlate"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsElements",
+          "connection_id": "663b4710-04c5-4681-8f57-50020b1f12d8",
+          "relating_element": "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+          "related_element": "plate_2",
+          "connection_type": "PlateConnection",
+          "element_types": [
+            "IfcBeam",
+            "IfcPlate"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsElements",
+          "connection_id": "1703732c-8161-4713-ab7c-c23fc31609d2",
+          "relating_element": "6a224b9c-d4a3-403d-af8f-407671e71667",
+          "related_element": "plate_2",
+          "connection_type": "PlateConnection",
+          "element_types": [
+            "IfcBeam",
+            "IfcPlate"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsElements",
+          "connection_id": "f5d240a1-b83f-499d-9304-0a56905d14dd",
+          "relating_element": "4ab6263f-fc25-4e33-985f-9590defe2dff",
+          "related_element": "plate_3",
+          "connection_type": "PlateConnection",
+          "element_types": [
+            "IfcBeam",
+            "IfcPlate"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsElements",
+          "connection_id": "81361458-b983-4877-824c-c1af32c03757",
+          "relating_element": "32b51350-7944-4444-aef9-b0fb73afbdb1",
+          "related_element": "plate_3",
+          "connection_type": "PlateConnection",
+          "element_types": [
+            "IfcBeam",
+            "IfcPlate"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsElements",
+          "connection_id": "a50ac59a-0cba-453c-9540-3390a7686ec4",
+          "relating_element": "0992e5a0-27e3-4e71-8641-c39f0cae6894",
+          "related_element": "plate_3",
+          "connection_type": "PlateConnection",
+          "element_types": [
+            "IfcBeam",
+            "IfcPlate"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsElements",
+          "connection_id": "284fcb7b-c367-4e0d-978a-e74c0bf13e33",
+          "relating_element": "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+          "related_element": "plate_4",
+          "connection_type": "PlateConnection",
+          "element_types": [
+            "IfcBeam",
+            "IfcPlate"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsElements",
+          "connection_id": "f8d81235-d5bd-4063-82e9-db7c8be44136",
+          "relating_element": "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+          "related_element": "plate_4",
+          "connection_type": "PlateConnection",
+          "element_types": [
+            "IfcBeam",
+            "IfcPlate"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsElements",
+          "connection_id": "713a4baf-fa2b-4dae-9262-c94ce0e412da",
+          "relating_element": "6a224b9c-d4a3-403d-af8f-407671e71667",
+          "related_element": "plate_4",
+          "connection_type": "PlateConnection",
+          "element_types": [
+            "IfcBeam",
+            "IfcPlate"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsElements",
+          "connection_id": "888552c5-0f4c-41c7-894d-90403cdee75f",
+          "relating_element": "4ab6263f-fc25-4e33-985f-9590defe2dff",
+          "related_element": "plate_5",
+          "connection_type": "PlateConnection",
+          "element_types": [
+            "IfcBeam",
+            "IfcPlate"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsElements",
+          "connection_id": "bf944c9d-1501-4fc7-8b38-264d8718a9d5",
+          "relating_element": "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+          "related_element": "plate_5",
+          "connection_type": "PlateConnection",
+          "element_types": [
+            "IfcBeam",
+            "IfcPlate"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsElements",
+          "connection_id": "1023f98d-8dc4-4a1f-ba4d-af47a28fe8c2",
+          "relating_element": "6a224b9c-d4a3-403d-af8f-407671e71667",
+          "related_element": "plate_5",
+          "connection_type": "PlateConnection",
+          "element_types": [
+            "IfcBeam",
+            "IfcPlate"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsElements",
+          "connection_id": "aa689824-f216-47af-90d3-c8361450a1c6",
+          "relating_element": "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+          "related_element": "plate_6",
+          "connection_type": "PlateConnection",
+          "element_types": [
+            "IfcBeam",
+            "IfcPlate"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsElements",
+          "connection_id": "986a08d8-56fa-49a0-8fc5-34bdfce89b15",
+          "relating_element": "32b51350-7944-4444-aef9-b0fb73afbdb1",
+          "related_element": "plate_6",
+          "connection_type": "PlateConnection",
+          "element_types": [
+            "IfcBeam",
+            "IfcPlate"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsElements",
+          "connection_id": "8ff9788e-8a01-4546-b9c9-f1d8d9b0fe15",
+          "relating_element": "0992e5a0-27e3-4e71-8641-c39f0cae6894",
+          "related_element": "plate_6",
+          "connection_type": "PlateConnection",
+          "element_types": [
+            "IfcBeam",
+            "IfcPlate"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsElements",
+          "connection_id": "d3c3ba6f-cd00-4ed4-b59e-8e353f855733",
+          "relating_element": "4ab6263f-fc25-4e33-985f-9590defe2dff",
+          "related_element": "plate_7",
+          "connection_type": "PlateConnection",
+          "element_types": [
+            "IfcBeam",
+            "IfcPlate"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsElements",
+          "connection_id": "66b9fac5-0322-442c-99d9-e674cbdb8c45",
+          "relating_element": "32b51350-7944-4444-aef9-b0fb73afbdb1",
+          "related_element": "plate_7",
+          "connection_type": "PlateConnection",
+          "element_types": [
+            "IfcBeam",
+            "IfcPlate"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsElements",
+          "connection_id": "9c8619f4-3e2c-4214-aa9e-98463ac94db7",
+          "relating_element": "0992e5a0-27e3-4e71-8641-c39f0cae6894",
+          "related_element": "plate_7",
+          "connection_type": "PlateConnection",
+          "element_types": [
+            "IfcBeam",
+            "IfcPlate"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsWithRealizingElements",
+          "connection_id": "e29a99cd-e4ed-45d0-96b2-f97606006932",
+          "relating_element": "plate_0",
+          "related_element": "plate_0",
+          "realizing_element": "bolt_0",
+          "connection_type": "BoltConnection",
+          "element_types": [
+            "IfcPlate",
+            "IfcFastener"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsWithRealizingElements",
+          "connection_id": "adec58a8-9379-4612-afc2-bb7a83c44f70",
+          "relating_element": "plate_0",
+          "related_element": "plate_0",
+          "realizing_element": "bolt_1",
+          "connection_type": "BoltConnection",
+          "element_types": [
+            "IfcPlate",
+            "IfcFastener"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsWithRealizingElements",
+          "connection_id": "63f6123d-5647-4cf2-a372-b5fc4f522923",
+          "relating_element": "plate_0",
+          "related_element": "plate_0",
+          "realizing_element": "bolt_2",
+          "connection_type": "BoltConnection",
+          "element_types": [
+            "IfcPlate",
+            "IfcFastener"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsWithRealizingElements",
+          "connection_id": "1f71d62e-9da3-4278-89b2-989d629b64a6",
+          "relating_element": "plate_0",
+          "related_element": "plate_0",
+          "realizing_element": "bolt_3",
+          "connection_type": "BoltConnection",
+          "element_types": [
+            "IfcPlate",
+            "IfcFastener"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsWithRealizingElements",
+          "connection_id": "f9e8d055-00af-4e72-810f-f974e289a198",
+          "relating_element": "plate_1",
+          "related_element": "plate_1",
+          "realizing_element": "bolt_4",
+          "connection_type": "BoltConnection",
+          "element_types": [
+            "IfcPlate",
+            "IfcFastener"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsWithRealizingElements",
+          "connection_id": "448f3923-8147-4f0e-bdaa-3f355186db6d",
+          "relating_element": "plate_1",
+          "related_element": "plate_1",
+          "realizing_element": "bolt_5",
+          "connection_type": "BoltConnection",
+          "element_types": [
+            "IfcPlate",
+            "IfcFastener"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsWithRealizingElements",
+          "connection_id": "312e483b-fd25-47e7-9a4b-2eab5a7fa92e",
+          "relating_element": "plate_1",
+          "related_element": "plate_1",
+          "realizing_element": "bolt_6",
+          "connection_type": "BoltConnection",
+          "element_types": [
+            "IfcPlate",
+            "IfcFastener"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsWithRealizingElements",
+          "connection_id": "43a6944f-e61d-411f-a373-24bfaae02bd3",
+          "relating_element": "plate_1",
+          "related_element": "plate_1",
+          "realizing_element": "bolt_7",
+          "connection_type": "BoltConnection",
+          "element_types": [
+            "IfcPlate",
+            "IfcFastener"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsWithRealizingElements",
+          "connection_id": "3f5e1bb2-be74-43d4-93ae-a09113ce3427",
+          "relating_element": "plate_2",
+          "related_element": "plate_2",
+          "realizing_element": "bolt_8",
+          "connection_type": "BoltConnection",
+          "element_types": [
+            "IfcPlate",
+            "IfcFastener"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsWithRealizingElements",
+          "connection_id": "14c85305-a143-4d25-8cf5-eb48d6661f2f",
+          "relating_element": "plate_2",
+          "related_element": "plate_2",
+          "realizing_element": "bolt_9",
+          "connection_type": "BoltConnection",
+          "element_types": [
+            "IfcPlate",
+            "IfcFastener"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsWithRealizingElements",
+          "connection_id": "5b161b47-e1cd-4a4d-a163-79943222eb27",
+          "relating_element": "plate_2",
+          "related_element": "plate_2",
+          "realizing_element": "bolt_10",
+          "connection_type": "BoltConnection",
+          "element_types": [
+            "IfcPlate",
+            "IfcFastener"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsWithRealizingElements",
+          "connection_id": "1f055a6d-afc0-4692-9a63-88d74dab4b5a",
+          "relating_element": "plate_2",
+          "related_element": "plate_2",
+          "realizing_element": "bolt_11",
+          "connection_type": "BoltConnection",
+          "element_types": [
+            "IfcPlate",
+            "IfcFastener"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsWithRealizingElements",
+          "connection_id": "8a1f731e-1fa7-4b8f-9c31-2356348e3b22",
+          "relating_element": "plate_3",
+          "related_element": "plate_3",
+          "realizing_element": "bolt_12",
+          "connection_type": "BoltConnection",
+          "element_types": [
+            "IfcPlate",
+            "IfcFastener"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsWithRealizingElements",
+          "connection_id": "c54bb05c-ed7f-4004-b522-3cadf4084af0",
+          "relating_element": "plate_3",
+          "related_element": "plate_3",
+          "realizing_element": "bolt_13",
+          "connection_type": "BoltConnection",
+          "element_types": [
+            "IfcPlate",
+            "IfcFastener"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsWithRealizingElements",
+          "connection_id": "5838aadd-5046-41cf-9a72-97d0ebe37d7e",
+          "relating_element": "plate_3",
+          "related_element": "plate_3",
+          "realizing_element": "bolt_14",
+          "connection_type": "BoltConnection",
+          "element_types": [
+            "IfcPlate",
+            "IfcFastener"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsWithRealizingElements",
+          "connection_id": "ac5eb875-914f-45b8-b679-843169afb786",
+          "relating_element": "plate_3",
+          "related_element": "plate_3",
+          "realizing_element": "bolt_15",
+          "connection_type": "BoltConnection",
+          "element_types": [
+            "IfcPlate",
+            "IfcFastener"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsWithRealizingElements",
+          "connection_id": "baf4edb9-2ad9-4d79-9504-60eebf3954dc",
+          "relating_element": "plate_4",
+          "related_element": "plate_4",
+          "realizing_element": "bolt_16",
+          "connection_type": "BoltConnection",
+          "element_types": [
+            "IfcPlate",
+            "IfcFastener"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsWithRealizingElements",
+          "connection_id": "cb30ef53-3c26-458d-abd4-27fe30573bb6",
+          "relating_element": "plate_4",
+          "related_element": "plate_4",
+          "realizing_element": "bolt_17",
+          "connection_type": "BoltConnection",
+          "element_types": [
+            "IfcPlate",
+            "IfcFastener"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsWithRealizingElements",
+          "connection_id": "04f0cc68-d438-4e77-bfcd-9dd39b858374",
+          "relating_element": "plate_4",
+          "related_element": "plate_4",
+          "realizing_element": "bolt_18",
+          "connection_type": "BoltConnection",
+          "element_types": [
+            "IfcPlate",
+            "IfcFastener"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsWithRealizingElements",
+          "connection_id": "b35d6b02-bf33-4ed2-b369-82f9312fa371",
+          "relating_element": "plate_4",
+          "related_element": "plate_4",
+          "realizing_element": "bolt_19",
+          "connection_type": "BoltConnection",
+          "element_types": [
+            "IfcPlate",
+            "IfcFastener"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsWithRealizingElements",
+          "connection_id": "c9ddd35f-5aef-482a-823c-7063be34637b",
+          "relating_element": "plate_5",
+          "related_element": "plate_5",
+          "realizing_element": "bolt_20",
+          "connection_type": "BoltConnection",
+          "element_types": [
+            "IfcPlate",
+            "IfcFastener"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsWithRealizingElements",
+          "connection_id": "5d17b590-5201-4c2d-bf37-676e81eea02f",
+          "relating_element": "plate_5",
+          "related_element": "plate_5",
+          "realizing_element": "bolt_21",
+          "connection_type": "BoltConnection",
+          "element_types": [
+            "IfcPlate",
+            "IfcFastener"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsWithRealizingElements",
+          "connection_id": "f4621838-1503-48f3-b29b-1f0b1b718467",
+          "relating_element": "plate_5",
+          "related_element": "plate_5",
+          "realizing_element": "bolt_22",
+          "connection_type": "BoltConnection",
+          "element_types": [
+            "IfcPlate",
+            "IfcFastener"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsWithRealizingElements",
+          "connection_id": "c20e150e-7a6e-4907-9867-a37a583fcc7d",
+          "relating_element": "plate_5",
+          "related_element": "plate_5",
+          "realizing_element": "bolt_23",
+          "connection_type": "BoltConnection",
+          "element_types": [
+            "IfcPlate",
+            "IfcFastener"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsWithRealizingElements",
+          "connection_id": "810eeb2d-a2b3-437d-8694-cadf0090c14a",
+          "relating_element": "plate_6",
+          "related_element": "plate_6",
+          "realizing_element": "bolt_24",
+          "connection_type": "BoltConnection",
+          "element_types": [
+            "IfcPlate",
+            "IfcFastener"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsWithRealizingElements",
+          "connection_id": "6c4b0731-4368-42b6-ae3d-6f528d464d03",
+          "relating_element": "plate_6",
+          "related_element": "plate_6",
+          "realizing_element": "bolt_25",
+          "connection_type": "BoltConnection",
+          "element_types": [
+            "IfcPlate",
+            "IfcFastener"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsWithRealizingElements",
+          "connection_id": "f13bcd58-ab6a-4c32-bb8d-42eab6342614",
+          "relating_element": "plate_6",
+          "related_element": "plate_6",
+          "realizing_element": "bolt_26",
+          "connection_type": "BoltConnection",
+          "element_types": [
+            "IfcPlate",
+            "IfcFastener"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsWithRealizingElements",
+          "connection_id": "ee2c618e-8da4-45b5-ba32-6b0ee074efef",
+          "relating_element": "plate_6",
+          "related_element": "plate_6",
+          "realizing_element": "bolt_27",
+          "connection_type": "BoltConnection",
+          "element_types": [
+            "IfcPlate",
+            "IfcFastener"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsWithRealizingElements",
+          "connection_id": "03481f71-e1d4-4062-8933-a82509c7c469",
+          "relating_element": "plate_7",
+          "related_element": "plate_7",
+          "realizing_element": "bolt_28",
+          "connection_type": "BoltConnection",
+          "element_types": [
+            "IfcPlate",
+            "IfcFastener"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsWithRealizingElements",
+          "connection_id": "581a02c7-a3dd-4d84-b208-43a82c81eb4c",
+          "relating_element": "plate_7",
+          "related_element": "plate_7",
+          "realizing_element": "bolt_29",
+          "connection_type": "BoltConnection",
+          "element_types": [
+            "IfcPlate",
+            "IfcFastener"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsWithRealizingElements",
+          "connection_id": "9bc95922-4216-429b-ba1f-18f7e4e9c223",
+          "relating_element": "plate_7",
+          "related_element": "plate_7",
+          "realizing_element": "bolt_30",
+          "connection_type": "BoltConnection",
+          "element_types": [
+            "IfcPlate",
+            "IfcFastener"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsWithRealizingElements",
+          "connection_id": "5f170ba9-f674-424b-a66c-b297aab7ae0c",
+          "relating_element": "plate_7",
+          "related_element": "plate_7",
+          "realizing_element": "bolt_31",
+          "connection_type": "BoltConnection",
+          "element_types": [
+            "IfcPlate",
+            "IfcFastener"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsElements",
+          "connection_id": "99737b6b-2384-428d-bbb8-4c553ac034bb",
+          "relating_element": "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+          "related_element": "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+          "realizing_element": "joint_0",
+          "connection_type": "Welded",
+          "element_types": [
+            "IfcMember",
+            "IfcMember",
+            "Bolted"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsElements",
+          "connection_id": "56d8b8e8-4537-4789-a371-37e392d5239c",
+          "relating_element": "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+          "related_element": "32b51350-7944-4444-aef9-b0fb73afbdb1",
+          "realizing_element": "joint_1",
+          "connection_type": "Welded",
+          "element_types": [
+            "IfcMember",
+            "IfcMember",
+            "Bolted"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsElements",
+          "connection_id": "4b534e9c-cc75-4759-8c56-3cfad1b4f0b8",
+          "relating_element": "4ab6263f-fc25-4e33-985f-9590defe2dff",
+          "related_element": "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+          "realizing_element": "joint_2",
+          "connection_type": "Welded",
+          "element_types": [
+            "IfcMember",
+            "IfcMember",
+            "Bolted"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsElements",
+          "connection_id": "54f9a77d-b0f6-42be-87e4-9a5663a91613",
+          "relating_element": "4ab6263f-fc25-4e33-985f-9590defe2dff",
+          "related_element": "32b51350-7944-4444-aef9-b0fb73afbdb1",
+          "realizing_element": "joint_3",
+          "connection_type": "Welded",
+          "element_types": [
+            "IfcMember",
+            "IfcMember",
+            "Bolted"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsElements",
+          "connection_id": "b54474a6-97c5-4068-92a2-4f5ce1fbdbde",
+          "relating_element": "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+          "related_element": "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+          "realizing_element": "joint_3e604cc9",
+          "connection_type": "Welded",
+          "element_types": [
+            "IfcMember",
+            "IfcMember",
+            "IfcWeld"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsElements",
+          "connection_id": "cde5c5ce-cdc5-4b9e-a963-6c368f56c489",
+          "relating_element": "4ab6263f-fc25-4e33-985f-9590defe2dff",
+          "related_element": "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+          "realizing_element": "joint_0a857275",
+          "connection_type": "Welded",
+          "element_types": [
+            "IfcMember",
+            "IfcMember",
+            "IfcWeld"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsElements",
+          "connection_id": "567a502d-7cf9-46e2-960e-e271798731f8",
+          "relating_element": "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+          "related_element": "32b51350-7944-4444-aef9-b0fb73afbdb1",
+          "realizing_element": "joint_704da664",
+          "connection_type": "Welded",
+          "element_types": [
+            "IfcMember",
+            "IfcMember",
+            "IfcWeld"
+          ]
+        },
+        {
+          "type": "IfcRelConnectsElements",
+          "connection_id": "a6cb592a-05ad-4ab6-b249-49be9d7b3db2",
+          "relating_element": "4ab6263f-fc25-4e33-985f-9590defe2dff",
+          "related_element": "32b51350-7944-4444-aef9-b0fb73afbdb1",
+          "realizing_element": "joint_8ac49102",
+          "connection_type": "Welded",
+          "element_types": [
+            "IfcMember",
+            "IfcMember",
+            "IfcWeld"
+          ]
+        }
+      ]
+    },
+    "metadata": {
+      "member_adjustments": [
+        {
+          "member_id": "b7439d5a-f630-4167-baf3-9861fd6be8b4",
+          "extend_start_mm": 0.0,
+          "extend_end_mm": 150.0,
+          "shorten_mm": 0.0,
+          "provenance": "fallback_standards",
+          "confidence": 0.3
+        },
+        {
+          "member_id": "4ab6263f-fc25-4e33-985f-9590defe2dff",
+          "extend_start_mm": 0.0,
+          "extend_end_mm": 150.0,
+          "shorten_mm": 0.0,
+          "provenance": "fallback_standards",
+          "confidence": 0.3
+        },
+        {
+          "member_id": "6d94a98a-7369-4bb7-a348-a0eb150fc4cc",
+          "extend_start_mm": 0.0,
+          "extend_end_mm": 120.0,
+          "shorten_mm": 0.0,
+          "provenance": "fallback_standards",
+          "confidence": 0.3
+        },
+        {
+          "member_id": "32b51350-7944-4444-aef9-b0fb73afbdb1",
+          "extend_start_mm": 0.0,
+          "extend_end_mm": 120.0,
+          "shorten_mm": 0.0,
+          "provenance": "fallback_standards",
+          "confidence": 0.3
+        },
+        {
+          "member_id": "6a224b9c-d4a3-403d-af8f-407671e71667",
+          "extend_start_mm": 0.0,
+          "extend_end_mm": 120.0,
+          "shorten_mm": 0.0,
+          "provenance": "fallback_standards",
+          "confidence": 0.3
+        },
+        {
+          "member_id": "0992e5a0-27e3-4e71-8641-c39f0cae6894",
+          "extend_start_mm": 0.0,
+          "extend_end_mm": 120.0,
+          "shorten_mm": 0.0,
+          "provenance": "fallback_standards",
+          "confidence": 0.3
+        }
+      ]
+    },
+    "summary": {
+      "total_columns": 0,
+      "total_beams": 6,
+      "total_plates": 8,
+      "total_fasteners": 32,
+      "total_joints": 8,
+      "total_elements": 54,
+      "total_relationships": 89
+    },
+    "bolts": []
+  },
+  "ifc_coordinates_verified": true,
+  "final": {
+    "agents": {
+      "geometry": {
+        "agent": "geometry",
+        "ok": true
+      },
+      "sections": {
+        "agent": "sections",
+        "ok": true
+      },
+      "material": {
+        "agent": "material",
+        "ok": true
+      },
+      "loads": {
+        "agent": "loads",
+        "ok": true
+      },
+      "deflection": {
+        "agent": "deflection",
+        "ok": true
+      },
+      "compliance": {
+        "agent": "compliance",
+        "ok": true
+      }
+    },
+    "summary": {
+      "agent_count": 6,
+      "ok": true
+    }
+  }
+}

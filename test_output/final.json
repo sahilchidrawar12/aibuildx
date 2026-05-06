@@ -1,0 +1,32 @@
+{
+  "agents": {
+    "geometry": {
+      "agent": "geometry",
+      "ok": true
+    },
+    "sections": {
+      "agent": "sections",
+      "ok": true
+    },
+    "material": {
+      "agent": "material",
+      "ok": true
+    },
+    "loads": {
+      "agent": "loads",
+      "ok": true
+    },
+    "deflection": {
+      "agent": "deflection",
+      "ok": true
+    },
+    "compliance": {
+      "agent": "compliance",
+      "ok": true
+    }
+  },
+  "summary": {
+    "agent_count": 6,
+    "ok": true
+  }
+}

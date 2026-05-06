@@ -417,22 +417,29 @@ function createJointMesh(joint) {
 }
 
 function createWeldMesh(weld) {
-  // Create a line to represent weld connection
-  if (!weld.start || !weld.end) return null;
+  const start = weld.start || weld.position || weld.center
+  const end = weld.end || (weld.position && weld.direction ? [start[0] + weld.direction[0], start[1] + weld.direction[1], start[2] + weld.direction[2]] : null)
+  if (!start || !end) return null
 
-  const start = weld.start;
-  const end = weld.end;
-  const geometry = new THREE.BufferGeometry();
-  
-  geometry.setAttribute('position', new THREE.BufferAttribute(
-    new Float32Array([start[0], start[1], start[2], end[0], end[1], end[2]]),
-    3
-  ));
+  const startVec = new THREE.Vector3(start[0], start[1], start[2])
+  const endVec = new THREE.Vector3(end[0], end[1], end[2])
+  const length = startVec.distanceTo(endVec)
+  if (length < 0.0001) return null
 
-  const material = new THREE.LineBasicMaterial({ color: COLORS.weld, linewidth: 3 });
-  const line = new THREE.Line(geometry, material);
-  
-  return line;
+  const thickness = weld.size ? Math.max(weld.size * 0.5, 0.01) : 0.015
+  const radius = Math.max(thickness * 0.5, 0.01)
+  const geometry = new THREE.CylinderGeometry(radius, radius, Math.max(length, 0.001), 16)
+  const material = new THREE.MeshStandardMaterial({ color: COLORS.weld, metalness: 0.65, roughness: 0.25, transparent: true, opacity: 0.95 })
+  const mesh = new THREE.Mesh(geometry, material)
+
+  const direction = endVec.clone().sub(startVec).normalize()
+  const axis = new THREE.Vector3(0, 1, 0)
+  const quaternion = new THREE.Quaternion().setFromUnitVectors(axis, direction)
+  mesh.quaternion.copy(quaternion)
+  mesh.position.copy(startVec.clone().add(endVec).multiplyScalar(0.5))
+  mesh.castShadow = true
+  mesh.receiveShadow = true
+  return mesh
 }
 
 function setStatus(text, isError = false) {
@@ -651,7 +658,7 @@ function onMouseMove(event) {
 }
 
 async function onPointerDown(event) {
-  if (!model || !ifcLoader) return;
+  if (!model) return;
   const rect = renderer.domElement.getBoundingClientRect();
   mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
   mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
@@ -660,20 +667,22 @@ async function onPointerDown(event) {
   const intersects = raycaster.intersectObjects(model.children, true);
   if (!intersects.length) return;
 
-  const { object, faceIndex } = intersects[0];
-  const geometry = object.geometry;
-  if (!geometry) return;
+  const { object } = intersects[0];
+  const item = object.userData || object.parent?.userData
+  if (!item) return;
 
-  try {
-    const expressID = ifcLoader.ifcManager.getExpressId(geometry, faceIndex);
-    const props = await ifcLoader.ifcManager.getItemProperties(model.modelID, expressID, true);
-    ui.selection.textContent = JSON.stringify({ id: expressID, name: props?.Name?.value, guid: props?.GlobalId?.value, props }, null, 2);
-    setStatus(`Selected element #${expressID}`);
-  } catch (err) {
-    console.warn('Selection failed', err);
-    setStatus('Selection unavailable', true);
-    ui.selection.textContent = 'Selection failed: ' + (err?.message || 'unknown error');
+  const details = {
+    id: item.memberId || item.id || 'unknown',
+    type: item.type || item.role || 'IFC Element',
+    profile: item.profile || item.type,
+    start: item.start ? `[${item.start.map(v => v.toFixed(2)).join(', ')}]` : 'N/A',
+    end: item.end ? `[${item.end.map(v => v.toFixed(2)).join(', ')}]` : 'N/A',
+    material: item.material || 'steel',
+    length: item.length ? `${item.length.toFixed(2)} m` : 'N/A'
   }
+
+  ui.selection.textContent = JSON.stringify(details, null, 2)
+  setStatus(`Selected ${details.type}`)
 }
 
 function animate() {

@@ -47,10 +47,11 @@ def main():
     logger.info(f"Host: {host}")
     logger.info(f"Port: {port}")
     logger.info(f"Reload: {reload}")
+    display_host = host if host not in ("0.0.0.0", "::") else "localhost"
     logger.info("WebSocket endpoints:")
-    logger.info("  - Tekla Bridge: ws://localhost:8000/ws/tekla")
-    logger.info("  - Client Updates: ws://localhost:8000/ws/client")
-    logger.info("REST API: http://localhost:8000/docs")
+    logger.info(f"  - Tekla Bridge: ws://{display_host}:{port}/ws/tekla")
+    logger.info(f"  - Client Updates: ws://{display_host}:{port}/ws/client")
+    logger.info(f"REST API: http://{display_host}:{port}/docs")
 
     # Start the server
     try:

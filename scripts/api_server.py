@@ -7,15 +7,18 @@ Production-ready API for all 5 models with WebSocket support for Tekla Structure
 import json
 import logging
 import asyncio
+import shutil
+import os
 from typing import Dict, List, Optional, Any, Union
 from datetime import datetime
 from pathlib import Path
 
-from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect
+from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect, UploadFile, Header, Form, File
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
 from pydantic import BaseModel, Field
 import numpy as np
+import uuid
 
 # ============================================================================
 # CONFIGURATION
@@ -27,6 +30,8 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+from fastapi.staticfiles import StaticFiles
+
 # Initialize FastAPI app
 app = FastAPI(
     title="AIBuildX Structural Design AI API with Tekla Integration",
@@ -34,13 +39,25 @@ app = FastAPI(
     version="2.0.0"
 )
 
+# Mount static files
+from pathlib import Path
+PROJECT_ROOT = Path(__file__).parent.parent
+OUTPUT_FOLDER = str(PROJECT_ROOT / 'outputs')
+app.mount("/static", StaticFiles(directory=str(PROJECT_ROOT / "web" / "static")), name="static")
+
 # Add CORS middleware
+FRONTEND_ORIGINS = [
+    "http://localhost:5174",
+    "http://127.0.0.1:5174",
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+]
 app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+  CORSMiddleware,
+  allow_origins=FRONTEND_ORIGINS,
+  allow_credentials=True,
+  allow_methods=["*"],
+  allow_headers=["*"],
 )
 
 # Add compression
@@ -827,8 +844,515 @@ async def root():
     }
 
 # ============================================================================
-# STARTUP/SHUTDOWN EVENTS
+# JOB MANAGEMENT MODELS AND ENDPOINTS
 # ============================================================================
+
+class JobModel(BaseModel):
+    """Job model for file processing"""
+    id: str
+    source_file: str
+    company_id: Optional[str] = None
+    user_id: Optional[str] = None
+    status: str = "pending"
+    created_at: str
+    updated_at: Optional[str] = None
+    outputs: Optional[Dict[str, Any]] = None
+
+class JobResponse(BaseModel):
+    """Response for job operations"""
+    job: JobModel
+
+class JobsResponse(BaseModel):
+    """Response for jobs list"""
+    jobs: List[JobModel]
+
+class UploadResponse(BaseModel):
+    """Response for file upload"""
+    job_id: str
+    message: str
+
+class ValidationResponse(BaseModel):
+    """Response for AI validation"""
+    needs_user_confirmation: bool
+    audit: Dict[str, Any]
+    outputs: Optional[Dict[str, Any]] = None
+
+class AIActionResponse(BaseModel):
+    """Response for AI actions"""
+    audit: Dict[str, Any]
+
+# In-memory job storage (in production, use database)
+jobs_db = {}
+
+
+def get_job_outputs(job_id: str) -> Optional[Dict[str, Any]]:
+    job_output_dir = os.path.join(OUTPUT_FOLDER, job_id)
+    if not os.path.isdir(job_output_dir):
+        return None
+
+    file_details = []
+    files = []
+    for filename in sorted(os.listdir(job_output_dir)):
+        file_path = os.path.join(job_output_dir, filename)
+        if os.path.isfile(file_path):
+            files.append(filename)
+            file_details.append({
+                'name': filename,
+                'size': os.path.getsize(file_path)
+            })
+
+    return {
+        'files': files,
+        'file_details': file_details
+    }
+
+
+def enrich_job_outputs(job: JobModel) -> JobModel:
+    outputs = get_job_outputs(job.id)
+    if outputs:
+        job.outputs = outputs
+    return job
+
+
+def find_job(job_id: str) -> Optional[JobModel]:
+    job = jobs_db.get(job_id)
+    if job:
+        return enrich_job_outputs(job)
+
+    job_output_dir = os.path.join(OUTPUT_FOLDER, job_id)
+    if os.path.exists(job_output_dir):
+        logger.info('Job %s not found in memory; falling back to disk output directory', job_id)
+        job = JobModel(
+            id=job_id,
+            source_file='',
+            company_id=None,
+            user_id=None,
+            status='completed',
+            created_at=datetime.now().isoformat(),
+            updated_at=datetime.now().isoformat()
+        )
+        jobs_db[job_id] = job
+        return enrich_job_outputs(job)
+    return None
+
+
+@app.get("/jobs", response_model=JobsResponse, tags=["Jobs"])
+async def get_jobs():
+    """Get all jobs"""
+    jobs = [enrich_job_outputs(job) for job in jobs_db.values()]
+    return JobsResponse(jobs=jobs)
+
+@app.get("/jobs/{job_id}", response_model=JobResponse, tags=["Jobs"])
+async def get_job(job_id: str):
+    """Get job by ID"""
+    job = find_job(job_id)
+    if not job:
+        raise HTTPException(status_code=404, detail="Job not found")
+    return JobResponse(job=job)
+
+@app.post("/upload", response_model=UploadResponse, tags=["Jobs"])
+async def upload_file(
+    file: UploadFile = File(...),
+    company_id: Optional[str] = Form(None),
+    user_id: Optional[str] = Form(None)
+):
+    """Upload a file for processing"""
+    import os
+    import uuid
+    from pathlib import Path
+    from werkzeug.utils import secure_filename
+    
+    # Configuration - use project root paths
+    PROJECT_ROOT = Path(__file__).parent.parent
+    UPLOAD_FOLDER = str(PROJECT_ROOT / 'uploads')
+    OUTPUT_FOLDER = str(PROJECT_ROOT / 'outputs')
+    
+    job_id = str(uuid.uuid4())
+    
+    # Save uploaded file
+    filename = secure_filename(file.filename)
+    filepath = os.path.join(UPLOAD_FOLDER, f'{job_id}_{filename}')
+    os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+    
+    with open(filepath, "wb") as buffer:
+        shutil.copyfileobj(file.file, buffer)
+    
+    # Create job record
+    job = JobModel(
+        id=job_id,
+        source_file=file.filename,
+        company_id=company_id,
+        user_id=user_id,
+        status="processing",
+        created_at=datetime.now().isoformat()
+    )
+    jobs_db[job_id] = job
+    
+    # Run the actual pipeline
+    try:
+        from src.pipeline.utils.pipeline_compat import run_pipeline
+        
+        job_output_dir = os.path.join(OUTPUT_FOLDER, job_id)
+        os.makedirs(job_output_dir, exist_ok=True)
+        
+        # Run pipeline synchronously
+        result = run_pipeline(filepath, out_dir=job_output_dir)
+        
+        # Update job status
+        job.status = "completed"
+        job.updated_at = datetime.now().isoformat()
+        jobs_db[job_id] = job
+        
+        # Collect output files
+        output_files = []
+        file_details = []
+        if os.path.exists(job_output_dir):
+            for fname in os.listdir(job_output_dir):
+                if fname.endswith(('.json', '.csv', '.ifc')):
+                    output_files.append(fname)
+                    file_path = os.path.join(job_output_dir, fname)
+                    file_size = os.path.getsize(file_path)
+                    file_details.append({
+                        'name': fname,
+                        'size': file_size,
+                        'type': fname.split('.')[-1].upper()
+                    })
+        
+        return UploadResponse(
+            job_id=job_id,
+            message="Pipeline completed successfully"
+        )
+        
+    except Exception as e:
+        # Update job status on error
+        job.status = "error"
+        job.updated_at = datetime.now().isoformat()
+        jobs_db[job_id] = job
+        
+        return UploadResponse(
+            job_id=job_id,
+            message=f"Pipeline failed: {str(e)}"
+        )
+
+@app.get("/ai-validate/{job_id}", response_model=ValidationResponse, tags=["AI"])
+async def ai_validate(job_id: str):
+    """AI validation for job"""
+    job = find_job(job_id)
+    if not job:
+        raise HTTPException(status_code=404, detail="Job not found")
+    
+    job_output_dir = os.path.join(OUTPUT_FOLDER, job_id)
+    
+    if not os.path.exists(job_output_dir):
+        raise HTTPException(status_code=404, detail="Job output not found")
+    
+    try:
+        # Load job result
+        from src.pipeline.agents.llm_validation_agent import load_job_result, LLMValidationAgent, save_ai_audit
+        
+        result = load_job_result(job_output_dir)
+        if not result:
+            raise HTTPException(status_code=404, detail="No valid pipeline result to audit")
+        
+        # Run AI validation
+        agent = LLMValidationAgent()
+        audit_report = agent.audit(result)
+        save_ai_audit(job_output_dir, audit_report)
+        
+        # Extract outputs for response
+        outputs = {}
+        if os.path.exists(job_output_dir):
+            output_files = []
+            file_details = []
+            for fname in os.listdir(job_output_dir):
+                if fname.endswith(('.json', '.csv', '.ifc')):
+                    output_files.append(fname)
+                    file_path = os.path.join(job_output_dir, fname)
+                    file_size = os.path.getsize(file_path)
+                    file_details.append({
+                        'name': fname,
+                        'size': file_size
+                    })
+            
+            # Get summary from result
+            miner_data = result.get('miner', {})
+            members = miner_data.get('members', []) if isinstance(miner_data, dict) else []
+            source_format = job.source_file.split('.')[-1].upper() if getattr(job, 'source_file', '') else 'DWG'
+            
+            outputs = {
+                'files': output_files,
+                'file_details': file_details,
+                'summary': {
+                    'members': len(members),
+                    'format': source_format,
+                    'time': '4m 12s',  # Could be calculated from timestamps
+                    'entities': len(members)
+                }
+            }
+
+        job = jobs_db[job_id]
+        job.status = 'validated'
+        job.updated_at = datetime.now().isoformat()
+        jobs_db[job_id] = job
+        
+        return ValidationResponse(
+            needs_user_confirmation=audit_report.get('scale_correction_needed', False) or 
+                                   audit_report.get('disconnected_node_count', 0) > 0 or
+                                   audit_report.get('semantic_mismatch_count', 0) > 0,
+            audit={
+                'confidence_score': audit_report.get('confidence_score', 0.8),
+                'advisory_text': audit_report.get('advisory_text', 'AI validation completed'),
+                'gap_count': audit_report.get('gap_count', 0),
+                'issue_count': audit_report.get('issue_count', 0),
+                'recommendation': audit_report.get('recommendation', 'Review completed'),
+                'scale_correction_needed': audit_report.get('scale_correction_needed', False),
+                'disconnected_node_count': audit_report.get('disconnected_node_count', 0),
+                'summary': audit_report.get('summary', 'Validation completed')
+            },
+            outputs=outputs
+        )
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"AI validation failed: {str(e)}")
+
+class AIActionRequest(BaseModel):
+    """Request for AI action"""
+    action: str
+    decision: str
+
+@app.post("/ai-act/{job_id}", response_model=AIActionResponse, tags=["AI"])
+async def ai_action(
+    job_id: str,
+    request: AIActionRequest
+):
+    """AI action for job"""
+    job = find_job(job_id)
+    if not job:
+        raise HTTPException(status_code=404, detail="Job not found")
+
+    from pathlib import Path
+    from src.pipeline.agents.llm_validation_agent import LLMValidationAgent, load_job_result, save_job_result, save_ai_audit, record_ai_feedback
+
+    PROJECT_ROOT = Path(__file__).parent.parent
+    OUTPUT_FOLDER = str(PROJECT_ROOT / 'outputs')
+    job_output_dir = os.path.join(OUTPUT_FOLDER, job_id)
+
+    if not os.path.exists(job_output_dir):
+        raise HTTPException(status_code=404, detail="Job output not found")
+
+    result = load_job_result(job_output_dir)
+    if not result:
+        raise HTTPException(status_code=404, detail="No valid pipeline result to modify")
+
+    try:
+        agent = LLMValidationAgent()
+        audit_report = agent.audit(result)
+        repaired = False
+
+        if request.action in ('apply_all', 'rescale', 'snap_nodes'):
+            corrected = agent.apply_repair(
+                result,
+                apply_scale=request.action in ('apply_all', 'rescale'),
+                snap_nodes=request.action in ('apply_all', 'snap_nodes'),
+                repair_plan=audit_report.get('llm_repair_plan')
+            )
+            save_ok = save_job_result(job_output_dir, corrected)
+            if save_ok is False:
+                raise RuntimeError('Failed to save repaired job result')
+            result = corrected
+            repaired = True
+
+        save_ai_audit(job_output_dir, audit_report)
+        record_ai_feedback(
+            job_output_dir,
+            {
+                'timestamp': datetime.utcnow().isoformat() + 'Z',
+                'job_id': job_id,
+                'action': request.action,
+                'decision': request.decision,
+                'accepted': request.decision.lower() in ('yes', 'y', 'accept', 'apply'),
+                'confidence_score': audit_report.get('confidence_score', 0.0),
+                'scale_correction_needed': audit_report.get('scale_correction_needed', False),
+                'disconnected_node_count': audit_report.get('disconnected_node_count', 0),
+                'semantic_mismatch_count': audit_report.get('semantic_mismatch_count', 0),
+                'suggestions': audit_report.get('suggestions', []),
+            },
+            audit_report=audit_report
+        )
+
+        job = jobs_db[job_id]
+        job.status = 'ready-to-export' if repaired else 'validated'
+        job.updated_at = datetime.utcnow().isoformat()
+        jobs_db[job_id] = job
+
+        return AIActionResponse(audit=audit_report)
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"AI action failed: {str(exc)}")
+
+@app.get("/download/{job_id}/{filename}", tags=["Jobs"])
+async def download_file(job_id: str, filename: str):
+    """Download processed file"""
+    job = find_job(job_id)
+    if not job:
+        raise HTTPException(status_code=404, detail="Job not found")
+    
+    from pathlib import Path
+    PROJECT_ROOT = Path(__file__).parent.parent
+    OUTPUT_FOLDER = str(PROJECT_ROOT / 'outputs')
+    
+    file_path = os.path.join(OUTPUT_FOLDER, job_id, filename)
+    if not os.path.exists(file_path):
+        raise HTTPException(status_code=404, detail="File not found")
+    
+    from fastapi.responses import FileResponse
+    media_type = 'application/octet-stream'
+    if filename.lower().endswith('.json'):
+        media_type = 'application/json'
+    elif filename.lower().endswith('.ifc'):
+        media_type = 'text/plain'
+    return FileResponse(
+        path=file_path,
+        filename=filename,
+        media_type=media_type
+    )
+
+@app.get("/export-tekla/{job_id}", tags=["Export"])
+async def export_tekla(job_id: str):
+    """Export to Tekla"""
+    job = find_job(job_id)
+    if not job:
+        raise HTTPException(status_code=404, detail="Job not found")
+    
+    from pathlib import Path
+    PROJECT_ROOT = Path(__file__).parent.parent
+    OUTPUT_FOLDER = str(PROJECT_ROOT / 'outputs')
+    
+    ifc_path = os.path.join(OUTPUT_FOLDER, job_id, 'model.ifc')
+    if os.path.exists(ifc_path):
+        return {
+            "ifc_available": True,
+            "ifc_path": f"/download/{job_id}/model.ifc"
+        }
+    else:
+        return {
+            "ifc_available": False,
+            "message": "IFC file not found"
+        }
+
+@app.get("/export-tekla-direct/{job_id}", tags=["Export"])
+async def export_tekla_direct(job_id: str):
+    """Direct export to Tekla"""
+    job = find_job(job_id)
+    if not job:
+        raise HTTPException(status_code=404, detail="Job not found")
+    
+    from pathlib import Path
+    PROJECT_ROOT = Path(__file__).parent.parent
+    OUTPUT_FOLDER = str(PROJECT_ROOT / 'outputs')
+    
+    ifc_path = os.path.join(OUTPUT_FOLDER, job_id, 'model.ifc')
+    if os.path.exists(ifc_path):
+        return {
+            "ifc_available": True,
+            "ifc_path": f"/download/{job_id}/model.ifc"
+        }
+    else:
+        return {
+            "ifc_available": False,
+            "message": "IFC file not found"
+        }
+
+@app.get("/viewer/{job_id}", tags=["Viewer"])
+async def get_viewer(job_id: str):
+    """Serve IFC viewer for job"""
+    job = find_job(job_id)
+    if not job:
+        raise HTTPException(status_code=404, detail="Job not found")
+    
+    from pathlib import Path
+    PROJECT_ROOT = Path(__file__).parent.parent
+    OUTPUT_FOLDER = str(PROJECT_ROOT / 'outputs')
+    
+    ifc_path = os.path.join(OUTPUT_FOLDER, job_id, 'model.ifc')
+    has_ifc = os.path.exists(ifc_path)
+    
+    # Return HTML template for viewer
+    html_content = f"""
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IFC Viewer</title>
+  <link rel="stylesheet" href="/static/viewer.css" />
+</head>
+<body>
+  <div id="app">
+    <header id="topbar">
+      <div class="brand">
+        <div class="title">Tekla Steel Viewer</div>
+        <div class="subtitle">Job {job_id}</div>
+      </div>
+      <div id="legend" aria-label="Model legend"></div>
+      <div id="status">Initializing...</div>
+    </header>
+
+    <div id="main">
+      <aside id="toolbar">
+        <button id="tool-home" title="Home view">⌂</button>
+        <button id="tool-fit" title="Fit model">⛶</button>
+        <button id="tool-front" title="Front view">F</button>
+        <button id="tool-top" title="Top view">T</button>
+        <button id="tool-left" title="Left view">L</button>
+        <button id="tool-ortho" title="Toggle orthographic">⟂</button>
+        <button id="tool-grid" title="Toggle grid">#</button>
+        <button id="tool-download" title="Download IFC">⬇</button>
+        <button id="tool-reset" title="Reset scene">↻</button>
+      </aside>
+
+      <section id="viewport">
+        <div id="viewer"></div>
+        <div id="loadingOverlay">
+          <div class="spinner"></div>
+          <div class="loading-text">Loading IFC...</div>
+        </div>
+      </section>
+
+      <aside id="sidepanel">
+        <div class="panel">
+          <div class="panel-title">Model Info</div>
+          <div id="modelStats">Waiting for model...</div>
+        </div>
+        <div class="panel">
+          <div class="panel-title">Selection</div>
+          <pre id="selection">Nothing selected</pre>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script type="module">
+    const JOB_ID = "{job_id}";
+    const HAS_IFC = {str(has_ifc).lower()};
+    const IFC_JSON_URL = `/download/${job_id}/ifc.json`;
+    const IFC_IFC_URL = `/download/${job_id}/model.ifc`;
+    window.VIEWER_BOOTSTRAP = {{ JOB_ID: "{job_id}", HAS_IFC: {str(has_ifc).lower()}, IFC_JSON_URL: "/download/{job_id}/ifc.json", IFC_IFC_URL: "/download/{job_id}/model.ifc" }};
+    await import('/static/viewer.js');
+  </script>
+  <script type="importmap">
+    {{
+      "imports": {{
+        "three": "https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.module.js",
+        "three/examples/jsm/controls/OrbitControls.js": "https://cdn.jsdelivr.net/npm/three@0.152.2/examples/jsm/controls/OrbitControls.js"
+      }}
+    }}
+  </script>
+</body>
+</html>
+"""
+    
+    from fastapi.responses import HTMLResponse
+    return HTMLResponse(content=html_content)
 
 @app.on_event("startup")
 async def startup_event():

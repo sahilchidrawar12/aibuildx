@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0f1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e3a5f;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00d4ff40;
+}
+
+.upload-gradient-border {
+  background: linear-gradient(#0a0f1a, #0a0f1a) padding-box,
+              linear-gradient(90deg, #00d4ff, #7c3aed, #00d4ff) border-box;
+  border: 2px solid transparent;
+}
+
+@keyframes gradient-rotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  background: linear-gradient(270deg, #00d4ff, #7c3aed, #00d4ff);
+  background-size: 400% 400%;
+  animation: gradient-rotate 6s ease infinite;
+}
+
+.progress-step-line {
+  height: 2px;
+  background: rgba(0, 212, 255, 0.15);
+}
+
+.progress-step-line.filled {
+  background: linear-gradient(90deg, #00d4ff, #7c3aed);
+  transition: width 0.4s ease;
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(0, 255, 255, 0.2);
+  color: #e2e8f0;
+}
+
+/* Focus styles */
+.focus-ring:focus {
+  outline: 2px solid #00ffff;
+  outline-offset: 2px;
+}
+
+/* Glow effects */
+.glow-text {
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.glow-border {
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+/* Animation classes */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Custom component styles */
+.btn-primary {
+  @apply bg-primary-600 hover:bg-primary-500 text-white font-medium px-4 py-2 rounded-lg transition-all duration-200 focus-ring glow-border;
+}
+
+.btn-secondary {
+  @apply bg-secondary-700 hover:bg-secondary-600 text-secondary-100 font-medium px-4 py-2 rounded-lg transition-all duration-200 focus-ring;
+}
+
+.card {
+  @apply bg-secondary-800 border border-secondary-700 rounded-lg p-6 shadow-lg;
+}
+
+.input {
+  @apply bg-secondary-800 border border-secondary-600 rounded-lg px-3 py-2 text-secondary-100 placeholder-secondary-400 focus:border-primary-500 focus-ring transition-colors;
+}

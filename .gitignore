@@ -4,3 +4,5 @@ outputs/
 models/
 *.pyc
 .DS_Store
+aibuildx-frontend/.env
+.env
